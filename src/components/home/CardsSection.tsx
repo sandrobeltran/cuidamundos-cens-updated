@@ -13,12 +13,18 @@ const CardsSection = () => {
   return (
     <CustomSection>
       <Swiper
-        slidesPerView={2.5}
-        spaceBetween={30}
+        slidesPerView={1.4}
+        spaceBetween={15}
         wrapperClass="swipper-wrapper items-center py-5"
+        breakpoints={{
+          670: {
+            slidesPerView: 2.5,
+            spaceBetween: 30,
+          },
+        }}
       >
         <SwiperSlide>
-          <div className="relative flex w-80 min-w-[320px] flex-col items-center justify-center gap-4 p-6">
+          <div className="relative flex w-80 flex-col items-center justify-center gap-4 p-6 max-sm:w-56">
             <div className="absolute bottom-0 left-0 h-4/6 w-full rounded-3xl border bg-white p-6 shadow-lg shadow-stone-200" />
             <div className="relative object-contain">
               <Image
@@ -42,7 +48,7 @@ const CardsSection = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="relative flex w-80 min-w-[320px] flex-col items-center justify-center gap-4 p-6">
+          <div className="relative flex w-80 flex-col items-center justify-center gap-4 p-6 max-sm:w-56">
             <div className="absolute bottom-0 left-0 h-4/6 w-full rounded-3xl border bg-white p-6 shadow-lg shadow-stone-200" />
             <div className="relative object-contain">
               <Image
@@ -66,7 +72,7 @@ const CardsSection = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="relative flex w-80 min-w-[320px] flex-col items-center justify-center gap-4 p-6">
+          <div className="relative flex w-80 flex-col items-center justify-center gap-4 p-6 max-sm:w-56">
             <div className="absolute bottom-0 left-0 h-4/6 w-full rounded-3xl border bg-white p-6 shadow-lg shadow-stone-200" />
             <div className="relative object-contain">
               <Image

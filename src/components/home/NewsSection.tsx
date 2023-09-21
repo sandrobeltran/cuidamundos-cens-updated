@@ -20,7 +20,7 @@ const NewsSection = () => {
           puedes formar parte de esta misión. Sumérgete en nuestras noticias
           destacadas y mantén viva la emoción en tu viaje por CuidaMundos
         </p>
-        <div className="grid aspect-[16/7] w-full grid-cols-4 grid-rows-2 text-white max-sm:h-[644px] max-sm:grid-cols-2 max-sm:grid-rows-3 max-sm:overflow-hidden max-sm:rounded-3xl">
+        <div className="grid aspect-[16/7] w-full grid-cols-4 grid-rows-2 text-white max-sm:aspect-[10/16] max-sm:grid-cols-2 max-sm:grid-rows-3 max-sm:overflow-hidden max-sm:rounded-3xl">
           <div className="col-span-2 row-span-2 overflow-hidden rounded-bl-3xl rounded-tl-3xl bg-[url(/img/news_01.jpeg)] bg-cover bg-center bg-no-repeat text-left max-lg:rounded-none max-sm:row-span-1">
             <div className="flex h-full w-full flex-col justify-end bg-overlay-down p-6">
               <h4 className="text-lg font-medium max-lg:text-sm">

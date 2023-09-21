@@ -10,6 +10,7 @@ import { useUserStore } from "@/store/useUserStore";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ToastContainer } from "react-toastify";
+import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/solid";
 
 export default function Usuario() {
   const router = useRouter();
@@ -44,21 +45,21 @@ export default function Usuario() {
             <div className="flex flex-col items-center gap-8">
               <div className="flex flex-col items-center gap-4">
                 <div className="flex flex-col items-center gap-1">
-                  <span className="font-semibold text-stone-400">Nombre</span>
+                  <span className="font-normal text-stone-400">Nombre</span>
                   <h4 className="text-xl font-bold">{user?.fullName}</h4>
                 </div>
                 <div className="flex flex-col items-center gap-1">
-                  <span className="font-semibold text-stone-400">Correo</span>
+                  <span className="font-normal text-stone-400">Correo</span>
                   <h4 className="text-xl font-bold">{user?.email}</h4>
                 </div>
                 <div className="flex flex-col items-center gap-1">
-                  <span className="font-semibold text-stone-400">
+                  <span className="font-normal text-stone-400">
                     Trivia completada
                   </span>
                   <h4 className="text-xl font-bold">Sí</h4>
                 </div>
                 <div className="flex flex-col items-center gap-1">
-                  <span className="font-semibold text-stone-400">
+                  <span className="font-normal text-stone-400">
                     Desafío de Eficiencia Completado
                   </span>
                   <h4 className="text-xl font-bold">Sí</h4>
@@ -70,9 +71,13 @@ export default function Usuario() {
                     Editar perfil
                   </Button>
                 </Link>
-                <Button hierarchy="secondary" size="lg" onClick={handleLogOut}>
-                  Cerrar sesión
-                </Button>
+                <button
+                  className="flex flex-1 items-center gap-2 rounded-lg border-2 border-red-500 bg-red-500/25 px-2 py-1 text-center font-semibold text-red-500 transition-transform hover:scale-110"
+                  onClick={() => handleLogOut()}
+                >
+                  <ArrowRightOnRectangleIcon className="w-6" />
+                  <p>Cerrar sesión</p>
+                </button>
               </div>
             </div>
           </div>

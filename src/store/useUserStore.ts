@@ -11,12 +11,16 @@ type TUserStore = {
   setError: (value: string) => void;
 };
 
-export const useUserStore = create<TUserStore>((set) => ({
+const initialValues = {
   user: null,
   error: null,
   loading: false,
+};
+
+export const useUserStore = create<TUserStore>((set) => ({
+  ...initialValues,
   setUser: (user) => set(() => ({ user, loading: false })),
-  logOut: () => set({}, true),
+  logOut: () => set({ ...initialValues }),
   setLoading: (value) => set({ loading: value }),
   setError: (value) => set({ error: value, loading: false }),
 }));

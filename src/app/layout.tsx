@@ -2,9 +2,10 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
-import Navbar from "@/components/header/Navbar";
+import Navbar from "@/components/header/DesktopNavbar";
 import Script from "next/script";
 import GetUserByToken from "@/components/validations/GetUserByToken";
+import Header from "@/components/header/Header";
 
 const ubuntu = Ubuntu({
   weight: ["300", "400", "500"],
@@ -26,7 +27,7 @@ export default function RootLayout({
       <head></head>
       <body className={ubuntu.className}>
         <GetUserByToken />
-        <Navbar />
+        <Header />
         {children}
         <Footer />
       </body>

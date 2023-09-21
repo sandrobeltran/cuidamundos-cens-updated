@@ -15,7 +15,7 @@ const TrailerSection = () => {
           mundo lleno de sorpresas y aprendizaje. ¡Explora la belleza de
           CuidaMundos ahora!
         </p>
-        <div className="relative aspect-[19/9] w-full">
+        <div className="relative aspect-[19/9] w-full max-sm:aspect-square">
           {/* //TODO: ASK IF THIS BUTTON IS REALLY NECCESARY WHEN YOUTUBE HAS ITS OWN */}
           {/* PLAY BUTTON */}
           {/* <div className="absolute w-20 h-20 inset-0 m-auto z-10 bg-white rounded-full">

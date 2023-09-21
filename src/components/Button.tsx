@@ -21,7 +21,7 @@ const Button = ({
   onClick = () => {},
 }: TProps) => {
   let styles =
-    "text-center flex-1 rounded-lg hover:scale-110 transition-transform";
+    "text-center flex items-center justify-center gap-2 flex-1 rounded-lg hover:scale-110 transition-transform";
   switch (hierarchy) {
     case "primary":
       styles += " bg-cens-dark text-white";
