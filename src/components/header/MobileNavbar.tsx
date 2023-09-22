@@ -8,7 +8,11 @@ import React from "react";
 import Button from "../Button";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 
-const MobileNavbar = () => {
+type TProps = {
+  toggleMenu: () => void;
+};
+
+const MobileNavbar = ({ toggleMenu }: TProps) => {
   const user = useUserStore((state) => state.user);
 
   return (
@@ -42,9 +46,9 @@ const MobileNavbar = () => {
           </Link>
         </div>
       )}
-      <div className="relative">
+      <button className="relative" onClick={toggleMenu}>
         <Bars3Icon className="w-8" />
-      </div>
+      </button>
     </nav>
   );
 };
