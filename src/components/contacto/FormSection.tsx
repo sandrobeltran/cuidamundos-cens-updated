@@ -51,7 +51,7 @@ const FormSection = () => {
         pauseOnHover
         theme="light"
       />
-      <div className="flex">
+      <div className="flex max-sm:flex-col max-sm:gap-10">
         <div className="flex-1">
           <Formik
             initialValues={initialValues}

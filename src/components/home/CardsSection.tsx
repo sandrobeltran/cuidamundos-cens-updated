@@ -22,6 +22,7 @@ const CardsSection = () => {
             spaceBetween: 30,
           },
         }}
+        lazyPreloadPrevNext={10}
       >
         <SwiperSlide>
           <div className="relative flex w-80 flex-col items-center justify-center gap-4 p-6 max-sm:w-56">

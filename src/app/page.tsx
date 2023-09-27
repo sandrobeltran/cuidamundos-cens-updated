@@ -47,7 +47,7 @@ export default function Home() {
           Responde preguntas sobre la conservación del medio ambiente, la
           sostenibilidad y más. ¡Aprende mientras juegas y gana recompensas
           exclusivas!"
-          href="/"
+          href="/juega/cuidamundos-trivia"
           cover="/img/hero_sky.jpg"
         />
       </PaddingWrapper>
