@@ -10,7 +10,6 @@ import Button from "../Button";
 import { XCircleIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
 import TriviaHeader from "./TriviaHeader";
 import OptionCard from "./OptionCard";
-import OptionDescription from "./OptionDescription";
 import { useCuidaMundosTrivia } from "@/store/useCuidaMundosTrivia";
 
 type TProps = {
