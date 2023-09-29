@@ -8,6 +8,8 @@ import HeroesImage from "../../../public/img/heroes.png";
 import MiniSection from "@/components/cards/MiniSection";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import InteractiveCard from "@/components/aprende/InteractiveCard";
 import CustomSection from "@/components/layout/CustomSection";
 import HeroMiniSection from "@/components/aprende/HeroMiniSection";
@@ -17,6 +19,8 @@ import HeroPuritaImage from "../../../public/img/flying_purita.png";
 import TipsCardsSection from "@/components/aprende/TipsCardsSection";
 import ClickerGameSection from "@/components/aprende/ClickerGameSection";
 import Hero from "@/components/Hero";
+import { Navigation, Pagination } from "swiper/modules";
+import { useState } from "react";
 
 export default function Aprende() {
   return (
@@ -77,10 +81,24 @@ export default function Aprende() {
           </Swiper>
         </CustomSection>
         <CustomSection>
-          <Swiper spaceBetween={50} slidesPerView={1}>
+          <Swiper
+            spaceBetween={50}
+            slidesPerView={1}
+            modules={[Navigation, Pagination]}
+            pagination={{ dynamicBullets: true, clickable: true }}
+            navigation={true}
+            breakpoints={{
+              0: {
+                navigation: { enabled: false },
+              },
+              670: {
+                navigation: { enabled: true },
+              },
+            }}
+          >
             <SwiperSlide>
               <HeroMiniSection
-                href="/"
+                href="/aprende/capitan"
                 cover={NewsImage}
                 description={
                   <>
@@ -102,7 +120,7 @@ export default function Aprende() {
             </SwiperSlide>
             <SwiperSlide>
               <HeroMiniSection
-                href="/"
+                href="/aprende/felix"
                 cover={NewsImage}
                 description={
                   <>
@@ -124,7 +142,7 @@ export default function Aprende() {
             </SwiperSlide>
             <SwiperSlide>
               <HeroMiniSection
-                href="/"
+                href="/aprende/purita"
                 cover={NewsImage}
                 description={
                   <>

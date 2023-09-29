@@ -9,6 +9,8 @@
 }
 
 :root {
+  --swiper-pagination-bullet-inactive-color: #fff;
+  --swiper-pagination-color: #fff;
 }
 body {
   min-height: 100vh;
@@ -49,5 +51,28 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+}
+
+.swiper > div.swiper-button-next,
+.swiper > div.swiper-button-prev {
+  color: #fff;
+}
+.swiper div.swiper-pagination-bullet {
+  color: #fff5;
+}
+.swiper div.swiper-pagination-bullet-active {
+  color: #fff;
+}
+
+.swiper
+  > div.swiper-pagination.swiper-pagination-bullets.swiper-pagination-horizontal.swiper-pagination-bullet {
+  color: #fff5;
+}
+
+.swiper div.swiper-slide {
+  height: auto;
+}
+.swiper div.swiper-wrapper {
+  align-items: stretch;
 }

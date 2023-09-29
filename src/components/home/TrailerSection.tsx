@@ -4,7 +4,7 @@ import CustomSection from "../layout/CustomSection";
 const TrailerSection = () => {
   return (
     <CustomSection>
-      <div className="flex flex-col items-center gap-8 rounded-3xl border bg-white p-16 text-center shadow-lg shadow-stone-200 max-sm:p-8">
+      <div className="flex flex-col items-center gap-8 rounded-3xl border bg-white p-16 text-center shadow-lg shadow-stone-200 max-sm:p-4">
         <h2 className="text-4xl font-medium">
           ¡Mira el tráiler oficial{" "}
           <span className="text-cens-medium">ahora!</span>

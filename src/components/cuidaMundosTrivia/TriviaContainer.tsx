@@ -5,18 +5,28 @@ import {
   cuidaMundosQuestions,
 } from "@/trivias/cuidaMundosQuestions";
 import Image from "next/image";
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import Button from "../Button";
 import { XCircleIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
 import TriviaHeader from "./TriviaHeader";
 import OptionCard from "./OptionCard";
 import { useCuidaMundosTrivia } from "@/store/useCuidaMundosTrivia";
+import { useUserStore } from "@/store/useUserStore";
 
 type TProps = {
   questions: TTriviaQuestion[];
 };
 
 const TriviaContainer = ({ questions }: TProps) => {
+  const user = useUserStore((state) => state.user);
+
+  const tutorialRef = useRef<HTMLDivElement>(null);
   const {
     currentPage,
     initializeQuestion,
@@ -38,6 +48,10 @@ const TriviaContainer = ({ questions }: TProps) => {
     } else {
       setShowResults(true);
     }
+  }
+
+  function hideTutorial() {
+    tutorialRef.current?.remove();
   }
 
   function mixOptions(options: string[]): string[] {
@@ -67,7 +81,40 @@ const TriviaContainer = ({ questions }: TProps) => {
   }, [currentPage, questions]);
 
   return (
-    <div className="flex h-fit flex-col items-center gap-7 rounded-3xl bg-[url(/img/trivia_background.png)] p-6 shadow-lg">
+    <div className="relative flex h-fit flex-col items-center gap-7 rounded-3xl bg-[url(/img/trivia_background.png)] p-6 shadow-lg">
+      {/* TUTORIAL */}
+      <div
+        ref={tutorialRef}
+        className="absolute left-0 top-0 z-10 flex h-full w-full justify-center rounded-3xl bg-black/60 p-8 backdrop-blur-sm"
+      >
+        <div className="relative flex h-fit w-full max-w-md flex-col items-center gap-4 rounded-2xl bg-white p-4 after:absolute after:-right-10 after:top-full after:h-12 after:w-28 after:bg-[url(/img/dialog_chip.svg)] after:bg-contain after:bg-bottom after:bg-no-repeat">
+          <div className="text-center text-stone-600">
+            <h6 className="text-lg font-semibold">
+              Hola,{" "}
+              <span className="text-cens-medium">
+                {user?.fullName.split(" ")[0]}
+              </span>
+            </h6>
+            <p className="leading-tight">
+              Bienvenido a la primera trivia soy Felix y voy a guiarte, es
+              momento de que desafies tus conocimientos y me ayudes a cumplir
+              una importante mision
+            </p>
+          </div>
+          <Button hierarchy="primary" size="sm" onClick={() => hideTutorial()}>
+            Empezar
+          </Button>
+        </div>
+        {/* CHARACTER */}
+        <div className="relative h-3/4 w-1/3 self-end">
+          <Image
+            src={"/img/flying_felix.png"}
+            alt="Personaje del tutorial"
+            fill
+            className="object-contain"
+          />
+        </div>
+      </div>
       {/* HEADER */}
       <TriviaHeader
         image="/img/trivia_felix.png"

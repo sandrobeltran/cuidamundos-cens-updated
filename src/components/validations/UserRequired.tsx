@@ -7,7 +7,7 @@ import React, { useEffect } from "react";
 const UserRequired = () => {
   const router = useRouter();
   const { error, loading, user } = useUserStore((state) => state);
-
+  
   useEffect(() => {
     if (typeof window !== "undefined") {
       const token = localStorage.getItem("session-token");

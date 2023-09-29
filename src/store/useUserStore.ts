@@ -19,8 +19,8 @@ const initialValues = {
 
 export const useUserStore = create<TUserStore>((set) => ({
   ...initialValues,
-  setUser: (user) => set(() => ({ user, loading: false })),
+  setUser: (user) => set(() => ({ user, loading: false, error: null })),
   logOut: () => set({ ...initialValues }),
   setLoading: (value) => set({ loading: value }),
-  setError: (value) => set({ error: value, loading: false }),
+  setError: (value) => set({ error: value, loading: false, user: null }),
 }));
