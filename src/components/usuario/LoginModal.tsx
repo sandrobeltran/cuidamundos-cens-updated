@@ -128,7 +128,7 @@ const LoginModal = ({}: TProps) => {
                 Inicia sesión
               </Button>
             </div>
-            <div className="mt-1 flex items-center justify-between text-sm">
+            <div className="w-full mt-1 flex items-center justify-between text-sm">
               <p className="text-stone-400">¿Es tu primera vez?</p>
               <button
                 type="button"

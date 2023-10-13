@@ -122,7 +122,7 @@ const RegisterModal = ({}: TProps) => {
                 Registrarse
               </Button>
             </div>
-            <div className="mt-1 flex items-center justify-between text-sm">
+            <div className="w-full mt-1 flex items-center justify-between text-sm">
               <p className="text-stone-400">¿Ya tienes una cuenta?</p>
               <button
                 type="button"

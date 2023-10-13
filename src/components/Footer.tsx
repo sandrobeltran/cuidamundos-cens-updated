@@ -5,15 +5,10 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="mt-20 flex h-fit grid-cols-4 flex-col items-center gap-4 rounded-tl-4xl rounded-tr-4xl bg-gradient-to-b from-cens-dark to-green-950 text-white max-sm:h-fit">
+    <footer className="mt-20 flex h-fit grid-cols-4 flex-col items-center gap-4 rounded-tl-4xl rounded-tr-4xl bg-[url(/img/footer_bg.png)] bg-cover bg-center bg-no-repeat text-cens-brand max-sm:h-fit">
       <div className="grid h-fit w-full grid-cols-4 gap-4 p-10 px-24 max-sm:grid-rows-3 max-sm:items-center max-sm:p-6">
         <div className="flex flex-col gap-3 max-sm:col-span-4 max-sm:row-span-2 max-sm:items-center">
-          <Image
-            src={CENSLogo}
-            height={128}
-            className="brightness-[10]"
-            alt="CENS Grupo EPM Logo"
-          />
+          <Image src={CENSLogo} height={128} alt="CENS Grupo EPM Logo" />
           <ul className="flex list-none gap-2 text-3xl font-normal">
             <a href={"/"} target="_blank">
               <li>
@@ -64,7 +59,7 @@ const Footer = () => {
         </div>
         <div className="max-sm:col-span-2 max-sm:row-span-2">
           <h6 className="text-lg font-bold">Company</h6>
-          <ul className="mt-3 list-none font-normal text-stone-300">
+          <ul className="mt-3 list-none font-normal">
             <Link href={"/"}>
               <li>Inicio</li>
             </Link>
@@ -87,7 +82,7 @@ const Footer = () => {
         </div>
         <div className="max-sm:col-span-2">
           <h6 className="text-lg font-bold">Legal</h6>
-          <ul className="mt-3 list-none font-normal text-stone-300">
+          <ul className="mt-3 list-none font-normal">
             <Link href={"/"}>
               <li>Term of Services</li>
             </Link>
@@ -98,18 +93,18 @@ const Footer = () => {
         </div>
         <div className="max-sm:col-span-2">
           <h6 className="text-lg font-bold">Contacto</h6>
-          <ul className="mt-3 list-none font-normal text-stone-300">
+          <ul className="mt-3 list-none font-normal">
             <li>info@cens.com</li>
             <li>Cúcuta, Colombia</li>
           </ul>
         </div>
       </div>
       <div className="relative flex h-fit w-full items-center justify-center">
-        <span className="h-[1px] w-full bg-white" />
-        <h6 className="relative min-w-max p-4 text-sm font-normal">
+        <span className="h-[2px] w-full bg-cens-brand" />
+        <h6 className="relative min-w-max p-4 text-sm font-semibold">
           AENS TECH @2023
         </h6>
-        <span className="h-[1px] w-full bg-white" />
+        <span className="h-[2px] w-full bg-cens-brand" />
       </div>
     </footer>
   );

@@ -39,8 +39,8 @@ const Hero = ({ image, title, description, buttonLabel, href }: TProps) => {
   return (
     <section
       ref={heroSection}
-      style={{ backgroundSize: "115%" }}
-      className="relative col-span-12 flex h-screen items-start justify-start bg-[url(/img/hero_sky.jpg)] bg-center bg-no-repeat px-24 py-28 text-sm before:absolute before:bottom-0 before:left-0 before:h-1/2 before:w-full before:bg-gradient-to-t before:from-white before:to-transparent after:absolute after:left-0 after:top-0 after:h-1/2 after:w-full after:bg-gradient-to-b after:from-stone-900/50 after:to-stone-900/0 max-sm:h-fit max-sm:flex-col max-sm:px-4 max-sm:py-0 max-sm:pt-36
+      // style={{ backgroundSize: "115%" }}
+      className="relative col-span-12 flex h-screen items-start justify-start bg-[url(/img/hero_sky.jpg)] bg-center bg-contain bg-no-repeat px-24 py-28 text-sm before:absolute before:bottom-0 before:left-0 before:h-1/2 before:w-full before:bg-gradient-to-t before:from-white before:to-transparent after:absolute after:left-0 after:top-0 after:h-1/2 after:w-full after:bg-gradient-to-b after:from-stone-900/50 after:to-stone-900/0 max-sm:h-fit max-sm:flex-col max-sm:px-4 max-sm:py-0 max-sm:pt-36 max-sm:bg-[cover]
       "
     >
       {/* <div className="absolute left-0 top-0 h-full w-full bg-[url(/img/hero_leafs.png)] bg-cover bg-bottom bg-no-repeat max-sm:bg-contain max-sm:bg-repeat-space" /> */}
