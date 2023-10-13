@@ -59,14 +59,9 @@ const FormSection = () => {
             validationSchema={contactValidationSchema}
           >
             <FormWrapper>
-              <TextField label="Nombre" placeholder="Nombre" name="name" />
-              <TextField label="Correo" placeholder="Correo" name="email" />
-              <TextField
-                label="Teléfono"
-                placeholder="Teléfono"
-                name="phone"
-                type="number"
-              />
+              <TextField placeholder="Nombre" name="name" />
+              <TextField placeholder="Correo" name="email" />
+              <TextField placeholder="Teléfono" name="phone" type="number" />
               <TextArea label="Mensaje" name="message" placeholder="Mensaje" />
               <div className="flex gap-2">
                 <input
