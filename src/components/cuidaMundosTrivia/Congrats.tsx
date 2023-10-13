@@ -19,7 +19,7 @@ const Congrats = () => {
   }, []);
 
   function handleGenerateCertificate() {
-    console.log(`Generating certificate for ${user?.fullName}...`);
+    console.log(`Generating certificate for ${user?.name}...`);
     generateCertificate(user as TUserData, "Cuidamundos 01");
   }
   return (
