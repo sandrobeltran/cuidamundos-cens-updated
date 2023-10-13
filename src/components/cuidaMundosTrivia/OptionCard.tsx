@@ -11,7 +11,7 @@ const OptionCard = ({ option, nextPage }: TProps) => {
     <button
       onClick={() => nextPage(option)}
       key={option}
-      className="w-full rounded-2xl bg-cens-brand p-4 text-center font-medium text-white shadow-xl shadow-stone-600/30 transition-all hover:brightness-75"
+      className="w-full rounded-lg border border-stone-300 bg-white px-5 py-4 text-center font-normal text-stone-500 shadow-md transition-colors hover:bg-cens-light hover:text-white"
     >
       {option}
     </button>

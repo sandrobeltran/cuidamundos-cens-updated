@@ -1,9 +1,13 @@
 import * as Yup from "yup";
 
 export const signUpValidationSchema = Yup.object().shape({
-  fullName: Yup.string()
+  name: Yup.string()
     .min(2, "Nombre muy corto")
-    .max(80, "Nombre muy largo")
+    .max(40, "Nombre muy largo")
+    .required("Ingresa tu nombre"),
+  lastname: Yup.string()
+    .min(2, "Apellido muy corto")
+    .max(40, "Apellido muy largo")
     .required("Ingresa tu nombre"),
   email: Yup.string().email("Correo inválido").required("Ingresa tu correo"),
   passwordHash: Yup.string()
@@ -39,3 +43,20 @@ export const contactValidationSchema = Yup.object().shape({
     .max(500, "Mensaje muy largo")
     .required("Ingresa tu mensaje"),
 });
+
+
+export const editProfileValidationSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(2, "Nombre muy corto")
+    .max(40, "Nombre muy largo")
+    .required("Ingresa tu nombre"),
+  lastname: Yup.string()
+    .min(2, "Apellido muy corto")
+    .max(40, "Apellido muy largo")
+    .required("Ingresa tu nombre"),
+  birthdate: Yup.date().max(new Date()),
+  address: Yup.string().min(2, "Dirección muy corta").max(80, "Dirección muy larga"),
+  phone: Yup.number().max(9999999999, "Número de teléfono inválido"),
+  school: Yup.string().min(2, "Nombre muy corto").max(60, "Nombre muy largo"),
+  bio: Yup.string().min(2, "Descripción muy corta").max(280, "Descripción muy larga")
+})

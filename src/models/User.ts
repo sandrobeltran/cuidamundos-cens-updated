@@ -1,14 +1,31 @@
 import { Schema, model, models } from "mongoose";
 import bcrypt from "bcrypt";
 
+/* 
+  name: string,
+  lastname: string,
+  birthdate: date,
+  email: string,
+  address: string,
+  phone: number,
+  school: string,
+*/
+
 const userSchema = new Schema(
   {
-    fullName: {
+    name: {
       type: String,
       required: true,
       trim: true,
       minLength: 2,
-      maxLength: 80,
+      maxLength: 40,
+    },
+    lastname: {
+      type: String,
+      required: true,
+      trim: true,
+      minLength: 2,
+      maxLength: 40,
     },
     email: {
       type: String,
@@ -21,10 +38,33 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    triviaCompleted: {
-      type: Boolean,
-      required: true,
+    birthdate: {
+      type: Date,
     },
+    address: {
+      type: String,
+      trim: true,
+      min: 2,
+      max: 80,
+    },
+    phone: {
+      type: Number,
+      max: 9999999999
+    },
+    school: {
+      type: String,
+      min: 2,
+      max: 60,
+    },
+    avatar: {
+      type: String,
+      required: true
+    },
+    bio: {
+      type: String,
+      min: 2,
+      max: 280
+    }
   },
   {
     timestamps: true,

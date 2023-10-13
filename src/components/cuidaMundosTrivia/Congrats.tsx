@@ -27,11 +27,11 @@ const Congrats = () => {
       ref={partyRef}
       className="flex flex-col items-center gap-6 text-center"
     >
-      <h1 className="text-6xl font-bold text-cens-brand">¡Felicidades!</h1>
+      {/* <h1 className="text-6xl font-bold text-cens-brand">¡Felicidades!</h1>
       <p className="max-w-3xl text-xl font-medium">
         Has compleado la trivia de CuidaMundos exitósamente, esperamos que ahora
         pongas en práctica todo lo aprendido y cuidemos juntos nuestro mundo
-      </p>
+      </p> */}
       <div className="flex w-full justify-center gap-6">
         <div>
           <Button href={"/usuario"} hierarchy="secondary" size="lg">

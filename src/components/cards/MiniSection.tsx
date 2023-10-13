@@ -3,7 +3,7 @@ import CustomSection from "../layout/CustomSection";
 import Image, { StaticImageData } from "next/image";
 
 type TProps = {
-  image: StaticImageData;
+  image: StaticImageData | string;
   title: {
     text: string;
     resalted?: string;
@@ -29,6 +29,8 @@ const MiniSection = ({ image, title, description, button }: TProps) => {
         <div className="flex-1">
           <Image
             src={image}
+            width={200}
+            height={200}
             alt={`Mini section ${title.text} image`}
             className="w-full rounded-3xl"
           />

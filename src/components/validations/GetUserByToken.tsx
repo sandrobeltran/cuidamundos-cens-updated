@@ -4,7 +4,9 @@ import { useUserStore } from "@/store/useUserStore";
 import React, { useCallback, useEffect } from "react";
 
 const GetUserByToken = () => {
-  const { setUser, setLoading, setError } = useUserStore((state) => state);
+  const { setUser, setLoading, setError, user } = useUserStore(
+    (state) => state,
+  );
 
   const handleGetUserByToken = useCallback(
     async (token: string) => {
@@ -21,7 +23,10 @@ const GetUserByToken = () => {
       const fetchUserRes = await fetchUserReq.json();
 
       if (!fetchUserReq.ok) {
-        setError(fetchUserRes.message);
+        if (fetchUserRes.message === "jwt expired") {
+          localStorage.removeItem("session-tolken");
+        }
+        return setError(fetchUserRes.message);
       }
 
       setUser(fetchUserRes.data);
@@ -31,15 +36,17 @@ const GetUserByToken = () => {
   );
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== "undefined" && !user) {
       const token = localStorage.getItem("session-token");
 
       if (token) {
         console.log("Token found!");
         handleGetUserByToken(token);
+      } else {
+        setError("No current user token");
       }
     }
-  }, [handleGetUserByToken, setLoading]);
+  }, [handleGetUserByToken, setLoading, setError, user]);
 
   return <></>;
 };

@@ -1,5 +1,6 @@
 export type TSignupUser = {
-  fullName: string;
+  name: string;
+  lastname: string;
   email: string;
   passwordHash: string;
 };
@@ -10,7 +11,13 @@ export type TLoginUser = {
 };
 
 export type TUserData = {
-  fullName: string;
-  email: string;
-  triviaCompleted: boolean;
+  name: string,
+  lastname: string,
+  birthdate: string,
+  email: string,
+  address: string,
+  phone: number,
+  school: string,
+  bio: string,
+  avatar: string
 };

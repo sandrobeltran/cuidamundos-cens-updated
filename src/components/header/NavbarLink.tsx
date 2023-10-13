@@ -9,7 +9,7 @@ const NavbarLink = ({ title, href, items, selected }: INavbarProps) => {
     <li className="group relative flex h-full items-center">
       <Link
         href={href}
-        className="font-medium text-white/50 transition-all hover:scale-105 hover:text-white"
+        className="font-medium text-white/80 transition-all hover:scale-105 hover:text-white"
         style={
           selected
             ? {

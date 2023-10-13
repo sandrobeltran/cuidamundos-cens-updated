@@ -7,7 +7,7 @@ type TProps = {
 };
 const FormWrapper = ({ children }: TProps) => {
   return (
-    <Form className="flex w-full max-w-md flex-col gap-4 text-stone-900">
+    <Form className="flex w-full max-w-md flex-col gap-4 items-center text-stone-900">
       {children}
     </Form>
   );
