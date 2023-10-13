@@ -103,23 +103,19 @@ export default function Signup() {
                 <TextField
                   name="fullName"
                   placeholder="Nombre completo"
-                  label="Nombre completo"
                 />
                 <TextField
                   name="email"
                   type="email"
                   placeholder="Correo"
-                  label="Correo"
                 />
                 <TextField
                   name="passwordHash"
                   placeholder="Contraseña"
-                  label="Contraseña"
                 />
                 <TextField
                   name="confirmPassword"
                   placeholder="Confirmar Contraseña"
-                  label="Confirmar Contraseña"
                 />
                 <div className="flex gap-5">
                   <Button

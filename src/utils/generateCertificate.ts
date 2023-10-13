@@ -3,7 +3,7 @@ import { TUserData } from "./customTypes";
 
 export default function generateCertificate(user: TUserData, course: string) {
   if (!user) return;
-  
+
   const doc = new jsPDF({
     orientation: "landscape",
     format: "a4",
@@ -23,7 +23,7 @@ export default function generateCertificate(user: TUserData, course: string) {
   doc.setFont("courier", fonts.courier[1]);
   doc.setTextColor(0);
   doc.setFontSize(32);
-  doc.text(user?.fullName.toUpperCase(), 32, 25);
+  doc.text(`${user?.name.toUpperCase()} ${user?.lastname.toUpperCase()}`, 32, 25);
   doc.text("CuidaMundos 01", 32, 75);
   doc.text("CENS x AENS TECH", 32, 125);
 
@@ -33,5 +33,5 @@ export default function generateCertificate(user: TUserData, course: string) {
   doc.setFontSize(16);
   doc.text("5545-5743-9812-3290", 30, 180);
 
-  doc.save(`${user?.fullName.replaceAll(" ", "_")}_Cuidamundos.pdf`);
+  doc.save(`${user?.name.replaceAll(" ", "_")}_Cuidamundos.pdf`);
 }

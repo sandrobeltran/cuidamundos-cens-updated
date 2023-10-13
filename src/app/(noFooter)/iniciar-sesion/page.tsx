@@ -97,13 +97,11 @@ export default function Login() {
             >
               <FormWrapper>
                 <TextField
-                  label="Correo"
                   type="email"
                   name="email"
                   placeholder="Correo"
                 />
                 <TextField
-                  label="Contraseña"
                   name="password"
                   placeholder="Contraseña"
                   password={true}
