@@ -89,18 +89,14 @@ export default function Login() {
       <PaddingWrapper>
         <CustomSection>
           <div className="flex w-full flex-col items-center gap-8">
-            <SectionTitle>Iniciar Sesión</SectionTitle>
+            <SectionTitle title={{ text: "Iniciar", resalted: "Sesión" }} />
             <Formik
               initialValues={initialValues}
               onSubmit={(values) => handleSubmit(values)}
               validationSchema={loginValidationSchema}
             >
               <FormWrapper>
-                <TextField
-                  type="email"
-                  name="email"
-                  placeholder="Correo"
-                />
+                <TextField type="email" name="email" placeholder="Correo" />
                 <TextField
                   name="password"
                   placeholder="Contraseña"

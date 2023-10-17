@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 type TProps = {
   title: {
     text: string;
-    resalted: string;
+    resalted?: string;
     color?: "medium" | "brand";
   };
   description?: ReactNode;

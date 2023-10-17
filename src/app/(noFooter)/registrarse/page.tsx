@@ -93,26 +93,17 @@ export default function Signup() {
       <PaddingWrapper>
         <CustomSection>
           <div className="flex w-full flex-col items-center gap-8">
-            <SectionTitle>Registrarse</SectionTitle>
+            <SectionTitle title={{ text: "Regisrarse" }} />
+
             <Formik
               initialValues={initialValues}
               onSubmit={(values) => handleSubmit(values)}
               validationSchema={signUpValidationSchema}
             >
               <FormWrapper>
-                <TextField
-                  name="fullName"
-                  placeholder="Nombre completo"
-                />
-                <TextField
-                  name="email"
-                  type="email"
-                  placeholder="Correo"
-                />
-                <TextField
-                  name="passwordHash"
-                  placeholder="Contraseña"
-                />
+                <TextField name="fullName" placeholder="Nombre completo" />
+                <TextField name="email" type="email" placeholder="Correo" />
+                <TextField name="passwordHash" placeholder="Contraseña" />
                 <TextField
                   name="confirmPassword"
                   placeholder="Confirmar Contraseña"
