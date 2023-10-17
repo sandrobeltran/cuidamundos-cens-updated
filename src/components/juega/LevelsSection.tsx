@@ -6,30 +6,41 @@ import Image from "next/image";
 import PuritaBackground from "../../../public/img/purita_background.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import SectionTitle from "../SectionTitle";
 
 const LevelsSection = () => {
   return (
     <CustomSection>
+      <SectionTitle
+        title={{
+          text: "¡Adéntrate en el mundo de los",
+          resalted: "desafiantes niveles!",
+        }}
+      />
       <Swiper
         slidesPerView={1.2}
         spaceBetween={10}
-        wrapperClass="swipper-wrapper items-center py-5"
+        wrapperClass="swipper-wrapper items-center py-5 justify-center"
         breakpoints={{
           670: {
             slidesPerView: 3,
             spaceBetween: 30,
+          },
+          1080: {
+            slidesPerView: 3.5,
+            spaceBetween: 20,
           },
         }}
         lazyPreloadPrevNext={10}
       >
         <SwiperSlide>
           <div className="relative flex h-full w-80 flex-col items-center justify-start gap-4 p-6 text-stone-600 max-sm:w-full">
-            <div className="absolute bottom-0 left-0 h-[75%] w-full rounded-3xl border bg-white p-6 shadow-lg shadow-stone-200" />
+            <div className="absolute bottom-0 left-0 h-[75%] w-full rounded-3xl border bg-white/80 p-6 shadow-lg shadow-stone-200 backdrop-blur-sm" />
             <div className="relative object-contain">
               <Image
                 src={PuritaBackground}
                 alt="Purita Background - CENS"
-                className="w-full rounded-3xl object-contain object-bottom"
+                className="w-full aspect-[15.5/9] rounded-3xl object-cover object-bottom"
               />
             </div>
             <div className="relative flex w-full flex-col items-center gap-3 text-center">
@@ -48,12 +59,12 @@ const LevelsSection = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative flex h-full w-80 flex-col items-center justify-start gap-4 p-6 text-stone-600 max-sm:w-full">
-            <div className="absolute bottom-0 left-0 h-[75%] w-full rounded-3xl border bg-white p-6 shadow-lg shadow-stone-200" />
+            <div className="absolute bottom-0 left-0 h-[75%] w-full rounded-3xl border bg-white/80 p-6 shadow-lg shadow-stone-200 backdrop-blur-sm" />
             <div className="relative object-contain">
               <Image
                 src={PuritaBackground}
                 alt="Purita Background - CENS"
-                className="w-full rounded-3xl object-contain object-bottom"
+                className="w-full aspect-[15.5/9] rounded-3xl object-cover object-bottom"
               />
             </div>
             <div className="relative flex w-full flex-col items-center gap-3 text-center">
@@ -71,12 +82,12 @@ const LevelsSection = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative flex h-full w-80 flex-col items-center justify-start gap-4 p-6 text-stone-600 max-sm:w-full">
-            <div className="absolute bottom-0 left-0 h-[75%] w-full rounded-3xl border bg-white p-6 shadow-lg shadow-stone-200" />
+            <div className="absolute bottom-0 left-0 h-[75%] w-full rounded-3xl border bg-white/80 p-6 shadow-lg shadow-stone-200 backdrop-blur-sm" />
             <div className="relative object-contain">
               <Image
                 src={PuritaBackground}
                 alt="Purita Background - CENS"
-                className="w-full rounded-3xl object-contain object-bottom"
+                className="w-full aspect-[15.5/9] rounded-3xl object-cover object-bottom"
               />
             </div>
             <div className="relative flex w-full flex-col items-center gap-3 text-center">

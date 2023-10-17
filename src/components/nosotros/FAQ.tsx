@@ -7,9 +7,11 @@ import FAQCard from "./FAQCard";
 const FAQ = () => {
   return (
     <CustomSection>
-      <h2 className="max-w-lg text-4xl font-medium">
-        Preguntas <span className="text-cens-medium">Frecuentes</span>
-      </h2>
+      <div className="w-fit">
+        <SectionTitle
+          title={{ text: "Preguntas", resalted: "Frecuentes", color: "brand" }}
+        />
+      </div>
       <ul className="flex flex-col gap-4">
         <li>
           <FAQCard title="Políticas de Privacidad">

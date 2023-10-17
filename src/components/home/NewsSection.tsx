@@ -1,25 +1,25 @@
 import React from "react";
 import CustomSection from "../layout/CustomSection";
+import SectionTitle from "../SectionTitle";
 
 const NewsSection = () => {
   return (
     <CustomSection>
-      <div className="flex flex-col items-center gap-8 rounded-3xl border bg-white p-16 text-center text-stone-500 shadow-lg shadow-stone-200 max-sm:grid-rows-3 max-sm:p-8 max-sm:text-left">
-        <h2 className="text-center text-4xl font-medium">
-          Mantente al día con las{" "}
-          <span className="text-cens-dark">
-            Últimas noticias de CuidaMundos
-          </span>
-        </h2>
-        <p className="font-normal">
-          Explora las últimas noticias y actualizaciones de CuidaMundos.
+      <div className="flex flex-col items-center gap-8 rounded-3xl border bg-white/80 p-16 text-center text-stone-500 shadow-lg shadow-stone-200 backdrop-blur-sm max-sm:grid-rows-3 max-sm:p-8 max-sm:text-left">
+        <SectionTitle
+          title={{
+            text: "Mantente al día con las",
+            resalted: "Últimas noticias de CuidaMundos",
+          }}
+          description="Explora las últimas noticias y actualizaciones de CuidaMundos.
           Mantente al tanto de los eventos emocionantes, las nuevas funciones
           del juego, las competencias y las historias fascinantes que te
           sumergirán en nuestro mundo virtual. Descubre cómo la comunidad de
           CuidaMundos está trabajando para proteger el medio ambiente y cómo tú
           puedes formar parte de esta misión. Sumérgete en nuestras noticias
-          destacadas y mantén viva la emoción en tu viaje por CuidaMundos
-        </p>
+          destacadas y mantén viva la emoción en tu viaje por CuidaMundos"
+        />
+
         <div className="grid aspect-[16/7] w-full grid-cols-4 grid-rows-2 text-white max-sm:aspect-[10/16] max-sm:grid-cols-2 max-sm:grid-rows-3 max-sm:overflow-hidden max-sm:rounded-3xl">
           <div className="col-span-2 row-span-2 overflow-hidden rounded-bl-3xl rounded-tl-3xl bg-[url(/img/news_01.jpeg)] bg-cover bg-center bg-no-repeat text-left max-lg:rounded-none max-sm:row-span-1">
             <div className="flex h-full w-full flex-col justify-end bg-overlay-down p-6">

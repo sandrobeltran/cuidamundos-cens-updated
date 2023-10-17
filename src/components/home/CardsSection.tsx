@@ -3,11 +3,12 @@
 import React from "react";
 import CustomSection from "../layout/CustomSection";
 import Image from "next/image";
-import EarthImage from "../../../public/img/earth.png";
-import LightImage from "../../../public/img/light.png";
-import WaterImage from "../../../public/img/water.png";
+import EarthImage from "../../../public/img/earth.svg";
+import LightImage from "../../../public/img/light.svg";
+import WaterImage from "../../../public/img/water.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import Button from "../Button";
 
 const CardsSection = () => {
   return (
@@ -15,18 +16,22 @@ const CardsSection = () => {
       <Swiper
         slidesPerView={1.4}
         spaceBetween={15}
-        wrapperClass="swipper-wrapper items-center py-5"
+        wrapperClass="swipper-wrapper items-center py-5 justify-center"
         breakpoints={{
           670: {
             slidesPerView: 2.5,
             spaceBetween: 30,
           },
+          1080: {
+            slidesPerView: 3.5,
+            spaceBetween: 20,
+          },
         }}
         lazyPreloadPrevNext={10}
       >
         <SwiperSlide>
-          <div className="relative flex h-full w-80 flex-col items-center justify-center gap-4 p-6 max-sm:w-56">
-            <div className="absolute bottom-0 left-0 h-4/6 w-full rounded-3xl border bg-white p-6 shadow-lg shadow-stone-200" />
+          <div className="relative flex h-full w-80 flex-col items-center justify-center p-6 max-sm:w-56">
+            <div className="absolute bottom-0 left-0 h-4/6 w-full rounded-3xl border bg-white/80 backdrop-blur-sm p-6 shadow-lg shadow-stone-200" />
             <div className="relative object-contain">
               <Image
                 src={EarthImage}
@@ -42,15 +47,15 @@ const CardsSection = () => {
                 Aprende sobre el uso responsable de la energía en CuidaMundos.
                 Descubre prácticas eficientes para reducir el consumo de energía
               </p>
-              <button className="mt-3 rounded-lg border-2 border-cens-dark px-3 py-1 text-sm font-medium text-cens-dark">
+              <Button hierarchy="primary" size="md">
                 ¡Aprende!
-              </button>
+              </Button>
             </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="relative flex h-full w-80 flex-col items-center justify-center gap-4 p-6 max-sm:w-56">
-            <div className="absolute bottom-0 left-0 h-4/6 w-full rounded-3xl border bg-white p-6 shadow-lg shadow-stone-200" />
+          <div className="relative flex h-full w-80 flex-col items-center justify-center p-6 max-sm:w-56">
+            <div className="absolute bottom-0 left-0 h-4/6 w-full rounded-3xl border bg-white/80 backdrop-blur-sm p-6 shadow-lg shadow-stone-200" />
             <div className="relative object-contain">
               <Image
                 src={LightImage}
@@ -66,20 +71,20 @@ const CardsSection = () => {
                 Descubre la importancia de una energía segura y sostenible en
                 CuidaMundos. Aprende sobre fuentes de energía...
               </p>
-              <button className="mt-3 rounded-lg border-2 border-cens-dark px-3 py-1 text-sm font-medium text-cens-dark">
+              <Button hierarchy="primary" size="md">
                 ¡Aprende!
-              </button>
+              </Button>
             </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="relative flex h-full w-80 flex-col items-center justify-center gap-4 p-6 max-sm:w-56">
-            <div className="absolute bottom-0 left-0 h-4/6 w-full rounded-3xl border bg-white p-6 shadow-lg shadow-stone-200" />
+          <div className="relative flex h-full w-80 flex-col items-center justify-center p-6 max-sm:w-56">
+            <div className="absolute bottom-0 left-0 h-4/6 w-full rounded-3xl border bg-white/80 backdrop-blur-sm p-6 shadow-lg shadow-stone-200" />
             <div className="relative object-contain">
               <Image
                 src={WaterImage}
                 alt="Water Image - CENS"
-                className="w-full object-contain object-bottom"
+                className="w-64 object-contain object-bottom"
               />
             </div>
             <div className="relative flex w-5/6 flex-col items-center gap-3 text-center">
@@ -90,9 +95,9 @@ const CardsSection = () => {
                 umérgete en la belleza y fragilidad de los ecosistemas en
                 CuidaMundos. Explora paisajes naturales asombrosos y aprende...
               </p>
-              <button className="mt-3 rounded-lg border-2 border-cens-dark px-3 py-1 text-sm font-medium text-cens-dark">
+              <Button hierarchy="primary" size="md">
                 ¡Aprende!
-              </button>
+              </Button>
             </div>
           </div>
         </SwiperSlide>

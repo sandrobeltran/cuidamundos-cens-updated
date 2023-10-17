@@ -8,6 +8,7 @@ import TeamSection from "@/components/home/TeamSection";
 import TrailerSection from "@/components/home/TrailerSection";
 import TriviaSection from "@/components/home/TriviaSection";
 import Hero from "@/components/Hero";
+import MiniSection from "@/components/cards/MiniSection";
 
 export default function Home() {
   return (
@@ -22,10 +23,26 @@ export default function Home() {
         description="En Ecoaventura Sostenible, puedes unirte a nuestra misión para
             ayudar a cuidar el planeta y promover la energía sostenible."
         buttonLabel="¡Aprende!"
+        href="/aprende"
       />
       <PaddingWrapper>
         <CardsSection />
-        <CuidaMundosSection />
+        <MiniSection
+          title={{
+            text: "Descubre el universo de CuidaMundos:",
+            resalted: " ¡Un juego para cuidar y explorar!",
+          }}
+          description={
+            <>
+              Sumérgete en un mundo lleno de maravillas y desafíos en
+              <b> CuidaMundos</b>. Embárcate en una emocionante travesía
+              mientras salvas al planeta. Con gráficos impresionantes, mecánicas
+              de juego sencillas y una historia cautivadora.
+            </>
+          }
+          image={"/img/cuidamundos_01.jpg"}
+          button={{ url: "/", label: "Leer más" }}
+        />
         <NewsSection />
         <TeamSection />
         <TrailerSection />

@@ -10,8 +10,8 @@ const TeamSection = () => {
     <CustomSection>
       <div className="flex flex-col items-center gap-8 p-16 text-left text-stone-500 max-sm:p-8">
         <h2 className="w-3/4 text-center text-4xl font-medium">
-          Conoce al equipo detrás CuidaMundos{" "}
-          <span className="text-cens-dark">CuidaMundos</span>
+          Conoce al equipo detrás de{" "}
+          <span className="text-cens-medium">CuidaMundos</span>
         </h2>
         <p className="font-normal max-sm:hidden">
           En <b>CuidaMundos</b>, contamos con un equipo apasionado y

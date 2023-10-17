@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import MiniSection from "@/components/cards/MiniSection";
 import LevelsSection from "@/components/juega/LevelsSection";
 import TrailerSection from "@/components/home/TrailerSection";
+import RulesSection from "@/components/juega/RulesSection";
 
 export default function Juega() {
   return (
@@ -40,6 +41,7 @@ export default function Juega() {
             </>
           }
         />
+        <RulesSection />
         <HeroesCarousel />
         <LevelsSection />
         <TriviaSection

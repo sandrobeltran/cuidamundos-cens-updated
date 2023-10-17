@@ -24,6 +24,7 @@ import dynamic from "next/dynamic";
 import TriviaQuestion from "./TriviaQuestion";
 import TriviaHeader from "./TriviaHeader";
 import ResultsSection from "./ResultsSection";
+import GuestUser from "../juega/GuestUser";
 
 type TProps = {
   questions: TTriviaQuestion[];
@@ -63,8 +64,9 @@ const TriviaContainer = ({ questions }: TProps) => {
   }, [currentPage, questions]); */
 
   return (
-    <div className="overflow-hidden rounded-3xl border border-stone-300 bg-white/50 shadow-md">
+    <div className="relative overflow-hidden rounded-3xl border border-stone-300 bg-white/50 shadow-md">
       <TriviaHeader />
+      {!user ? <GuestUser /> : null}
       <Swiper allowTouchMove={false}>
         <SwiperSlide>
           <MainScreen />

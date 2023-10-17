@@ -1,3 +1,5 @@
+"use client"
+
 import { Formik } from "formik";
 import React, { Dispatch, SetStateAction, useRef } from "react";
 import FormWrapper from "../form/FormWrapper";

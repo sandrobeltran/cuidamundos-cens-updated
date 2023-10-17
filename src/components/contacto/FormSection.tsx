@@ -52,7 +52,7 @@ const FormSection = () => {
         theme="light"
       />
       <div className="flex max-sm:flex-col max-sm:gap-10">
-        <div className="flex-1">
+        <div className="flex flex-1 flex-col items-center pt-16">
           <Formik
             initialValues={initialValues}
             onSubmit={(values) => handleSubmit(values)}
@@ -63,7 +63,7 @@ const FormSection = () => {
               <TextField placeholder="Correo" name="email" />
               <TextField placeholder="Teléfono" name="phone" type="number" />
               <TextArea label="Mensaje" name="message" placeholder="Mensaje" />
-              <div className="flex gap-2">
+              <div className="flex w-full gap-2">
                 <input
                   id="captcha"
                   type="checkbox"
@@ -75,9 +75,11 @@ const FormSection = () => {
                   No soy un robot
                 </label>
               </div>
-              <Button type="submit" hierarchy="primary" size="lg">
-                Enviar
-              </Button>
+              <div className="w-full">
+                <Button type="submit" hierarchy="primary" size="lg">
+                  Enviar
+                </Button>
+              </div>
             </FormWrapper>
           </Formik>
         </div>

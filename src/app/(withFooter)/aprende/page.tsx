@@ -54,6 +54,10 @@ export default function Aprende() {
                 slidesPerView: 2.5,
                 spaceBetween: 30,
               },
+              1080: {
+                slidesPerView: 3.5,
+                spaceBetween: 40,
+              },
             }}
           >
             <SwiperSlide>
@@ -106,6 +110,7 @@ export default function Aprende() {
                     historia, personalidad o papel en el juego en una oración o
                     dos.
                     <br />
+                    <br />
                     Descripción de habilidades y fortalezas: Destaca las
                     habilidades especiales, fortalezas o poderes únicos que
                     posee el personaje. Explica cómo estas habilidades pueden
@@ -128,6 +133,7 @@ export default function Aprende() {
                     historia, personalidad o papel en el juego en una oración o
                     dos.
                     <br />
+                    <br />
                     Descripción de habilidades y fortalezas: Destaca las
                     habilidades especiales, fortalezas o poderes únicos que
                     posee el personaje. Explica cómo estas habilidades pueden
@@ -149,6 +155,7 @@ export default function Aprende() {
                     capture la esencia del personaje. Puedes resumir su
                     historia, personalidad o papel en el juego en una oración o
                     dos.
+                    <br />
                     <br />
                     Descripción de habilidades y fortalezas: Destaca las
                     habilidades especiales, fortalezas o poderes únicos que

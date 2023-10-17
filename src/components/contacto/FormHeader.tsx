@@ -5,7 +5,7 @@ const FormHeader = () => {
   return (
     <CustomSection>
       <div className="flex flex-col items-center gap-8 rounded-3xl border bg-white p-16 text-center text-stone-500 shadow-lg shadow-stone-200 max-sm:grid-rows-3 max-sm:p-8 max-sm:text-left">
-        <h2 className="text-center text-4xl font-medium">
+        <h2 className="text-center text-4xl font-medium text-cens-medium">
           ¡Estamos encantados de escucharte!
         </h2>
         <p className="text-left">

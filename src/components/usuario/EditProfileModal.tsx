@@ -1,3 +1,5 @@
+"use client"
+
 import { Formik } from "formik";
 import React, { Dispatch, SetStateAction, useRef } from "react";
 import FormWrapper from "../form/FormWrapper";
@@ -10,11 +12,9 @@ import { editProfileValidationSchema } from "@/utils/validations";
 import DateField from "../form/DateField";
 import { toast } from "react-toastify";
 import Image from "next/image";
+import { PencilIcon } from "@heroicons/react/24/outline";
 
-type TProps = {
-  toggle: boolean;
-  set: Dispatch<SetStateAction<boolean>>;
-};
+type TProps = {};
 
 type TInitialValues = {
   name: string;
@@ -26,7 +26,7 @@ type TInitialValues = {
   bio: string;
 };
 
-const EditProfileModal = ({ toggle, set }: TProps) => {
+const EditProfileModal = () => {
   const modalWrapperRef = useRef<HTMLDivElement>(null);
 
   const { user, setLoading, setUser } = useUserStore();
@@ -70,7 +70,7 @@ const EditProfileModal = ({ toggle, set }: TProps) => {
   }
 
   function closeModal() {
-    set(false);
+    modalWrapperRef.current!.style.display = "none";
   }
 
   function handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
@@ -81,21 +81,32 @@ const EditProfileModal = ({ toggle, set }: TProps) => {
 
   return (
     <div
-      className="modalWrapper fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-black/60"
-      id="modalWrapper"
+      className="modalWrapper hidden fixed left-0 top-0 z-50 h-full w-full items-center justify-center bg-black/60"
+      id="editProfileModalWrapper"
       onClick={handleClick}
       ref={modalWrapperRef}
     >
       <div className="flex h-fit max-h-[90%] w-fit max-w-3xl flex-col items-center gap-10 overflow-y-auto rounded-3xl bg-white px-16 py-8">
         {/* PHOTO */}
         <div className="flex w-full flex-col items-center gap-2 border-b-2 border-stone-200 pb-4 text-center">
-          <Image
-            src={user!.avatar}
-            alt="User avatar"
-            width={160}
-            height={160}
-            className="rounded-full"
-          />
+          <button
+            onClick={() =>
+              (document.getElementById(
+                "changeAvatarModalWrapper",
+              )!.style.display = "flex")
+            }
+            className="relative h-40 w-40 rounded-full border-4 border-white"
+          >
+            <Image
+              src={user!.avatar}
+              alt="User avatar"
+              fill
+              className="rounded-full object-cover"
+            />
+            <div className="absolute bottom-2 right-2 rounded-full bg-white p-2">
+              <PencilIcon className="h-4" />
+            </div>
+          </button>
           <h6 className="text-3xl font-bold text-cens-brand">
             {user?.name} {user?.lastname}
           </h6>

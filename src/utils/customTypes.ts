@@ -21,3 +21,7 @@ export type TUserData = {
   bio: string,
   avatar: string
 };
+
+export interface IUserCertificate {
+
+}

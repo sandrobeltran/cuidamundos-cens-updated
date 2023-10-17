@@ -30,7 +30,7 @@ const Button = ({
       styles += " bg-white text-cens-dark border-2 border-cens-dark";
       break;
     case "tertiary":
-      styles += " text-white bg-transparent";
+      styles += " font-medium text-white bg-transparent";
       break;
   }
   switch (size) {

@@ -15,13 +15,15 @@ const TriviaSection = ({ title, description, cover, href }: TProps) => {
   return (
     <CustomSection>
       <div
-        className="flex aspect-[3/1] w-full flex-col items-center gap-8 rounded-3xl bg-cover bg-center bg-no-repeat p-16 text-center text-white max-sm:p-8"
+        className="flex aspect-[3/1] w-full flex-col items-center gap-8 rounded-3xl border bg-cover bg-bottom bg-no-repeat p-16 text-center text-stone-500 shadow-lg shadow-stone-200 max-sm:p-8"
         style={{ backgroundImage: `url(${cover})` }}
       >
-        <h2 className="max-w-lg text-4xl font-medium">{title}</h2>
-        <p className="max-w-xl font-normal text-stone-500 max-sm:max-w-none">
-          {description}
-        </p>
+        <div className="flex max-w-2xl flex-col items-center gap-4">
+          <h2 className="text-5xl font-medium">{title}</h2>
+          <p className="max-w-lg text-lg font-normal text-stone-500 max-sm:max-w-none">
+            {description}
+          </p>
+        </div>
         <Link href={href}>
           <Button hierarchy="primary" size="md">
             Comenzar la trivia

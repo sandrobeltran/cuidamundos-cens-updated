@@ -1,15 +1,15 @@
 import Image from "next/image";
 import React from "react";
-import CENSLogo from "../../public/logos/cens.png";
+import CENSLogo from "../../public/logos/cens_footer.svg";
 import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="mt-20 flex h-fit grid-cols-4 flex-col items-center gap-4 rounded-tl-4xl rounded-tr-4xl bg-[url(/img/footer_bg.png)] bg-cover bg-center bg-no-repeat text-cens-brand max-sm:h-fit">
-      <div className="grid h-fit w-full grid-cols-4 gap-4 p-10 px-24 max-sm:grid-rows-3 max-sm:items-center max-sm:p-6">
+    <footer className="relative mt-20 flex h-fit grid-cols-4 flex-col items-center gap-4 bg-[url(/img/footer_bg.png)] bg-cover bg-center bg-no-repeat text-cens-brand max-sm:h-fit">
+      <div className="relative z-10 grid h-fit w-full grid-cols-4 gap-4 p-10 px-24 max-sm:grid-rows-3 max-sm:items-center max-sm:p-6">
         <div className="flex flex-col gap-3 max-sm:col-span-4 max-sm:row-span-2 max-sm:items-center">
-          <Image src={CENSLogo} height={128} alt="CENS Grupo EPM Logo" />
-          <ul className="flex list-none gap-2 text-3xl font-normal">
+          <Image src={CENSLogo} height={98} alt="CENS Grupo EPM Logo" />
+          <ul className="flex w-full list-none justify-start gap-2 text-3xl font-normal">
             <a href={"/"} target="_blank">
               <li>
                 <svg
@@ -58,42 +58,42 @@ const Footer = () => {
           </ul>
         </div>
         <div className="max-sm:col-span-2 max-sm:row-span-2">
-          <h6 className="text-lg font-bold">Company</h6>
-          <ul className="mt-3 list-none font-normal">
-            <Link href={"/"}>
+          <h6 className="mb-6 text-lg font-bold">Company</h6>
+          <ul className="mt-3 flex list-none flex-col gap-2 font-normal">
+            <Link className="w-fit" href={"/"}>
               <li>Inicio</li>
             </Link>
-            <Link href={"/"}>
+            <Link className="w-fit" href={"/juega"}>
               <li>Juego</li>
             </Link>
-            <Link href={"/"}>
+            <Link className="w-fit" href={"/aprende"}>
               <li>Aprende</li>
             </Link>
-            <Link href={"/"}>
+            <Link className="w-fit" href={"/blog"}>
               <li>Blog</li>
             </Link>
-            <Link href={"/"}>
+            <Link className="w-fit" href={"/nosotros"}>
               <li>Acerca de nosotros</li>
             </Link>
-            <Link href={"/"}>
+            <Link className="w-fit" href={"/contacto"}>
               <li>Contacto</li>
             </Link>
           </ul>
         </div>
         <div className="max-sm:col-span-2">
-          <h6 className="text-lg font-bold">Legal</h6>
-          <ul className="mt-3 list-none font-normal">
-            <Link href={"/"}>
-              <li>Term of Services</li>
+          <h6 className="mb-6 text-lg font-bold">Legal</h6>
+          <ul className="mt-3 flex list-none flex-col gap-2 font-normal">
+            <Link className="w-fit" href={"/"}>
+              <li>Términos y servicios</li>
             </Link>
-            <Link href={"/"}>
-              <li>Privacy Policy</li>
+            <Link className="w-fit" href={"/"}>
+              <li>Privacidad y políticas</li>
             </Link>
           </ul>
         </div>
         <div className="max-sm:col-span-2">
-          <h6 className="text-lg font-bold">Contacto</h6>
-          <ul className="mt-3 list-none font-normal">
+          <h6 className="mb-6 text-lg font-bold">Contacto</h6>
+          <ul className="mt-3 flex list-none flex-col gap-2 font-normal">
             <li>info@cens.com</li>
             <li>Cúcuta, Colombia</li>
           </ul>

@@ -1,20 +1,18 @@
 import React from "react";
 import CustomSection from "../layout/CustomSection";
+import SectionTitle from "../SectionTitle";
 
 const TrailerSection = () => {
   return (
     <CustomSection>
-      <div className="flex flex-col items-center gap-8 rounded-3xl border bg-white p-16 text-center shadow-lg shadow-stone-200 max-sm:p-4">
-        <h2 className="text-4xl font-medium">
-          ¡Mira el tráiler oficial{" "}
-          <span className="text-cens-medium">ahora!</span>
-        </h2>
-        <p className="font-normal text-stone-500">
-          Sumérgete en el fascinante mundo de CuidaMundos a través de nuestro
+      <div className="flex flex-col items-center gap-8 rounded-3xl border bg-white/80 p-16 text-center shadow-lg shadow-stone-200 backdrop-blur-sm max-sm:p-4">
+        <SectionTitle
+          title={{ text: "¡Mira el tráiler oficial", resalted: "ahora!" }}
+          description="Sumérgete en el fascinante mundo de CuidaMundos a través de nuestro
           tráiler oficial. Haz clic para disfrutar del tráiler y adéntrate en un
           mundo lleno de sorpresas y aprendizaje. ¡Explora la belleza de
-          CuidaMundos ahora!
-        </p>
+          CuidaMundos ahora!"
+        />
         <div className="relative aspect-[19/9] w-full max-sm:aspect-square">
           {/* //TODO: ASK IF THIS BUTTON IS REALLY NECCESARY WHEN YOUTUBE HAS ITS OWN */}
           {/* PLAY BUTTON */}

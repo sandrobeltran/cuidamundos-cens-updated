@@ -2,18 +2,25 @@
 
 import Image from "next/image";
 import React from "react";
-import CENSLogo from "../../../public/logos/cens.png";
+import CENSLogo from "../../../public/logos/cens_white.svg";
 import Button from "../Button";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import NavbarLink from "./NavbarLink";
 import { navbarData } from "@/utils/navbarData";
 import { useUserStore } from "@/store/useUserStore";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
 const DesktopNavbar = () => {
-  const { user, loading } = useUserStore((state) => state);
+  const { user, loading, logOut } = useUserStore((state) => state);
   const pathName = usePathname();
+  const router = useRouter();
+
+  function handleLogOut() {
+    router.push("/");
+    localStorage.removeItem("session-token");
+    logOut();
+  }
 
   const inHome = true;
 
@@ -24,7 +31,7 @@ const DesktopNavbar = () => {
           <Image
             src={CENSLogo}
             alt="CENS Grupo EPM Logo"
-            className="w-12 brightness-[10]"
+            className="w-20 brightness-[10]"
           />
         </Link>
         <ul className="flex h-full gap-5">
@@ -39,7 +46,7 @@ const DesktopNavbar = () => {
       </div>
       {!loading ? (
         user ? (
-          <div className="z-20 flex items-center gap-3">
+          <div className="relative group z-20 flex items-center gap-3">
             <Link href={"/usuario"}>
               <div className="flex items-center gap-2 text-white">
                 <Image
@@ -58,6 +65,43 @@ const DesktopNavbar = () => {
                 <ChevronDownIcon className="h-6" />
               </div>
             </Link>
+            <div className="absolute right-0 top-full z-50 hidden h-fit w-full flex-col items-stretch rounded-bl-lg rounded-br-lg bg-black/30 text-white shadow-lg  backdrop-blur-lg group-hover:flex ">
+              <ul className="py-4">
+                <li className="w-full bg-cens-medium/0 font-medium transition-colors hover:bg-stone-900/60 hover:font-semibold">
+                  <Link
+                    href={"/usuario"}
+                    className="inline-block w-full px-3"
+                  >
+                    Información
+                  </Link>
+                </li>
+                <li className="w-full bg-cens-medium/0 font-medium transition-colors hover:bg-stone-900/60 hover:font-semibold">
+                  <Link
+                    href={"/usuario/certificados"}
+                    className="inline-block w-full px-3"
+                  >
+                    Certificados
+                  </Link>
+                </li>
+                <li className="w-full bg-cens-medium/0 font-medium transition-colors hover:bg-stone-900/60 hover:font-semibold">
+                  <Link
+                    href={"/usuario/juegos"}
+                    className="inline-block w-full px-3"
+                  >
+                    Juegos
+                  </Link>
+                </li>
+                <div className="my-2 h-[1px] w-full bg-white"></div>
+                <li
+                  onClick={() => handleLogOut()}
+                  className="w-full bg-cens-medium/0 font-medium transition-colors hover:bg-stone-900/60 hover:font-semibold"
+                >
+                  <button className="text-left inline-block w-full px-3">
+                    Cerrar sesión
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
         ) : (
           <div className="z-20 flex items-center gap-3">

@@ -19,7 +19,7 @@ const HeroMiniSection = ({
   href,
 }: TProps) => {
   return (
-    <div className="relative flex w-full max-sm:aspect-auto items-center justify-center gap-8 overflow-hidden rounded-3xl max-sm:pb-10 p-10 text-white max-sm:flex-col max-sm:gap-0 max-sm:p-4">
+    <div className="relative flex w-full max-sm:aspect-auto items-center justify-center gap-8 overflow-hidden rounded-3xl max-sm:pb-10 p-10 px-16 text-white max-sm:flex-col max-sm:gap-0 max-sm:p-4">
       <Image
         src={cover}
         alt={`${title} cover image`}
@@ -31,7 +31,7 @@ const HeroMiniSection = ({
         <Image src={image} alt={`${title} Image`} fill className="object-contain" />
       </div>
       <div className="z-10 flex w-3/4 flex-col items-start gap-4 max-sm:w-full max-sm:items-center">
-        <h4 className="w-full text-center text-3xl font-semibold max-sm:text-2xl">
+        <h4 className="w-full text-center text-3xl font-medium max-sm:text-2xl">
           {title}
         </h4>
         <p className="text-lg font-normal">{description}</p>

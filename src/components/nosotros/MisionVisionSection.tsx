@@ -5,7 +5,7 @@ const MisionVisionSection = () => {
   return (
     <CustomSection>
       <div className="grid-cols-[repeat(auto-fill,_minmax(360px,_430px))] grid justify-center gap-8">
-        <div className="rounded-3xl bg-white p-11 pb-24 text-stone-500 shadow-lg shadow-stone-200">
+        <div className="rounded-3xl bg-white/80 backdrop-blur-sm p-11 pb-24 text-stone-500 shadow-lg shadow-stone-200">
           <h5 className="text-center text-3xl font-bold text-stone-700">
             Misión
           </h5>
@@ -19,7 +19,7 @@ const MisionVisionSection = () => {
             sostenible.
           </p>
         </div>
-        <div className="rounded-3xl bg-white p-11 pb-24 text-stone-500 shadow-lg shadow-stone-200">
+        <div className="rounded-3xl bg-white/80 backdrop-blur-sm p-11 pb-24 text-stone-500 shadow-lg shadow-stone-200">
           <h5 className="text-center text-3xl font-bold text-stone-700">
             Visión
           </h5>

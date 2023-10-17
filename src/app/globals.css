@@ -17,8 +17,56 @@ body {
   font-size: 16px;
 }
 
+.star {
+  color: #ffb800;
+  filter: drop-shadow(0 4px 2px #12121235);
+  animation: starAppears 4s ease-in-out infinite;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+.star:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.star:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+@keyframes starAppears {
+  0%, 100% {
+    opacity: 0;
+    rotate: -25deg;
+    filter: drop-shadow(0 4px 2px #12121235);
+  }
+  5%, 95% {
+    rotate: 0deg;
+    opacity: 1;
+    filter: drop-shadow(0 8px 12px #ffb800aa);
+  }
+}
+
 .modalWrapper {
   z-index: 100;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  width: 42px !important;
+  aspect-ratio: 1/1 !important;
+  background-image: url("/icons/prev_icon.svg") !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: transparent !important;
+  fill: transparent !important;
+  stroke: transparent !important;
+  transition: scale 0.3s;
+}
+.swiper-button-next {
+  background-image: url("/icons/next_icon.svg") !important;
+}
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  scale: 1.15;
 }
 
 .modalWrapper > div {
@@ -148,14 +196,14 @@ input:-webkit-autofill:active {
   height: 60px;
   width: 50px;
   animation: falling3 12s 0s infinite;
-  opacity: .7;
+  opacity: 0.7;
 }
 
 #leaves-falling-container i:nth-of-type(2n + 1) {
   height: 50px;
   width: 40px;
   animation: falling2 8s 0s infinite;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 #leaves-falling-container i:nth-of-type(3n + 2) {
@@ -220,7 +268,6 @@ input:-webkit-autofill:active {
   animation-delay: 2.5s;
 }
 
-
 #leaves-falling-container i:nth-of-type(n) {
   background-image: url("/img/leaf_01.svg");
 }
@@ -230,8 +277,6 @@ input:-webkit-autofill:active {
 #leaves-falling-container i:nth-of-type(4n + 1) {
   background-image: url("/img/leaf_03.svg");
 }
-
-
 
 #leaves-falling-container i:nth-of-type(n) {
   transform: rotate(180deg);

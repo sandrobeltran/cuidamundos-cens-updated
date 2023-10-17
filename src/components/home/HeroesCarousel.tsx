@@ -6,11 +6,15 @@ import FlyingCapitan from "../../../public/img/flying_capitan.png";
 import FlyingPurita from "../../../public/img/flying_purita.png";
 import FlyingFelix from "../../../public/img/flying_felix.png";
 import CustomSection from "../layout/CustomSection";
+import SectionTitle from "../SectionTitle";
 
 const HeroesCarousel = () => {
   return (
     <CustomSection>
-      <div className="relative mt-20 flex items-center justify-between overflow-x-auto max-sm:justify-start">
+      <SectionTitle
+        title={{ text: "¡Conoce a", resalted: "los personajes!" }}
+      />
+      <div className="relative mt-6 flex items-center justify-between overflow-x-auto max-sm:justify-start">
         {/* CAROUSEL CARDS */}
         <div className="relative flex aspect-square min-w-[40%] flex-col items-center justify-end overflow-hidden rounded-bl-3xl rounded-tl-3xl bg-[url(/img/capitan_triangle.png)] bg-contain bg-center bg-no-repeat p-8 text-white max-sm:w-64 max-sm:min-w-[95%] max-sm:p-5">
           <div className="relative z-10 flex flex-col items-center gap-1 px-2 text-center">
