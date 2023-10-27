@@ -62,7 +62,7 @@ const FormSection = () => {
               <TextField placeholder="Nombre" name="name" />
               <TextField placeholder="Correo" name="email" />
               <TextField placeholder="Teléfono" name="phone" type="number" />
-              <TextArea label="Mensaje" name="message" placeholder="Mensaje" />
+              <TextArea name="message" placeholder="Mensaje" />
               <div className="flex w-full gap-2">
                 <input
                   id="captcha"

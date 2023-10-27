@@ -172,7 +172,6 @@ const EditProfileModal = () => {
             <label className="flex w-full flex-col gap-2 text-stone-400">
               <span className="text-stone-700">Sobre mí</span>
               <TextArea
-                label="bio"
                 name="bio"
                 rows={3}
                 placeholder="Cuéntanos un poco sobre ti. ¡Nos encantaría conocerte más!"
