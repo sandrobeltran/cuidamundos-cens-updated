@@ -1,19 +1,29 @@
 import { useCuidaMundosTrivia } from "@/store/useCuidaMundosTrivia";
 import React from "react";
 import Button from "../Button";
+import { useSwiper } from "swiper/react";
 
 const Retry = () => {
   const resetTrivia = useCuidaMundosTrivia((state) => state.resetTrivia);
 
+  const swiper = useSwiper();
+
+  function handleResetTrivia() {
+    resetTrivia();
+    swiper.slideTo(0);
+  }
+
   return (
     <div className="flex flex-col items-center gap-6 text-center">
-      {/* <h1 className="text-6xl font-bold text-cens-brand">¡Qué lástima!</h1>
-      <p className="max-w-3xl text-xl font-medium">
-        No has alcanzado la nota minima para obtener tu certificado, pero,
-        siempre puedes intentarlo de nuevo, sigue aprendiendo para ser un
-        verdadero CuidaMundos
-      </p> */}
-      <Button hierarchy="primary" size="md" onClick={() => resetTrivia()}>
+      <div className="flex flex-col items-center gap-2 text-center">
+        <h3 className="text-3xl font-bold">
+          ¡Que lástima! <span className="text-cens-brand"></span>
+        </h3>
+        <p className="font-thin">
+          No has alcanzado el puntaje mínimo en la trivia sobre riesgo eléctrico
+        </p>
+      </div>
+      <Button hierarchy="primary" size="lg" onClick={() => handleResetTrivia()}>
         Reintentar
       </Button>
     </div>

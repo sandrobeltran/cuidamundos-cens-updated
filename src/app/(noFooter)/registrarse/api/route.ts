@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
       avatar
     });
 
-    user.save();
+    await user.save();
 
     const token = jwt.sign(
       { _id: user._id },

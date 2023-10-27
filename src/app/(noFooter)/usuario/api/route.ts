@@ -5,20 +5,19 @@ import { TLoginUser, TSignupUser } from "@/utils/customTypes";
 import getCustomError from "@/utils/getCustomError";
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
+import { validateUserToken } from "@/utils/validateUserToken";
 
 export async function GET(req: NextRequest) {
   await mongodbConnect();
   const { headers } = req;
-  const token = headers.get("Authorization")?.substring(7) as string;
+
+  //! CREATE A METHOD TO VALIDATE THE USER ON THE API ROUTE BECAUSE THE EDGE RUNTIME OF THE MIDDLEWARE DOESN'T CURRENTLY SUPPORT JWT AND MONGOOSE.
 
   try {
-    // verify token signature
-    const tokenPayload = jwt.verify(
-      token,
-      process.env.APP_SECRET as string,
-    ) as jwt.JwtPayload;
+    const uid = validateUserToken(headers)
 
-    const user = await User.findById(tokenPayload._id, {
+    const user = await User.findById(uid, {
+      _id: 1,
       name: 1,
       lastname: 1,
       email: 1,

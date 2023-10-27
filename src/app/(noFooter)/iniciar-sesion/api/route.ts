@@ -4,7 +4,8 @@ import User from "@/models/User";
 import { TLoginUser, TSignupUser } from "@/utils/customTypes";
 import getCustomError from "@/utils/getCustomError";
 import { NextRequest, NextResponse } from "next/server";
-import jwt from "jsonwebtoken";
+import jwt, { JsonWebTokenError } from "jsonwebtoken";
+import { MongooseError } from "mongoose";
 
 export async function POST(req: NextRequest) {
   await mongodbConnect();

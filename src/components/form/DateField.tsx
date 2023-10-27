@@ -20,7 +20,7 @@ const DateField = ({ ...props }: TProps) => {
         id={`${props.name}Field`}
         {...field}
         {...props}
-        className="rounded-lg border-2 border-stone-300 bg-white px-4 py-2 placeholder:text-stone-200"
+        className="rounded-lg border-2 border-stone-300 bg-white/80 backdrop-blur-sm px-4 py-2 placeholder:text-stone-200"
       />
       {meta.touched && meta.error ? (
         <div className="font-medium text-red-500">{meta.error}</div>

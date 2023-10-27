@@ -11,6 +11,7 @@ export type TLoginUser = {
 };
 
 export type TUserData = {
+  _id: string
   name: string,
   lastname: string,
   birthdate: string,
@@ -24,4 +25,28 @@ export type TUserData = {
 
 export interface IUserCertificate {
 
+}
+
+export interface IEvidence {
+  _id: string,
+  title: string,
+  description: string,
+  active: boolean,
+  comments: IComment[],
+  submissions: ISubmission[],
+  deadline: string
+}
+export interface IComment {
+  author: string,
+  content: string,
+}
+export interface ISubmission {
+  author: string,
+  state: number,
+  lastUpdatedAt: string,
+  submitedAt: string,
+  content: {
+    answer: string,
+    link: string
+  }
 }

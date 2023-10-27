@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { PencilIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
@@ -6,9 +6,12 @@ import React from "react";
 import Button from "../Button";
 import Link from "next/link";
 import { useUserStore } from "@/store/useUserStore";
+import { usePathname } from "next/navigation";
 
 const PanelMainInfo = () => {
   const { user } = useUserStore();
+  const pathname = usePathname();
+  const endpoint = pathname.split("/")[pathname.split.length];
 
   return (
     <div className="w-full rounded-3xl bg-white/80 p-8">
@@ -57,23 +60,68 @@ const PanelMainInfo = () => {
           <li>
             <Link
               href={"/usuario"}
-              className="font-semibold text-cens-brand underline underline-offset-4"
+              className="underline-offset-4"
+              style={
+                !endpoint
+                  ? {
+                      fontWeight: 600,
+                      color: "#005F24",
+                      textDecoration: "underline",
+                    }
+                  : {}
+              }
             >
               Información
             </Link>
           </li>
           <li>
-            <Link href={"/usuario/certificados"} className="underline-offset-4">
+            <Link
+              href={"/usuario/certificados"}
+              className="underline-offset-4"
+              style={
+                endpoint === "certificados"
+                  ? {
+                      fontWeight: 600,
+                      color: "#005F24",
+                      textDecoration: "underline",
+                    }
+                  : {}
+              }
+            >
               Certificados
             </Link>
           </li>
           <li>
-            <Link href={"/usuario/juegos"} className="underline-offset-4">
+            <Link
+              href={"/usuario/juegos"}
+              className="underline-offset-4"
+              style={
+                endpoint === "juegos"
+                  ? {
+                      fontWeight: 600,
+                      color: "#005F24",
+                      textDecoration: "underline",
+                    }
+                  : {}
+              }
+            >
               Juegos
             </Link>
           </li>
           <li>
-            <Link href={"/usuario/evidencias"} className="underline-offset-4">
+            <Link
+              href={"/usuario/evidencias"}
+              className="underline-offset-4"
+              style={
+                endpoint === "evidencias"
+                  ? {
+                      fontWeight: 600,
+                      color: "#005F24",
+                      textDecoration: "underline",
+                    }
+                  : {}
+              }
+            >
               Evidencias
             </Link>
           </li>

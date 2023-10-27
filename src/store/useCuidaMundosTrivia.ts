@@ -48,6 +48,6 @@ export const useCuidaMundosTrivia = create<TCuidamundosTrivia>((set) => ({
       };
     }),
   setShowResults: (value) => set({ showResults: value }),
-  resetTrivia: () => set(initialState),
+  resetTrivia: () => set({ results: [], currentPage: 0, playing: false }),
   setPlaying: (value) => set({ playing: value })
 }));

@@ -35,15 +35,6 @@ const ResultsSection = () => {
           </div>
         </div> */}
         {/* TITLE */}
-        <div className="flex flex-col items-center gap-2 text-center">
-          <h3 className="text-3xl font-bold">
-            ¡Felicidades!, has{" "}
-            <span className="text-cens-brand">culminado el test</span>
-          </h3>
-          <p className="text-sm font-thin">
-            Haz completado con éxito toda la trivia sobre riesgo eléctrico
-          </p>
-        </div>
         {/* PERCENT CIRLCE */}
         <div
           className="flex h-40 w-40 flex-col items-center justify-center gap-0 rounded-full border-[12px] p-5"
@@ -63,7 +54,13 @@ const ResultsSection = () => {
             {corrects.length} / {results.length}
           </p>
         </div>
-        {corrects.length >= minCorrects ? <Congrats /> : <Retry />}
+        {results.length === questions.length ? (
+          corrects.length >= minCorrects ? (
+            <Congrats />
+          ) : (
+            <Retry />
+          )
+        ) : null}
       </div>
     </CustomSection>
   );

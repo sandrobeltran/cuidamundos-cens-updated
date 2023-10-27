@@ -60,3 +60,12 @@ export const editProfileValidationSchema = Yup.object().shape({
   school: Yup.string().min(2, "Nombre muy corto").max(60, "Nombre muy largo"),
   bio: Yup.string().min(2, "Descripción muy corta").max(280, "Descripción muy larga")
 })
+
+export const submitEvidenceValidationSchema = Yup.object().shape({
+  answer: Yup.string().min(10, "Tu respusta es muy corta").max(2500, "Tu respuesta es muy larga").required("Escribe tu respuesta para completar esta evidencia"),
+  link: Yup.string().matches(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g, "Ingrese un link válido").required("No olvides adjuntar un link con los recursos de la evidencia")
+})
+
+export const postCommentValdationSchema = Yup.object().shape({
+  content: Yup.string().min(2, "El comentario es muy corto").max(500, "El comentario es muy largo").required("Escribe tu comentario")
+})

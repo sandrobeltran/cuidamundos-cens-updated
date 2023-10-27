@@ -1,24 +1,7 @@
 "use client";
 
-import Button from "@/components/Button";
-import SectionTitle from "@/components/SectionTitle";
-import CustomMain from "@/components/layout/CustomMain";
-import CustomSection from "@/components/layout/CustomSection";
-import PaddingWrapper from "@/components/layout/PaddingWrapper";
-import UserRequired from "@/components/validations/UserRequired";
 import { useUserStore } from "@/store/useUserStore";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { ToastContainer } from "react-toastify";
-import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/solid";
-import Image from "next/image";
-import SkyBackgroundImage from "../../../../public/img/hero_sky.jpg";
-import EditProfileModal from "@/components/usuario/EditProfileModal";
-import { useState } from "react";
 import dateToString from "@/utils/dateToString";
-import { PencilIcon } from "@heroicons/react/24/outline";
-import ChangeAvatarModal from "@/components/usuario/ChangeAvatarModal";
-import PanelMainInfo from "@/components/usuario/PanelMainInfo";
 
 export default function Usuario() {
   const { user } = useUserStore();

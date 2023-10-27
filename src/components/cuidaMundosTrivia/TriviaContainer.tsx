@@ -63,6 +63,7 @@ const TriviaContainer = ({ questions }: TProps) => {
     setCurrentQuestion(questions[currentPage]);
   }, [currentPage, questions]); */
 
+
   return (
     <div className="relative overflow-hidden rounded-3xl border border-stone-300 bg-white/50 shadow-md">
       <TriviaHeader />

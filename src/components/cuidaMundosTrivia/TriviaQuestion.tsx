@@ -39,6 +39,7 @@ const TriviaQuestion = ({ question, index }: TProps) => {
     swiper.slideNext();
     if (index === questions.length - 1) {
       setPlaying(false);
+      console.log("uploading result...")
     }
   }
 
