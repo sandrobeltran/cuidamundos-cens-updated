@@ -1,6 +1,6 @@
 import { ICustomResponse } from "@/middleware";
 import Evidence from "@/models/Evidence";
-import { ISubmission } from "@/utils/customTypes";
+import { IEvidence, ISubmission } from "@/utils/customTypes";
 import getCustomError from "@/utils/getCustomError";
 import { validateUserToken } from "@/utils/validateUserToken";
 import { NextRequest, NextResponse } from "next/server";
@@ -13,19 +13,54 @@ export async function PUT(req: NextRequest, context: { params: any }) {
     try {
         const uid = validateUserToken(headers)
 
-        //? Construct the submission object
-        const submission = {
-            content: body,//answer and link
-            author: uid,
-            lastUpdatedAt: Date.now(),
-            state: 1,
-            submitedAt: Date.now()
+
+        const evidence: IEvidence | null = await Evidence.findById(evidenceId)
+        if (!evidence) {
+            return NextResponse.json(
+                { status: "error", message: "La evidencia no existe o ha sido eliminada" },
+                { status: 404 },
+            );
         }
 
-        //? In this point the middleware has validated the admin key
-        const evidence = await Evidence.findByIdAndUpdate(evidenceId, { $push: { submissions: submission } }, { new: true })
+        const submission = evidence.submissions.find(submission => submission.author === uid)
 
-        return NextResponse.json<ICustomResponse>({ status: "success", message: "Entrega añadida con éxito", data: evidence })
+
+        let updatedEvidence;
+
+        // Validate if there is a submission yet
+        if (submission) {
+            // Modify the current submission
+            console.log("modifying current submission")
+
+            //? Construct the submission object
+            const newSubmission = {
+                content: body, //answer and link
+                lastUpdatedAt: Date.now(),
+                state: 1,
+            }
+
+            //? In this point the middleware has validated the admin key
+            updatedEvidence = await Evidence.findOneAndUpdate({ "submissions.author": uid }, { "$set": { "submissions.$.content": body, "submissions.$.lastUpdatedAt": Date.now(), "submissions.$.state": 1 } }, { new: true })
+
+            console.log(updatedEvidence)
+
+        } else {
+            // Is a new submission
+            console.log("new submission")
+
+            //? Construct the submission object
+            const newSubmission = {
+                content: body, //answer and link
+                author: uid,
+                lastUpdatedAt: Date.now(),
+                state: 1,
+                submitedAt: Date.now()
+            }
+
+            //? In this point the middleware has validated the admin key
+            updatedEvidence = await Evidence.findByIdAndUpdate(evidenceId, { $push: { submissions: newSubmission } }, { new: true })
+        }
+        return NextResponse.json<ICustomResponse>({ status: "success", message: "Entrega añadida con éxito", data: updatedEvidence })
     }
     catch (error) {
         return NextResponse.json(

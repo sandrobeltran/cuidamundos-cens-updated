@@ -25,7 +25,7 @@ const initialValues: TInitialValues = {
   password: "",
 };
 
-const LoginModal = ({}: TProps) => {
+const LoginModal = ({ }: TProps) => {
   const { setUser, user, setLoading, setError } = useUserStore(
     (state) => state,
   );
@@ -40,6 +40,9 @@ const LoginModal = ({}: TProps) => {
 
   async function handleSubmit(values: TInitialValues) {
     setLoading(true);
+
+    console.log(process.env.NEXT_PUBLIC_API_KEY as string)
+
     // Login user and get the token
     const signUpReq = await fetch("/iniciar-sesion/api", {
       method: "POST",
@@ -76,8 +79,7 @@ const LoginModal = ({}: TProps) => {
 
     setUser(fetchUserRes.data);
     toast.success(
-      `Bienvenid@, ${fetchUserRes.data.name.split(" ")[0]} ${
-        fetchUserRes.data.lastname.split(" ")[0]
+      `Bienvenid@, ${fetchUserRes.data.name.split(" ")[0]} ${fetchUserRes.data.lastname.split(" ")[0]
       }`,
     );
     modalWrapperRef.current!.style.display = "none";

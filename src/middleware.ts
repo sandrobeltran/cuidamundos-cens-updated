@@ -47,6 +47,7 @@ export default async function middleware(req: NextRequest, res: NextApiResponse)
   } else {
     // ? Normal api-key validation
 
+    console.log(apiKey === process.env.API_KEY)
     if (apiKey !== process.env.API_KEY) {
       return NextResponse.json<ICustomResponse>(
         {

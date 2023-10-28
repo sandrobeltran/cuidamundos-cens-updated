@@ -34,7 +34,7 @@ const EditProfileModal = () => {
   const initialValues: TInitialValues = {
     name: user!.name || "",
     lastname: user!.lastname || "",
-    birthdate: user!.birthdate.substring(0, 10) || "",
+    birthdate: user?.birthdate ? user!.birthdate.substring(0, 10) : "",
     address: user!.address || "",
     phone: user!.phone || "",
     school: user!.school || "",
@@ -63,10 +63,10 @@ const EditProfileModal = () => {
       return toast.error(updateUserResponse.message);
     }
 
-    closeModal();
     setUser(updateUserResponse.data);
     setLoading(false);
-    return toast.success("Usuario actualizado con éxito.");
+    toast.success("Usuario actualizado con éxito.");
+    closeModal();
   }
 
   function closeModal() {
@@ -91,9 +91,9 @@ const EditProfileModal = () => {
         <div className="flex w-full flex-col items-center gap-2 border-b-2 border-stone-200 pb-4 text-center">
           <button
             onClick={() =>
-              (document.getElementById(
-                "changeAvatarModalWrapper",
-              )!.style.display = "flex")
+            (document.getElementById(
+              "changeAvatarModalWrapper",
+            )!.style.display = "flex")
             }
             className="relative h-40 w-40 rounded-full border-4 border-white"
           >

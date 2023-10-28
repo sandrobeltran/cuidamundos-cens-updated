@@ -7,7 +7,6 @@ export default function Usuario() {
   const { user } = useUserStore();
 
   function showEditModal() {
-    console.log("sa");
     document.getElementById("editProfileModalWrapper")!.style.display = "flex";
   }
 
@@ -16,7 +15,7 @@ export default function Usuario() {
       {/* ABOUT ME CARD */}
       <div className="flex w-4/12 flex-col items-start gap-2 rounded-3xl bg-white/80 p-8 text-left backdrop-blur-sm">
         <h6 className="font-medium text-cens-medium">Sobre mí</h6>
-        <p>Cuéntanos un poco sobre ti. ¡Nos encantaría conocerte más!</p>
+        <p>{user?.bio || "Cuéntanos un poco sobre ti. ¡Nos encantaría conocerte más!"}</p>
       </div>
       {/* INFO CARD */}
       <div className="flex w-8/12 flex-col items-start gap-2 rounded-3xl bg-white/80 p-8 text-left backdrop-blur-sm">

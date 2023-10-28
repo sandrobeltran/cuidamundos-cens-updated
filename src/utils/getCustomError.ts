@@ -10,6 +10,6 @@ export default function getCustomError(error: unknown): { message: string } {
     return { message: error.message };
   }
 
-
+console.log(error)
   return { message: "Unknown error" };
 }

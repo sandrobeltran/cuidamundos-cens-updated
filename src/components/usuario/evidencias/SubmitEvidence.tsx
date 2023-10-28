@@ -3,10 +3,12 @@
 import Button from "@/components/Button";
 import TextArea from "@/components/form/TextArea";
 import TextField from "@/components/form/TextField";
+import { useUserStore } from "@/store/useUserStore";
 import { IEvidence } from "@/utils/customTypes";
 import { submitEvidenceValidationSchema } from "@/utils/validations";
 import { LinkIcon } from "@heroicons/react/24/outline";
 import { Form, Formik } from "formik";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 type TProps = {
@@ -14,10 +16,18 @@ type TProps = {
 };
 
 const SubmitEvidence = ({ evidence }: TProps) => {
+  const user = useUserStore((state) => state.user);
+
   const [currentEvidence, setCurrentEvidence] = useState<IEvidence | null>(
     evidence,
   );
   // ? The idea is to use a component-local state to store the evidence so we can update it when any change happens
+
+
+  // Check if there is a submission yet to update
+  const submission = evidence.submissions.find(
+    (submission) => submission.author === user!._id,
+  );
 
   type TInitialValues = {
     answer: string;
@@ -25,8 +35,8 @@ const SubmitEvidence = ({ evidence }: TProps) => {
   };
 
   const initialValues: TInitialValues = {
-    answer: "",
-    link: "",
+    answer: submission ? submission.content.answer : "",
+    link: submission ? submission?.content.link : "",
   };
 
   async function handleSubmit(values: TInitialValues) {
@@ -42,6 +52,7 @@ const SubmitEvidence = ({ evidence }: TProps) => {
     const res = await req.json();
 
     setCurrentEvidence(res.data);
+
 
     document.getElementById("evidenceSubmitedModalWrapper")!.style.display =
       "flex";
@@ -72,7 +83,7 @@ const SubmitEvidence = ({ evidence }: TProps) => {
             </div>
           </div>
           <Button hierarchy="primary" size="md" type="submit">
-            Subir entrega
+            {submission ? "Guardar cambios" : "Subir entrega"}
           </Button>
         </Form>
       </Formik>

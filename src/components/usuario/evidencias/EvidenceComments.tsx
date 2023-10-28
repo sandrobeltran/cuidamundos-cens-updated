@@ -2,7 +2,6 @@ import React from "react";
 import Button from "../../Button";
 import TextArea from "../../form/TextArea";
 import { Form, Formik, FormikState } from "formik";
-import FormWrapper from "../../form/FormWrapper";
 import { IComment } from "@/utils/customTypes";
 import { postCommentValdationSchema } from "@/utils/validations";
 
@@ -10,7 +9,7 @@ type TProps = {
   comments: IComment[];
 };
 
-const EvidenceComments = ({comments}: TProps) => {
+const EvidenceComments = ({ comments }: TProps) => {
   type TInitialValues = {
     content: string;
   };
@@ -34,7 +33,7 @@ const EvidenceComments = ({comments}: TProps) => {
     <div className="flex w-full flex-col items-start justify-start gap-12">
       {/* NEW COMMENT */}
       <div className="flex w-full flex-col items-start justify-start gap-4">
-        <h4 className="text-lg font-medium text-cens-brand">Comentarios (0)</h4>
+        <h4 className="text-lg font-medium text-cens-brand">Comentarios ({comments.length})</h4>
         <Formik
           initialValues={initialValues}
           onSubmit={(values, { resetForm }) => handleSubmit(values, resetForm)}
@@ -55,8 +54,8 @@ const EvidenceComments = ({comments}: TProps) => {
 
       {/* COMMENTS LIST */}
       <div className="flex w-full flex-col items-center justify-center gap-5">
-        {true ? (
-          new Array(1).fill("#").map((e, index) => (
+        {comments.length ? (
+          comments.map((comment, index) => (
             <div
               key={index}
               className="flex h-full w-full items-start justify-start gap-4 border-b border-b-stone-300 p-2 pb-6"

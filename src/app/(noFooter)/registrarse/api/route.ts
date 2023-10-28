@@ -5,6 +5,7 @@ import { TSignupUser } from "@/utils/customTypes";
 import getCustomError from "@/utils/getCustomError";
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
+import { getRandomAvatar } from "@/utils/avatarsData";
 
 export async function POST(req: NextRequest) {
   await mongodbConnect();
@@ -17,8 +18,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  //! MIX AVAILABLE AVATARS AND ASSIGN ONEOF THEM
-  const avatar = "https://vivolabs.es/wp-content/uploads/2022/03/perfil-mujer-vivo.png"
+  const avatar = getRandomAvatar()
 
   try {
     const user = new User({

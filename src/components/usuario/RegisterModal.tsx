@@ -54,6 +54,7 @@ const RegisterModal = ({}: TProps) => {
     const loginRes = await loginReq.json();
 
     if (!loginReq.ok) {
+      console.log(loginRes)
       toast.error(loginRes.message);
       return setError(loginRes.message);
     }

@@ -1,11 +1,19 @@
+import { IEvidence } from "@/utils/customTypes";
+import { useRouter } from "next/navigation";
 import React, { useRef } from "react";
 
-const EvidenceSubmitedModal = () => {
+type TProps = {
+  evidence: IEvidence;
+}
+
+const EvidenceSubmitedModal = ({ evidence }: TProps) => {
   const modalWrapperRef = useRef<HTMLDivElement>(null);
+  const router = useRouter()
 
   function closeModal() {
     if (modalWrapperRef.current) {
       modalWrapperRef.current.style.display = "none";
+      router.push(`/usuario/evidencias/${evidence._id}`)
     }
   }
 
