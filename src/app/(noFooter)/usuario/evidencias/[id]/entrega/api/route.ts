@@ -30,31 +30,25 @@ export async function PUT(req: NextRequest, context: { params: any }) {
         // Validate if there is a submission yet
         if (submission) {
             // Modify the current submission
-            console.log("modifying current submission")
-
             //? Construct the submission object
             const newSubmission = {
                 content: body, //answer and link
-                lastUpdatedAt: Date.now(),
+                lastUpdatedAt: new Date(),
                 state: 1,
             }
 
             //? In this point the middleware has validated the admin key
-            updatedEvidence = await Evidence.findOneAndUpdate({ "submissions.author": uid }, { "$set": { "submissions.$.content": body, "submissions.$.lastUpdatedAt": Date.now(), "submissions.$.state": 1 } }, { new: true })
-
-            console.log(updatedEvidence)
+            updatedEvidence = await Evidence.findOneAndUpdate({ "submissions.author": uid }, { "$set": { "submissions.$.content": body, "submissions.$.lastUpdatedAt": new Date(), "submissions.$.state": 1 } }, { new: true })
 
         } else {
             // Is a new submission
-            console.log("new submission")
-
             //? Construct the submission object
             const newSubmission = {
                 content: body, //answer and link
                 author: uid,
-                lastUpdatedAt: Date.now(),
+                lastUpdatedAt: new Date(),
                 state: 1,
-                submitedAt: Date.now()
+                submitedAt: new Date()
             }
 
             //? In this point the middleware has validated the admin key

@@ -11,8 +11,6 @@ export async function GET(req: NextRequest) {
   await mongodbConnect();
   const { headers } = req;
 
-  //! CREATE A METHOD TO VALIDATE THE USER ON THE API ROUTE BECAUSE THE EDGE RUNTIME OF THE MIDDLEWARE DOESN'T CURRENTLY SUPPORT JWT AND MONGOOSE.
-
   try {
     const uid = validateUserToken(headers)
 
@@ -59,16 +57,11 @@ export async function PUT(req: NextRequest) {
   await mongodbConnect();
   const { headers } = req;
   const body = await req.json()
-  const token = headers.get("Authorization")?.substring(7) as string;
 
   try {
-    // verify token signature
-    const tokenPayload = jwt.verify(
-      token,
-      process.env.APP_SECRET as string,
-    ) as jwt.JwtPayload;
+    const uid = validateUserToken(headers)
 
-    const user = await User.findByIdAndUpdate(tokenPayload._id, body, { new: true });
+    const user = await User.findByIdAndUpdate(uid, body, { new: true });
 
     return NextResponse.json<ICustomResponse>(
       {
@@ -79,7 +72,6 @@ export async function PUT(req: NextRequest) {
       { status: 200 },
     );
   } catch (error) {
-    console.log(error)
     return NextResponse.json(
       { status: "error", message: getCustomError(error).message },
       { status: 400 },

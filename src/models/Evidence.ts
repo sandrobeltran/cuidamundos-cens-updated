@@ -15,6 +15,7 @@ const evidenceSchema = new Schema({
     },
     comments: {
         type: Array<{
+            _id: number
             author: String,
             content: String,
         }>,

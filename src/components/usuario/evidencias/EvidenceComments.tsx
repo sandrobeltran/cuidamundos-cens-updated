@@ -1,15 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../../Button";
 import TextArea from "../../form/TextArea";
 import { Form, Formik, FormikState } from "formik";
 import { IComment } from "@/utils/customTypes";
 import { postCommentValdationSchema } from "@/utils/validations";
+import { useParams } from "next/navigation";
+import Image from "next/image";
+import CommentCard from "./CommentCard";
+import useFetchAuthorData from "@/hooks/useFetchAuthorData";
+import { useAuthorsStore } from "@/store/useAuthorsStore";
 
 type TProps = {
   comments: IComment[];
 };
 
 const EvidenceComments = ({ comments }: TProps) => {
+  const { id: evidenceId } = useParams()
+  const [currentComments, setCurrentComments] = useState<IComment[]>(comments)
+  const authorsStore = useAuthorsStore()
+  // ? Array to pass to the server
+  let newAuthorsId: string[] = []
+
+  // ? Delete repeating elements
+  currentComments.forEach(e => !newAuthorsId.includes(e.author) ? newAuthorsId.push(e.author) : null)
+
+  // ? Delete existing elements
+  newAuthorsId = newAuthorsId.filter(e => !authorsStore.authors.map(e => e._id).includes(e))
+
+  const authors = useFetchAuthorData({ authorsId: newAuthorsId })
+
   type TInitialValues = {
     content: string;
   };
@@ -24,16 +43,36 @@ const EvidenceComments = ({ comments }: TProps) => {
       nextState?: Partial<FormikState<TInitialValues>> | undefined,
     ) => void,
   ) {
-    console.log(values);
+    const token = localStorage.getItem("session-token");
+
+    const req = await fetch(`/usuario/evidencias/${evidenceId}/api/comentarios`, {
+      method: "PUT",
+      headers: {
+        "api-key": process.env.NEXT_PUBLIC_API_KEY as string,
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(values),
+    })
+    const res = await req.json()
+
+    setCurrentComments(res.data)
 
     reset();
   }
+
+  async function deleteComment(commentId: number) {
+
+  }
+
+  useEffect(() => {
+
+  }, [])
 
   return (
     <div className="flex w-full flex-col items-start justify-start gap-12">
       {/* NEW COMMENT */}
       <div className="flex w-full flex-col items-start justify-start gap-4">
-        <h4 className="text-lg font-medium text-cens-brand">Comentarios ({comments.length})</h4>
+        <h4 className="text-lg font-medium text-cens-brand">Comentarios ({currentComments.length})</h4>
         <Formik
           initialValues={initialValues}
           onSubmit={(values, { resetForm }) => handleSubmit(values, resetForm)}
@@ -54,19 +93,9 @@ const EvidenceComments = ({ comments }: TProps) => {
 
       {/* COMMENTS LIST */}
       <div className="flex w-full flex-col items-center justify-center gap-5">
-        {comments.length ? (
-          comments.map((comment, index) => (
-            <div
-              key={index}
-              className="flex h-full w-full items-start justify-start gap-4 border-b border-b-stone-300 p-2 pb-6"
-            >
-              <div className="aspect-square min-w-[120px] rounded-full bg-red-300"></div>
-              <div className="w-full rounded-lg border-2 border-stone-300 px-4 py-3">
-                Excelente trabajo.
-                <br />
-                Recuerda siempre tener en cuenta toda la información necesaria.
-              </div>
-            </div>
+        {currentComments.length && authorsStore.authors.length ? (
+          currentComments.map((comment) => (
+            <CommentCard comment={comment} key={comment._id} author={authorsStore.authors.find(e => e._id === comment.author)} />
           ))
         ) : (
           <div className="text-center font-normal text-stone-500">

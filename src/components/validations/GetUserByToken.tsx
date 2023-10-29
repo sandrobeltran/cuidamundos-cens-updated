@@ -24,8 +24,11 @@ const GetUserByToken = () => {
 
       if (!fetchUserReq.ok) {
         if (fetchUserRes.message === "jwt expired") {
-          localStorage.removeItem("session-tolken");
+          localStorage.removeItem("session-token");
         }
+
+        console.log(fetchUserRes)
+
         return setError(fetchUserRes.message);
       }
 
@@ -36,8 +39,10 @@ const GetUserByToken = () => {
   );
 
   useEffect(() => {
-    if (typeof window !== "undefined" && !user) {
+    if (typeof window !== "undefined" && typeof document !== "undefined" && !user) {
       const token = localStorage.getItem("session-token");
+
+      console.log(token)
 
       if (token) {
         console.log("Token found!");

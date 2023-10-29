@@ -22,8 +22,9 @@ const limiter = rateLimit({
 // This function can be marked `async` if using `await` inside
 export default async function middleware(req: NextRequest, res: NextApiResponse) {
 
+  console.log("calling...")
   // API RATE LIMITER, DON'T DELETE
-  await limiter.check(res, 15, 'CACHE_TOKEN') // 15 requests per a half minute
+  await limiter.check(res, 1000, 'CACHE_TOKEN') // 15 requests per a half minute
 
 
   const headers = new Headers(req.headers);
@@ -35,7 +36,6 @@ export default async function middleware(req: NextRequest, res: NextApiResponse)
 
   if (req.nextUrl.pathname.includes("/admin")) {
     if (apiKey !== process.env.ADMIN_API_KEY) {
-      console.log(process.env.ADMIN_API_KEY)
       return NextResponse.json<ICustomResponse>(
         {
           status: "error",
@@ -47,7 +47,6 @@ export default async function middleware(req: NextRequest, res: NextApiResponse)
   } else {
     // ? Normal api-key validation
 
-    console.log(apiKey === process.env.API_KEY)
     if (apiKey !== process.env.API_KEY) {
       return NextResponse.json<ICustomResponse>(
         {

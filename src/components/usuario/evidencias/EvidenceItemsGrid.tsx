@@ -1,6 +1,6 @@
 import { useUserStore } from "@/store/useUserStore";
 import { IEvidence } from "@/utils/customTypes";
-import dateToString from "@/utils/dateToString";
+import dateToString, { getRemainingTime } from "@/utils/dateToString";
 import React from "react";
 
 type TProps = {
@@ -20,8 +20,6 @@ const EvidenceItemsGrid = ({ evidence }: TProps) => {
     0: "Sin enviar",
     1: "Enviado",
   };
-
-  console.log(submission);
 
   return (
     <div className="grid w-full grid-cols-2 grid-rows-2 justify-between gap-4">
@@ -63,7 +61,7 @@ const EvidenceItemsGrid = ({ evidence }: TProps) => {
             Tiempo restante
           </div>
           <div className="-ml-2 w-2/3 rounded-lg bg-white/80 px-8 py-4 text-stone-500 backdrop-blur-sm">
-            00-00-00s
+            {getRemainingTime(evidence.deadline)}
           </div>
         </div>
       </div>

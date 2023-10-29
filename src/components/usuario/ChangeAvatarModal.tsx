@@ -55,6 +55,7 @@ const ChangeAvatarModal = ({ }: TProps) => {
       return toast.error(updateUserResponse.message);
     }
 
+
     setUser(updateUserResponse.data);
     setLoading(false);
     toast.success("Avatar actualizado con éxito.");
