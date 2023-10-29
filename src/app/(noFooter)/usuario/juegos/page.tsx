@@ -15,7 +15,7 @@ export default function Juegos() {
     <div className="flex w-full flex-col items-center gap-4">
       {/* GAMES GRID */}
       <div className="flex w-full flex-col items-center justify-center gap-5">
-        {games.map(game => <GameCard game={game} />)}
+        {games.map(game => <GameCard game={game} key={game._id} />)}
       </div>
     </div>
   );
