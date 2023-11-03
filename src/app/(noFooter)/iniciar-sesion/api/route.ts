@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
   await mongodbConnect();
   const body = (await req.json()) as TLoginUser;
 
-  if (!body.email || !body.password) {
+  if (!body.username || !body.password) {
     return NextResponse.json<ICustomResponse>(
       {
         status: "error",
@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
 
   try {
     // validate user
-    const user = await User.findOne({ email: body.email });
+    const user = await User.findOne({ username: body.username });
 
     if (!user) {
       return NextResponse.json<ICustomResponse>(

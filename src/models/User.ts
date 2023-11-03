@@ -27,43 +27,34 @@ const userSchema = new Schema(
       minLength: 2,
       maxLength: 40,
     },
-    email: {
+    username: {
       type: String,
       required: true,
+      unique: true
+    },
+    city: {
+      type: String,
       trim: true,
-      match: RegExp("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[A-Za-z]{2,4}"),
-      unique: true,
+      minLength: 2,
+      maxLength: 100,
+      required: true,
     },
     passwordHash: {
       type: String,
       required: true,
     },
-    birthdate: {
-      type: Date,
-    },
-    address: {
-      type: String,
-      trim: true,
-      min: 2,
-      max: 80,
-    },
-    phone: {
-      type: Number,
-      max: 9999999999
-    },
-    school: {
-      type: String,
-      min: 2,
-      max: 60,
-    },
     avatar: {
       type: String,
       required: true
     },
+    points: {
+      type: Number,
+      required: true
+    },
     bio: {
       type: String,
-      min: 2,
-      max: 280
+      min: 10,
+      max: 500,
     }
   },
   {

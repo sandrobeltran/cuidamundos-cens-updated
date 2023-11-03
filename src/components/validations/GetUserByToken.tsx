@@ -42,8 +42,6 @@ const GetUserByToken = () => {
     if (typeof window !== "undefined" && typeof document !== "undefined" && !user) {
       const token = localStorage.getItem("session-token");
 
-      console.log(token)
-
       if (token) {
         console.log("Token found!");
         handleGetUserByToken(token);

@@ -2,29 +2,67 @@ import { IGame } from "@/utils/customTypes";
 import Image from "next/image";
 import React from "react";
 import Button from "../Button";
+import { useUserStore } from "@/store/useUserStore";
+import { InformationCircleIcon } from "@heroicons/react/24/outline";
 
 type TProps = {
-  game: IGame
-}
+  game: IGame;
+};
 
 const GameCard = ({ game }: TProps) => {
+  const user = useUserStore((state) => state.user);
+
+  const isWinner = game.winners.includes(user!._id);
+
   return (
-    <div className="rounded-3xl pl-16 relative flex items-start h-fit w-full gap-6 text-stone-500 bg-white/80 px-8 py-8 backdrop-blur-sm overflow-hidden">
+    <div
+      className="relative flex h-fit w-full items-start gap-6 overflow-hidden rounded-3xl bg-white/80 px-8 py-8 pl-16 text-stone-500 backdrop-blur-sm"
+      style={{
+        backgroundColor: game.active ? "#fffc" : "#78716ccc",
+        color: game.active ? "#78716c" : "#fff",
+      }}
+    >
       <span
         className="absolute left-0 top-0 h-full w-8 bg-stone-500"
         style={{
-          backgroundColor: game.active ? "#39A935" : "#78716c",
+          backgroundColor: game.active
+            ? isWinner
+              ? "#39A935"
+              : "#78716c"
+            : "#78716c",
         }}
       ></span>
-      <div className="h-full flex items-center bg-white relative"><Image width={230} height={150} className="shadow-lg rounded-3xl h-48 aspect-video object-cover" src={game.cover} alt={`Juego ${game.title} CENS Portada`} /></div>
-      <div className="flex flex-1 h-full flex-col items-start justify-between gap-4 pt-4">
-        <h6 className="underline text-2xl text-cens-medium font-medium">{game.title}</h6>
-        <p className="font-normal pl-4">
-          {game.description}
-        </p>
+      <div className="relative flex h-full items-center">
+        <Image
+          width={230}
+          height={150}
+          className="aspect-video h-48 rounded-3xl object-cover shadow-lg"
+          src={game.cover}
+          alt={`Juego ${game.title} CENS Portada`}
+        />
+      </div>
+      <div className="flex h-full flex-1 flex-col items-start justify-between gap-4 pt-4">
+        <h6
+          className="text-2xl font-medium underline"
+          style={{ color: game.active ? "#39A935" : "#fff" }}
+        >
+          {game.title}
+        </h6>
+        <p className="pl-4 font-normal">{game.description}</p>
         <div className="flex w-full justify-end">
           <div>
-            <Button size="md" hierarchy="primary" href={game.href} >Jugar</Button>
+            {game.active ? (
+              <Button size="md" hierarchy="primary" href={game.href}>
+                Jugar
+              </Button>
+            ) : (
+              <div className="mt-4 flex items-center gap-1 opacity-75">
+                <InformationCircleIcon className="h-4" />
+                <p className="text-sm font-medium text-stone-400">
+                  Aún no disponible...
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>

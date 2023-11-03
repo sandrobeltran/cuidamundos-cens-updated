@@ -1,6 +1,6 @@
 "use client";
 
-import { PencilIcon } from "@heroicons/react/24/outline";
+import { PencilIcon, StarIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import React from "react";
 import Button from "../Button";
@@ -37,9 +37,17 @@ const PanelMainInfo = () => {
               </div>
             </button>
           </div>
+          <div className="flex flex-col">
+
           <h6 className="text-3xl font-bold text-cens-brand">
-            {user?.name} {user?.lastname}
+            {user?.username}
           </h6>
+          <div className="font-semibold flex items-center justify-start gap-1">
+            Puntos disponibles:
+            <StarIcon color="#ffb800" className="h-7" />
+            <p className="text-xl font-semibold">{user?.points}</p>
+          </div>
+          </div>
         </div>
         <div>
           <Button

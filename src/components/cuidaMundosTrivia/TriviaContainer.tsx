@@ -25,58 +25,43 @@ import TriviaQuestion from "./TriviaQuestion";
 import TriviaHeader from "./TriviaHeader";
 import ResultsSection from "./ResultsSection";
 import GuestUser from "../juega/GuestUser";
+import { IGame, ITrivia } from "@/utils/customTypes";
+import SpinLoader from "../SpinLoader";
 
 type TProps = {
-  questions: TTriviaQuestion[];
+  trivia: ITrivia | undefined;
 };
 
-const TriviaContainer = ({ questions }: TProps) => {
+const TriviaContainer = ({ trivia }: TProps) => {
   const user = useUserStore((state) => state.user);
 
-  const {
-    currentPage,
-    initializeTrivia,
-    addResult,
-    nextPage,
-    setShowResults,
-    resetTrivia,
-  } = useCuidaMundosTrivia((state) => state);
-  const [currentQuestion, setCurrentQuestion] = useState(
-    questions[currentPage],
-  );
-
-  /* function handleNextPage(option: string) {
-    if (currentPage < questions.length - 1) {
-      const correct = currentQuestion.answer === option;
-      addResult({ question: currentQuestion, selection: option, correct });
-      nextPage();
-    } else {
-      setShowResults(true);
-    }
-  } */
+  const { initializeTrivia, hasWon } = useCuidaMundosTrivia((state) => state);
 
   useEffect(() => {
-    initializeTrivia(questions);
-  }, [initializeTrivia, questions]);
-
-  /* useEffect(() => {
-    setCurrentQuestion(questions[currentPage]);
-  }, [currentPage, questions]); */
-
+    if (trivia) {
+      initializeTrivia(
+        trivia.data.questions,
+        trivia.winners.includes(user?._id as string),
+      );
+    }
+  }, [initializeTrivia, trivia, user]);
 
   return (
     <div className="relative overflow-hidden rounded-3xl border border-stone-300 bg-white/50 shadow-md">
-      <TriviaHeader />
+      {!trivia ? <SpinLoader /> : null}
+      {trivia ? <TriviaHeader time={trivia.data.timeLimit} /> : null}
       {!user ? <GuestUser /> : null}
       <Swiper allowTouchMove={false}>
         <SwiperSlide>
           <MainScreen />
         </SwiperSlide>
-        {questions.map((question, index) => (
-          <SwiperSlide key={question.id}>
-            <TriviaQuestion question={question} index={index} />
-          </SwiperSlide>
-        ))}
+        {trivia
+          ? trivia.data.questions.map((question, index) => (
+              <SwiperSlide key={question.id}>
+                <TriviaQuestion question={question} index={index} />
+              </SwiperSlide>
+            ))
+          : null}
         <SwiperSlide>
           <ResultsSection />
         </SwiperSlide>

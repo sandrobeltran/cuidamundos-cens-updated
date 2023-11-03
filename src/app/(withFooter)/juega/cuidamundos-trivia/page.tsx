@@ -11,9 +11,15 @@ import { useCuidaMundosTrivia } from "@/store/useCuidaMundosTrivia";
 import { cuidaMundosQuestions } from "@/trivias/cuidaMundosQuestions";
 import { useState } from "react";
 import LogoCuidaMundos from "../../../../../public/img/logo_cuidamundos.png";
+import { useGamesStore } from "@/store/useGamesStore";
+import { usePathname } from "next/navigation";
+import { ITrivia } from "@/utils/customTypes";
 
 export default function CuidaMundosTrivia() {
-  const showResults = useCuidaMundosTrivia((state) => state.showResults);
+  const { games } = useGamesStore();
+  const pathname = usePathname();
+
+  const game = games.find((game) => game.href === pathname) as ITrivia;
 
   return (
     <CustomMain>
@@ -28,7 +34,7 @@ export default function CuidaMundosTrivia() {
       />
       <PaddingWrapper>
         <CustomSection>
-          <TriviaContainer questions={cuidaMundosQuestions} />
+          <TriviaContainer trivia={game} />
         </CustomSection>
       </PaddingWrapper>
     </CustomMain>

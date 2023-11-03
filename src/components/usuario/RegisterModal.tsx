@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Formik } from "formik";
 import React, { Dispatch, SetStateAction, useRef } from "react";
@@ -10,22 +10,25 @@ import { useRouter } from "next/navigation";
 import { useUserStore } from "@/store/useUserStore";
 import { toast } from "react-toastify";
 import { signUpValidationSchema } from "@/utils/validations";
+import { string } from "yup";
 
 type TProps = {};
 type TInitialValues = {
   name: string;
   lastname: string;
-  email: string;
+  username: string;
   passwordHash: string;
   confirmPassword: string;
+  city: string;
 };
 
 const initialValues: TInitialValues = {
   name: "",
   lastname: "",
-  email: "",
+  username: "",
   passwordHash: "",
   confirmPassword: "",
+  city: "",
 };
 const RegisterModal = ({}: TProps) => {
   const { setUser, user, setLoading, setError } = useUserStore(
@@ -54,7 +57,7 @@ const RegisterModal = ({}: TProps) => {
     const loginRes = await loginReq.json();
 
     if (!loginReq.ok) {
-      console.log(loginRes)
+      console.log(loginRes);
       toast.error(loginRes.message);
       return setError(loginRes.message);
     }
@@ -113,7 +116,8 @@ const RegisterModal = ({}: TProps) => {
             </h4>
             <TextField name="name" placeholder="Nombres" />
             <TextField name="lastname" placeholder="Apellidos" />
-            <TextField name="email" type="email" placeholder="Correo" />
+            <TextField name="username" type="text" placeholder="Usuario" />
+            <TextField name="city" type="text" placeholder="Ciudad" />
             <TextField name="passwordHash" placeholder="Contraseña" password />
             <TextField
               name="confirmPassword"
@@ -125,7 +129,7 @@ const RegisterModal = ({}: TProps) => {
                 Registrarse
               </Button>
             </div>
-            <div className="w-full mt-1 flex items-center justify-between text-sm">
+            <div className="mt-1 flex w-full items-center justify-between text-sm">
               <p className="text-stone-400">¿Ya tienes una cuenta?</p>
               <button
                 type="button"

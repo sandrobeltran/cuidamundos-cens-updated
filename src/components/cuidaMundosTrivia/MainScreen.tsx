@@ -11,7 +11,7 @@ import HandImage from "../../../public/img/hand.png";
 const MainScreen = () => {
   const { user } = useUserStore();
   const [lightState, setLightState] = useState<boolean>(false);
-  const { setPlaying } = useCuidaMundosTrivia();
+  const { setStage } = useCuidaMundosTrivia();
   const swiper = useSwiper();
 
   return (
@@ -55,7 +55,7 @@ const MainScreen = () => {
           size="md"
           onClick={() => {
             if (lightState) {
-              setPlaying(true);
+              setStage(1);
               swiper.slideNext();
             }
             setLightState(true);

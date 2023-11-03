@@ -6,6 +6,7 @@ import Script from "next/script";
 import GetUserByToken from "@/components/validations/GetUserByToken";
 import Header from "@/components/header/Header";
 import LeavesFalling from "@/components/LeavesFalling";
+import LoadGames from "@/components/juega/LoadGames";
 
 const ubuntu = Ubuntu({
   weight: ["300", "400", "500"],
@@ -27,6 +28,7 @@ export default function RootLayout({
       <head></head>
       <body className={ubuntu.className}>
         <LeavesFalling />
+        <LoadGames />
         <GetUserByToken />
         <Header />
         {children}

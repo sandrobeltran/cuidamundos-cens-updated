@@ -14,16 +14,13 @@ import { ToastContainer } from "react-toastify";
 import SkyBackgroundImage from "../../../../public/img/hero_sky.jpg";
 import { useUserStore } from "@/store/useUserStore";
 import Button from "@/components/Button";
+import SpinLoader from "@/components/SpinLoader";
 
 const UserLayout = ({ children }: { children: React.ReactNode }) => {
   const { user, loading } = useUserStore();
 
   if (loading) {
-    return (
-      <div className="fixed left-0 top-0 z-50 grid h-full w-full place-content-center bg-white">
-        <div className="h-16 w-16 animate-spin rounded-full border-[7px] border-stone-200 border-t-cens-brand" />
-      </div>
-    );
+    return <SpinLoader />;
   }
 
   /* NO USER */
@@ -84,7 +81,7 @@ const UserLayout = ({ children }: { children: React.ReactNode }) => {
       <ChangeAvatarModal />
       <PaddingWrapper>
         <CustomSection>
-          <div className="relative z-10 flex w-full flex-col items-center gap-8 text-stone-500 pb-12">
+          <div className="relative z-10 flex w-full flex-col items-center gap-8 pb-12 text-stone-500">
             <PanelMainInfo />
             {children}
           </div>

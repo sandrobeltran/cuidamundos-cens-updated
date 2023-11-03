@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
 const UserRequired = () => {
-  const router = useRouter();
   const { error, loading, user } = useUserStore((state) => state);
 
   useEffect(() => {
@@ -15,7 +14,7 @@ const UserRequired = () => {
         document.getElementById("loginModalWrapper")!.style.display = "flex";
       }
     }
-  }, [error, loading, router, user]);
+  }, [error, loading, user]);
 
   return <></>;
 };

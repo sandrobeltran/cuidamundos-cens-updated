@@ -18,14 +18,12 @@ export async function GET(req: NextRequest) {
       _id: 1,
       name: 1,
       lastname: 1,
-      email: 1,
+      city: 1,
+      username: 1,
       createdAt: 1,
-      birthdate: 1,
-      address: 1,
-      phone: 1,
-      school: 1,
       bio: 1,
-      avatar: 1
+      avatar: 1,
+      points: 1
     });
 
     if (!user) {

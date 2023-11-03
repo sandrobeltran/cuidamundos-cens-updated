@@ -17,7 +17,7 @@ const formatter = new Intl.NumberFormat("es-CO", {
 });
 
 const ResultsSection = () => {
-  const { results, questions } = useCuidaMundosTrivia();
+  const { results, questions, playing } = useCuidaMundosTrivia();
   const corrects = results.filter((e) => e.correct);
   const incorrects = results.filter((e) => !e.correct);
 
@@ -54,7 +54,7 @@ const ResultsSection = () => {
             {corrects.length} / {results.length}
           </p>
         </div>
-        {results.length === questions.length ? (
+        {results.length === questions.length && !playing ? (
           corrects.length >= minCorrects ? (
             <Congrats />
           ) : (

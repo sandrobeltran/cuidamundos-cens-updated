@@ -15,7 +15,13 @@ export default function Usuario() {
       {/* ABOUT ME CARD */}
       <div className="flex w-4/12 flex-col items-start gap-2 rounded-3xl bg-white/80 p-8 text-left backdrop-blur-sm">
         <h6 className="font-medium text-cens-medium">Sobre mí</h6>
-        <p>{user?.bio || "Cuéntanos un poco sobre ti. ¡Nos encantaría conocerte más!"}</p>
+        {user?.bio ? (
+          <p>{user.bio}</p>
+        ) : (
+          <button onClick={() => showEditModal()} className="text-left underline underline-offset-2">
+            Cuéntanos un poco sobre ti. ¡Nos encantaría conocerte más!
+          </button>
+        )}
       </div>
       {/* INFO CARD */}
       <div className="flex w-8/12 flex-col items-start gap-2 rounded-3xl bg-white/80 p-8 text-left backdrop-blur-sm">
@@ -30,50 +36,12 @@ export default function Usuario() {
               <td className="pl-7 text-stone-400">{user?.lastname}</td>
             </tr>
             <tr>
-              <td>Fecha de Nacimiento:</td>
-              <td className="pl-7 text-stone-400">
-                {user!.birthdate ? (
-                  dateToString(user!.birthdate)
-                ) : (
-                  <button className="underline" onClick={() => showEditModal()}>
-                    Agregar fecha
-                  </button>
-                )}
-              </td>
+              <td>Usuario:</td>
+              <td className="pl-7 text-stone-400">{user?.username}</td>
             </tr>
             <tr>
-              <td>Correo Electrónico:</td>
-              <td className="pl-7 text-stone-400">{user?.email}</td>
-            </tr>
-            <tr>
-              <td>Dirección:</td>
-              <td className="pl-7 text-stone-400">
-                {user!.address || (
-                  <button className="underline" onClick={() => showEditModal()}>
-                    Agregar dirección
-                  </button>
-                )}
-              </td>
-            </tr>
-            <tr>
-              <td>Celular:</td>
-              <td className="pl-7 text-stone-400">
-                {user!.phone || (
-                  <button className="underline" onClick={() => showEditModal()}>
-                    Agregar teléfono
-                  </button>
-                )}
-              </td>
-            </tr>
-            <tr>
-              <td>Instituto:</td>
-              <td className="pl-7 text-stone-400">
-                {user!.school || (
-                  <button className="underline" onClick={() => showEditModal()}>
-                    Agregar instituto
-                  </button>
-                )}
-              </td>
+              <td>Ciudad:</td>
+              <td className="pl-7 text-stone-400">{user!.city}</td>
             </tr>
           </tbody>
         </table>

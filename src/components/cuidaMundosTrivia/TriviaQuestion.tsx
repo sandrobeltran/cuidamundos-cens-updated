@@ -13,7 +13,7 @@ type TProps = {
 const TriviaQuestion = ({ question, index }: TProps) => {
   const swiper = useSwiper();
 
-  const { addResult, questions, setPlaying } = useCuidaMundosTrivia();
+  const { addResult, questions, setPlaying, setStage } = useCuidaMundosTrivia();
 
   function mixOptions(options: string[]): string[] {
     const mixedOptions: string[] = [];
@@ -39,7 +39,7 @@ const TriviaQuestion = ({ question, index }: TProps) => {
     swiper.slideNext();
     if (index === questions.length - 1) {
       setPlaying(false);
-      console.log("uploading result...")
+      setStage(2);
     }
   }
 

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Formik } from "formik";
 import React, { Dispatch, SetStateAction, useRef } from "react";
@@ -19,10 +19,7 @@ type TProps = {};
 type TInitialValues = {
   name: string;
   lastname: string;
-  birthdate: string;
-  address: string;
-  phone: number | "";
-  school: string;
+  city: string;
   bio: string;
 };
 
@@ -34,10 +31,7 @@ const EditProfileModal = () => {
   const initialValues: TInitialValues = {
     name: user!.name || "",
     lastname: user!.lastname || "",
-    birthdate: user?.birthdate ? user!.birthdate.substring(0, 10) : "",
-    address: user!.address || "",
-    phone: user!.phone || "",
-    school: user!.school || "",
+    city: user!.city || "",
     bio: user!.bio || "",
   };
 
@@ -81,7 +75,7 @@ const EditProfileModal = () => {
 
   return (
     <div
-      className="modalWrapper hidden fixed left-0 top-0 z-50 h-full w-full items-center justify-center bg-black/60"
+      className="modalWrapper fixed left-0 top-0 z-50 hidden h-full w-full items-center justify-center bg-black/60"
       id="editProfileModalWrapper"
       onClick={handleClick}
       ref={modalWrapperRef}
@@ -91,9 +85,9 @@ const EditProfileModal = () => {
         <div className="flex w-full flex-col items-center gap-2 border-b-2 border-stone-200 pb-4 text-center">
           <button
             onClick={() =>
-            (document.getElementById(
-              "changeAvatarModalWrapper",
-            )!.style.display = "flex")
+              (document.getElementById(
+                "changeAvatarModalWrapper",
+              )!.style.display = "flex")
             }
             className="relative h-40 w-40 rounded-full border-4 border-white"
           >
@@ -108,7 +102,7 @@ const EditProfileModal = () => {
             </div>
           </button>
           <h6 className="text-3xl font-bold text-cens-brand">
-            {user?.name} {user?.lastname}
+            {user?.username}
           </h6>
         </div>
         {/* EDIT FORM */}
@@ -133,38 +127,17 @@ const EditProfileModal = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>Fecha de Nacimiento:</td>
+                  <td>Usuario:</td>
                   <td className="pl-7 text-stone-400">
-                    <DateField name="birthdate" />
+                    <div className="rounded-lg border-2  bg-stone-500/10 px-4 py-2 font-normal backdrop-blur-sm ">
+                      {user?.username}
+                    </div>
                   </td>
                 </tr>
                 <tr>
-                  <td>Dirección:</td>
+                  <td>Ciudad:</td>
                   <td className="pl-7 text-stone-400">
-                    <TextField
-                      name="address"
-                      placeholder="Calle *** Barrio ***"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Celular:</td>
-                  <td className="pl-7 text-stone-400">
-                    <TextField
-                      name="phone"
-                      type="number"
-                      max={9999999999}
-                      placeholder="XXX-XXX-XXXX"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Instituto:</td>
-                  <td className="pl-7 text-stone-400">
-                    <TextField
-                      name="school"
-                      placeholder="Nombre del instituto"
-                    />
+                    <TextField name="city" placeholder="" />
                   </td>
                 </tr>
               </tbody>

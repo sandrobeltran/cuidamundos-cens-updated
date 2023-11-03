@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Formik } from "formik";
 import React, { Dispatch, SetStateAction, useRef } from "react";
@@ -16,16 +16,16 @@ import Link from "next/link";
 type TProps = {};
 
 type TInitialValues = {
-  email: string;
+  username: string;
   password: string;
 };
 
 const initialValues: TInitialValues = {
-  email: "",
+  username: "",
   password: "",
 };
 
-const LoginModal = ({ }: TProps) => {
+const LoginModal = ({}: TProps) => {
   const { setUser, user, setLoading, setError } = useUserStore(
     (state) => state,
   );
@@ -41,10 +41,10 @@ const LoginModal = ({ }: TProps) => {
   async function handleSubmit(values: TInitialValues) {
     setLoading(true);
 
-    console.log(process.env.NEXT_PUBLIC_API_KEY as string)
+    console.log(process.env.NEXT_PUBLIC_API_KEY as string);
 
     // Login user and get the token
-    const signUpReq = await fetch("/iniciar-sesion/api", {
+    const loginReq = await fetch("/iniciar-sesion/api", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,11 +52,11 @@ const LoginModal = ({ }: TProps) => {
       },
       body: JSON.stringify(values),
     });
-    const signUpRes = await signUpReq.json();
+    const loginRes = await loginReq.json();
 
-    if (!signUpReq.ok) {
-      toast.error(signUpRes.message);
-      return setError(signUpRes.message);
+    if (!loginReq.ok) {
+      toast.error(loginRes.message);
+      return setError(loginRes.message);
     }
 
     // Fetch user data
@@ -64,7 +64,7 @@ const LoginModal = ({ }: TProps) => {
       method: "GET",
       headers: {
         "api-key": process.env.NEXT_PUBLIC_API_KEY as string,
-        Authorization: `Bearer ${signUpRes.data.token}`,
+        Authorization: `Bearer ${loginRes.data.token}`,
       },
     });
     const fetchUserRes = await fetchUserReq.json();
@@ -75,11 +75,12 @@ const LoginModal = ({ }: TProps) => {
     }
 
     // Set a cookie with the JWT token after a successful login
-    localStorage.setItem("session-token", signUpRes.data.token);
+    localStorage.setItem("session-token", loginRes.data.token);
 
     setUser(fetchUserRes.data);
     toast.success(
-      `Bienvenid@, ${fetchUserRes.data.name.split(" ")[0]} ${fetchUserRes.data.lastname.split(" ")[0]
+      `Bienvenid@, ${fetchUserRes.data.name.split(" ")[0]} ${
+        fetchUserRes.data.lastname.split(" ")[0]
       }`,
     );
     modalWrapperRef.current!.style.display = "none";
@@ -110,9 +111,9 @@ const LoginModal = ({ }: TProps) => {
                 htmlFor="emailField"
                 className="mb-1 inline-block text-left font-semibold text-cens-brand"
               >
-                Correo
+                Usuario
               </label>
-              <TextField type="email" name="email" placeholder="Correo" />
+              <TextField type="text" name="username" placeholder="Usuario" />
             </div>
             <div>
               <label
@@ -132,7 +133,7 @@ const LoginModal = ({ }: TProps) => {
                 Inicia sesión
               </Button>
             </div>
-            <div className="w-full mt-1 flex items-center justify-between text-sm">
+            <div className="mt-1 flex w-full items-center justify-between text-sm">
               <p className="text-stone-400">¿Es tu primera vez?</p>
               <button
                 type="button"

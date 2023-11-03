@@ -3,7 +3,7 @@ import { model, models, Schema } from "mongoose"
 const gameSchema = new Schema({
     title: {
         type: String,
-        required: true
+        required: true,
     },
     type: {
         type: String,
@@ -15,7 +15,8 @@ const gameSchema = new Schema({
     },
     href: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     data: {
         type: {
@@ -36,6 +37,14 @@ const gameSchema = new Schema({
     },
     active: {
         type: Boolean,
+        required: true
+    },
+    points: {
+        type: Number,
+        required: true,
+    },
+    winners: {
+        type: Array<String>,
         required: true
     }
 }, {

@@ -1,26 +1,25 @@
 export type TSignupUser = {
   name: string;
   lastname: string;
-  email: string;
+  username: string;
+  city: string,
   passwordHash: string;
 };
 
 export type TLoginUser = {
-  email: string;
+  username: string;
   password: string;
 };
 
 export type TUserData = {
   _id: string
   name: string,
+  username: string,
   lastname: string,
-  birthdate: string,
-  email: string,
-  address: string,
-  phone: number,
-  school: string,
-  bio: string,
-  avatar: string
+  city: string
+  avatar: string,
+  points: number
+  bio: string
 };
 
 export interface IUserCertificate {
@@ -65,12 +64,17 @@ export interface IGame {
   description: string,
   type: "trivia",
   href: string
+  cover: string,
+  active: boolean,
+  points: number
+  winners: string[]
+}
+
+export interface ITrivia extends IGame {
   data: {
     questions: ITriviaQuestion[],
     timeLimit: number
   },
-  cover: string,
-  active: boolean
 }
 
 export interface ITriviaQuestion {

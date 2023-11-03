@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
   await mongodbConnect();
   const body = (await req.json()) as TSignupUser;
 
-  if (!body.email || !body.name || !body.passwordHash || !body.lastname) {
+  if (!body.name || !body.username || !body.city || !body.passwordHash || !body.lastname) {
     return NextResponse.json<ICustomResponse>(
       { status: "error", message: "La solicitud contiene datos incorrectos o está incompleta." },
       { status: 400 },
@@ -23,7 +23,8 @@ export async function POST(req: NextRequest) {
   try {
     const user = new User({
       ...body,
-      avatar
+      avatar,
+      points: 0
     });
 
     await user.save();
