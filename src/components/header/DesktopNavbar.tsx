@@ -60,7 +60,7 @@ const DesktopNavbar = () => {
                   <h4 className="text-lg leading-tight">
                     {user.name.split(" ")[0]} {user.lastname.split(" ")[0]}
                   </h4>
-                  <p className="text-sm leading-tight">{user.email}</p>
+                  <p className="text-sm leading-tight">{user.username}</p>
                 </div>
                 <ChevronDownIcon className="h-6" />
               </div>
