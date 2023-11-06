@@ -9,7 +9,7 @@ export default function Certificados() {
   const { games } = useGamesStore();
   const user = useUserStore((state) => state.user);
 
-  if (!games.length) {
+  if (!games) {
     return <p>Loading...</p>;
   }
 
@@ -19,23 +19,22 @@ export default function Certificados() {
     <div className="flex w-full flex-col items-center gap-4">
       <h6 className="text-center text-2xl font-bold text-cens-brand">
         En total has logrado {winnedGames.length} Certificado
-        {winnedGames.length > 1 ? "s" : ""} <br />{" "}
+        {winnedGames.length > 1 || winnedGames.length === 0 ? "s" : ""} <br />{" "}
         <span className="text-white">¡Felicidades!</span>
       </h6>
       {/* CERTIFICATES GRID */}
-      <div className="grid w-full max-w-5xl grid-cols-[repeat(auto-fill,_300px)] grid-rows-1 justify-center gap-5">
-        {winnedGames.length ? (
-          winnedGames.map((game) => (
+      {winnedGames.length ? (
+        <div className="grid w-full max-w-5xl grid-cols-[repeat(auto-fill,_300px)] grid-rows-1 justify-center gap-5">
+          {winnedGames.map((game) => (
             <CertificateCard
               game={game}
               key={game._id}
               user={user as TUserData}
             />
-          ))
-        ) : (
-          <p>Completa un juego para obtener tu primer certificado</p>
-        )}
-      </div>
+          ))}
+        </div>) :
+        <p>Completa un juego para obtener tu primer certificado</p>
+      }
     </div>
   );
 }

@@ -1,10 +1,18 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Button from "../Button";
 import Image from "next/image";
 import { StarIcon } from "@heroicons/react/24/solid";
+import { useUserStore } from "@/store/useUserStore";
 
 const GuestUser = () => {
+  const user = useUserStore((state) => state.user);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (user) {
+      containerRef.current!.style.display = "none";
+    }
+  }, [user]);
 
   return (
     <div
@@ -25,12 +33,24 @@ const GuestUser = () => {
         </p>
         <div className="flex w-full justify-between gap-5">
           <div>
-            <Button hierarchy="secondary" size="lg">
+            <Button
+              hierarchy="secondary"
+              size="lg"
+              onClick={() => (containerRef.current!.style.display = "none")}
+            >
               Más tarde
             </Button>
           </div>
           <div>
-            <Button hierarchy="primary" size="lg">
+            <Button
+              hierarchy="primary"
+              size="lg"
+              onClick={() =>
+                (document.getElementById(
+                  "registerModalWrapper",
+                )!.style.display = "flex")
+              }
+            >
               Registrarse
             </Button>
           </div>

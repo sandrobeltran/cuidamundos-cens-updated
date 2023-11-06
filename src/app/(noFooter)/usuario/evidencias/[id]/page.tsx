@@ -2,6 +2,7 @@
 
 import Button from "@/components/Button";
 import CertificateCard from "@/components/usuario/CertificateCard";
+import CurrentEvidence from "@/components/usuario/evidencias/CurrentEvidence";
 import EvidenceCard from "@/components/usuario/evidencias/EvidenceCard";
 import EvidenceComments from "@/components/usuario/evidencias/EvidenceComments";
 import EvidenceItemsGrid from "@/components/usuario/evidencias/EvidenceItemsGrid";
@@ -29,6 +30,7 @@ export default function Evidencia() {
       <EvidenceCard evidence={evidence} />
       {/* EVIDENCE TIME ITEMS GRID */}
       <EvidenceItemsGrid evidence={evidence} />
+      {submission ? <CurrentEvidence submission={submission} /> : null}
       <Button
         hierarchy="primary"
         href={`/usuario/evidencias/${id}/entrega`}

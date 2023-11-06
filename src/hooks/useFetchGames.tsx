@@ -1,5 +1,6 @@
 "use client";
 
+import { useUserStore } from "@/store/useUserStore";
 import { IEvidence, IGame } from "@/utils/customTypes";
 import React, { useEffect, useState } from "react";
 
@@ -7,13 +8,13 @@ type TProps = {};
 
 const useFetchGames = () => {
     const [data, setData] = useState<IGame[] | null>(null);
+    const user = useUserStore(state => state.user)
 
-    async function handleFecthEvidences(token: string) {
+    async function handleFetchGames() {
         const req = await fetch("/usuario/juegos/api", {
             method: "GET",
             headers: {
                 "api-key": process.env.NEXT_PUBLIC_API_KEY as string,
-                Authorization: `Bearer ${token}`,
             },
         });
         const res = await req.json();
@@ -22,10 +23,8 @@ const useFetchGames = () => {
     }
 
     useEffect(() => {
-        const token = localStorage.getItem("session-token");
-
-        handleFecthEvidences(token as string);
-    }, []);
+        handleFetchGames();
+    }, [user]);
 
     return data;
 };

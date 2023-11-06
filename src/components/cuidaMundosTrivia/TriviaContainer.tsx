@@ -27,6 +27,7 @@ import ResultsSection from "./ResultsSection";
 import GuestUser from "../juega/GuestUser";
 import { IGame, ITrivia } from "@/utils/customTypes";
 import SpinLoader from "../SpinLoader";
+import TimeRunOutModal from "./TimeRunOutModal";
 
 type TProps = {
   trivia: ITrivia | undefined;
@@ -52,6 +53,7 @@ const TriviaContainer = ({ trivia }: TProps) => {
       {trivia ? <TriviaHeader time={trivia.data.timeLimit} /> : null}
       {!user ? <GuestUser /> : null}
       <Swiper allowTouchMove={false}>
+        {trivia ? <TimeRunOutModal /> : null}
         <SwiperSlide>
           <MainScreen />
         </SwiperSlide>

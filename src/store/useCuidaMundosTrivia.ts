@@ -12,19 +12,21 @@ type TCuidamundosTrivia = {
   currentPage: number;
   questionsAmount: number;
   showResults: boolean;
-  playing: boolean
+  playing: boolean;
   questions: TTriviaQuestion[];
-  stage: number, // Start | Playing | Finished,
-  hasWon: boolean,
-  setHasWon: (value: boolean) => void
+  stage: number; // Start | Playing | Finished,
+  hasWon: boolean;
+  lose: boolean;
+  setLose: () => void;
+  setHasWon: (value: boolean) => void;
   nextPage: () => void;
   prevPage: () => void;
-  setStage: (stage: number) => void,
+  setStage: (stage: number) => void;
   initializeTrivia: (questions: TTriviaQuestion[], hasWon: boolean) => void;
   addResult: (result: TResult) => void;
   setShowResults: (value: boolean) => void;
   resetTrivia: () => void;
-  setPlaying: (value: boolean) => void
+  setPlaying: (value: boolean) => void;
 };
 
 const initialState = {
@@ -36,19 +38,20 @@ const initialState = {
   playing: false,
   stage: 0,
   hasWon: false,
+  lose: false,
 };
 
 export const useCuidaMundosTrivia = create<TCuidamundosTrivia>((set) => ({
   ...initialState,
   nextPage: () => set((state) => ({ currentPage: state.currentPage + 1 })),
   prevPage: () => set((state) => ({ currentPage: state.currentPage - 1 })),
-  initializeTrivia: (questions, hasWon) => set(state => {
-
-    return ({
-      questions,
-      hasWon: state.hasWon ? state.hasWon : hasWon
-    })
-  }),
+  initializeTrivia: (questions, hasWon) =>
+    set((state) => {
+      return {
+        questions,
+        hasWon: state.hasWon ? state.hasWon : hasWon,
+      };
+    }),
   addResult: (result) =>
     set((state) => {
       const newResults = [...state.results];
@@ -61,7 +64,9 @@ export const useCuidaMundosTrivia = create<TCuidamundosTrivia>((set) => ({
     }),
   setStage: (stage) => set({ stage }),
   setHasWon: (value) => set({ hasWon: value }),
+  setLose: () => set({ lose: true }),
   setShowResults: (value) => set({ showResults: value }),
-  resetTrivia: () => set({ results: [], currentPage: 0, playing: false, stage: 0 }),
-  setPlaying: (value) => set({ playing: value })
+  resetTrivia: () =>
+    set({ results: [], currentPage: 0, playing: false, stage: 0, lose: false }),
+  setPlaying: (value) => set({ playing: value }),
 }));

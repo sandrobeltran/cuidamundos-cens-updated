@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import party from "party-js";
 import Link from "next/link";
 import Button from "../Button";
@@ -10,6 +10,9 @@ import { TTriviaQuestion } from "@/trivias/cuidaMundosQuestions";
 import Congrats from "./Congrats";
 import Retry from "./Retry";
 import CustomSection from "../layout/CustomSection";
+import { toast } from "react-toastify";
+import { useGamesStore } from "@/store/useGamesStore";
+import { usePathname } from "next/navigation";
 
 const formatter = new Intl.NumberFormat("es-CO", {
   style: "decimal",
@@ -17,24 +20,60 @@ const formatter = new Intl.NumberFormat("es-CO", {
 });
 
 const ResultsSection = () => {
-  const { results, questions, playing } = useCuidaMundosTrivia();
+  const { results, questions, stage, lose, setHasWon, hasWon } =
+    useCuidaMundosTrivia();
   const corrects = results.filter((e) => e.correct);
   const incorrects = results.filter((e) => !e.correct);
-
+  const user = useUserStore((state) => state.user);
+  const { games } = useGamesStore();
+  const pathname = usePathname();
+  const trivia = games.find((game) => game.href === pathname);
   const minCorrects = 1;
+
+  const handleUploadPoints = useCallback(async () => {
+    console.log("Trying to add points");
+    if (trivia?.winners.includes(user?._id as string) || hasWon) return;
+
+    const token = localStorage.getItem("session-token");
+
+    if (!token) return toast("Acción inválida");
+
+    const updateUserRequest = await fetch("/usuario/api/puntos", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "api-key": process.env.NEXT_PUBLIC_API_KEY as string,
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ points: trivia?.points, gameId: trivia?._id }),
+    });
+    const updateUserResponse = await updateUserRequest.json();
+
+    if (!updateUserRequest.ok) {
+      console.log(updateUserResponse);
+      return toast.error(updateUserResponse.message);
+    }
+
+    setHasWon(true);
+    console.log("Points added to user");
+  }, [trivia, user, hasWon, setHasWon]);
+
+  useEffect(() => {
+    if (
+      results.length === questions.length &&
+      stage === 2 &&
+      !lose &&
+      corrects.length > minCorrects &&
+      user
+    ) {
+      // user has won
+      handleUploadPoints();
+    }
+  }, [user]);
 
   return (
     <CustomSection>
       <div className="flex flex-col items-center gap-14 text-stone-500">
-        {/* <div className="grid grid-cols-2 gap-5">
-          <div className="rounded-xl border-2 border-cens-medium bg-cens-medium/30 px-5 py-3 font-semibold text-cens-medium">
-            Aciertos: {corrects.length}
-          </div>
-          <div className="rounded-xl border-2 border-red-500 bg-red-500/30 px-5 py-3 font-semibold text-red-500">
-            Errores: {incorrects.length}
-          </div>
-        </div> */}
-        {/* TITLE */}
         {/* PERCENT CIRLCE */}
         <div
           className="flex h-40 w-40 flex-col items-center justify-center gap-0 rounded-full border-[12px] p-5"
@@ -54,8 +93,8 @@ const ResultsSection = () => {
             {corrects.length} / {results.length}
           </p>
         </div>
-        {results.length === questions.length && !playing ? (
-          corrects.length >= minCorrects ? (
+        {results.length === questions.length && stage === 2 ? (
+          corrects.length >= minCorrects && !lose ? (
             <Congrats />
           ) : (
             <Retry />

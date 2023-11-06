@@ -9,6 +9,7 @@ import { useSwiper } from "swiper/react";
 import { toast } from "react-toastify";
 import { useGamesStore } from "@/store/useGamesStore";
 import { usePathname } from "next/navigation";
+import { BellAlertIcon } from "@heroicons/react/24/outline";
 
 const Congrats = () => {
   const partyRef = useRef<HTMLDivElement>(null);
@@ -26,48 +27,14 @@ const Congrats = () => {
   }
 
   useEffect(() => {
-    if (partyRef.current) {
+    if (partyRef.current && stage === 2) {
       console.log("Confetti!!");
       party.confetti(partyRef.current, {
         count: party.variation.range(30, 50),
         size: party.variation.range(1.3, 2.8),
       });
     }
-  }, []);
-
-  const handleUploadPoints = useCallback(async () => {
-    console.log("Trying to add points");
-    if (trivia?.winners.includes(user?._id as string) || hasWon) return;
-
-    const token = localStorage.getItem("session-token");
-
-    if (!token) return toast("Acción inválida");
-
-    const updateUserRequest = await fetch("/usuario/api/puntos", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "api-key": process.env.NEXT_PUBLIC_API_KEY as string,
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({ points: 25, gameId: trivia?._id }),
-    });
-    const updateUserResponse = await updateUserRequest.json();
-
-    if (!updateUserRequest.ok) {
-      console.log(updateUserResponse);
-      return toast.error(updateUserResponse.message);
-    }
-
-    setHasWon(true);
-    console.log("Points added to user");
-  }, [trivia, user, hasWon, setHasWon]);
-
-  useEffect(() => {
-    if (results.length === questions.length && stage !== 1) {
-      handleUploadPoints();
-    }
-  }, [stage, questions, results.length, handleUploadPoints]);
+  }, [stage]);
 
   function handleGenerateCertificate() {
     console.log(`Generating certificate for ${user?.name}...`);
@@ -87,31 +54,49 @@ const Congrats = () => {
           Has completado con éxito toda la trivia sobre riesgo eléctrico
         </p>
       </div>
-      <div className="flex w-full justify-center gap-6">
-        <div>
-          <Button href={"/usuario"} hierarchy="primary" size="lg">
-            Ir a mi perfil
-          </Button>
+      {user ? (
+        <div className="flex w-full justify-center gap-6">
+          <div>
+            <Button href={"/usuario"} hierarchy="primary" size="lg">
+              Ir a mi perfil
+            </Button>
+          </div>
+          <div>
+            <Button
+              hierarchy="primary"
+              size="lg"
+              onClick={() => handleResetTrivia()}
+            >
+              Volver a jugar
+            </Button>
+          </div>
+          <div>
+            <Button
+              hierarchy="primary"
+              size="lg"
+              onClick={handleGenerateCertificate}
+            >
+              Descargar certificado
+            </Button>
+          </div>
         </div>
-        <div>
-          <Button
-            hierarchy="primary"
-            size="lg"
-            onClick={() => handleResetTrivia()}
+      ) : (
+        <div className="flex w-full flex-col justify-center items-center gap-6">
+          <p className="flex gap-2 text-amber-500">
+            <BellAlertIcon className="h-6" /> Para guardar tu resultado, acceder
+            a tu certificado y acumular puntos en tu cuenta
+          </p>
+          <button
+            onClick={() =>
+              (document.getElementById("loginModalWrapper")!.style.display =
+                "flex")
+            }
+            className="rounded-xl border-2 border-amber-500 bg-amber-500/20 px-6 py-2 text-lg font-bold text-amber-500 underline"
           >
-            Volver a jugar
-          </Button>
+            Inicia sesión
+          </button>
         </div>
-        <div>
-          <Button
-            hierarchy="primary"
-            size="lg"
-            onClick={handleGenerateCertificate}
-          >
-            Descargar certificado
-          </Button>
-        </div>
-      </div>
+      )}
     </div>
   );
 };

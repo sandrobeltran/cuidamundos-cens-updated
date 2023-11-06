@@ -20,7 +20,7 @@ export default function CuidaMundosTrivia() {
   const pathname = usePathname();
 
   const game = games.find((game) => game.href === pathname) as ITrivia;
-
+  
   return (
     <CustomMain>
       <Hero

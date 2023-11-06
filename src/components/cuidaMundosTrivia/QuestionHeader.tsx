@@ -17,10 +17,7 @@ const QuestionHeader = ({ title, image }: TProps) => {
           className="rounded-3xl object-cover"
         />
       </div>
-      <h4 className="w-full text-xl font-medium">
-        {title} Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque,
-        fuga. Lorem ipsum dolor sit.
-      </h4>
+      <h4 className="w-full text-xl font-medium">{title}</h4>
     </div>
   );
 };
