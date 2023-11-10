@@ -46,7 +46,7 @@ const DesktopNavbar = () => {
       </div>
       {!loading ? (
         user ? (
-          <div className="relative group z-20 flex items-center gap-3">
+          <div className="group relative z-20 flex items-center gap-3">
             <Link href={"/usuario"}>
               <div className="flex items-center gap-2 text-white">
                 <Image
@@ -68,10 +68,7 @@ const DesktopNavbar = () => {
             <div className="absolute right-0 top-full z-50 hidden h-fit w-full flex-col items-stretch rounded-bl-lg rounded-br-lg bg-black/30 text-white shadow-lg  backdrop-blur-lg group-hover:flex ">
               <ul className="py-4">
                 <li className="w-full bg-cens-medium/0 font-medium transition-colors hover:bg-stone-900/60 hover:font-semibold">
-                  <Link
-                    href={"/usuario"}
-                    className="inline-block w-full px-3"
-                  >
+                  <Link href={"/usuario"} className="inline-block w-full px-3">
                     Información
                   </Link>
                 </li>
@@ -91,12 +88,20 @@ const DesktopNavbar = () => {
                     Juegos
                   </Link>
                 </li>
+                <li className="w-full bg-cens-medium/0 font-medium transition-colors hover:bg-stone-900/60 hover:font-semibold">
+                  <Link
+                    href={"/usuario/evidencias"}
+                    className="inline-block w-full px-3"
+                  >
+                    Evidencias
+                  </Link>
+                </li>
                 <div className="my-2 h-[1px] w-full bg-white"></div>
                 <li
                   onClick={() => handleLogOut()}
                   className="w-full bg-cens-medium/0 font-medium transition-colors hover:bg-stone-900/60 hover:font-semibold"
                 >
-                  <button className="text-left inline-block w-full px-3">
+                  <button className="inline-block w-full px-3 text-left">
                     Cerrar sesión
                   </button>
                 </li>

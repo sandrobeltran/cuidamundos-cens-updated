@@ -33,6 +33,8 @@ export interface IAuthor {
   avatar: string
 }
 
+/* EVIDENCES */
+
 export interface IEvidence {
   _id: string,
   title: string,
@@ -70,6 +72,8 @@ export interface IGame {
   winners: string[]
 }
 
+/* TRIVIAS */
+
 export interface ITrivia extends IGame {
   data: {
     questions: ITriviaQuestion[],
@@ -84,3 +88,27 @@ export interface ITriviaQuestion {
   answer: string;
   image: string;
 };
+
+
+
+/* TESTS */
+export interface ITest extends IGame {
+  data: {
+    questions: ITestQuestion[],
+    ranges: ITestRange[]
+  }
+}
+
+export interface ITestQuestion {
+  id: number,
+  title: string,
+  options: {
+    title: string,
+    value: number
+  }[],
+}
+
+export interface ITestRange {
+  minValue: number,
+  message: string
+}
