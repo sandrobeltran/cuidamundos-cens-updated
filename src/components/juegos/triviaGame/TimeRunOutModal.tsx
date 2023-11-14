@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import Button from "../Button";
+import Button from "../../Button";
 import Image from "next/image";
 import { StarIcon } from "@heroicons/react/24/solid";
 import { useUserStore } from "@/store/useUserStore";

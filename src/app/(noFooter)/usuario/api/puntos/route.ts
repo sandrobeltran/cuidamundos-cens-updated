@@ -7,29 +7,33 @@ import { validateUserToken } from "@/utils/validateUserToken";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function PUT(req: NextRequest) {
-    await mongodbConnect();
-    const { headers } = req;
-    const body = await req.json()
+  await mongodbConnect();
+  const { headers } = req;
+  const body = await req.json();
 
-    try {
-        const uid = validateUserToken(headers)
+  try {
+    const uid = validateUserToken(headers);
 
-        const user = await User.findByIdAndUpdate(uid, { $inc: { points: body.points } }, { new: true });
+    const user = await User.findByIdAndUpdate(
+      uid,
+      { $inc: { points: body.points } },
+      { new: true },
+    );
+    await Game.findByIdAndUpdate(body.gameId, { $push: { winners: uid } });
+    console.log(body.gameId);
 
-        await Game.findByIdAndUpdate(body.gameId, { $push: { winners: uid } })
-
-        return NextResponse.json<ICustomResponse>(
-            {
-                status: "success",
-                message: "Usuario actualizado con éxito.",
-                data: user,
-            },
-            { status: 200 },
-        );
-    } catch (error) {
-        return NextResponse.json(
-            { status: "error", message: getCustomError(error).message },
-            { status: 400 },
-        );
-    }
+    return NextResponse.json<ICustomResponse>(
+      {
+        status: "success",
+        message: "Usuario actualizado con éxito.",
+        data: user,
+      },
+      { status: 200 },
+    );
+  } catch (error) {
+    return NextResponse.json(
+      { status: "error", message: getCustomError(error).message },
+      { status: 400 },
+    );
+  }
 }

@@ -19,13 +19,17 @@ export const navbarData: INavbarProps[] = [
     items: [
       {
         href: "/juega/cuidamundos-trivia",
-        title: "CuidaMundos"
-      }
-    ]
+        title: "CuidaMundos",
+      },
+      {
+        href: "/juega/huella-ecologica",
+        title: "Huella de Ecológica",
+      },
+    ],
   },
   {
     href: "/aprende",
-    title: "Aprende",
+    title: "Dalia",
     items: [
       {
         href: "/aprende/capitan",
@@ -40,15 +44,6 @@ export const navbarData: INavbarProps[] = [
         title: "Purita",
       },
     ],
-  },
-
-  {
-    href: "/blog",
-    title: "Blog",
-  },
-  {
-    href: "/nosotros",
-    title: "Acerca de Nosotros",
   },
   {
     href: "/contacto",

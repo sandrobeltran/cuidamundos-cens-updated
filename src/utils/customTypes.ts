@@ -2,7 +2,7 @@ export type TSignupUser = {
   name: string;
   lastname: string;
   username: string;
-  city: string,
+  city: string;
   passwordHash: string;
 };
 
@@ -12,73 +12,71 @@ export type TLoginUser = {
 };
 
 export type TUserData = {
-  _id: string
-  name: string,
-  username: string,
-  lastname: string,
-  city: string
-  avatar: string,
-  points: number
-  bio: string
+  _id: string;
+  name: string;
+  username: string;
+  lastname: string;
+  city: string;
+  avatar: string;
+  points: number;
+  bio: string;
 };
 
-export interface IUserCertificate {
-
-}
+export interface IUserCertificate {}
 
 export interface IAuthor {
-  _id: string
-  name: string,
-  lastname: string,
-  avatar: string
+  _id: string;
+  name: string;
+  lastname: string;
+  avatar: string;
 }
 
 /* EVIDENCES */
 
 export interface IEvidence {
-  _id: string,
-  title: string,
-  description: string,
-  active: boolean,
-  comments: IComment[],
-  submissions: ISubmission[],
-  deadline: string
+  _id: string;
+  title: string;
+  description: string;
+  active: boolean;
+  comments: IComment[];
+  submissions: ISubmission[];
+  deadline: string;
 }
 export interface IComment {
-  _id: number,
-  author: string,
-  content: string,
+  _id: number;
+  author: string;
+  content: string;
 }
 export interface ISubmission {
-  author: string,
-  state: number,
-  lastUpdatedAt: string,
-  submitedAt: string,
+  author: string;
+  state: number;
+  lastUpdatedAt: string;
+  submitedAt: string;
   content: {
-    answer: string,
-    link: string
-  }
+    answer: string;
+    link: string;
+  };
 }
 
 export interface IGame {
-  _id: string,
-  title: string,
-  description: string,
-  type: "trivia",
-  href: string
-  cover: string,
-  active: boolean,
-  points: number
-  winners: string[]
+  _id: string;
+  title: string;
+  description: string;
+  type: "trivia" | "test";
+  href: string;
+  cover: string;
+  active: boolean;
+  points: number;
+  winners: string[];
 }
 
 /* TRIVIAS */
 
 export interface ITrivia extends IGame {
   data: {
-    questions: ITriviaQuestion[],
-    timeLimit: number
-  },
+    questions: ITriviaQuestion[];
+    timeLimit: number;
+  };
 }
 
 export interface ITriviaQuestion {
@@ -87,28 +85,27 @@ export interface ITriviaQuestion {
   options: string[];
   answer: string;
   image: string;
-};
-
-
+}
 
 /* TESTS */
 export interface ITest extends IGame {
   data: {
-    questions: ITestQuestion[],
-    ranges: ITestRange[]
-  }
+    questions: ITestQuestion[];
+    ranges: ITestRange[];
+    maxMessage: string;
+  };
 }
 
 export interface ITestQuestion {
-  id: number,
-  title: string,
+  id: number;
+  title: string;
   options: {
-    title: string,
-    value: number
-  }[],
+    title: string;
+    value: number;
+  }[];
 }
 
 export interface ITestRange {
-  minValue: number,
-  message: string
+  limit: number;
+  message: string;
 }

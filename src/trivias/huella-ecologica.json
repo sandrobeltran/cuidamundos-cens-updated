@@ -1,0 +1,215 @@
+{
+  "title": "Huella Ecológica",
+  "description": "¿Puedes vencer el reloj y convertirte en un campeón de la eficiencia energética? ¡Demuestra tus habilidades y aprende a ahorrar energía mientras te diviertes!",
+  "active": true,
+  "cover": "https://ucarecdn.com/0a290a2a-beff-4113-902b-80fcfcd64572/-/preview/500x500/-/quality/smart/-/format/auto/",
+  "data": {
+    "questions": [
+      {
+        "id": 1,
+        "title": "¿Cuánta carne se consume en un mes?",
+        "options": [
+          { "title": "1 a 3kg", "value": 5 },
+          { "title": "3 a 5kg", "value": 15 },
+          { "title": "5 a 10kg", "value": 25 },
+          { "title": "No como carne, soy vegetariano", "value": 2 },
+          { "title": "Más de 10kg", "value": 40 }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "¿Con qué frecuencia se consumen huevos en un mes?",
+        "options": [
+          { "title": "Menos de 1 vez a la semana", "value": 5 },
+          { "title": "1 a 3 veces a la semana", "value": 15 },
+          { "title": "3 a 5 veces a la semana", "value": 25 },
+          { "title": "Todos los días", "value": 40 },
+          { "title": "No consumo huevos", "value": 2 }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "¿Cuánta leche se consume en un mes?",
+        "options": [
+          { "title": "Menos de 1 litro", "value": 5 },
+          { "title": "1 a 3 litros", "value": 15 },
+          { "title": "3 a 5 litros", "value": 25 },
+          { "title": "Más de 5 litros", "value": 40 },
+          { "title": "Sin consumo de leche", "value": 2 }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "¿Cuánto pan consume en un mes?",
+        "options": [
+          { "title": "Menos de 7 unidades", "value": 5 },
+          { "title": "7 a 14 unidades", "value": 15 },
+          { "title": "14 a 21 unidades", "value": 25 },
+          { "title": "Más de 21 unidades", "value": 40 },
+          { "title": "Sin consumo", "value": 2 }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "¿Cuánto arroz se consume en un mes?",
+        "options": [
+          { "title": "Menos de 1kg", "value": 5 },
+          { "title": "1 a 3kg", "value": 15 },
+          { "title": "3 a 5kg", "value": 25 },
+          { "title": "Más de 5kg", "value": 40 },
+          { "title": "Sin consumo de arroz", "value": 2 }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "¿Con qué frecuencia consume cerveza en un mes?",
+        "options": [
+          { "title": "Menos de 1 six pack", "value": 5 },
+          { "title": "1 a 2 six packs", "value": 15 },
+          { "title": "2 a 3 six packs", "value": 25 },
+          { "title": "Más de 3 six packs", "value": 40 },
+          { "title": "Sin consumo de cerveza", "value": 2 }
+        ]
+      },
+      {
+        "id": 7,
+        "title": "¿Cuánto pollo se consume en un mes?",
+        "options": [
+          { "title": "Menos de 1 pollo", "value": 5 },
+          { "title": "1 a 2 pollos", "value": 15 },
+          { "title": "2 a 3 pollos", "value": 25 },
+          { "title": "Más de 3 pollos", "value": 40 },
+          { "title": "Sin consumo pollo", "value": 2 }
+        ]
+      },
+      {
+        "id": 8,
+        "title": "¿Cuántos tomates se consume en un mes?",
+        "options": [
+          { "title": "Menos de 7 unidades", "value": 5 },
+          { "title": "7 a 14 unidades", "value": 15 },
+          { "title": "14 a 21 unidades", "value": 25 },
+          { "title": "Más de 21 unidades", "value": 40 },
+          { "title": "Sin consumo de tomates", "value": 2 }
+        ]
+      },
+      {
+        "id": 9,
+        "title": "¿Cuántas papas consumen en un mes?",
+        "options": [
+          { "title": "Menos de 1kg", "value": 5 },
+          { "title": "1 a 3kg", "value": 15 },
+          { "title": "3 a 5kg", "value": 25 },
+          { "title": "Más de 5ks", "value": 40 },
+          { "title": "Sin consumo de papas", "value": 2 }
+        ]
+      },
+      {
+        "id": 10,
+        "title": "¿Cuánta ropa nueva compras en un año?",
+        "options": [
+          { "title": "Menos de 5 prendas", "value": 5 },
+          { "title": "5 a 10 prendas", "value": 15 },
+          { "title": "10 a 20 prendas", "value": 25 },
+          { "title": "Más de 20 prendas", "value": 40 },
+          { "title": "Compro ropa de segunda mano", "value": 2 }
+        ]
+      },
+      {
+        "id": 11,
+        "title": "¿Con qué frecuencia consume productos de mar, como pescado o mariscos, en un mes? ",
+        "options": [
+          { "title": "Menos de 1 vez al mes", "value": 5 },
+          { "title": "1 a 3 veces al mes", "value": 15 },
+          { "title": "3 a 5 veces al mes", "value": 25 },
+          { "title": "Más de 5 veces al mes", "value": 40 },
+          { "title": "No consumo productos de mar", "value": 2 }
+        ]
+      },
+      {
+        "id": 12,
+        "title": "¿Con qué frecuencia viajas en avión en un año?",
+        "options": [
+          { "title": "Menos de 1 vez al año", "value": 5 },
+          { "title": "1 a 3 veces al año", "value": 15 },
+          { "title": "3 a 5 veces al año", "value": 25 },
+          { "title": "Más de 5 veces al año", "value": 40 },
+          { "title": "No viajo en avión", "value": 2 }
+        ]
+      },
+      {
+        "id": 13,
+        "title": "¿Cuánto tiempo deja tus dispositivos electrónicos en modo de espera cuando no los estás usando?",
+        "options": [
+          { "title": "Menos de 1 hora al día", "value": 5 },
+          { "title": "1 a 3 horas al día", "value": 15 },
+          { "title": "3 a 6 horas al día", "value": 25 },
+          { "title": "Más de 6 horas al día", "value": 40 },
+          { "title": "Siempre apago mis dispositivos", "value": 2 }
+        ]
+      },
+      {
+        "id": 14,
+        "title": "¿Cuánto desperdicio de alimentos genera en un mes? ",
+        "options": [
+          { "title": "Menos de 1kg", "value": 5 },
+          { "title": "1 a 3kg", "value": 15 },
+          { "title": "3 a 5kg", "value": 25 },
+          { "title": "Más de 5kg", "value": 40 },
+          { "title": "No genero desperdicio de alimentos", "value": 2 }
+        ]
+      },
+      {
+        "id": 15,
+        "title": "¿Cuánto tiempo pasa en la ducha diariamente?",
+        "options": [
+          { "title": "Menos de 5 minutos", "value": 5 },
+          { "title": "5 a 10 minutos", "value": 15 },
+          { "title": "10 a 15 minutos", "value": 25 },
+          { "title": "Más de 15 minutos", "value": 40 },
+          {
+            "title": "Uso regaderas de bajo fluido y limito mi tiempo",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "id": 16,
+        "title": "¿Cuánta electricidad consume mensualmente en tu hogar?",
+        "options": [
+          { "title": "Menos de 100kWh", "value": 5 },
+          { "title": "100 a 300 kWh", "value": 15 },
+          { "title": "300 a 500 kWh", "value": 25 },
+          { "title": "Más de 500kWh", "value": 40 },
+          {
+            "title": "Utilizo principalmente fuentes de energía renovable",
+            "value": 2
+          }
+        ]
+      }
+    ],
+    "ranges": [
+      {
+        "limit": 50,
+        "message": "¡Excelente! Tu impacto ecológico es bajo. Sigue así y comparte tus prácticas sostenibles con otros"
+      },
+      {
+        "limit": 80,
+        "message": "Buen trabajo, pero aún hay espacio para mejorar. Ajusta ciertos hábitos para reducir tu huella ecológica."
+      },
+      {
+        "limit": 100,
+        "message": "Hay margen para hacer mejoras significativas. Identifica áreas donde puedas reducir tu impacto ambiental y toma medidas."
+      },
+      {
+        "limit": 115,
+        "message": "Tu impacto ecológico es alto. Considere cambios sustanciales en sus hábitos para reducir su huella."
+      }
+    ],
+    "maxMessage": "Tu impacto ecológico es muy alto. Se requieren cambios urgentes y significativos para reducir tu huella a niveles sostenibles."
+  },
+  "href": "/juega/huella-ecologica",
+  "points": 25,
+  "type": "test",
+  "winners": []
+}

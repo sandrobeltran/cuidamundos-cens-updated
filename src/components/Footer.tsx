@@ -8,8 +8,28 @@ const Footer = () => {
     <footer className="relative mt-20 flex h-fit grid-cols-4 flex-col items-center gap-4 bg-[url(/img/footer_bg.png)] bg-cover bg-center bg-no-repeat text-cens-brand max-sm:h-fit">
       <div className="relative z-10 grid h-fit w-full grid-cols-4 gap-4 p-10 px-24 max-sm:grid-rows-3 max-sm:items-center max-sm:p-6">
         <div className="flex flex-col gap-3 max-sm:col-span-4 max-sm:row-span-2 max-sm:items-center">
-          <Image src={CENSLogo} height={98} alt="CENS Grupo EPM Logo" />
-          <ul className="flex w-full list-none justify-start gap-2 text-3xl font-normal">
+          <Image src={CENSLogo} height={124} alt="CENS Grupo EPM Logo" />
+        </div>
+        <div className="max-sm:col-span-2 max-sm:row-span-2">
+          <h6 className="mb-6 text-lg font-bold">Company</h6>
+          <ul className="mt-3 flex list-none flex-col gap-2 font-medium">
+            <Link className="w-fit" href={"/"}>
+              <li>Inicio</li>
+            </Link>
+            <Link className="w-fit" href={"/juega"}>
+              <li>Juego</li>
+            </Link>
+            <Link className="w-fit" href={"/aprende"}>
+              <li>Dalia</li>
+            </Link>
+            <Link className="w-fit" href={"/contacto"}>
+              <li>Contacto</li>
+            </Link>
+          </ul>
+        </div>
+        <div className="max-sm:col-span-2">
+          <h6 className="mb-6 text-lg font-bold">Síguenos en</h6>
+          <ul className="flex w-full list-none justify-start gap-2 text-3xl">
             <a href={"/"} target="_blank">
               <li>
                 <svg
@@ -57,43 +77,9 @@ const Footer = () => {
             </a>
           </ul>
         </div>
-        <div className="max-sm:col-span-2 max-sm:row-span-2">
-          <h6 className="mb-6 text-lg font-bold">Company</h6>
-          <ul className="mt-3 flex list-none flex-col gap-2 font-normal">
-            <Link className="w-fit" href={"/"}>
-              <li>Inicio</li>
-            </Link>
-            <Link className="w-fit" href={"/juega"}>
-              <li>Juego</li>
-            </Link>
-            <Link className="w-fit" href={"/aprende"}>
-              <li>Aprende</li>
-            </Link>
-            <Link className="w-fit" href={"/blog"}>
-              <li>Blog</li>
-            </Link>
-            <Link className="w-fit" href={"/nosotros"}>
-              <li>Acerca de nosotros</li>
-            </Link>
-            <Link className="w-fit" href={"/contacto"}>
-              <li>Contacto</li>
-            </Link>
-          </ul>
-        </div>
-        <div className="max-sm:col-span-2">
-          <h6 className="mb-6 text-lg font-bold">Legal</h6>
-          <ul className="mt-3 flex list-none flex-col gap-2 font-normal">
-            <Link className="w-fit" href={"/"}>
-              <li>Términos y servicios</li>
-            </Link>
-            <Link className="w-fit" href={"/"}>
-              <li>Privacidad y políticas</li>
-            </Link>
-          </ul>
-        </div>
         <div className="max-sm:col-span-2">
           <h6 className="mb-6 text-lg font-bold">Contacto</h6>
-          <ul className="mt-3 flex list-none flex-col gap-2 font-normal">
+          <ul className="mt-3 flex list-none flex-col gap-2 font-medium">
             <li>info@cens.com</li>
             <li>Cúcuta, Colombia</li>
           </ul>
@@ -101,8 +87,8 @@ const Footer = () => {
       </div>
       <div className="relative flex h-fit w-full items-center justify-center">
         <span className="h-[2px] w-full bg-cens-brand" />
-        <h6 className="relative min-w-max p-4 text-sm font-semibold">
-          AENS TECH @2023
+        <h6 className="relative min-w-max p-4 text-center text-sm font-semibold">
+          Copyright © 2023 Cuidamundos <br /> Powered by AENS TECH
         </h6>
         <span className="h-[2px] w-full bg-cens-brand" />
       </div>

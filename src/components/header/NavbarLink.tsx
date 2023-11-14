@@ -33,11 +33,11 @@ const NavbarLink = ({ title, href, items, selected }: INavbarProps) => {
       </Link>
       {items ? (
         <div className="absolute left-0 top-full z-50 hidden h-fit w-32 flex-col items-stretch rounded-bl-lg rounded-br-lg bg-black/30 text-white shadow-lg  backdrop-blur-lg group-hover:flex ">
-          <ul className="py-4">
+          <ul className="py-4 flex flex-col gap-2">
             {items.map((item) => (
               <li
                 key={item.title}
-                className="w-full bg-cens-medium/0 font-medium transition-colors hover:bg-stone-900/60 hover:font-semibold "
+                className="py-1 leading-tight w-full bg-cens-medium/0 font-medium transition-colors hover:bg-stone-900/60 hover:font-semibold "
               >
                 <Link href={item.href} className="inline-block w-full px-3">
                   {item.title}

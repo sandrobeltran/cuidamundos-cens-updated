@@ -40,6 +40,7 @@ const Congrats = () => {
     console.log(`Generating certificate for ${user?.name}...`);
     generateCertificate(user as TUserData, "Trivia Cuidamundos")?.save();
   }
+
   return (
     <div
       ref={partyRef}
@@ -81,7 +82,7 @@ const Congrats = () => {
           </div>
         </div>
       ) : (
-        <div className="flex w-full flex-col justify-center items-center gap-6">
+        <div className="flex w-full flex-col items-center justify-center gap-6">
           <p className="flex gap-2 text-amber-500">
             <BellAlertIcon className="h-6" /> Para guardar tu resultado, acceder
             a tu certificado y acumular puntos en tu cuenta

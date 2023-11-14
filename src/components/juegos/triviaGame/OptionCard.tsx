@@ -3,13 +3,14 @@ import React from "react";
 
 type TProps = {
   option: string;
-  nextPage: (option: string) => void;
+  nextPage: (option: any) => void;
+  value?: any;
 };
 
-const OptionCard = ({ option, nextPage }: TProps) => {
+const OptionCard = ({ option, nextPage, value }: TProps) => {
   return (
     <button
-      onClick={() => nextPage(option)}
+      onClick={() => nextPage(value || option)}
       key={option}
       className="w-full rounded-lg border border-stone-300 bg-white px-5 py-4 text-center font-normal text-stone-500 shadow-md transition-colors hover:bg-cens-light hover:text-white"
     >

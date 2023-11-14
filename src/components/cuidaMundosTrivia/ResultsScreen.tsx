@@ -19,7 +19,7 @@ const formatter = new Intl.NumberFormat("es-CO", {
   maximumFractionDigits: 0,
 });
 
-const ResultsSection = () => {
+const ResultsScreen = () => {
   const { results, questions, stage, lose, setHasWon, hasWon } =
     useCuidaMundosTrivia();
   const corrects = results.filter((e) => e.correct);
@@ -105,4 +105,4 @@ const ResultsSection = () => {
   );
 };
 
-export default ResultsSection;
+export default ResultsScreen;
