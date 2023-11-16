@@ -19,8 +19,9 @@ export default function Certificados() {
     <div className="flex w-full flex-col items-center gap-4">
       <h6 className="text-center text-2xl font-bold text-cens-brand">
         En total has logrado {winnedGames.length} Certificado
-        {winnedGames.length > 1 || winnedGames.length === 0 ? "s" : ""} <br />{" "}
-        <span className="text-white">¡Felicidades!</span>
+        {winnedGames.length > 1 || winnedGames.length === 0
+          ? "s"
+          : ""} <br /> <span className="text-white">¡Felicidades!</span>
       </h6>
       {/* CERTIFICATES GRID */}
       {winnedGames.length ? (
@@ -32,9 +33,10 @@ export default function Certificados() {
               user={user as TUserData}
             />
           ))}
-        </div>) :
+        </div>
+      ) : (
         <p>Completa un juego para obtener tu primer certificado</p>
-      }
+      )}
     </div>
   );
 }

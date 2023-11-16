@@ -1,25 +1,36 @@
 import { IEvidence } from "@/utils/customTypes";
 import { useRouter } from "next/navigation";
-import React, { useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 
 type TProps = {
-  evidence: IEvidence;
-}
+  evidenceId: string;
+};
 
-const EvidenceSubmitedModal = ({ evidence }: TProps) => {
+const EvidenceSubmitedModal = ({ evidenceId }: TProps) => {
   const modalWrapperRef = useRef<HTMLDivElement>(null);
-  const router = useRouter()
+  const router = useRouter();
 
-  function closeModal() {
+  const closeModal = useCallback(() => {
     if (modalWrapperRef.current) {
       modalWrapperRef.current.style.display = "none";
-      router.push(`/usuario/evidencias/${evidence._id}`)
+      router.push(`/usuario/evidencias/${evidenceId}`);
     }
-  }
+  }, [evidenceId, router]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      closeModal();
+      clearTimeout(timer);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [closeModal]);
 
   return (
     <div
-      className="modalWrapper fixed left-0 top-0 z-50 hidden h-full w-full items-center justify-center bg-black/20 backdrop-blur-sm"
+      className="modalWrapper fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-black/20 p-8 backdrop-blur-sm"
       id="evidenceSubmitedModalWrapper"
       onClick={() => closeModal()}
       ref={modalWrapperRef}

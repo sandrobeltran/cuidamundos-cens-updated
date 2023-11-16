@@ -10,6 +10,7 @@ import { LinkIcon } from "@heroicons/react/24/outline";
 import { Form, Formik } from "formik";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import EvidenceSubmitedModal from "./EvidenceSubmitedModal";
 
 type TProps = {
   evidence: IEvidence;
@@ -17,12 +18,12 @@ type TProps = {
 
 const SubmitEvidence = ({ evidence }: TProps) => {
   const user = useUserStore((state) => state.user);
+  const [submitted, setSubmitted] = useState<boolean>(false);
 
   const [currentEvidence, setCurrentEvidence] = useState<IEvidence | null>(
     evidence,
   );
   // ? The idea is to use a component-local state to store the evidence so we can update it when any change happens
-
 
   // Check if there is a submission yet to update
   const submission = evidence.submissions.find(
@@ -53,19 +54,19 @@ const SubmitEvidence = ({ evidence }: TProps) => {
 
     setCurrentEvidence(res.data);
 
-
-    document.getElementById("evidenceSubmitedModalWrapper")!.style.display =
-      "flex";
+    setSubmitted(true);
   }
 
   return (
-    <div className="flex w-full flex-col px-10">
+    <div className="flex w-full flex-col px-10 max-sm:px-4">
+      {/* EVIDENCE SUBMITED MODAL */}
+      {submitted ? <EvidenceSubmitedModal evidenceId={evidence._id} /> : null}
       <Formik
         initialValues={initialValues}
         onSubmit={(values) => handleSubmit(values)}
         validationSchema={submitEvidenceValidationSchema}
       >
-        <Form className="flex w-full flex-col items-center gap-8">
+        <Form className="flex w-full flex-col items-center gap-8 max-sm:gap-6">
           <label className="flex w-full flex-col gap-3 font-semibold text-stone-500">
             Sube tu respuesta
             <TextArea

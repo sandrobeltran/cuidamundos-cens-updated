@@ -3,7 +3,11 @@ import React from "react";
 import Button from "../Button";
 import { useSwiper } from "swiper/react";
 
-const Retry = () => {
+type TProps = {
+  Percent: React.ElementType;
+};
+
+const Retry = ({ Percent }: TProps) => {
   const resetTrivia = useCuidaMundosTrivia((state) => state.resetTrivia);
 
   const swiper = useSwiper();
@@ -14,7 +18,7 @@ const Retry = () => {
   }
 
   return (
-    <div className="flex flex-col items-center gap-6 text-center">
+    <div className="flex flex-col items-center gap-10 text-center">
       <div className="flex flex-col items-center gap-2 text-center">
         <h3 className="text-3xl font-bold">
           ¡Que lástima! <span className="text-cens-brand"></span>
@@ -23,6 +27,7 @@ const Retry = () => {
           No has alcanzado el puntaje mínimo en la trivia sobre riesgo eléctrico
         </p>
       </div>
+      {<Percent />}
       <Button hierarchy="primary" size="lg" onClick={() => handleResetTrivia()}>
         Reintentar
       </Button>

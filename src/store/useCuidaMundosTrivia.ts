@@ -14,7 +14,7 @@ type TCuidamundosTrivia = {
   showResults: boolean;
   playing: boolean;
   questions: TTriviaQuestion[];
-  stage: number; // Start | Playing | Finished,
+  stage: number; // 0: Start | 1: Playing | 2: Finished,
   hasWon: boolean;
   lose: boolean;
   setLose: () => void;

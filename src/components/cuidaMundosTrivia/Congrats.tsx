@@ -11,7 +11,11 @@ import { useGamesStore } from "@/store/useGamesStore";
 import { usePathname } from "next/navigation";
 import { BellAlertIcon } from "@heroicons/react/24/outline";
 
-const Congrats = () => {
+type TProps = {
+  Percent: React.ElementType;
+};
+
+const Congrats = ({ Percent }: TProps) => {
   const partyRef = useRef<HTMLDivElement>(null);
   const user = useUserStore((state) => state.user);
   const { resetTrivia, results, questions, stage, setHasWon, hasWon } =
@@ -44,7 +48,7 @@ const Congrats = () => {
   return (
     <div
       ref={partyRef}
-      className="flex flex-col items-center gap-6 text-center"
+      className="flex flex-col items-center gap-10 text-center"
     >
       <div className="flex flex-col items-center gap-2 text-center">
         <h3 className="text-3xl font-bold">
@@ -55,8 +59,9 @@ const Congrats = () => {
           Has completado con éxito toda la trivia sobre riesgo eléctrico
         </p>
       </div>
+      <Percent />
       {user ? (
-        <div className="flex w-full justify-center gap-6">
+        <div className="flex w-full justify-center gap-6 flex-wrap">
           <div>
             <Button href={"/usuario"} hierarchy="primary" size="lg">
               Ir a mi perfil

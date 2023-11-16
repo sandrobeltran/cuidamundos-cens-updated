@@ -16,14 +16,14 @@ const CardsSection = () => {
       <Swiper
         slidesPerView={1.4}
         spaceBetween={15}
-        wrapperClass="swipper-wrapper items-center py-5 justify-center"
+        wrapperClass="swipper-wrapper items-center py-5 justify-start sm:justify-start"
         breakpoints={{
           670: {
             slidesPerView: 2.5,
             spaceBetween: 30,
           },
           1080: {
-            slidesPerView: 3.5,
+            slidesPerView: 3,
             spaceBetween: 20,
           },
         }}
@@ -31,7 +31,7 @@ const CardsSection = () => {
       >
         <SwiperSlide>
           <div className="relative flex h-full w-80 flex-col items-center justify-center p-6 max-sm:w-56">
-            <div className="absolute bottom-0 left-0 h-4/6 w-full rounded-3xl border bg-white/80 backdrop-blur-sm p-6 shadow-lg shadow-stone-200" />
+            <div className="absolute bottom-0 left-0 h-4/6 w-full rounded-3xl border bg-white/80 p-6 shadow-lg shadow-stone-200 backdrop-blur-sm" />
             <div className="relative object-contain">
               <Image
                 src={EarthImage}
@@ -55,7 +55,7 @@ const CardsSection = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative flex h-full w-80 flex-col items-center justify-center p-6 max-sm:w-56">
-            <div className="absolute bottom-0 left-0 h-4/6 w-full rounded-3xl border bg-white/80 backdrop-blur-sm p-6 shadow-lg shadow-stone-200" />
+            <div className="absolute bottom-0 left-0 h-4/6 w-full rounded-3xl border bg-white/80 p-6 shadow-lg shadow-stone-200 backdrop-blur-sm" />
             <div className="relative object-contain">
               <Image
                 src={LightImage}
@@ -79,7 +79,7 @@ const CardsSection = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div className="relative flex h-full w-80 flex-col items-center justify-center p-6 max-sm:w-56">
-            <div className="absolute bottom-0 left-0 h-4/6 w-full rounded-3xl border bg-white/80 backdrop-blur-sm p-6 shadow-lg shadow-stone-200" />
+            <div className="absolute bottom-0 left-0 h-4/6 w-full rounded-3xl border bg-white/80 p-6 shadow-lg shadow-stone-200 backdrop-blur-sm" />
             <div className="relative object-contain">
               <Image
                 src={WaterImage}

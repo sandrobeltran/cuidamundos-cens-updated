@@ -17,7 +17,7 @@ const GameCard = ({ game }: TProps) => {
 
   return (
     <div
-      className="relative flex h-fit w-full items-start gap-6 overflow-hidden rounded-3xl bg-white/80 px-8 py-8 pl-16 text-stone-500 backdrop-blur-sm"
+      className="relative flex h-fit w-full items-start gap-6 overflow-hidden rounded-3xl bg-white/80 px-8 py-8 pl-16 text-stone-500 backdrop-blur-sm max-sm:flex-col max-sm:items-center max-sm:gap-2 max-sm:p-4 max-sm:pl-14"
       style={{
         backgroundColor: game.active ? "#fffc" : "#78716ccc",
         color: game.active ? "#78716c" : "#fff",
@@ -33,16 +33,16 @@ const GameCard = ({ game }: TProps) => {
             : "#78716c",
         }}
       ></span>
-      <div className="relative flex h-full items-center">
+      <div className="relative flex h-full items-center max-sm:w-full">
         <Image
           width={230}
           height={150}
-          className="aspect-video h-48 rounded-3xl object-cover shadow-lg"
+          className="aspect-video h-48 rounded-3xl object-cover shadow-lg max-sm:h-32 max-sm:w-full"
           src={game.cover}
           alt={`Juego ${game.title} CENS Portada`}
         />
       </div>
-      <div className="flex h-full flex-1 flex-col items-start justify-between gap-4 pt-4">
+      <div className="flex h-full flex-1 flex-col items-start justify-between gap-4 pt-4 max-sm:gap-2 max-sm:items-center">
         <Link href={game.href}>
           <h6
             className="text-2xl font-medium underline"
@@ -52,7 +52,7 @@ const GameCard = ({ game }: TProps) => {
           </h6>
         </Link>
         <p className="pl-4 font-normal">{game.description}</p>
-        <div className="flex w-full justify-end">
+        <div className="flex w-full justify-end max-sm:mt-6">
           <div>
             {game.active ? (
               <Button size="md" hierarchy="primary" href={game.href}>

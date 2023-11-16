@@ -11,20 +11,23 @@ export default function Usuario() {
   }
 
   return (
-    <div className="flex w-full gap-4">
+    <div className="flex w-full gap-4 max-sm:flex-col-reverse">
       {/* ABOUT ME CARD */}
-      <div className="flex w-4/12 flex-col items-start gap-2 rounded-3xl bg-white/80 p-8 text-left backdrop-blur-sm">
+      <div className="flex w-4/12 flex-col items-start gap-2 rounded-3xl bg-white/80 p-8 text-left backdrop-blur-sm max-sm:w-full">
         <h6 className="font-medium text-cens-medium">Sobre mí</h6>
         {user?.bio ? (
           <p>{user.bio}</p>
         ) : (
-          <button onClick={() => showEditModal()} className="text-left underline underline-offset-2">
+          <button
+            onClick={() => showEditModal()}
+            className="text-left underline underline-offset-2"
+          >
             Cuéntanos un poco sobre ti. ¡Nos encantaría conocerte más!
           </button>
         )}
       </div>
       {/* INFO CARD */}
-      <div className="flex w-8/12 flex-col items-start gap-2 rounded-3xl bg-white/80 p-8 text-left backdrop-blur-sm">
+      <div className="flex w-8/12 flex-col items-start gap-2 rounded-3xl bg-white/80 p-8 text-left backdrop-blur-sm max-sm:w-full">
         <table className="border-separate border-spacing-1 text-stone-700">
           <tbody className="">
             <tr>

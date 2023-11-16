@@ -23,14 +23,14 @@ const TimeRunOutModal = () => {
     <div
       ref={containerRef}
       id="timeRunOutModalWrapper"
-      className="absolute left-0 top-0 z-10 hidden h-full w-full items-center justify-center bg-cens-brand/50 backdrop-blur-sm"
+      className="absolute left-0 top-0 z-10 hidden h-full w-full items-center justify-center bg-cens-brand/50 backdrop-blur-sm p-4"
     >
-      <div className="flex w-full max-w-lg flex-col items-center gap-6 rounded-3xl bg-white px-20 py-16 text-center">
+      <div className="flex w-full max-w-lg flex-col items-center gap-6 rounded-3xl bg-white px-20 py-16 text-center max-sm:p-5">
         <ClockIcon className="h-12 text-red-500" />
-        <h3 className="text-3xl font-bold text-cens-dark">
+        <h3 className="text-3xl font-bold text-cens-dark max-sm:text-3xl">
           ¡Se ha acabado el tiempo!
         </h3>
-        <p className="text-xl font-light text-stone-500">
+        <p className="text-xl font-light text-stone-500 max-sm:text-lg">
           Siempre puedes intentarlo de nuevo
         </p>
         <div className="flex gap-5">

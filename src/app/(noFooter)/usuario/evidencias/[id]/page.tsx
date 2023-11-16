@@ -8,6 +8,7 @@ import EvidenceComments from "@/components/usuario/evidencias/EvidenceComments";
 import EvidenceItemsGrid from "@/components/usuario/evidencias/EvidenceItemsGrid";
 import useFetchEvidenceData from "@/hooks/useFetchEvidenceData";
 import { useUserStore } from "@/store/useUserStore";
+import { getRemainingTime } from "@/utils/dateToString";
 import { useParams } from "next/navigation";
 
 export default function Evidencia() {
@@ -24,6 +25,8 @@ export default function Evidencia() {
     (submission) => submission.author === user!._id,
   );
 
+  const remainingTime = getRemainingTime(evidence.deadline);
+
   return (
     <div className="flex w-full flex-col items-center gap-12">
       {/* EVIDENCE CARD */}
@@ -31,13 +34,15 @@ export default function Evidencia() {
       {/* EVIDENCE TIME ITEMS GRID */}
       <EvidenceItemsGrid evidence={evidence} />
       {submission ? <CurrentEvidence submission={submission} /> : null}
-      <Button
-        hierarchy="primary"
-        href={`/usuario/evidencias/${id}/entrega`}
-        size="md"
-      >
-        {submission ? "Modificar entrega" : "Subir entrega"}
-      </Button>
+      {remainingTime.d > 0 ? (
+        <Button
+          hierarchy="primary"
+          href={`/usuario/evidencias/${id}/entrega`}
+          size="md"
+        >
+          {submission ? "Modificar entrega" : "Subir entrega"}
+        </Button>
+      ) : null}
       <EvidenceComments comments={evidence?.comments} />
     </div>
   );

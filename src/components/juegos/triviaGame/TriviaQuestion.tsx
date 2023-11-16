@@ -44,7 +44,7 @@ const TriviaQuestion = ({ question, index }: TProps) => {
   }
 
   return (
-    <div className="relative flex h-fit flex-col items-center gap-4 rounded-3xl p-6">
+    <div className="max-sm:mt-4 relative flex h-fit flex-col items-center gap-4 rounded-3xl p-6">
       {/* HEADER */}
       <QuestionHeader image="/img/clicker_game.jpg" title={question.title} />
       <div className="h-1.5 w-full rounded-3xl bg-cens-brand" />

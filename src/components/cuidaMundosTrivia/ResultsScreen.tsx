@@ -19,6 +19,32 @@ const formatter = new Intl.NumberFormat("es-CO", {
   maximumFractionDigits: 0,
 });
 
+const PercentCirle = () => {
+  const { results } = useCuidaMundosTrivia();
+  const corrects = results.filter((e) => e.correct);
+
+  return (
+    <div
+      className="flex aspect-square w-40 flex-col items-center justify-center gap-0 rounded-full border-[12px] p-5 max-sm:w-52 max-sm:border-[18px]"
+      style={{
+        borderColor: `hsl(${formatter.format(
+          (corrects.length / results.length) * 100,
+        )}, 100%, 50%)`,
+        backgroundColor: `hsla(${formatter.format(
+          (corrects.length / results.length) * 100,
+        )}, 100%, 50%, .2)`,
+      }}
+    >
+      <h6 className="text-5xl font-bold">
+        {formatter.format((corrects.length / results.length) * 100)}%
+      </h6>
+      <p className="text-sm font-medium leading-none max-sm:text-lg">
+        {corrects.length} / {results.length}
+      </p>
+    </div>
+  );
+};
+
 const ResultsScreen = () => {
   const { results, questions, stage, lose, setHasWon, hasWon } =
     useCuidaMundosTrivia();
@@ -28,6 +54,8 @@ const ResultsScreen = () => {
   const { games } = useGamesStore();
   const pathname = usePathname();
   const trivia = games.find((game) => game.href === pathname);
+
+  // ? REPLACE WITH THE REAL THRESHOLD WHEN FINISHED
   const minCorrects = 1;
 
   const handleUploadPoints = useCallback(async () => {
@@ -69,39 +97,26 @@ const ResultsScreen = () => {
       // user has won
       handleUploadPoints();
     }
-  }, [user]);
+  }, [
+    user,
+    corrects.length,
+    handleUploadPoints,
+    lose,
+    questions.length,
+    results.length,
+    stage,
+  ]);
 
   return (
-    <CustomSection>
-      <div className="flex flex-col items-center gap-14 text-stone-500">
-        {/* PERCENT CIRLCE */}
-        <div
-          className="flex h-40 w-40 flex-col items-center justify-center gap-0 rounded-full border-[12px] p-5"
-          style={{
-            borderColor: `hsl(${formatter.format(
-              (corrects.length / results.length) * 100,
-            )}, 100%, 50%)`,
-            backgroundColor: `hsla(${formatter.format(
-              (corrects.length / results.length) * 100,
-            )}, 100%, 50%, .2)`,
-          }}
-        >
-          <h6 className="text-5xl font-bold">
-            {formatter.format((corrects.length / results.length) * 100)}%
-          </h6>
-          <p className="text-sm font-medium leading-none">
-            {corrects.length} / {results.length}
-          </p>
-        </div>
-        {results.length === questions.length && stage === 2 ? (
-          corrects.length >= minCorrects && !lose ? (
-            <Congrats />
-          ) : (
-            <Retry />
-          )
-        ) : null}
-      </div>
-    </CustomSection>
+    <div className="flex h-full flex-col items-center justify-center text-stone-500 px-5">
+      {results.length === questions.length && stage === 2 ? (
+        corrects.length >= minCorrects && !lose ? (
+          <Congrats Percent={PercentCirle} />
+        ) : (
+          <Retry Percent={PercentCirle} />
+        )
+      ) : null}
+    </div>
   );
 };
 

@@ -14,17 +14,17 @@ const PanelMainInfo = () => {
   const endpoint = pathname.split("/")[pathname.split.length];
 
   return (
-    <div className="w-full rounded-3xl bg-white/80 p-8">
-      <div className="mb-14 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <div className="relative w-40">
+    <div className="w-full rounded-3xl bg-white/80 p-8 max-sm:p-4">
+      <div className="mb-14 flex items-center justify-between max-sm:mb-8">
+        <div className="flex items-center gap-4 max-sm:gap-2">
+          <div className="relative w-40 max-sm:w-32">
             <button
               onClick={() =>
                 (document.getElementById(
                   "changeAvatarModalWrapper",
                 )!.style.display = "flex")
               }
-              className="absolute -bottom-10 h-40 w-40 rounded-full border-4 border-white"
+              className="absolute -bottom-10 aspect-square w-40 rounded-full border-4 border-white max-sm:-bottom-4 max-sm:w-32"
             >
               <Image
                 src={user!.avatar}
@@ -38,15 +38,14 @@ const PanelMainInfo = () => {
             </button>
           </div>
           <div className="flex flex-col">
-
-          <h6 className="text-3xl font-bold text-cens-brand">
-            {user?.username}
-          </h6>
-          <div className="font-semibold flex items-center justify-start gap-1">
-            Puntos disponibles:
-            <StarIcon color="#ffb800" className="h-7" />
-            <p className="text-xl font-semibold">{user?.points}</p>
-          </div>
+            <h6 className="text-3xl font-bold text-cens-brand max-sm:text-xl">
+              {user?.username}
+            </h6>
+            <div className="flex items-center justify-start gap-1 font-semibold max-sm:gap-0 max-sm:text-sm">
+              Puntos:
+              <StarIcon color="#ffb800" className="h-7" />
+              <p className="text-xl font-semibold">{user?.points}</p>
+            </div>
           </div>
         </div>
         <div>
@@ -59,12 +58,12 @@ const PanelMainInfo = () => {
             hierarchy="primary"
             size="md"
           >
-            Editar Perfil
+            Editar
           </Button>
         </div>
       </div>
-      <div className="border-t-2 border-stone-300 pt-4">
-        <ul className="flex gap-16 font-normal text-stone-400">
+      <div className="w-full overflow-x-auto border-t-2 border-stone-300 pt-4">
+        <ul className="flex gap-16 font-normal text-stone-400 max-sm:gap-8 max-sm:pb-3">
           <li>
             <Link
               href={"/usuario"}

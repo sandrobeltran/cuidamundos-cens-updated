@@ -12,7 +12,7 @@ type TProps = {
 
 const TriviaHeader = ({ time }: TProps) => {
   const user = useUserStore((state) => state.user);
-  const { results, questions, stage, setLose } = useCuidaMundosTrivia();
+  const { results, questions, stage, setLose, lose } = useCuidaMundosTrivia();
   const [remaningTime, setRemainingTime] = useState<number>(time);
   const interval = useRef<NodeJS.Timeout>();
 
@@ -47,7 +47,7 @@ const TriviaHeader = ({ time }: TProps) => {
         break;
     }
 
-    if (remaningTime <= 0) {
+    if (remaningTime <= 0 && stage === 1) {
       endGame();
       document.getElementById("timeRunOutModalWrapper")!.style.display = "flex";
       setLose();
@@ -58,7 +58,7 @@ const TriviaHeader = ({ time }: TProps) => {
     return () => {
       clearInterval(interval.current);
     };
-  }, [stage, endGame, resetGame, handleSpendSecond]);
+  }, [stage, endGame, resetGame, handleSpendSecond, remaningTime, setLose]);
 
   return (
     <div className="relative z-10 flex h-16 w-full items-center justify-between bg-cens-brand px-6 text-white shadow-md">
@@ -66,7 +66,7 @@ const TriviaHeader = ({ time }: TProps) => {
         <>
           {/* USER BADGE */}
           {user ? (
-            <div className="absolute left-6 top-full flex h-28 w-12 items-end justify-center rounded-b-3xl bg-cens-brand p-1 shadow-[inset_0_5px_5px_#0003]">
+            <div className="absolute left-6 top-full flex h-28 w-12 items-end justify-center rounded-b-3xl bg-cens-brand p-1 shadow-[inset_0_5px_5px_#0003] max-sm:left-2 max-sm:h-16">
               <Image
                 src={user!.avatar}
                 alt="Avatar del usuario"

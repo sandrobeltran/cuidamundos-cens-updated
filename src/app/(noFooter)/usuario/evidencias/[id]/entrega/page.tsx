@@ -21,8 +21,6 @@ export default function EntregaEvidencia() {
 
   return (
     <div className="flex w-full flex-col items-center gap-12">
-      {/* EVIDENCE SUBMITED MODAL */}
-      <EvidenceSubmitedModal evidence={evidence} />
       {/* EVIDENCE CARD */}
       <EvidenceCard evidence={evidence} />
       {/* EVIDENCE TIME ITEMS GRID */}

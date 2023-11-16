@@ -46,6 +46,16 @@ export async function POST(req: NextRequest) {
       { status: 200 },
     );
   } catch (error) {
+
+    if ((error as any).code === 11000) {
+      // Username already taken
+      return NextResponse.json(
+        { status: "error", message: "Este nombre de usuario ya está ocupado" },
+        { status: 400 },
+      );
+    }
+
+
     return NextResponse.json(
       { status: "error", message: getCustomError(error).message },
       { status: 400 },

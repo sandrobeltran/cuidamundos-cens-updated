@@ -1,16 +1,6 @@
 import { Schema, model, models } from "mongoose";
 import bcrypt from "bcrypt";
 
-/* 
-  name: string,
-  lastname: string,
-  birthdate: date,
-  email: string,
-  address: string,
-  phone: number,
-  school: string,
-*/
-
 const userSchema = new Schema(
   {
     name: {

@@ -13,14 +13,15 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 import { useUserStore } from "@/store/useUserStore";
+import Link from "next/link";
 
 type TInitialValues = {
-  email: string;
+  username: string;
   password: string;
 };
 
 const initialValues: TInitialValues = {
-  email: "",
+  username: "",
   password: "",
 };
 
@@ -32,8 +33,11 @@ export default function Login() {
 
   async function handleSubmit(values: TInitialValues) {
     setLoading(true);
+
+    console.log(process.env.NEXT_PUBLIC_API_KEY as string);
+
     // Login user and get the token
-    const signUpReq = await fetch("/iniciar-sesion/api", {
+    const loginReq = await fetch("/iniciar-sesion/api", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,11 +45,11 @@ export default function Login() {
       },
       body: JSON.stringify(values),
     });
-    const signUpRes = await signUpReq.json();
+    const loginRes = await loginReq.json();
 
-    if (!signUpReq.ok) {
-      toast.error(signUpRes.message);
-      return setError(signUpRes.message);
+    if (!loginReq.ok) {
+      toast.error(loginRes.message);
+      return setError(loginRes.message);
     }
 
     // Fetch user data
@@ -53,7 +57,7 @@ export default function Login() {
       method: "GET",
       headers: {
         "api-key": process.env.NEXT_PUBLIC_API_KEY as string,
-        Authorization: `Bearer ${signUpRes.data.token}`,
+        Authorization: `Bearer ${loginRes.data.token}`,
       },
     });
     const fetchUserRes = await fetchUserReq.json();
@@ -64,11 +68,14 @@ export default function Login() {
     }
 
     // Set a cookie with the JWT token after a successful login
-    localStorage.setItem("session-token", signUpRes.data.token);
+    localStorage.setItem("session-token", loginRes.data.token);
 
     setUser(fetchUserRes.data);
-
-    router.push("/usuario");
+    toast.success(
+      `Bienvenid@, ${fetchUserRes.data.name.split(" ")[0]} ${
+        fetchUserRes.data.lastname.split(" ")[0]
+      }`,
+    );
   }
 
   return (
@@ -96,19 +103,25 @@ export default function Login() {
               validationSchema={loginValidationSchema}
             >
               <FormWrapper>
-                <TextField type="email" name="email" placeholder="Correo" />
+                <TextField type="text" name="username" placeholder="Usuario" />
                 <TextField
                   name="password"
                   placeholder="Contraseña"
                   password={true}
                 />
-                <div className="flex gap-5">
-                  <Button hierarchy="secondary" size="lg" href="/registrarse">
+                <div className="mt-4 flex">
+                  <Button hierarchy="primary" size="md" type="submit">
+                    Iniciar sesión
+                  </Button>
+                </div>
+                <div className="mt-1 flex w-full items-center justify-between text-sm">
+                  <p className="text-stone-400">¿Es tu primera vez?</p>
+                  <Link
+                    href={"/registrarse"}
+                    className="text-cens-brand underline"
+                  >
                     Registrarse
-                  </Button>
-                  <Button hierarchy="primary" size="lg" type="submit">
-                    Iniciar Sesión
-                  </Button>
+                  </Link>
                 </div>
               </FormWrapper>
             </Formik>

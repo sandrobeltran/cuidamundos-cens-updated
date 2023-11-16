@@ -1,5 +1,5 @@
 import { useUserStore } from "@/store/useUserStore";
-import { IEvidence } from "@/utils/customTypes";
+import { IEvidence, ISubmission } from "@/utils/customTypes";
 import dateToString, { getRemainingTime } from "@/utils/dateToString";
 import React from "react";
 
@@ -14,54 +14,67 @@ const EvidenceItemsGrid = ({ evidence }: TProps) => {
     (submission) => submission.author === user!._id,
   );
 
-  //? submission state: 0 = Not send | 1 = Send
+  //? submission state: 0 = Not send | 1 = Send | 2: Overdue
 
   const statesDic = {
     0: "Sin enviar",
     1: "Enviado",
   };
 
+  const remainingTime = getRemainingTime(evidence.deadline);
+
   return (
-    <div className="grid w-full grid-cols-2 grid-rows-2 justify-between gap-4">
+    <div className="grid w-full grid-cols-2 grid-rows-2 justify-between gap-4 max-sm:grid-cols-1">
       <div className="flex justify-start">
-        <div className="flex h-14 w-full max-w-lg rounded-lg shadow-md shadow-stone-900/30">
-          <div className="relative z-10 w-full rounded-lg bg-cens-medium px-8 py-4 font-semibold text-white">
+        <div className="flex h-fit min-h-[56px] w-full max-w-lg rounded-lg shadow-md shadow-stone-900/30">
+          <div className="relative z-10 w-full rounded-lg bg-cens-medium px-8 py-4 font-semibold text-white max-sm:px-4 max-sm:text-sm">
             Estado de la entrega
           </div>
-          <div className="-ml-2 w-2/3 rounded-lg bg-white/80 px-8 py-4 text-stone-500 backdrop-blur-sm">
+          <div className="-ml-2 w-full rounded-lg bg-white/80 px-8 py-4 text-stone-500 backdrop-blur-sm max-sm:px-4">
             {submission
               ? statesDic[submission.state as keyof typeof statesDic]
+              : remainingTime.d < 0
+              ? "Atrasada"
               : "Sin enviar"}
           </div>
         </div>
       </div>
       <div className="flex justify-end">
-        <div className="flex h-14 w-full max-w-lg rounded-lg shadow-md shadow-stone-900/30">
-          <div className="relative z-10 w-full rounded-lg bg-cens-medium px-8 py-4 font-semibold text-white">
+        <div className="flex h-fit min-h-[56px] w-full max-w-lg rounded-lg shadow-md shadow-stone-900/30">
+          <div className="relative z-10 w-full rounded-lg bg-cens-medium px-8 py-4 font-semibold text-white max-sm:px-4 max-sm:text-sm">
             Fecha de entrega
           </div>
-          <div className="-ml-2 w-2/3 rounded-lg bg-white/80 px-8 py-4 text-stone-500 backdrop-blur-sm">
+          <div className="-ml-2 w-full rounded-lg bg-white/80 px-8 py-4 text-stone-500 backdrop-blur-sm max-sm:px-4">
             {dateToString(evidence.deadline)}
           </div>
         </div>
       </div>
       <div className="flex justify-start">
-        <div className="flex h-14 w-full max-w-lg rounded-lg shadow-md shadow-stone-900/30">
-          <div className="relative z-10 w-full rounded-lg bg-cens-medium px-8 py-4 font-semibold text-white">
+        <div className="flex h-fit min-h-[56px] w-full max-w-lg rounded-lg shadow-md shadow-stone-900/30">
+          <div className="relative z-10 w-full rounded-lg bg-cens-medium px-8 py-4 font-semibold text-white max-sm:px-4 max-sm:text-sm">
             Última modificación
           </div>
-          <div className="-ml-2 w-2/3 rounded-lg bg-white/80 px-8 py-4 text-stone-500 backdrop-blur-sm">
+          <div className="-ml-2 w-full rounded-lg bg-white/80 px-8 py-4 text-stone-500 backdrop-blur-sm max-sm:px-4">
             {submission ? dateToString(submission.lastUpdatedAt) : "Sin enviar"}
           </div>
         </div>
       </div>
       <div className="flex justify-end">
-        <div className="flex h-14 w-full max-w-lg rounded-lg shadow-md shadow-stone-900/30">
-          <div className="relative z-10 w-full rounded-lg bg-cens-medium px-8 py-4 font-semibold text-white">
+        <div className="flex h-fit min-h-[56px] w-full max-w-lg rounded-lg shadow-md shadow-stone-900/30">
+          <div className="relative z-10 w-full rounded-lg bg-cens-medium px-8 py-4 font-semibold text-white max-sm:px-4 max-sm:text-sm">
             Tiempo restante
           </div>
-          <div className="-ml-2 w-2/3 rounded-lg bg-white/80 px-8 py-4 text-stone-500 backdrop-blur-sm">
-            {getRemainingTime(evidence.deadline)}
+          <div
+            className="-ml-2 w-full rounded-lg bg-white/80 px-8 py-4 backdrop-blur-sm max-sm:px-4"
+            style={{
+              color: remainingTime.d < 0 && !submission ? "#ed5c5c" : "#78716c",
+            }}
+          >
+            {submission
+              ? remainingTime.d > 0
+                ? remainingTime.message
+                : "Periodo finalizado"
+              : remainingTime.message}
           </div>
         </div>
       </div>

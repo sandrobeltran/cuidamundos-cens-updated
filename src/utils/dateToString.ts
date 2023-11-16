@@ -6,7 +6,12 @@ export default function dateToString(stringDate: string): string {
     return string
 }
 
-export function getRemainingTime(deadline: string): string {
+export function getRemainingTime(deadline: string): {
+    d: number,
+    h: number,
+    m: number,
+    message: string
+} {
     const _MS_PER_DAY = 1000 * 60 * 60 * 24;
     const today = new Date()
 
@@ -22,23 +27,26 @@ export function getRemainingTime(deadline: string): string {
     let message = "";
 
     if (remainingTime < 0) {
-        message += "Atrasada por "
-        days *= -1;
-        hours *= -1;
-        minutes *= -1
+        message += "Atrasada "
     } else {
         message += "Faltan "
     }
     if (days) {
-        message += days + "d "
+        message += Math.abs(days) + "d "
     }
+
     if (hours) {
-        message += hours + "h "
+        message += Math.abs(hours) + "h "
     }
 
     if (minutes) {
-        message += minutes + "m "
+        message += Math.abs(minutes) + "m"
     }
 
-    return message
+    return {
+        d: days,
+        h: hours,
+        m: minutes,
+        message
+    }
 }
