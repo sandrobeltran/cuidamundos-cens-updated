@@ -1,67 +1,86 @@
 import CustomMain from "@/components/layout/CustomMain";
-import PaddingWrapper from "@/components/layout/PaddingWrapper";
-import HeroesCarousel from "@/components/home/HeroesCarousel";
-import CardsSection from "@/components/home/CardsSection";
-import CuidaMundosSection from "@/components/home/CuidaMundosSection";
-import NewsSection from "@/components/home/NewsSection";
-import TeamSection from "@/components/home/TeamSection";
-import TrailerSection from "@/components/home/TrailerSection";
-import TriviaSection from "@/components/home/TriviaSection";
-import Hero from "@/components/Hero";
-import MiniSection from "@/components/cards/MiniSection";
+import PuritaImage from "../../../public/img/home/purita.png";
+import JirolImage from "../../../public/img/home/jirol.png";
+import FelixImage from "../../../public/img/home/felix.png";
+import Image from "next/image";
+import Link from "next/link";
+import HeroeTitle from "@/components/heroes/HeroeTitle";
+import SkyBackground from "@/components/heroes/SkyBackground";
+import HeroeSection from "@/components/heroes/HeroeSection";
 
 export default function Home() {
   return (
     <CustomMain>
-      {/* HERO SECTION */}
-      <Hero
-        image={"/img/hero_capitan.png"}
-        title={{
-          text: "¡Explora y aprende cómo ser un",
-          resalted: "héroe sostenible!",
-        }}
-        description="En Ecoaventura Sostenible, puedes unirte a nuestra misión para
-            ayudar a cuidar el planeta y promover la energía sostenible."
-        buttonLabel="¡Aprende!"
-        href="/aprende"
-      />
-      <PaddingWrapper>
-        <CardsSection />
-        <MiniSection
+      <SkyBackground />
+      <HeroeSection>
+        <HeroeTitle
           title={{
-            text: "Descubre el universo de CuidaMundos:",
-            resalted: " ¡Un juego para cuidar y explorar!",
+            text: "¡Aprende a ser un",
+            resalted: "héroe!",
           }}
-          description={
-            <>
-              Sumérgete en un mundo lleno de maravillas y desafíos en
-              <b> CuidaMundos</b>. Embárcate en una emocionante travesía
-              mientras salvas al planeta. Con gráficos impresionantes, mecánicas
-              de juego sencillas y una historia cautivadora.
-            </>
-          }
-          image={"/img/cuidamundos_01.jpg"}
-          button={{ url: "/", label: "Leer más" }}
         />
-        <NewsSection />
-        <TeamSection />
-        <TrailerSection />
-        <HeroesCarousel />
-        <TriviaSection
-          title={
-            <>
-              ¡Demuestra tu conocimiento en{" "}
-              <span className="text-cens-medium">CuidaMundos!</span>
-            </>
-          }
-          description="Pon a prueba tu sabiduría ambiental en nuestra emocionante trivia.
-          Responde preguntas sobre la conservación del medio ambiente, la
-          sostenibilidad y más. ¡Aprende mientras juegas y gana recompensas
-          exclusivas!"
-          href="/juega/cuidamundos-trivia"
-          cover="/img/hero_sky.jpg"
-        />
-      </PaddingWrapper>
+
+        {/* HEROES GRID */}
+        <div className="grid w-full grid-cols-3 justify-between gap-10 px-12 mt-6">
+          {/* PURITA */}
+          <Link href={"/purita"}>
+            <div className="flex cursor-pointer flex-col gap-2 transition-transform hover:-translate-y-10 hover:scale-110">
+              <div className="">
+                <Image
+                  src={PuritaImage}
+                  className="aspect-[3/3.2] w-full object-contain"
+                  alt="Imagen de Purita"
+                />
+              </div>
+              <div className="bg-purita flex flex-col items-center gap-2 rounded-bl-3xl rounded-br-3xl px-5 pb-7 pt-3 text-center text-white shadow-xl shadow-stone-950/20">
+                <h4 className="text-2xl font-semibold">Purita</h4>
+                <p className="font-normal leading-tight">
+                  La protectora de la naturaleza, te enseñará a cuidar nuestro
+                  hogar.
+                </p>
+              </div>
+            </div>
+          </Link>
+          {/* JIROL */}
+          <Link href={"/jirol"}>
+            <div className="flex cursor-pointer flex-col gap-2 transition-transform hover:-translate-y-10 hover:scale-110">
+              <div className="">
+                <Image
+                  src={JirolImage}
+                  className="aspect-[3/3.2] w-full object-contain"
+                  alt="Imagen de Purita"
+                />
+              </div>
+              <div className="bg-jirol flex flex-col items-center gap-2 rounded-bl-3xl rounded-br-3xl px-5 pb-7 pt-3 text-center text-white shadow-xl shadow-stone-950/20">
+                <h4 className="text-2xl font-semibold">Jirol</h4>
+                <p className="font-normal leading-tight">
+                  El estratega de la eficiencia energética, te guiará hacia un
+                  futuro sostenible.
+                </p>
+              </div>
+            </div>
+          </Link>
+          {/* FELIX */}
+          <Link href={"/felix"}>
+            <div className="flex cursor-pointer flex-col gap-2 transition-transform hover:-translate-y-10 hover:scale-110">
+              <div className="">
+                <Image
+                  src={FelixImage}
+                  className="aspect-[3/3.2] w-full object-contain"
+                  alt="Imagen de Purita"
+                />
+              </div>
+              <div className="bg-felix flex flex-col items-center gap-2 rounded-bl-3xl rounded-br-3xl px-5 pb-7 pt-3 text-center text-white shadow-xl shadow-stone-950/20">
+                <h4 className="text-2xl font-semibold">Félix</h4>
+                <p className="font-normal leading-tight">
+                  El maestro de la electricidad, te revelará los secretos de la
+                  energía eléctrica.
+                </p>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </HeroeSection>
     </CustomMain>
   );
 }

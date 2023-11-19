@@ -16,6 +16,9 @@ const config: Config = {
         "cens-light": "#93C01F",
         "cens-medium": "#39A935",
         "cens-dark": "#00833B",
+        purita: "#3B699A",
+        jirol: "#93C01F",
+        felix: "#EC8334",
       },
       borderRadius: {
         "4xl": "56px",
