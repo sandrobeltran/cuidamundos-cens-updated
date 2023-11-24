@@ -15,7 +15,7 @@ const HeroeTitle = ({ title, description }: TProps) => {
       <h1 className="text-6xl font-bold text-stone-100 max-sm:text-4xl">
         {title.text} <span className="text-cens-brand">{title.resalted}</span>
       </h1>
-      <p className="mt-5 font-normal">{description}</p>
+      <p className="max-w-3xl mt-5 font-normal">{description}</p>
     </div>
   );
 };

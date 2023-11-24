@@ -189,11 +189,6 @@ input:-webkit-autofill:active {
   z-index: 1;
 }
 
-#leaves-falling-container i:nth-of-type(2n) {
-}
-#leaves-falling-container i:nth-of-type(3n) {
-}
-
 #leaves-falling-container i:nth-of-type(n) {
   height: 60px;
   width: 50px;
@@ -319,4 +314,21 @@ input:-webkit-autofill:active {
     -webkit-transform: translate3d(-400px, 120vh, 0) rotate(0deg);
     opacity: 0;
   }
+}
+
+/* FLIPBOOK PAGES */
+
+.book .book__page {
+  transition: transform 1s;
+}
+.book .book__page .content {
+  transition: transform 1s;
+}
+
+.book .book__page.turned .content {
+  transform: rotateY(180deg);
+}
+
+.book .book__page.turned {
+  transform: rotateX(2deg) rotateY(-180deg);
 }

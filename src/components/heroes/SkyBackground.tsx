@@ -1,15 +1,36 @@
-import React from "react";
+"use client";
+
+import React, { useCallback, useEffect, useRef } from "react";
 import SkyBackgroundImage from "../../../public/img/hero_sky.jpg";
 import Image from "next/image";
 
 const SkyBackground = () => {
+  const skyRef = useRef<HTMLDivElement>(null);
+  const parallaxFactor = 2;
+
+  const parallaxEffect = useCallback(function parallaxEffect(scroll: number) {
+    if (!skyRef.current) return;
+    const bgValue = scroll / parallaxFactor;
+    skyRef.current.querySelector("img")!.style.top = `${bgValue}px`;
+  }, []);
+
+  useEffect(() => {
+    skyRef.current!.querySelector("img")!.style.top = `${
+      window.scrollY / parallaxFactor
+    }px`;
+
+    window.addEventListener("scroll", () => {
+      parallaxEffect(window.scrollY);
+    });
+  }, [parallaxEffect]);
+
   return (
-    <Image
-      src={SkyBackgroundImage}
-      alt="Fondo de cielo CENS"
-      fill
-      className="z-0"
-    />
+    <div
+      ref={skyRef}
+      className="absolute left-0 top-0 z-0 h-full w-full before:absolute before:bottom-0 before:left-0 before:z-20 before:h-1/2 before:w-full before:bg-gradient-to-t before:from-white before:to-transparent overflow-hidden"
+    >
+      <Image src={SkyBackgroundImage} alt="Fondo de cielo CENS" fill />
+    </div>
   );
 };
 

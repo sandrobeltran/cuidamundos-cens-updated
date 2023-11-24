@@ -12,7 +12,6 @@ import PaddingWrapper from "@/components/layout/PaddingWrapper";
 export default function Home() {
   return (
     <CustomMain>
-      <SkyBackground />
       <PaddingWrapper>
         <HeroeSection>
           <HeroeTitle

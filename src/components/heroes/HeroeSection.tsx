@@ -6,7 +6,7 @@ type TProps = {
 
 const HeroeSection = ({ children }: TProps) => {
   return (
-    <section className="relative z-[2] col-span-12 mt-20 flex h-fit min-h-screen w-full flex-col gap-8 bg-cover bg-center bg-no-repeat pt-32 max-lg:col-span-4">
+    <section className="relative z-[2] col-span-12 mt-48 flex h-fit w-full flex-col gap-8 bg-cover bg-center bg-no-repeat max-lg:col-span-4">
       {children}
     </section>
   );

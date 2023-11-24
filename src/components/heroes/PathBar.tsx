@@ -18,12 +18,10 @@ const PathBar = () => {
   const pathname = usePathname();
   const paths = pathname.split("/").filter((path) => path);
 
-  console.log(paths);
-
   const routesHistory = [
     { path: "/", name: "Inicio" },
     ...paths.map((path) => ({
-      path,
+      path: `/${path}`,
       name: names[path as keyof typeof names],
     })),
   ];
@@ -34,10 +32,14 @@ const PathBar = () => {
         {/* ROUTE */}
         <ul className="flex items-center justify-start gap-4 text-2xl text-white">
           {routesHistory.map((route, index) => (
-            <>
-              <Link href={route.path} key={index} className="w-fit">
-                {route.name}
-              </Link>
+            <div key={index} className="flex gap-4">
+              {index === routesHistory.length - 1 ? (
+                <p>{route.name}</p>
+              ) : (
+                <Link href={route.path} className="w-fit hover:underline underline-offset-2">
+                  {route.name}
+                </Link>
+              )}
               {index < routesHistory.length - 1 ? (
                 <Image
                   src={HeroesArrowImage}
@@ -45,7 +47,7 @@ const PathBar = () => {
                   alt="Flecha hacia la derecha"
                 />
               ) : null}
-            </>
+            </div>
           ))}
         </ul>
 

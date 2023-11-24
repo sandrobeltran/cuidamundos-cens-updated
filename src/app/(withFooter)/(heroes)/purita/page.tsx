@@ -14,7 +14,6 @@ import Link from "next/link";
 export default function Purita() {
   return (
     <CustomMain>
-      <SkyBackground />
       <HeroeSection>
         <HeroeTitle
           title={{
