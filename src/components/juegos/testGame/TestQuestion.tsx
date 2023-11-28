@@ -17,7 +17,7 @@ const TestQuestion = ({ question, index }: TProps) => {
 
   const { addResult, questions, setStage } = useHuellaEcologica();
 
-  function handleNext(option: number) {
+  function handleNext(option: { percent: number; value: number }) {
     addResult({ question: question, selection: option });
     swiper.slideNext();
     if (index === questions.length - 1) {
@@ -29,14 +29,14 @@ const TestQuestion = ({ question, index }: TProps) => {
   return (
     <div className="relative flex h-fit flex-col items-center gap-4 rounded-3xl p-6">
       {/* HEADER */}
-      <QuestionHeader image="/img/clicker_game.jpg" title={question.title} />
+      <QuestionHeader image={question.image} title={question.title} />
       <div className="h-1.5 w-full rounded-3xl bg-cens-brand" />
       {/* OPTIONS / BODY */}
       <div className="grid w-full grid-cols-2 flex-wrap items-center justify-center gap-[20px_32px] max-sm:grid-cols-1">
         {question.options.map((option) => (
           <OptionCard
             option={option.title}
-            value={option.value}
+            value={{ percent: option.percent, value: option.value }}
             key={option.title}
             nextPage={handleNext}
           />

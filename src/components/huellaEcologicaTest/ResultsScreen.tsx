@@ -32,12 +32,13 @@ const ResultsScreen = () => {
   const test = games.find((game) => game.href === pathname) as ITest;
   const [testResult, setTestResult] = useState<{
     message: string;
-    totalPoints: number;
+    totalPercent: number;
+    totalValue: number;
   }>({
     message: "",
-    totalPoints: 0,
+    totalPercent: 0,
+    totalValue: 0,
   });
-  let totalPoints = 0;
 
   const handleUploadPoints = useCallback(async () => {
     console.log("Trying to add points");
@@ -68,41 +69,53 @@ const ResultsScreen = () => {
   }, [test, user, hasWon, setHasWon]);
 
   useEffect(() => {
-    if (results.length === questions.length && stage === 2 && user) {
-      handleUploadPoints();
-
+    if (results.length === questions.length && stage === 2) {
       // user has won
 
       const ranges = test.data.ranges;
 
       /* CALC USER RESULT */
-      results.forEach((result) => (totalPoints += result.selection));
+      const {
+        selection: { percent: totalPercent, value: totalValue },
+      } = results.reduce((a, b) => ({
+        ...a,
+        selection: {
+          percent: a.selection.percent + b.selection.percent,
+          value: a.selection.value + b.selection.value,
+        },
+      }));
 
       const sortedRanges = ranges.sort((a, b) => a.limit - b.limit);
 
-      setTestResult({ totalPoints, message: test.data.maxMessage });
+      setTestResult({
+        totalPercent: totalPercent,
+        totalValue: totalValue,
+        message: test.data.maxMessage,
+      });
 
       for (const range of sortedRanges) {
-        if (totalPoints <= range.limit) {
-          setTestResult({ totalPoints, message: range.message });
+        if (totalPercent <= range.limit) {
+          setTestResult({ totalPercent, totalValue, message: range.message });
           break;
         }
       }
     }
-  }, [user, stage]);
+  }, [
+    stage,
+    questions.length,
+    results,
+    test.data.maxMessage,
+    test.data.ranges,
+  ]);
 
-  function handleResetTrivia() {
+  function handleResetTest() {
     resetGame();
-    setTestResult({ message: "", totalPoints: 0 });
+    setTestResult({ message: "", totalPercent: 0, totalValue: 0 });
     swiper.slideTo(0);
-  }
-  function handleGenerateCertificate() {
-    console.log(`Generating certificate for ${user?.name}...`);
-    generateCertificate(user as TUserData, "Test Huella Ecológica")?.save();
   }
 
   const difference = 640 - 36;
-  const colorValue = (100 / difference) * (testResult.totalPoints - 36) + 30;
+  const colorValue = (100 / difference) * (testResult.totalPercent - 36) + 30;
 
   return (
     <CustomSection>
@@ -124,56 +137,35 @@ const ResultsScreen = () => {
             }}
           >
             <h6 className="flex flex-col text-5xl font-bold">
-              {testResult.totalPoints} <br />
+              {testResult.totalPercent}
+              <br />
               <span className="text-lg">puntos</span>
             </h6>
           </div>
+          {/* CO2 */}
+          <p>CO2 {testResult.totalValue}</p>
         </div>
-        {results.length === questions.length && stage === 2 ? (
-          user ? (
-            <div className="flex w-full justify-center gap-6">
-              <div>
-                <Button href={"/usuario"} hierarchy="primary" size="lg">
-                  Ir a mi perfil
-                </Button>
-              </div>
-              <div>
-                <Button
-                  hierarchy="primary"
-                  size="lg"
-                  onClick={() => handleResetTrivia()}
-                >
-                  Volver a jugar
-                </Button>
-              </div>
-              <div>
-                <Button
-                  hierarchy="primary"
-                  size="lg"
-                  onClick={handleGenerateCertificate}
-                >
-                  Descargar certificado
-                </Button>
-              </div>
-            </div>
-          ) : (
-            <div className="flex w-full flex-col items-center justify-center gap-6">
-              <p className="flex gap-2 text-amber-500">
-                <BellAlertIcon className="h-6" /> Para guardar tu resultado,
-                acceder a tu certificado y acumular puntos en tu cuenta
-              </p>
-              <button
-                onClick={() =>
-                  (document.getElementById("loginModalWrapper")!.style.display =
-                    "flex")
-                }
-                className="rounded-xl border-2 border-amber-500 bg-amber-500/20 px-6 py-2 text-lg font-bold text-amber-500 underline"
-              >
-                Inicia sesión
-              </button>
-            </div>
-          )
-        ) : null}
+
+        <div className="flex w-full justify-center gap-6">
+          <Link href={"/aprende"}>
+            <Button
+              hierarchy="primary"
+              size="lg"
+              onClick={() => handleResetTest()}
+            >
+              Aprende
+            </Button>
+          </Link>
+          <div>
+            <Button
+              hierarchy="primary"
+              size="lg"
+              onClick={() => handleResetTest()}
+            >
+              Volver a calcular
+            </Button>
+          </div>
+        </div>
       </div>
     </CustomSection>
   );

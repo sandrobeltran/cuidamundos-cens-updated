@@ -7,185 +7,123 @@
     "questions": [
       {
         "id": 1,
-        "title": "¿Cuánta carne se consume en un mes?",
+        "title": "¿Cuánta carne consume en un mes?",
         "options": [
-          { "title": "1 a 3kg", "value": 5 },
-          { "title": "3 a 5kg", "value": 15 },
-          { "title": "5 a 10kg", "value": 25 },
-          { "title": "No como carne, soy vegetariano", "value": 2 },
-          { "title": "Más de 10kg", "value": 40 }
-        ]
+          { "title": "Menos de 10 porciones", "percent": 5, "value": 8461.5 },
+          { "title": "10 a 20 porciones", "percent": 15, "value": 16923 },
+          { "title": "20 a 50 porciones", "percent": 25, "value": 31025.5 },
+          { "title": "Más de 50 porciones", "percent": 30, "value": 39487 },
+          { "title": "No consumo carne", "percent": 2, "value": 0 }
+        ],
+        "image": "/img/purita/huella_ecologica/carnes.png"
       },
       {
         "id": 2,
-        "title": "¿Con qué frecuencia se consumen huevos en un mes?",
+        "title": "¿Cuantas unidades de huevos consume en un mes?",
         "options": [
-          { "title": "Menos de 1 vez a la semana", "value": 5 },
-          { "title": "1 a 3 veces a la semana", "value": 15 },
-          { "title": "3 a 5 veces a la semana", "value": 25 },
-          { "title": "Todos los días", "value": 40 },
-          { "title": "No consumo huevos", "value": 2 }
-        ]
+          { "title": "Menos de 6 huevos", "percent": 5, "value": 50.5 },
+          { "title": "6 a 12 huevos", "percent": 15, "value": 151.5 },
+          { "title": "13 a 24 huevos", "percent": 25, "value": 309.167 },
+          { "title": "Más de 24 huevos", "percent": 30, "value": 404 },
+          { "title": "No consumo huevos", "percent": 2, "value": 0 }
+        ],
+        "image": "/img/purita/huella_ecologica/huevos.png"
       },
       {
         "id": 3,
         "title": "¿Cuánta leche se consume en un mes?",
         "options": [
-          { "title": "Menos de 1 litro", "value": 5 },
-          { "title": "1 a 3 litros", "value": 15 },
-          { "title": "3 a 5 litros", "value": 25 },
-          { "title": "Más de 5 litros", "value": 40 },
-          { "title": "Sin consumo de leche", "value": 2 }
-        ]
+          { "title": "Menos de 5 vasos", "percent": 5, "value": 152.67 },
+          { "title": "5 a 15 vasos", "percent": 15, "value": 610.67 },
+          { "title": "15 a 25 vasos", "percent": 25, "value": 1213.33 },
+          { "title": "Más de 25 vasos", "percent": 30, "value": 1213.33 },
+          { "title": "No consumo leche", "percent": 2, "value": 0 }
+        ],
+        "image": "/img/purita/huella_ecologica/leche.png"
       },
       {
         "id": 4,
         "title": "¿Cuánto pan consume en un mes?",
         "options": [
-          { "title": "Menos de 7 unidades", "value": 5 },
-          { "title": "7 a 14 unidades", "value": 15 },
-          { "title": "14 a 21 unidades", "value": 25 },
-          { "title": "Más de 21 unidades", "value": 40 },
-          { "title": "Sin consumo", "value": 2 }
-        ]
+          { "title": "Menos de 7 unidades", "percent": 5, "value": 11 },
+          { "title": "7 a 14 unidades", "percent": 15, "value": 33 },
+          { "title": "14 a 21 unidades", "percent": 25, "value": 55 },
+          { "title": "Más de 21 unidades", "percent": 30, "value": 55 },
+          { "title": "No consumo pan", "percent": 2, "value": 0 }
+        ],
+        "image": "/img/purita/huella_ecologica/pan.png"
       },
       {
         "id": 5,
         "title": "¿Cuánto arroz se consume en un mes?",
         "options": [
-          { "title": "Menos de 1kg", "value": 5 },
-          { "title": "1 a 3kg", "value": 15 },
-          { "title": "3 a 5kg", "value": 25 },
-          { "title": "Más de 5kg", "value": 40 },
-          { "title": "Sin consumo de arroz", "value": 2 }
-        ]
+          { "title": "Menos de 10 porciones", "percent": 5, "value": 121 },
+          { "title": "10 a 30 porciones", "percent": 15, "value": 484 },
+          { "title": "30 a 50 porciones", "percent": 25, "value": 968 },
+          { "title": "Más de 50 porciones", "percent": 30, "value": 1210 },
+          { "title": "No consumo arroz", "percent": 2, "value": 0 }
+        ],
+        "image": "/img/purita/huella_ecologica/arroz.png"
       },
       {
         "id": 6,
-        "title": "¿Con qué frecuencia consume cerveza en un mes?",
+        "title": "¿Cuántas tazas de café consume en un mes?",
         "options": [
-          { "title": "Menos de 1 six pack", "value": 5 },
-          { "title": "1 a 2 six packs", "value": 15 },
-          { "title": "2 a 3 six packs", "value": 25 },
-          { "title": "Más de 3 six packs", "value": 40 },
-          { "title": "Sin consumo de cerveza", "value": 2 }
-        ]
+          { "title": "Menos de 20 tazas", "percent": 5, "value": 77.5 },
+          { "title": "20 a 25 tazas", "percent": 15, "value": 310 },
+          { "title": "25 a 45 tazas", "percent": 25, "value": 620 },
+          { "title": "Más de 45 tazas", "percent": 30, "value": 775 },
+          { "title": "No consumo café", "percent": 2, "value": 0 }
+        ],
+        "image": "/img/purita/huella_ecologica/cafe.png"
       },
       {
         "id": 7,
-        "title": "¿Cuánto pollo se consume en un mes?",
+        "title": "¿Cuánto pollo consume en un mes?",
         "options": [
-          { "title": "Menos de 1 pollo", "value": 5 },
-          { "title": "1 a 2 pollos", "value": 15 },
-          { "title": "2 a 3 pollos", "value": 25 },
-          { "title": "Más de 3 pollos", "value": 40 },
-          { "title": "Sin consumo pollo", "value": 2 }
-        ]
+          { "title": "Menos de 5 porciones", "percent": 5, "value": 142 },
+          { "title": "5 a 15 porciones", "percent": 15, "value": 426 },
+          { "title": "15 a 25 porciones", "percent": 25, "value": 710 },
+          { "title": "Más de 25 porciones", "percent": 30, "value": 284 },
+          { "title": "No consumo pollo", "percent": 2, "value": 0 }
+        ],
+        "image": "/img/purita/huella_ecologica/pollo.png"
       },
       {
         "id": 8,
-        "title": "¿Cuántos tomates se consume en un mes?",
+        "title": "¿Cuántas papas consume en un mes?",
         "options": [
-          { "title": "Menos de 7 unidades", "value": 5 },
-          { "title": "7 a 14 unidades", "value": 15 },
-          { "title": "14 a 21 unidades", "value": 25 },
-          { "title": "Más de 21 unidades", "value": 40 },
-          { "title": "Sin consumo de tomates", "value": 2 }
-        ]
+          { "title": "Menos de 5 porciones", "percent": 5, "value": 4.5 },
+          { "title": "5 a 15 porciones", "percent": 15, "value": 18 },
+          { "title": "15 a 25 porciones", "percent": 25, "value": 36 },
+          { "title": "Más de 25 porciones", "percent": 30, "value": 45 },
+          { "title": "No consumo papas", "percent": 2, "value": 0 }
+        ],
+        "image": "/img/purita/huella_ecologica/papas.png"
       },
       {
         "id": 9,
-        "title": "¿Cuántas papas consumen en un mes?",
+        "title": "¿Cuántos bananos consume en un mes?",
         "options": [
-          { "title": "Menos de 1kg", "value": 5 },
-          { "title": "1 a 3kg", "value": 15 },
-          { "title": "3 a 5kg", "value": 25 },
-          { "title": "Más de 5ks", "value": 40 },
-          { "title": "Sin consumo de papas", "value": 2 }
-        ]
+          { "title": "Menos de 5 bananos", "percent": 5, "value": 14.28 },
+          { "title": "5 a 10 bananos", "percent": 15, "value": 26.79 },
+          { "title": "10 a 20 bananos", "percent": 25, "value": 53.57 },
+          { "title": "Más de 20 bananos", "percent": 30, "value": 53.57 },
+          { "title": "No consumo bananos", "percent": 2, "value": 0 }
+        ],
+        "image": "/img/purita/huella_ecologica/bananos.png"
       },
       {
         "id": 10,
-        "title": "¿Cuánta ropa nueva compras en un año?",
+        "title": "¿Cuántos aguacates consume en un mes?",
         "options": [
-          { "title": "Menos de 5 prendas", "value": 5 },
-          { "title": "5 a 10 prendas", "value": 15 },
-          { "title": "10 a 20 prendas", "value": 25 },
-          { "title": "Más de 20 prendas", "value": 40 },
-          { "title": "Compro ropa de segunda mano", "value": 2 }
-        ]
-      },
-      {
-        "id": 11,
-        "title": "¿Con qué frecuencia consume productos de mar, como pescado o mariscos, en un mes? ",
-        "options": [
-          { "title": "Menos de 1 vez al mes", "value": 5 },
-          { "title": "1 a 3 veces al mes", "value": 15 },
-          { "title": "3 a 5 veces al mes", "value": 25 },
-          { "title": "Más de 5 veces al mes", "value": 40 },
-          { "title": "No consumo productos de mar", "value": 2 }
-        ]
-      },
-      {
-        "id": 12,
-        "title": "¿Con qué frecuencia viajas en avión en un año?",
-        "options": [
-          { "title": "Menos de 1 vez al año", "value": 5 },
-          { "title": "1 a 3 veces al año", "value": 15 },
-          { "title": "3 a 5 veces al año", "value": 25 },
-          { "title": "Más de 5 veces al año", "value": 40 },
-          { "title": "No viajo en avión", "value": 2 }
-        ]
-      },
-      {
-        "id": 13,
-        "title": "¿Cuánto tiempo deja tus dispositivos electrónicos en modo de espera cuando no los estás usando?",
-        "options": [
-          { "title": "Menos de 1 hora al día", "value": 5 },
-          { "title": "1 a 3 horas al día", "value": 15 },
-          { "title": "3 a 6 horas al día", "value": 25 },
-          { "title": "Más de 6 horas al día", "value": 40 },
-          { "title": "Siempre apago mis dispositivos", "value": 2 }
-        ]
-      },
-      {
-        "id": 14,
-        "title": "¿Cuánto desperdicio de alimentos genera en un mes? ",
-        "options": [
-          { "title": "Menos de 1kg", "value": 5 },
-          { "title": "1 a 3kg", "value": 15 },
-          { "title": "3 a 5kg", "value": 25 },
-          { "title": "Más de 5kg", "value": 40 },
-          { "title": "No genero desperdicio de alimentos", "value": 2 }
-        ]
-      },
-      {
-        "id": 15,
-        "title": "¿Cuánto tiempo pasa en la ducha diariamente?",
-        "options": [
-          { "title": "Menos de 5 minutos", "value": 5 },
-          { "title": "5 a 10 minutos", "value": 15 },
-          { "title": "10 a 15 minutos", "value": 25 },
-          { "title": "Más de 15 minutos", "value": 40 },
-          {
-            "title": "Uso regaderas de bajo fluido y limito mi tiempo",
-            "value": 2
-          }
-        ]
-      },
-      {
-        "id": 16,
-        "title": "¿Cuánta electricidad consume mensualmente en tu hogar?",
-        "options": [
-          { "title": "Menos de 100kWh", "value": 5 },
-          { "title": "100 a 300 kWh", "value": 15 },
-          { "title": "300 a 500 kWh", "value": 25 },
-          { "title": "Más de 500kWh", "value": 40 },
-          {
-            "title": "Utilizo principalmente fuentes de energía renovable",
-            "value": 2
-          }
-        ]
+          { "title": "Menos de 3 aguacates", "percent": 5, "value": 48 },
+          { "title": "3 a 6 aguacates", "percent": 15, "value": 96 },
+          { "title": "6 a 10 aguacates", "percent": 25, "value": 192 },
+          { "title": "Más de 10 aguacates", "percent": 30, "value": 288 },
+          { "title": "No consumo aguacates", "percent": 2, "value": 0 }
+        ],
+        "image": "/img/purita/huella_ecologica/aguacate.png"
       }
     ],
     "ranges": [

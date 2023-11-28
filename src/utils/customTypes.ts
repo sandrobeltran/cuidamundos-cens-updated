@@ -22,7 +22,7 @@ export type TUserData = {
   bio: string;
 };
 
-export interface IUserCertificate {}
+export interface IUserCertificate { }
 
 export interface IAuthor {
   _id: string;
@@ -101,8 +101,10 @@ export interface ITestQuestion {
   title: string;
   options: {
     title: string;
-    value: number;
+    percent: number;
+    value: number
   }[];
+  image: string
 }
 
 export interface ITestRange {

@@ -4,7 +4,10 @@ import { create } from "zustand";
 
 type TResult = {
   question: ITestQuestion;
-  selection: number;
+  selection: {
+    percent: number,
+    value: number
+  };
 };
 
 type THuellaEcologica = {

@@ -9,7 +9,7 @@ import dynamic from "next/dynamic";
 
 export type TBookPage = {
   text?: React.ReactNode;
-  bg?: string | StaticImageData;
+  bg?: string;
 };
 
 type TProps = {
@@ -18,15 +18,16 @@ type TProps = {
 
 const Book = ({ pages }: TProps) => {
   const sortedPages = [...pages].reverse();
-
+  const bookRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(
     sortedPages.length - 1,
   );
-  const bookRef = useRef<HTMLDivElement>(null);
   const bookPages = useRef<NodeListOf<HTMLDivElement>>();
+  const [lastAction, setLastAction] = useState<number>(1); // 0: previous | 1: next
 
   function handleNextPage() {
     if (currentIndex > 1) {
+      setLastAction(1);
       setCurrentIndex(currentIndex - 1);
       updatePages();
     }
@@ -34,38 +35,33 @@ const Book = ({ pages }: TProps) => {
 
   function handlePrevPage() {
     if (currentIndex < bookPages.current!.length - 1) {
+      setLastAction(0);
       setCurrentIndex(currentIndex + 1);
       updatePages();
-      bookPages.current![currentIndex + 1].style.zIndex = "30";
     }
-  }
-
-  function assignRightZ() {
-    console.log("z");
-    let z = 0;
-    bookPages.current!.forEach((page) => {
-      page.style.zIndex = `${z}`;
-      z++;
-    });
   }
 
   const updatePages = useCallback(() => {
     bookPages.current!.forEach((page, index) => {
       page.style.zIndex = "1";
       if (index < currentIndex) {
-        // Turn and show
         page.classList.remove("turned");
       } else {
-        page.style.zIndex = `${10 - index}`;
+        page.style.zIndex = `${bookPages.current!.length - index}`;
       }
     });
+    // Turn and show
     bookPages.current![currentIndex].classList.add("turned");
     bookPages.current![currentIndex].style.zIndex = "20";
-  }, [currentIndex]);
+
+    if (lastAction === 0) {
+      // Last action was go back
+      bookPages.current![currentIndex - 1].style.zIndex = "30";
+    }
+  }, [currentIndex, lastAction]);
 
   const initBook = useCallback(() => {
     bookPages.current! = bookRef.current!.querySelectorAll(".book__page");
-    assignRightZ();
     updatePages();
   }, [updatePages]);
 
@@ -83,12 +79,23 @@ const Book = ({ pages }: TProps) => {
       </button>
       <div
         ref={bookRef}
-        style={{ perspective: 1000 }}
+        style={{ perspective: 1200 }}
         className="book relative h-64 w-full rounded-3xl bg-white"
       >
-        {sortedPages.map((page, index) => (
-          <BookPage key={index} {...page} />
-        ))}
+        {sortedPages.map((page, index) => {
+          let z = sortedPages.length;
+          return (
+            <div
+              key={index}
+              style={{ zIndex: z - index }}
+              className={`${
+                currentIndex < index ? "turned" : ""
+              } book__page absolute right-[1%] top-[2.5%] flex h-[95%] w-[49%] origin-[center_left] items-center justify-center overflow-hidden rounded-br-3xl rounded-tr-3xl bg-white text-stone-500 shadow-md shadow-stone-300`}
+            >
+              <BookPage {...page} />
+            </div>
+          );
+        })}
       </div>
       <button
         onClick={() => handleNextPage()}

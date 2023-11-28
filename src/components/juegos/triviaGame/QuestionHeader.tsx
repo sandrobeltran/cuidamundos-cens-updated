@@ -14,7 +14,7 @@ const QuestionHeader = ({ title, image }: TProps) => {
           src={image}
           fill
           alt="Question image"
-          className="rounded-4xl object-cover"
+          className="rounded-4xl object-contain"
         />
       </div>
       <h4 className="w-full text-xl font-medium">{title}</h4>

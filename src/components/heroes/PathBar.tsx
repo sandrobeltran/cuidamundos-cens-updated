@@ -5,6 +5,7 @@ import Link from "next/link";
 import React from "react";
 import HeroesArrowImage from "../../../public/icons/heroes_arrow.svg";
 import { usePathname } from "next/navigation";
+import AVATARS_DATA from "@/utils/avatarsData";
 
 const names = {
   "/": "Inicio",
@@ -36,7 +37,10 @@ const PathBar = () => {
               {index === routesHistory.length - 1 ? (
                 <p>{route.name}</p>
               ) : (
-                <Link href={route.path} className="w-fit hover:underline underline-offset-2">
+                <Link
+                  href={route.path}
+                  className="w-fit underline-offset-2 hover:underline"
+                >
                   {route.name}
                 </Link>
               )}
@@ -52,7 +56,59 @@ const PathBar = () => {
         </ul>
 
         {/* HEROES */}
-        <div className="flex gap-4"></div>
+        <div className="flex h-full gap-4 py-2">
+          <Link href={"/jirol"}>
+            <div
+              className="aspect-square h-full rounded-full"
+              style={{
+                filter: paths.includes("jirol")
+                  ? "brightness(1)"
+                  : "brightness(.5)",
+              }}
+            >
+              <Image
+                src={AVATARS_DATA[7]}
+                width={64}
+                height={64}
+                alt="Imagen de Jirol"
+              />
+            </div>
+          </Link>
+          <Link href={"/felix"}>
+            <div
+              className="aspect-square h-full rounded-full"
+              style={{
+                filter: paths.includes("felix")
+                  ? "brightness(1)"
+                  : "brightness(.5)",
+              }}
+            >
+              <Image
+                src={AVATARS_DATA[5]}
+                width={64}
+                height={64}
+                alt="Imagen de Félix"
+              />
+            </div>
+          </Link>
+          <Link href={"/purita"}>
+            <div
+              className="aspect-square h-full rounded-full"
+              style={{
+                filter: paths.includes("purita")
+                  ? "brightness(1)"
+                  : "brightness(.5)",
+              }}
+            >
+              <Image
+                src={AVATARS_DATA[6]}
+                width={64}
+                height={64}
+                alt="Imagen de Purita"
+              />
+            </div>
+          </Link>
+        </div>
       </div>
     </nav>
   );

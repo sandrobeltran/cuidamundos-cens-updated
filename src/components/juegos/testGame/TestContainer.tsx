@@ -35,7 +35,6 @@ const TestContainer = ({ test, mainScreen, resultScreen }: TProps) => {
   return (
     <div className="relative overflow-hidden rounded-3xl border border-stone-300 bg-white/50 shadow-md">
       {test ? <TestHeader /> : null}
-      {!user ? <GuestUser /> : null}
       <Swiper allowTouchMove={false}>
         <SwiperSlide>{mainScreen}</SwiperSlide>
         {test

@@ -12,6 +12,20 @@ export const navbarData: INavbarProps[] = [
   {
     href: "/",
     title: "Inicio",
+    items: [
+      {
+        href: "/jirol",
+        title: "Jirol",
+      },
+      {
+        href: "/felix",
+        title: "Félix",
+      },
+      {
+        href: "/purita",
+        title: "Purita",
+      },
+    ],
   },
   {
     href: "/juega",
@@ -30,20 +44,7 @@ export const navbarData: INavbarProps[] = [
   {
     href: "/aprende",
     title: "Dalia",
-    items: [
-      {
-        href: "/aprende/capitan",
-        title: "Capitán",
-      },
-      {
-        href: "/aprende/felix",
-        title: "Félix",
-      },
-      {
-        href: "/aprende/purita",
-        title: "Purita",
-      },
-    ],
+
   },
   {
     href: "/contacto",
