@@ -7,7 +7,7 @@ type TResult = {
   correct: boolean;
 };
 
-type TCuidamundosTrivia = {
+type TUsoEficiente = {
   results: TResult[];
   currentPage: number;
   questionsAmount: number;
@@ -41,7 +41,7 @@ const initialState = {
   lose: false,
 };
 
-export const useCuidaMundosTrivia = create<TCuidamundosTrivia>((set) => ({
+export const useUsoEficiente = create<TUsoEficiente>((set) => ({
   ...initialState,
   nextPage: () => set((state) => ({ currentPage: state.currentPage + 1 })),
   prevPage: () => set((state) => ({ currentPage: state.currentPage - 1 })),

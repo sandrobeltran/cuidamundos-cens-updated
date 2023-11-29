@@ -25,11 +25,10 @@ const GuestUser = () => {
           <StarIcon className="star w-28 -translate-y-4" />
           <StarIcon className="star w-20" />
         </div>
-        <h3 className="text-3xl font-bold text-cens-dark">
-          ¡No Pares de Ganar!
-        </h3>
+        <h3 className="text-3xl font-bold text-cens-dark">¡Sigue avanzando!</h3>
         <p className="text-xl font-light text-stone-500">
-          ¡Regístrate para acumular puntos y desbloquear emocionantes premios!
+          ¡Regístrate para acumular puntos, desbloquear emocionantes premios y
+          obtener tu certificado!
         </p>
         <div className="flex w-full justify-between gap-5">
           <div>

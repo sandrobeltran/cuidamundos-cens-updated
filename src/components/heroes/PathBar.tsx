@@ -13,6 +13,7 @@ const names = {
   quien: "¿Quién es?",
   atiende: "¿Qué atiende?",
   poderes: "Poderes",
+  felix: "Félix",
 };
 
 const PathBar = () => {

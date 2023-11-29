@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { ClockIcon, SpeakerWaveIcon } from "@heroicons/react/24/outline";
-import { useCuidaMundosTrivia } from "@/store/useCuidaMundosTrivia";
+import { useUsoEficiente } from "@/store/useUsoEficiente";
 import Image from "next/image";
 import { useUserStore } from "@/store/useUserStore";
 import { ITrivia } from "@/utils/customTypes";

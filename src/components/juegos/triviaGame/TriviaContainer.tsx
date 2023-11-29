@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { useCuidaMundosTrivia } from "@/store/useCuidaMundosTrivia";
+import { useUsoEficiente } from "@/store/useUsoEficiente";
 import { useUserStore } from "@/store/useUserStore";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import "swiper/css";
@@ -22,7 +22,7 @@ type TProps = {
 const TriviaContainer = ({ trivia, mainScreen, resultScreen }: TProps) => {
   const user = useUserStore((state) => state.user);
 
-  const { initializeTrivia, hasWon } = useCuidaMundosTrivia((state) => state);
+  const { initializeTrivia, hasWon } = useUsoEficiente((state) => state);
 
   useEffect(() => {
     if (trivia) {

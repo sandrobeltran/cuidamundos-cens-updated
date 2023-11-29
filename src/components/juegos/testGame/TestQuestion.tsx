@@ -1,7 +1,7 @@
 import { TTriviaQuestion } from "@/trivias/cuidaMundosQuestions";
 import React from "react";
 import { SwiperSlide, useSwiper } from "swiper/react";
-import { useCuidaMundosTrivia } from "@/store/useCuidaMundosTrivia";
+import { useUsoEficiente } from "@/store/useUsoEficiente";
 import QuestionHeader from "../triviaGame/QuestionHeader";
 import OptionCard from "../triviaGame/OptionCard";
 import { ITestQuestion } from "@/utils/customTypes";

@@ -1,4 +1,4 @@
-import { useCuidaMundosTrivia } from "@/store/useCuidaMundosTrivia";
+import { useUsoEficiente } from "@/store/useUsoEficiente";
 import React from "react";
 import Button from "../Button";
 import { useSwiper } from "swiper/react";
@@ -8,7 +8,7 @@ type TProps = {
 };
 
 const Retry = ({ Percent }: TProps) => {
-  const resetTrivia = useCuidaMundosTrivia((state) => state.resetTrivia);
+  const resetTrivia = useUsoEficiente((state) => state.resetTrivia);
 
   const swiper = useSwiper();
 
@@ -18,13 +18,15 @@ const Retry = ({ Percent }: TProps) => {
   }
 
   return (
-    <div className="flex flex-col items-center gap-10 text-center">
+    <div className="flex max-w-xl flex-col items-center gap-10 text-center">
       <div className="flex flex-col items-center gap-2 text-center">
         <h3 className="text-3xl font-bold">
-          ¡Que lástima! <span className="text-cens-brand"></span>
+          ¡Ups! <span className="text-cens-brand">¡No te desanimes!</span>
         </h3>
         <p className="font-thin">
-          No has alcanzado el puntaje mínimo en la trivia sobre riesgo eléctrico
+          Aprende de tus errores y prepárate para la próxima ronda. Tienes más
+          oportunidades para demostrar tus conocimientos sobre el Uso Eficiente
+          y convertirte en un héroe eléctrico. ¡Ánimo!
         </p>
       </div>
       {<Percent />}

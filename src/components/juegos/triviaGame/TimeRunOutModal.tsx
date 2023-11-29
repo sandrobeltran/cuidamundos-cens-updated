@@ -4,13 +4,13 @@ import Image from "next/image";
 import { StarIcon } from "@heroicons/react/24/solid";
 import { useUserStore } from "@/store/useUserStore";
 import { ClockIcon } from "@heroicons/react/24/outline";
-import { useCuidaMundosTrivia } from "@/store/useCuidaMundosTrivia";
+import { useUsoEficiente } from "@/store/useUsoEficiente";
 import { useSwiper } from "swiper/react";
 
 const TimeRunOutModal = () => {
   const user = useUserStore((state) => state.user);
   const containerRef = useRef<HTMLDivElement>(null);
-  const resetTrivia = useCuidaMundosTrivia((state) => state.resetTrivia);
+  const resetTrivia = useUsoEficiente((state) => state.resetTrivia);
   const swiper = useSwiper();
 
   function handleResetTrivia() {

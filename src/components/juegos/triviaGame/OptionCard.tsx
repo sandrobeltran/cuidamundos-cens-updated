@@ -1,4 +1,4 @@
-import { useCuidaMundosTrivia } from "@/store/useCuidaMundosTrivia";
+import { useUsoEficiente } from "@/store/useUsoEficiente";
 import React from "react";
 
 type TProps = {

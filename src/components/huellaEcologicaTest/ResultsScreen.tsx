@@ -5,7 +5,7 @@ import party from "party-js";
 import Link from "next/link";
 import Button from "../Button";
 import { useUserStore } from "@/store/useUserStore";
-import { useCuidaMundosTrivia } from "@/store/useCuidaMundosTrivia";
+import { useUsoEficiente } from "@/store/useUsoEficiente";
 import { TTriviaQuestion } from "@/trivias/cuidaMundosQuestions";
 import CustomSection from "../layout/CustomSection";
 import { toast } from "react-toastify";

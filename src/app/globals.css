@@ -332,3 +332,18 @@ input:-webkit-autofill:active {
 .book .book__page.turned {
   transform: rotateX(2deg) rotateY(-180deg);
 }
+
+/* HIDE INPUT NUMBER SPIN FOR FELIX PAGE */
+
+/* Chrome, Safari, Edge, Opera */
+.felix__mark > input::-webkit-outer-spin-button,
+.felix__mark > input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.felix__mark > input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: none;
+}

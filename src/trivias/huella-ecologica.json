@@ -15,7 +15,7 @@
           { "title": "Más de 50 porciones", "percent": 30, "value": 39487 },
           { "title": "No consumo carne", "percent": 2, "value": 0 }
         ],
-        "image": "/img/purita/huella_ecologica/carnes.png"
+        "image": "/img/purita/huella-ecologica/carnes.png"
       },
       {
         "id": 2,
@@ -27,7 +27,7 @@
           { "title": "Más de 24 huevos", "percent": 30, "value": 404 },
           { "title": "No consumo huevos", "percent": 2, "value": 0 }
         ],
-        "image": "/img/purita/huella_ecologica/huevos.png"
+        "image": "/img/purita/huella-ecologica/huevos.png"
       },
       {
         "id": 3,
@@ -39,7 +39,7 @@
           { "title": "Más de 25 vasos", "percent": 30, "value": 1213.33 },
           { "title": "No consumo leche", "percent": 2, "value": 0 }
         ],
-        "image": "/img/purita/huella_ecologica/leche.png"
+        "image": "/img/purita/huella-ecologica/leche.png"
       },
       {
         "id": 4,
@@ -51,7 +51,7 @@
           { "title": "Más de 21 unidades", "percent": 30, "value": 55 },
           { "title": "No consumo pan", "percent": 2, "value": 0 }
         ],
-        "image": "/img/purita/huella_ecologica/pan.png"
+        "image": "/img/purita/huella-ecologica/pan.png"
       },
       {
         "id": 5,
@@ -63,7 +63,7 @@
           { "title": "Más de 50 porciones", "percent": 30, "value": 1210 },
           { "title": "No consumo arroz", "percent": 2, "value": 0 }
         ],
-        "image": "/img/purita/huella_ecologica/arroz.png"
+        "image": "/img/purita/huella-ecologica/arroz.png"
       },
       {
         "id": 6,
@@ -75,7 +75,7 @@
           { "title": "Más de 45 tazas", "percent": 30, "value": 775 },
           { "title": "No consumo café", "percent": 2, "value": 0 }
         ],
-        "image": "/img/purita/huella_ecologica/cafe.png"
+        "image": "/img/purita/huella-ecologica/cafe.png"
       },
       {
         "id": 7,
@@ -87,7 +87,7 @@
           { "title": "Más de 25 porciones", "percent": 30, "value": 284 },
           { "title": "No consumo pollo", "percent": 2, "value": 0 }
         ],
-        "image": "/img/purita/huella_ecologica/pollo.png"
+        "image": "/img/purita/huella-ecologica/pollo.png"
       },
       {
         "id": 8,
@@ -99,7 +99,7 @@
           { "title": "Más de 25 porciones", "percent": 30, "value": 45 },
           { "title": "No consumo papas", "percent": 2, "value": 0 }
         ],
-        "image": "/img/purita/huella_ecologica/papas.png"
+        "image": "/img/purita/huella-ecologica/papas.png"
       },
       {
         "id": 9,
@@ -111,7 +111,7 @@
           { "title": "Más de 20 bananos", "percent": 30, "value": 53.57 },
           { "title": "No consumo bananos", "percent": 2, "value": 0 }
         ],
-        "image": "/img/purita/huella_ecologica/bananos.png"
+        "image": "/img/purita/huella-ecologica/bananos.png"
       },
       {
         "id": 10,
@@ -123,7 +123,7 @@
           { "title": "Más de 10 aguacates", "percent": 30, "value": 288 },
           { "title": "No consumo aguacates", "percent": 2, "value": 0 }
         ],
-        "image": "/img/purita/huella_ecologica/aguacate.png"
+        "image": "/img/purita/huella-ecologica/aguacate.png"
       }
     ],
     "ranges": [

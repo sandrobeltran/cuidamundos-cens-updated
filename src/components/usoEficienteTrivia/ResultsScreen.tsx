@@ -5,7 +5,7 @@ import party from "party-js";
 import Link from "next/link";
 import Button from "../Button";
 import { useUserStore } from "@/store/useUserStore";
-import { useCuidaMundosTrivia } from "@/store/useCuidaMundosTrivia";
+import { useUsoEficiente } from "@/store/useUsoEficiente";
 import { TTriviaQuestion } from "@/trivias/cuidaMundosQuestions";
 import Congrats from "./Congrats";
 import Retry from "./Retry";
@@ -20,7 +20,7 @@ const formatter = new Intl.NumberFormat("es-CO", {
 });
 
 const PercentCirle = () => {
-  const { results } = useCuidaMundosTrivia();
+  const { results } = useUsoEficiente();
   const corrects = results.filter((e) => e.correct);
 
   return (
@@ -47,7 +47,7 @@ const PercentCirle = () => {
 
 const ResultsScreen = () => {
   const { results, questions, stage, lose, setHasWon, hasWon } =
-    useCuidaMundosTrivia();
+    useUsoEficiente();
   const corrects = results.filter((e) => e.correct);
   const incorrects = results.filter((e) => !e.correct);
   const user = useUserStore((state) => state.user);
@@ -56,7 +56,7 @@ const ResultsScreen = () => {
   const trivia = games.find((game) => game.href === pathname);
 
   // ? REPLACE WITH THE REAL THRESHOLD WHEN FINISHED
-  const minCorrects = 1;
+  const minCorrects = 4;
 
   const handleUploadPoints = useCallback(async () => {
     console.log("Trying to add points");
@@ -91,7 +91,7 @@ const ResultsScreen = () => {
       results.length === questions.length &&
       stage === 2 &&
       !lose &&
-      corrects.length > minCorrects &&
+      corrects.length >= minCorrects &&
       user
     ) {
       // user has won

@@ -1,118 +1,145 @@
 "use client";
 
+import HeroeSection from "@/components/heroes/HeroeSection";
+import HeroeTitle from "@/components/heroes/HeroeTitle";
 import CustomMain from "@/components/layout/CustomMain";
-import PaddingWrapper from "@/components/layout/PaddingWrapper";
-import NewsImage from "../../../../../public/img/news_01.jpeg";
-import HeroFelixImage from "../../../../../public/img/flying_felix.png";
-import MiniSection from "@/components/cards/MiniSection";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import CustomSection from "@/components/layout/CustomSection";
-import HeroMiniSection from "@/components/aprende/HeroMiniSection";
-import TriviaSection from "@/components/home/TriviaSection";
-import Hero from "@/components/Hero";
-import PhotoCard from "@/components/aprende/PhotoCard";
+import FelixHeroImage from "../../../../../public/img/felix/hero.png";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 
-export default function Felix() {
+/* SECTIONS DATA */
+const SECTIONS_DATA = [
+  {
+    title: "¿Quién es?",
+    description:
+      "Descubre la historia de Félix, el maestro de la electricidad, aprende sobre la energía y descubre cómo ser un héroe eléctrico.",
+    href: "/felix/quien",
+    icon: "library",
+  },
+  {
+    title: "¿Qué atiende?",
+    description:
+      "Diviértete mientras aprendes a evitar accidentes eléctricos en casa. Descubre los riesgos y cómo prevenirlos.",
+    href: "/felix/atiende",
+    icon: "plug",
+  },
+  {
+    title: "Uso eficiente",
+    description:
+      "Juega y supera la trivia de Uso Eficiente para convertirte en un auténtico héroe eléctrico.",
+    href: "/juega/uso-eficiente",
+    icon: "power",
+  },
+  {
+    title: "Riesgo eléctrico",
+    description:
+      "Aprueba la trivia de Riesgo Eléctrico para convertirte en un héroe y obtener una certificación.",
+    href: "/juega/riesgo-electrico",
+    icon: "thunder",
+  },
+];
+
+export default function Purita() {
+  const [currentSection, setCurrentSection] = useState<{
+    index: number;
+    top: number;
+  }>({ index: 0, top: 0 });
+
+  function calcTop(e: HTMLSpanElement): number {
+    const offsetTop = e.offsetTop;
+    const height = e.clientHeight;
+
+    return offsetTop + height / 2;
+  }
+
+  useEffect(() => {
+    const sectionSelectorButton = document.querySelector(
+      ".section__selector__btn",
+    );
+
+    const top = calcTop(sectionSelectorButton as HTMLSpanElement);
+
+    setCurrentSection((c) => ({ ...c, top }));
+  }, []);
+
   return (
     <CustomMain>
-      <Hero
-        image={HeroFelixImage}
-        title={{
-          text: "Conoce a Félix:",
-          resalted: "El Defensor de CuidaMundos!",
-        }}
-        description="Acompáñanos para descubrir su historia, sus aventuras y cómo puedes unirte a su misión en nuestro mundo virtual y en la vida real."
-      />
-      <PaddingWrapper>
-        <CustomSection>
-          <HeroMiniSection
-            href="/"
-            cover={NewsImage}
-            title="El Origen de Félix: Un Viaje Épico"
-            description={
-              <>
-                ¡Acompaña a Félix en un emocionante viaje a través de las
-                maravillosas tierras de CuidaMundos! Desde que era un niño, el
-                Capitán ha sentido una conexión especial con la naturaleza que
-                lo rodea. Pasaba horas explorando los bosques, observando las
-                estrellas y aprendiendo los secretos de la tierra.
-                <br />
-                <br />
-                A medida que crecía, su amor por el medio ambiente se hizo más
-                fuerte. Se convirtió en un apasionado defensor de la
-                conservación y se dedicó a proteger la belleza natural de
-                CuidaMundos. Aprendió a cuidar de los animales, a preservar los
-                hábitats y a promover prácticas sostenibles.
-                <br />
-                <br />
-                Acompaña al Capitán en sus primeras aventuras y descubre cómo se
-                convierte en el líder de la misión para salvar a CuidaMundos. Su
-                historia inspiradora te enseñará sobre la importancia de
-                proteger nuestro hogar y cómo cada uno de nosotros puede marcar
-                la diferencia. ¡Únete al Capitán y sé un héroe ecológico en tu
-                propio camino!
-              </>
-            }
-            image={HeroFelixImage}
-          />
-        </CustomSection>
-        <MiniSection
-          image={NewsImage}
+      <HeroeSection>
+        <HeroeTitle
           title={{
-            text: "Tráiler de Félix:",
-            resalted: "Guardianes de CuidaMundos",
+            text: "¡Explora y aprende",
+            resalted: "con Félix!",
           }}
-          description={
-            <>
-              Sumérgete en un mundo lleno de maravillas y desafíos en{" "}
-              <b>CuidaMundos</b>. Embárcate en una emocionante travesía mientras
-              salvas al planeta. Con gráficos impresionantes, mecánicas de juego
-              sencillas y una historia cautivadora.
-            </>
-          }
+          description="Descubre cómo ser un héroe de la energía eléctrica y usarla de manera inteligente. ¡Aprende y diviértete!"
         />
-        <CustomSection>
-          <h2 className="text-center text-4xl font-medium text-stone-500">
-            Galería de <span className="text-cens-medium">Fotos</span>
-          </h2>
-          <Swiper
-            slidesPerView={1.4}
-            spaceBetween={15}
-            breakpoints={{
-              670: {
-                slidesPerView: 2.5,
-                spaceBetween: 30,
-              },
-            }}
-            className="mt-8"
-          >
-            <SwiperSlide>
-              <PhotoCard cover={NewsImage} alt="Photo 1" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <PhotoCard cover={NewsImage} alt="Photo 1" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <PhotoCard cover={NewsImage} alt="Photo 1" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <PhotoCard cover={NewsImage} alt="Photo 1" />
-            </SwiperSlide>
-          </Swiper>
-        </CustomSection>
-        <TriviaSection
-          cover="/img/hero_sky.jpg"
-          title={
-            <>
-              ¡Demuestra tu conocimiento <br />
-              <span className="text-cens-medium">sobre Félix</span>
-            </>
-          }
-          description="Pon a prueba tu sabiduría ambiental en nuestra emocionante trivia. Responde preguntas sobre la conservación del medio ambiente, la sostenibilidad y más. ¡Aprende mientras juegas y gana recompensas exclusivas!"
-          href="/"
-        />
-      </PaddingWrapper>
+        <div className="relative grid w-full grid-cols-6 px-16">
+          {/* HERO IMAGE */}
+          <div className="col-span-2">
+            <Image
+              src={FelixHeroImage}
+              className="w-full"
+              alt="Imagen de Felix volando"
+            />
+          </div>
+          <div className="col-span-4 flex">
+            {/* CONTENT */}
+            <div className="grid w-full place-content-center">
+              <Link href={SECTIONS_DATA[currentSection.index].href}>
+                <div className="flex w-full max-w-sm flex-col gap-4">
+                  <h4 className="border-b-2 border-b-felix text-3xl font-semibold text-felix">
+                    {SECTIONS_DATA[currentSection.index].title}
+                  </h4>
+                  <p className="pr-24 text-justify text-lg text-stone-500">
+                    {SECTIONS_DATA[currentSection.index].description}
+                  </p>
+                </div>
+              </Link>
+            </div>
+            {/* SECTION SELECTION */}
+            <div className="relative flex h-full min-w-[80px] flex-col items-center justify-center gap-10 border-l-2 border-dashed border-l-stone-900 pl-12">
+              {/* SPOT */}
+              <span
+                className="absolute -left-4 top-0 h-8 w-8 rounded-full bg-felix transition-transform"
+                style={{
+                  transform: `translateY(${currentSection.top - 16}px)`,
+                }}
+              ></span>
+
+              {/* SECTION SELECTOR */}
+              {SECTIONS_DATA.map((section, index) => {
+                return (
+                  <button
+                    key={section.href}
+                    className="section__selector__btn grid h-10 w-10 place-content-center rounded-full bg-felix transition-all hover:brightness-75"
+                    style={
+                      currentSection.index === index
+                        ? {
+                            scale: 1.2,
+                            backgroundColor: "#C01F1F",
+                            filter: "none",
+                          }
+                        : {}
+                    }
+                    onClick={(e) => {
+                      const top = calcTop(e.currentTarget);
+
+                      setCurrentSection({ index, top });
+                    }}
+                  >
+                    <Image
+                      src={`/icons/felix/${section.icon}.svg`}
+                      alt={`Ícono de ${section.icon}`}
+                      width={22}
+                      height={22}
+                    />
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </HeroeSection>
     </CustomMain>
   );
 }

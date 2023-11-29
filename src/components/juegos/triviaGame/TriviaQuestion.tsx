@@ -3,7 +3,7 @@ import React from "react";
 import { SwiperSlide, useSwiper } from "swiper/react";
 import QuestionHeader from "./QuestionHeader";
 import OptionCard from "./OptionCard";
-import { useCuidaMundosTrivia } from "@/store/useCuidaMundosTrivia";
+import { useUsoEficiente } from "@/store/useUsoEficiente";
 
 type TProps = {
   question: TTriviaQuestion;
@@ -13,7 +13,7 @@ type TProps = {
 const TriviaQuestion = ({ question, index }: TProps) => {
   const swiper = useSwiper();
 
-  const { addResult, questions, setPlaying, setStage } = useCuidaMundosTrivia();
+  const { addResult, questions, setPlaying, setStage } = useUsoEficiente();
 
   function mixOptions(options: string[]): string[] {
     const mixedOptions: string[] = [];

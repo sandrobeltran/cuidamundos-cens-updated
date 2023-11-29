@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../Button";
 import Image from "next/image";
 import { useUserStore } from "@/store/useUserStore";
-import { useCuidaMundosTrivia } from "@/store/useCuidaMundosTrivia";
+import { useUsoEficiente } from "@/store/useUsoEficiente";
 import { useSwiper } from "swiper/react";
 import BulbImage from "../../../public/img/bulb.png";
 import SwitchImage from "../../../public/img/switch.jpg";
@@ -11,7 +11,7 @@ import HandImage from "../../../public/img/hand.png";
 const MainScreen = () => {
   const { user } = useUserStore();
   const [lightState, setLightState] = useState<boolean>(false);
-  const { setStage } = useCuidaMundosTrivia();
+  const { setStage } = useUsoEficiente();
   const swiper = useSwiper();
 
   return (
@@ -26,7 +26,7 @@ const MainScreen = () => {
       <Image
         src={BulbImage}
         alt="Imagen de un bombillo CENS"
-        className={`bulb absolute left-14 top-0 w-[13%] object-contain object-bottom`}
+        className={`bulb absolute left-14 -top-1 w-[13%] object-contain object-bottom`}
         style={{
           filter: lightState
             ? "brightness(1) drop-shadow(0 10px 100px #ff0)"
@@ -36,18 +36,15 @@ const MainScreen = () => {
       <div className="p-4t relative flex h-fit w-full max-w-md flex-col items-center gap-8">
         <div className="flex flex-col gap-4 text-center">
           <h6 className="text-xl font-semibold">
-            TÚ Y LA ENERGÍA: <br />
-            <span className="text-cens-brand">
-              ¿CUÁNTO SABES SOBRE SU CUIDADO?
-            </span>
+            USO EFICIENTE: <br />
+            <span className="text-cens-brand">¡BIENVENIDOS!</span>
           </h6>
           <p className="leading-tight opacity-70">
-            ¡Bienvenido {user?.name.split(" ")[0]}, ¡Nos emociona que estés aquí
-            para aprender sobre cómo cuidar la energía de una manera divertida y
-            amigable con el medio ambiente! Prepara tu mente curiosa y prepárate
-            para descubrir cuánto sabes sobre este tema tan importante. ¡Vamos a
-            divertirnos mientras aprendemos a ser más conscientes con nuestra
-            energía y nuestro planeta! ¡Comencemos!
+            ¡Listos para la acción! Iniciemos nuestra pequeña trivia para
+            explorar el increíble universo de la energía eléctrica y cómo
+            podemos usarla de manera eficiente. ¡Prepárate para divertirte
+            mientras aprendemos a cuidar nuestro planeta! ¡Es hora de encender
+            la luz del conocimiento!
           </p>
         </div>
         <Button

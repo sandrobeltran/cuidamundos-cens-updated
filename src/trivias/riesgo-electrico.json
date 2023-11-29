@@ -1,0 +1,121 @@
+{
+  "title": "Riesgo Eléctrico",
+  "description": "¡Diviértete conquistando la Trivia de Riesgo Eléctrico y conviértete en un auténtico héroe eléctrico, al igual que Félix! ¡Obtén tu certificado de héroe y demuestra que eres un experto en seguridad eléctrica!",
+  "data": {
+    "questions": [
+      {
+        "id": 1,
+        "title": "¿Cuál de las siguientes acciones aumenta el riesgo eléctrico en el hogar?",
+        "options": [
+          "Desconectar los electrodomésticos jalando el cable",
+          "Utilizar enchufes y cables en buen estado",
+          "Sobrecargar los enchufes con múltiples adaptadores"
+        ],
+        "answer": "Sobrecargar los enchufes con múltiples adaptadores",
+        "image": "https://jdelectricos.com.co/wp-content/uploads/2021/06/fuentes-renovables.jpg"
+      },
+      {
+        "id": 2,
+        "title": "¿Cuáles de las siguientes acciones no debemos hacer?",
+        "options": [
+          "Podemos malgastar la electricidad sin preocuparnos por el medio ambiente",
+          "Debemos avisar a un adulto si vemos un cable eléctrico roto",
+          "Usar bombillas ahorradoras"
+        ],
+        "answer": "Podemos malgastar la electricidad sin preocuparnos por el medio ambiente",
+        "image": "https://2.bp.blogspot.com/_nufqsEkAHTc/SdA1U01Yy5I/AAAAAAAAABw/snE7HQcXinA/w1200-h630-p-k-no-nu/gases+efecto+invernadero.bmp"
+      },
+      {
+        "id": 3,
+        "title": "¿Cuál es el propósito de un interruptor de circuito (breaker)?",
+        "options": [
+          "Aumentar la corriente eléctrica",
+          "Cortar la corriente en caso de sobrecarga o cortocircuito",
+          "Mejorar la eficiencia energética"
+        ],
+        "answer": "Cortar la corriente en caso de sobrecarga o cortocircuito",
+        "image": "https://i0.wp.com/www.azpirilejardi.com/wp-content/uploads/2014/11/bombillas-bajo-consumo-led1.jpg"
+      },
+      {
+        "id": 4,
+        "title": "¿Qué precaución adicional debes tomar al utilizar dispositivos eléctricos cerca del agua?",
+        "options": [
+          "Ninguna, siempre es seguro",
+          "Utilizar dispositivos eléctricos sumergibles",
+          "Mantener los dispositivos eléctricos alejados del agua"
+        ],
+        "answer": "Mantener los dispositivos eléctricos alejados del agua",
+        "image": "https://www.amoquimicos.com/images/Noticias_2021//quimicos-contaminantes-para-fuentes-hidricas1.jpg"
+      },
+      {
+        "id": 5,
+        "title": "¿Cuál es la medida de seguridad más importante al trabajar con herramientas eléctricas?",
+        "options": [
+          "Usar calzado con suela aislante",
+          "Trabajar en un ambiente húmedo",
+          "Ignorar las advertencias del fabricante"
+        ],
+        "answer": "Usar calzado con suela aislante",
+        "image": "https://lamamapachama.files.wordpress.com/2015/02/carbon_8547.jpg"
+      },
+      {
+        "id": 6,
+        "title": "¿Qué precaución se debe tomar al cambiar un bombillo en casa?",
+        "options": [
+          "Hacerlo con las manos mojadas",
+          "Asegurarse de que el interruptor esté apagado antes de reemplazarlo",
+          "Ignorar el voltaje del bombillo"
+        ],
+        "answer": "Asegurarse de que el interruptor esté apagado antes de reemplazarlo",
+        "image": "https://www.shutterstock.com/image-vector/methane-ch4-molecule-model-chemical-600w-1213786645.jpg"
+      },
+      {
+        "id": 7,
+        "title": "¿Cuál es la mejor práctica al usar cables de extensión?",
+        "options": [
+          "Conectar varios cables de extensión para mayor longitud",
+          "Evite enrollar los cables de extensión mientras están en uso",
+          "No importa cómo se utilicen, los cables de extensión son siempre seguros"
+        ],
+        "answer": "Evite enrollar los cables de extensión mientras están en uso",
+        "image": "https://cdn0.ecologiaverde.com/es/posts/6/6/0/cuales_son_los_beneficios_de_reciclar_66_orig.jpg"
+      },
+      {
+        "id": 8,
+        "title": "¿Cuál es la principal causa de incendios relacionados con la electricidad en el hogar?",
+        "options": [
+          "Uso de electrodomésticos defectuosos",
+          "Apagar los dispositivos antes de cargarlos",
+          "No hay riesgo de incendio relacionado con la electricidad"
+        ],
+        "answer": "Uso de electrodomésticos defectuosos",
+        "image": "https://www.researchgate.net/profile/Juan-Rocha-Hoyos/publication/321295360/figure/fig20/AS:564662639251467@1511637472667/Figura-2-Porcentaje-gases-que-conforma-el-aire-Fuente-Autor.png"
+      },
+      {
+        "id": 9,
+        "title": "¿Qué debe hacerse en caso de una tormenta eléctrica para prevenir daños eléctricos?",
+        "options": [
+          "Desconectar todos los electrodomésticos y dispositivos electrónicos",
+          "Dejar todos los electrodomésticos encendidos",
+          "Permanecer cerca de dispositivos electrónicos para protegerlos"
+        ],
+        "answer": "Desconectar todos los electrodomésticos y dispositivos electrónicos",
+        "image": "https://www.endesa.com/content/dam/endesa-com/endesaclientes/blog/imagees/C%C3%B3mo%20se%20produce%20la%20energ%C3%ADa%20el%C3%A9ctrica%20Energia%20solar%20628x335.jpg"
+      },
+      {
+        "id": 10,
+        "title": "¿Qué equipo de protección personal es esencial al realizar trabajos eléctricos?",
+        "options": ["Gafas de sol", "Guantes y casco", "Ropa mojada"],
+        "answer": "Guantes y casco",
+        "image": "https://www.renovablesverdes.com/wp-content/uploads/2018/09/Energias-no-renovables.jpg"
+      }
+    ],
+    "timeLimit": 180
+  },
+  "cover": "https://ucarecdn.com/0a290a2a-beff-4113-902b-80fcfcd64572/-/preview/500x500/-/quality/smart/-/format/auto/",
+  "active": true,
+  "href": "/juega/riesgo-electrico",
+  "points": 25,
+  "type": "trivia",
+  "winners": []
+}

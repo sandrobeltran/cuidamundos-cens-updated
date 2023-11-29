@@ -1,9 +1,14 @@
+"use client";
+
 import HeroeSection from "@/components/heroes/HeroeSection";
 import HeroeTitle from "@/components/heroes/HeroeTitle";
 import CustomMain from "@/components/layout/CustomMain";
-import PaddingWrapper from "@/components/layout/PaddingWrapper";
 import MarkImage from "../../../../../../public/img/purita/poderes/mark.svg";
 import Image from "next/image";
+import PuritaImage1 from "../../../../../../public/img/purita/poderes/purita_1.png";
+import PuritaImage2 from "../../../../../../public/img/purita/poderes/purita_2.png";
+import Button from "@/components/Button";
+import { useState } from "react";
 
 type TProps = {
   size: number;
@@ -42,7 +47,7 @@ const Mark = ({ size, x, y, content }: TProps) => {
         }}
       >
         <p className="text-stone-500">
-          <span className="text-lg font-semibold text-cens-brand mr-1">
+          <span className="mr-1 text-lg font-semibold text-cens-brand">
             {content?.title}
           </span>
           {content?.description}
@@ -102,6 +107,7 @@ const MARKERS_DATA = [
 ];
 
 export default function PoderesPurita() {
+  const [stage, setStage] = useState<number>(0);
   const markSize = 65;
 
   return (
@@ -112,7 +118,73 @@ export default function PoderesPurita() {
           description="Descubre y usa los superpoderes de Purita para proteger nuestro medio ambiente."
         />
         <div className="px-28">
-          <div className="relative aspect-[1.5/1] w-full rounded-3xl bg-[url(/img/purita/poderes/background.png)] bg-contain bg-center shadow-md backdrop-blur-md">
+          <div className="relative aspect-[1.5/1] w-full overflow-hidden rounded-3xl bg-[url(/img/purita/poderes/background.png)] bg-contain bg-center shadow-md backdrop-blur-md">
+            {stage === 0 ? (
+              <div className="modalWrapper absolute left-0 top-0 z-10 grid h-full w-full place-content-center backdrop-blur-md">
+                {/* MAIN SCREEN 1 */}
+                <div className="relative flex w-full max-w-lg flex-col items-center gap-2 rounded-3xl border-stone-300 bg-white p-10 text-center shadow-md shadow-stone-500/20">
+                  <h4 className="text-xl font-semibold text-cens-dark">
+                    ¡Soy Purita!
+                  </h4>
+                  <p>
+                    La protectora del medio ambiente, y estoy aquí para
+                    enseñarte sobre nuestro hermoso planeta! ¿Estás listo para
+                    empezar?
+                  </p>
+                  <div className="mt-4">
+                    <Button
+                      hierarchy="primary"
+                      size="lg"
+                      onClick={() => setStage(1)}
+                    >
+                      Siguiente
+                    </Button>
+                  </div>
+                </div>
+
+                <Image
+                  src={PuritaImage1}
+                  alt="Imagen de Purita con pose de victoria"
+                  className="absolute bottom-0 right-24 w-3/12"
+                />
+              </div>
+            ) : stage === 1 ? (
+              /* MAIN SCREEN 2 */
+              <div className="modalWrapper absolute left-0 top-0 z-10 grid h-full w-full place-content-center backdrop-blur-md">
+                <div className="relative flex w-full max-w-lg flex-col items-center gap-2 rounded-3xl border-stone-300 bg-white p-10 text-center shadow-md shadow-stone-500/20">
+                  <h4 className="text-xl font-semibold text-cens-dark">
+                    ¿Sabes qué es el medio ambiente?
+                  </h4>
+                  <p>
+                    El medio ambiente es como el hogar de todos nosotros, y eso
+                    incluye todo lo que nos rodea. Esto significa el agua, los
+                    minerales, los bosques, los animales, la tierra, la energía
+                    del sol y ¡muchas cosas más! ¡Todo es parte de este lugar
+                    asombroso en el que vivimos!
+                  </p>
+                  <div className="mt-4">
+                    <Button
+                      hierarchy="primary"
+                      size="lg"
+                      onClick={() => setStage(2)}
+                    >
+                      Empezar
+                    </Button>
+                  </div>
+                </div>
+
+                <Image
+                  src={PuritaImage2}
+                  alt="Imagen de Purita con pose de victoria"
+                  className="absolute bottom-0 right-24 w-3/12"
+                />
+              </div>
+            ) : (
+              MARKERS_DATA.map((mark) => (
+                <Mark key={mark.content.title} size={markSize} {...mark} />
+              ))
+            )}
+
             {/* NUBES MÁGIAS */}
 
             {/* TIERRA MILAGROSA */}
@@ -122,10 +194,6 @@ export default function PoderesPurita() {
             {/* PODER ACUÁTICO */}
 
             {/* PODER VERDE */}
-
-            {MARKERS_DATA.map((mark) => (
-              <Mark key={mark.content.title} size={markSize} {...mark} />
-            ))}
           </div>
         </div>
       </HeroeSection>

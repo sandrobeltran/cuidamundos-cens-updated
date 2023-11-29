@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Button from "../Button";
 import Image from "next/image";
 import { useUserStore } from "@/store/useUserStore";
-import { useCuidaMundosTrivia } from "@/store/useCuidaMundosTrivia";
+import { useUsoEficiente } from "@/store/useUsoEficiente";
 import { useSwiper } from "swiper/react";
 import { useHuellaEcologica } from "@/store/useHuellaEcologica";
-import FoodImage from "../../../public/img/purita/huella_ecologica/main_screen_food.png";
+import FoodImage from "../../../public/img/purita/huella-ecologica/main_screen_food.png";
 
 const MainScreen = () => {
   const { user } = useUserStore();
