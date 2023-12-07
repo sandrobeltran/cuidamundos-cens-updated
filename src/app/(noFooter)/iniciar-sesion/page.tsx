@@ -27,11 +27,12 @@ const initialValues: TInitialValues = {
 
 export default function Login() {
   const router = useRouter();
-  const { setUser, user, setLoading, setError } = useUserStore(
+  const { setUser, user, setLoading, setError, loading } = useUserStore(
     (state) => state,
   );
 
   async function handleSubmit(values: TInitialValues) {
+    if (loading) return;
     setLoading(true);
 
     console.log(process.env.NEXT_PUBLIC_API_KEY as string);

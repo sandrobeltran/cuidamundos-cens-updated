@@ -31,7 +31,7 @@ const initialValues: TInitialValues = {
   city: "",
 };
 const RegisterModal = ({}: TProps) => {
-  const { setUser, user, setLoading, setError } = useUserStore(
+  const { setUser, user, setLoading, setError, loading } = useUserStore(
     (state) => state,
   );
   const router = useRouter();
@@ -44,6 +44,7 @@ const RegisterModal = ({}: TProps) => {
   }
 
   async function handleSubmit(values: TInitialValues) {
+    if (loading) return;
     setLoading(true);
     // Login user and get the token
     const loginReq = await fetch("/registrarse/api", {

@@ -347,3 +347,43 @@ input:-webkit-autofill:active {
   -moz-appearance: textfield;
   appearance: none;
 }
+
+/* HEROES ANIMATION */
+
+@keyframes levitating {
+  0% {
+    transform: translateY(0);
+    scale: 1.1;
+
+  }
+  50% {
+  }
+  100% {
+    transform: translateY(35px);
+    filter: drop-shadow(10px 10px 10px #12121235);
+  }
+}
+
+@keyframes spinHighlight {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  29% {
+    transform: rotateZ(0deg);
+  }
+  30% {
+    transform: rotateZ(5deg);
+  }
+  35% {
+    transform: rotateZ(-5deg);
+  }
+  40% {
+    transform: rotateZ(5deg);
+  }
+  45% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}

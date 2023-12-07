@@ -14,6 +14,16 @@ const names = {
   atiende: "¿Qué atiende?",
   poderes: "Poderes",
   felix: "Félix",
+  aprende: "Aprende",
+  jirol: "Jirol",
+  juega: "Juega",
+  historia: "Historia",
+  /* GAMES */
+  "uso-eficiente": "Uso Eficiente",
+  "huella-ecologica": "Huella Ecológica",
+  "riesgo-electrico": "Riesgo Eléctrico",
+  "generacion-energia": "Energía Eléctrica",
+  "energias-renovables": "Energías Renovables",
 };
 
 const PathBar = () => {
@@ -29,7 +39,7 @@ const PathBar = () => {
   ];
 
   return (
-    <nav className="fixed left-0 top-20 z-10 h-16 w-full px-16">
+    <nav className="fixed left-0 top-20 z-50 h-16 w-full px-16">
       <div className="flex h-full w-full items-center justify-between bg-cyan-950/70 px-6 backdrop-blur-md">
         {/* ROUTE */}
         <ul className="flex items-center justify-start gap-4 text-2xl text-white">

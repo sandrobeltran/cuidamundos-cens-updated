@@ -29,12 +29,6 @@ const UserLayout = ({ children }: { children: React.ReactNode }) => {
       <CustomMain>
         <UserRequired />
         <PaddingWrapper>
-          <Image
-            src={SkyBackgroundImage}
-            alt="Fondo de cielo CENS"
-            fill
-            className="z-0"
-          />
           <div className="fixed left-0 top-0 z-10 grid h-full w-full place-content-center">
             <div className="flex flex-col items-center justify-center gap-2 rounded-3xl bg-white/70 p-6 text-center backdrop-blur-sm">
               <h4 className="text-3xl font-bold text-cens-brand">
@@ -76,7 +70,6 @@ const UserLayout = ({ children }: { children: React.ReactNode }) => {
         pauseOnHover
         theme="light"
       />
-      <Image src={SkyBackgroundImage} alt="Fondo de cielo CENS" fill />
       <EditProfileModal />
       <ChangeAvatarModal />
       <PaddingWrapper>

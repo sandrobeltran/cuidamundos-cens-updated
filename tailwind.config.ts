@@ -23,6 +23,10 @@ const config: Config = {
       borderRadius: {
         "4xl": "56px",
       },
+      animation: {
+        "levitating": "levitating 5s infinite ease-in-out alternate",
+        "spinHighlight": "spinHighlight 4s infinite ease-in-out"
+      }
     },
   },
   plugins: [],

@@ -37,9 +37,9 @@ const NavbarLink = ({ title, href, items, selected }: INavbarProps) => {
             {items.map((item) => (
               <li
                 key={item.title}
-                className="py-1 leading-tight w-full bg-cens-medium/0 font-medium transition-colors hover:bg-stone-900/60 hover:font-semibold "
+                className="leading-tight w-full bg-cens-medium/0 font-medium transition-colors hover:bg-stone-900/60 hover:font-semibold "
               >
-                <Link href={item.href} className="inline-block w-full px-3">
+                <Link href={item.href} className="inline-block w-full px-3 py-1">
                   {item.title}
                 </Link>
               </li>

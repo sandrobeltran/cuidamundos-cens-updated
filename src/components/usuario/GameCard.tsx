@@ -17,7 +17,7 @@ const GameCard = ({ game }: TProps) => {
 
   return (
     <div
-      className="relative flex h-fit w-full items-start gap-6 overflow-hidden rounded-3xl bg-white/80 px-8 py-8 pl-16 text-stone-500 backdrop-blur-sm max-sm:flex-col max-sm:items-center max-sm:gap-2 max-sm:p-4 max-sm:pl-14"
+      className="relative flex h-fit w-full items-start gap-6 overflow-hidden rounded-3xl bg-white/80 px-8 py-8 pl-16 text-stone-500 backdrop-blur-sm max-sm:flex-col max-sm:items-center shadow-md max-sm:gap-2 max-sm:p-4 max-sm:pl-14"
       style={{
         backgroundColor: game.active ? "#fffc" : "#78716ccc",
         color: game.active ? "#78716c" : "#fff",

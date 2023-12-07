@@ -33,12 +33,14 @@ const initialValues: TInitialValues = {
   city: "",
 };
 export default function Signup() {
-  const { setUser, user, setLoading, setError } = useUserStore(
+  const { setUser, user, setLoading, setError, loading } = useUserStore(
     (state) => state,
   );
   const router = useRouter();
 
   async function handleSubmit(values: TInitialValues) {
+    if (loading) return;
+    
     setLoading(true);
     // Login user and get the token
     const loginReq = await fetch("/registrarse/api", {

@@ -11,7 +11,7 @@ const Footer = () => {
           <Image src={CENSLogo} height={124} alt="CENS Grupo EPM Logo" />
         </div>
         <div className="max-sm:col-span-2 max-sm:row-span-2">
-          <h6 className="mb-6 text-lg font-bold">Company</h6>
+          <h6 className="mb-6 text-lg font-bold">Compañía</h6>
           <ul className="mt-3 flex list-none flex-col gap-2 font-medium">
             <Link className="w-fit" href={"/"}>
               <li>Inicio</li>

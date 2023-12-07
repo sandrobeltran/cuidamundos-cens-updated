@@ -3,7 +3,7 @@ import party from "party-js";
 import Button from "../Button";
 import { useUserStore } from "@/store/useUserStore";
 import generateCertificate from "@/utils/generateCertificate";
-import { TUserData } from "@/utils/customTypes";
+import { ITrivia, TUserData } from "@/utils/customTypes";
 import { useUsoEficiente } from "@/store/useUsoEficiente";
 import { useSwiper } from "swiper/react";
 import { toast } from "react-toastify";
@@ -20,6 +20,10 @@ const Congrats = ({ Percent }: TProps) => {
   const user = useUserStore((state) => state.user);
   const { resetTrivia, stage } = useUsoEficiente();
   const swiper = useSwiper();
+  const { games } = useGamesStore();
+  const pathname = usePathname();
+
+  const trivia = games.find((game) => game.href === pathname) as ITrivia;
 
   function handleResetTrivia() {
     resetTrivia();
@@ -38,8 +42,9 @@ const Congrats = ({ Percent }: TProps) => {
 
   function handleGenerateCertificate() {
     console.log(`Generating certificate for ${user?.name}...`);
-    generateCertificate(user as TUserData, "Trivia Cuidamundos")?.save();
+    generateCertificate(user as TUserData, trivia.title)?.save();
   }
+
 
   return (
     <div
@@ -50,11 +55,12 @@ const Congrats = ({ Percent }: TProps) => {
         <h3 className="text-3xl font-bold">
           ¡Eres un héroe <span className="text-cens-brand">del planeta!</span>
         </h3>
-        <p className="font-thin">
-          Has superado la trivia con éxito. Tu conocimiento sobre el Uso
-          Eficiente es impresionante. ¡Continúa cuidando nuestro planeta y
-          aprendiendo más sobre la sostenibilidad! ¡Te has convertido en un
-          auténtico héroe eléctrico! ¡Sigue así!
+        <p className="font-normal">
+          Has superado la trivia con éxito. Tu conocimiento sobre{" "}
+          <b>{trivia.title}</b>{" "}
+          es impresionante. ¡Continúa cuidando nuestro planeta y aprendiendo más
+          sobre la sostenibilidad! ¡Te has convertido en un auténtico héroe
+          eléctrico! ¡Sigue así!
         </p>
       </div>
       <Percent />

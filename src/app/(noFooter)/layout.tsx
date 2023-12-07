@@ -7,6 +7,7 @@ import GetUserByToken from "@/components/validations/GetUserByToken";
 import Header from "@/components/header/Header";
 import LeavesFalling from "@/components/LeavesFalling";
 import LoadGames from "@/components/juega/LoadGames";
+import SkyBackground from "@/components/heroes/SkyBackground";
 
 const ubuntu = Ubuntu({
   weight: ["300", "400", "500"],
@@ -25,12 +26,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head></head>
       <body className={ubuntu.className}>
         <LeavesFalling />
         <LoadGames />
         <GetUserByToken />
         <Header />
+        <SkyBackground />
         {children}
       </body>
     </html>

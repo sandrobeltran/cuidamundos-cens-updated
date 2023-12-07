@@ -33,6 +33,7 @@ const TriviaContainer = ({ trivia, mainScreen, resultScreen }: TProps) => {
     }
   }, [initializeTrivia, trivia, user]);
 
+
   return (
     <div className="relative overflow-hidden rounded-3xl border border-stone-300 bg-white/50 shadow-md">
       {trivia ? <TriviaHeader time={trivia.data.timeLimit} /> : null}

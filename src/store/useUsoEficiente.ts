@@ -47,8 +47,12 @@ export const useUsoEficiente = create<TUsoEficiente>((set) => ({
   prevPage: () => set((state) => ({ currentPage: state.currentPage - 1 })),
   initializeTrivia: (questions, hasWon) =>
     set((state) => {
+      state.resetTrivia()
+
       return {
         questions,
+        results: [],
+        currentPage: 0,
         hasWon: state.hasWon ? state.hasWon : hasWon,
       };
     }),

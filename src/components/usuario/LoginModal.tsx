@@ -26,7 +26,7 @@ const initialValues: TInitialValues = {
 };
 
 const LoginModal = ({}: TProps) => {
-  const { setUser, user, setLoading, setError } = useUserStore(
+  const { setUser, user, setLoading, setError, loading } = useUserStore(
     (state) => state,
   );
   const router = useRouter();
@@ -39,6 +39,7 @@ const LoginModal = ({}: TProps) => {
   }
 
   async function handleSubmit(values: TInitialValues) {
+    if (loading) return;
     setLoading(true);
 
     console.log(process.env.NEXT_PUBLIC_API_KEY as string);
