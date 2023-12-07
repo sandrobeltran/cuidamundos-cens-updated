@@ -9,7 +9,7 @@ import "swiper/css";
 import Image from "next/image";
 import FlyingJirolImage from "@public/img/jirol/atiende/flying.png";
 
-export const SLIDER_DATA = [
+const SLIDER_DATA = [
   {
     name: "Eólica",
     icon: "eolica",

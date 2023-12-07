@@ -6,44 +6,37 @@ import { useSwiper } from "swiper/react";
 const CALCULATOR_DATA = [
   {
     name: "TV",
-    w: 2,
-    kw: 0.1,
+    w: 75,
     days: 31,
   },
   {
     name: "Nevera",
-    w: 2,
-    kw: 523,
+    w: 300,
     days: 31,
   },
   {
     name: "Ventilador",
-    w: 2,
-    kw: 1906,
+    w: 80,
     days: 31,
   },
   {
     name: "Plancha",
-    w: 2,
-    kw: 375,
+    w: 1000,
     days: 31,
   },
   {
-    name: "Portátil",
-    w: 2,
-    kw: 2558,
+    name: "Computador",
+    w: 250,
     days: 31,
   },
   {
     name: "Aire acondicionado",
-    w: 2,
-    kw: 150,
+    w: 1200,
     days: 31,
   },
   {
-    name: "Parlantes",
-    w: 2,
-    kw: 396,
+    name: "Equipo de Sonido",
+    w: 100,
     days: 31,
   },
 ];
@@ -60,8 +53,10 @@ const Calculator = ({ set }: TProps) => {
   function handleChangeValue(hours: number, name: string) {
     if (!hours) return;
 
+    const days = 31;
     const index = kws.findIndex((e) => e.name === name);
-    const kw = hours * 1; //! replace with formula
+    const kw =
+      hours * days * (CALCULATOR_DATA.find((e) => e.name === name)!.w / 1000); //! replace with formula
 
     if (index < 0) {
       kws.push({ name, kw });
@@ -106,15 +101,23 @@ const Calculator = ({ set }: TProps) => {
           >
             <p className="col-span-2 max-w-full">{device.name}</p>
             <p className="max-w-full">{device.w}</p>
-            <p className="max-w-full">{device.kw}</p>
+            <p className="max-w-full">{device.w / 1000}</p>
+            {/* CALC KW */}
             <div className="h-full max-h-[24px] max-w-full">
               <input
                 type="number"
                 id={`${device.name.split(" ")[0]}DeviceInput`}
                 className="h-full w-full max-w-[100px] bg-transparent px-2 text-center shadow-[inset_0px_0px_8px_#12121240]"
+                max={999}
+                maxLength={3}
                 onChange={(e) =>
                   handleChangeValue(parseInt(e.target.value), device.name)
                 }
+                onInput={(e) => {
+                  if (e.currentTarget.value.length > 3) {
+                    e.currentTarget.value = e.currentTarget.value.slice(0, 3);
+                  }
+                }}
               />
             </div>
             <p className="max-w-full">{device.days}</p>

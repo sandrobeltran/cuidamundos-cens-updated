@@ -14,8 +14,7 @@ const MARKERS_DATA = [
     y: 8.5,
     content: {
       title: "Aire acondicionado",
-      description:
-        "Estas artistas del cielo crean patrones y sombra, pero también son esenciales en el ciclo del agua, soltando gotas de lluvia como pócimas refrescantes.",
+      description: "Consumo de 1.2 kW.",
     },
   },
   {
@@ -23,8 +22,7 @@ const MARKERS_DATA = [
     y: 12,
     content: {
       title: "Televisión",
-      description:
-        "Nuestro planeta es un lugar mágico lleno de maravillas. Proporciona hogar a todos, con suelos fértiles para cultivar deliciosa comida",
+      description: "Consumo de 0.075 kW.",
     },
   },
   {
@@ -32,17 +30,15 @@ const MARKERS_DATA = [
     y: 45,
     content: {
       title: "Nevera",
-      description:
-        "Aunque la Tierra está cubierta de agua, solo un poquito es dulce y aún menos está en ríos y lagos. El agua es un tesoro vital para beber, cocinar y proteger la naturaleza. ¡Úsala sabiamente y cuida este recurso mágico!",
+      description: "Consumo de 0.3 kW.",
     },
   },
   {
     x: 18.5,
     y: 44,
     content: {
-      title: "Laptop",
-      description:
-        "Proteger ríos, lagos y humedales es como activar un escudo mágico para garantizar que siempre tengamos agua fresca. ¡El agua es como un tesoro para la naturaleza y para nosotros!",
+      title: "Computador",
+      description: "Consumo de 0.25 kW.",
     },
   },
   {
@@ -50,17 +46,15 @@ const MARKERS_DATA = [
     y: 53.5,
     content: {
       title: "Equipo de sonido",
-      description:
-        "Plantar árboles es como lanzar hechizos mágicos que hacen que el aire respire feliz. Los árboles atrapan el dióxido de carbono y nos ayudan a mantener la Tierra fresca y contenta.",
+      description: "Consumo de 0.1 kW.",
     },
   },
   {
     x: 25,
     y: 81,
     content: {
-      title: "Plancha de ropa",
-      description:
-        "Plantar árboles es como lanzar hechizos mágicos que hacen que el aire respire feliz. Los árboles atrapan el dióxido de carbono y nos ayudan a mantener la Tierra fresca y contenta.",
+      title: "Plancha",
+      description: "Consumo de 1 kW.",
     },
   },
   {
@@ -68,8 +62,7 @@ const MARKERS_DATA = [
     y: 73,
     content: {
       title: "Ventilador",
-      description:
-        "Plantar árboles es como lanzar hechizos mágicos que hacen que el aire respire feliz. Los árboles atrapan el dióxido de carbono y nos ayudan a mantener la Tierra fresca y contenta.",
+      description: "Consumo de 0.08 kW.",
     },
   },
 ];

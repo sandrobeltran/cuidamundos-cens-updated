@@ -22,7 +22,7 @@ const Header = () => {
   }, [pathname]);
 
   return (
-    <header className="fixed left-0 top-0 z-[9999] w-full">
+    <header className="fixed left-0 top-0 z-50 w-full">
       <ToastContainer
         position="top-right"
         autoClose={3500}

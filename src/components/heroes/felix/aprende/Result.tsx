@@ -8,24 +8,17 @@ const formatter = new Intl.NumberFormat("es-CO", {
 });
 
 const PercentCirle = ({ kw }: { kw: number }) => {
-  const maxKw = 20;
-
-  // const { results } = useUsoEficiente();
-  // const corrects = results.filter((e) => e.correct);
-
-  const fraction = kw / maxKw;
 
   return (
     <div
       className="flex aspect-square w-40 flex-col items-center justify-center gap-0 rounded-full border-[12px] p-5 max-sm:w-52 max-sm:border-[18px]"
       style={{
-        borderColor: `hsl(${formatter.format(fraction * 100)}, 100%, 50%)`,
-        backgroundColor: `hsla(${formatter.format(
-          fraction * 100,
-        )}, 100%, 50%, .2)`,
+        borderColor: `#D4E13D`,
+        backgroundColor: `#D4E13D44`,
       }}
     >
-      <h6 className="text-5xl font-bold">{formatter.format(kw)}kw</h6>
+      <h6 className="text-5xl font-bold">{formatter.format(kw)}</h6>
+      <p className="text-3xl font-medium">kw</p>
     </div>
   );
 };
@@ -44,7 +37,7 @@ const Result = ({ kw }: TProps) => {
           <h3 className="text-3xl font-bold">
             ¡Tu <span className="text-cens-brand">consumo!</span>
           </h3>
-          <p className="font-thin">
+          <p className="font-normal">
             ¡Bien hecho! Estás en el camino correcto, pero aún hay espacio para
             mejoras. Intenta ajustar algunos hábitos para reducir tu impacto en
             el medio ambiente.
