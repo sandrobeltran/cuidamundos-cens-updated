@@ -4,8 +4,8 @@ import Button from "@/components/Button";
 import Image from "next/image";
 import React, { useState } from "react";
 import FelixImage from "@public/img/felix/atiende/felix_1.png";
-import { Mark } from "@/app/(withFooter)/(pathbar)/(heroes)/purita/poderes/page";
 import { useSwiper } from "swiper/react";
+import { Mark } from "../../purita/Mark";
 
 /* MARKERS DATA */
 const MARKERS_DATA = [
