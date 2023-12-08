@@ -30,9 +30,6 @@ const PercentCirle = () => {
         borderColor: `hsl(${formatter.format(
           (corrects.length / results.length) * 100,
         )}, 100%, 50%)`,
-        backgroundColor: `hsla(${formatter.format(
-          (corrects.length / results.length) * 100,
-        )}, 100%, 50%, .2)`,
       }}
     >
       <h6 className="text-5xl font-bold">

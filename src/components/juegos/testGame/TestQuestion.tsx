@@ -32,7 +32,7 @@ const TestQuestion = ({ question, index }: TProps) => {
       <QuestionHeader image={question.image} title={question.title} />
       <div className="h-1.5 w-full rounded-3xl bg-cens-brand" />
       {/* OPTIONS / BODY */}
-      <div className="grid w-full grid-cols-2 flex-wrap items-center justify-center gap-[20px_32px] max-sm:grid-cols-1">
+      <div className="flex w-full flex-wrap items-stretch justify-center gap-[20px_32px]">
         {question.options.map((option) => (
           <OptionCard
             option={option.title}

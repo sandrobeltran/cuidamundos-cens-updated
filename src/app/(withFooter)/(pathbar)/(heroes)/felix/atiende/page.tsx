@@ -204,8 +204,8 @@ export default function AtiendeFelix() {
         />
 
         {/* MINIGAME SECTION */}
-        <div className="relative flex flex-col items-center gap-10 px-28">
-          <div className="relative aspect-[1.6/1] w-full overflow-hidden rounded-3xl bg-[url(/img/felix/atiende/living_room.jpg)] bg-cover bg-center shadow-md backdrop-blur-md">
+        <div className="relative flex flex-col items-center justify-start gap-10 px-28">
+          <div className="relative aspect-[1.6/1] w-full max-w-5xl overflow-hidden rounded-3xl bg-[url(/img/felix/atiende/living_room.jpg)] bg-cover bg-center shadow-md backdrop-blur-md">
             {/* TIP MODAL */}
             <div
               id="felixTipModal"
@@ -236,8 +236,10 @@ export default function AtiendeFelix() {
             >
               <div className="flex w-full max-w-3xl flex-col items-center gap-4 rounded-3xl bg-white p-16 text-center">
                 <h3 className="text-xl font-medium text-stone-500">
-                  Recomendaciones de{" "}
-                  <span className="text-cens-medium">los Cuidamundos</span>
+                  Recomendaciones en caso de{" "}
+                  <span className="text-cens-medium">
+                    accidentes eléctricos
+                  </span>
                 </h3>
                 <p className="text-left text-stone-500">
                   Ante cualquier situación de accidente eléctrico, es esencial
@@ -289,24 +291,25 @@ export default function AtiendeFelix() {
             >
               <div className="flex w-full max-w-3xl flex-col items-center gap-4 rounded-3xl bg-white p-16 text-center">
                 <h3 className="text-xl font-medium text-stone-500">
-                  Recomendaciones de{" "}
-                  <span className="text-cens-medium">los Cuidamundos</span>
+                  Recomendaciones{" "}
+                  <span className="text-cens-medium">externas</span>
                 </h3>
                 <p className="text-left text-stone-500">
-                  Ya eres todo un experto en evitar accidentes eléctricos. ¡Gran
-                  trabajo! Aquí va otra recomendación crucial: Si ves cables de
-                  energía caídos, ¡no los toques! En su lugar, informa de
-                  inmediato llamando a la línea gratuita 01 8000 414 115 o
-                  marcando #515 desde Claro si te encuentras en el sur del Cesar
-                  o sur de Bolívar. Recuerda, la diversión con seguridad es
-                  responsabilidad de todos y puede marcar la diferencia en la
-                  seguridad de tu vida, la de tu familia y amigos.
-                  <br />
-                  <br />
-                  ¡Excelente, héroe de la energía eléctrica! Ahora sabes cómo
-                  usar la energía eléctrica de manera eficiente y cómo cuidarte
-                  en caso de un accidente eléctrico. ¡Eres todo un experto!
-                  ¡Sigue cuidando de nuestro planeta y a tus seres queridos!
+                  Evita elevar cometas cerca de las redes eléctricas y abstente
+                  de subir por árboles, postes de energía o andamios cercanos a
+                  estas estructuras. También es importante no subirse a las
+                  torres y evitar tocar los cables o líneas de transmisión. En
+                  caso de observar actividades sospechosas, como manipulación,
+                  hurto o construcción cercana a las redes, informa a la empresa
+                  correspondiente. No utilices las torres como soporte para
+                  colgar ropa, banderas u otros elementos, y evita construir,
+                  sembrar o realizar actividades cerca de la infraestructura
+                  eléctrica sin mantener las distancias mínimas. Si las ramas de
+                  un árbol interfieren con los cables, comunica a CENS. Además,
+                  no acerques varillas, tubos, palos u otros elementos a las
+                  líneas de transmisión, ya que una descarga de energía podría
+                  resultar en una electrocución. Estas precauciones son
+                  esenciales para garantizar la seguridad y prevenir accidentes.
                 </p>
 
                 {/* BUTTONS */}
@@ -422,7 +425,7 @@ export default function AtiendeFelix() {
 
             {/* PODER VERDE */}
           </div>
-          <div className="grid grid-cols-2 grid-rows-3 gap-x-14 gap-y-6">
+          <div className="grid max-w-5xl grid-cols-2 grid-rows-3 gap-x-14 gap-y-6">
             {GAME_DATA.map((mark) => (
               <div
                 key={mark.content.title}

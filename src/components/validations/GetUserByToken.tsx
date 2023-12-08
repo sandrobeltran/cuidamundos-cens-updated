@@ -27,8 +27,6 @@ const GetUserByToken = () => {
           localStorage.removeItem("session-token");
         }
 
-        console.log(fetchUserRes)
-
         return setError(fetchUserRes.message);
       }
 

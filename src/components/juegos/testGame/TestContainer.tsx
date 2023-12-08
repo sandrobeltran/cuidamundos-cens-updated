@@ -33,19 +33,21 @@ const TestContainer = ({ test, mainScreen, resultScreen }: TProps) => {
   }, [initializeGame, test, user]);
 
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-stone-300 bg-white/50 shadow-md">
-      {test ? <TestHeader /> : null}
-      <Swiper allowTouchMove={false}>
-        <SwiperSlide>{mainScreen}</SwiperSlide>
-        {test
-          ? test.data.questions.map((question, index) => (
-              <SwiperSlide key={question.id}>
-                <TestQuestion question={question} index={index} />
-              </SwiperSlide>
-            ))
-          : null}
-        <SwiperSlide>{resultScreen}</SwiperSlide>
-      </Swiper>
+    <div className="flex justify-center">
+      <div className="relative h-fit max-w-5xl overflow-hidden rounded-3xl border border-stone-300 bg-white/80 shadow-md">
+        {test ? <TestHeader /> : null}
+        <Swiper className="h-[calc(100%-64px)]" allowTouchMove={false}>
+          <SwiperSlide>{mainScreen}</SwiperSlide>
+          {test
+            ? test.data.questions.map((question, index) => (
+                <SwiperSlide key={question.id}>
+                  <TestQuestion question={question} index={index} />
+                </SwiperSlide>
+              ))
+            : null}
+          <SwiperSlide>{resultScreen}</SwiperSlide>
+        </Swiper>
+      </div>
     </div>
   );
 };

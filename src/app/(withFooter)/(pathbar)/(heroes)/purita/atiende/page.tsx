@@ -11,10 +11,10 @@ const pages1: TBookPage[] = [
     bg: "/img/purita/atiende/calido.jpg",
   },
   {
-    text: "El efecto invernadero retiene el calor del sol, regulando la temperatura terrestre. La quema de combustibles fósiles y la deforestación liberan gases como el dióxido de carbono, intensificando el efecto invernadero y provocando el cambio climático, semejante a una fiebre en el planeta.",
+    bg: "/img/purita/atiende/invernadero.jpg",
   },
   {
-    bg: "/img/purita/atiende/invernadero.jpg",
+    text: "El efecto invernadero retiene el calor del sol, regulando la temperatura terrestre. La quema de combustibles fósiles y la deforestación liberan gases como el dióxido de carbono, intensificando el efecto invernadero y provocando el cambio climático, semejante a una fiebre en el planeta.",
   },
   {
     text: "Algunas especies se están mudando hacia lugares más frescos, y esto puede causar revuelo en los ecosistemas y cambiar la forma en que los animales se alimentan y viven.",
@@ -32,10 +32,10 @@ const pages2: TBookPage[] = [
     text: "¡Explora el mágico Clima Templado, donde las temperaturas crean un ambiente perfecto entre los 15 y 21 °C! Es como estar en un lugar donde el clima es como un abrazo amigable, ni muy frío ni muy caliente.",
   },
   {
-    bg: "/img/purita/atiende/calentamiento.jpg",
+    text: "El calentamiento global está provocando cambios climáticos extraños como sequías, inundaciones, tormentas y olas de calor persistentes, lo cual es peligroso y puede causar daños a personas, hogares y estructuras.",
   },
   {
-    text: "El calentamiento global está provocando cambios climáticos extraños como sequías, inundaciones, tormentas y olas de calor persistentes, lo cual es peligroso y puede causar daños a personas, hogares y estructuras.",
+    bg: "/img/purita/atiende/calentamiento.jpg",
   },
   {
     bg: "/img/purita/atiende/glaciares.jpg",
@@ -53,10 +53,10 @@ const pages3: TBookPage[] = [
     bg: "/img/purita/atiende/frio.jpg",
   },
   {
-    text: "El aumento de la temperatura está afectando a lugares asombrosos como los arrecifes de coral y los bosques tropicales. Esta situación no es favorable para los animales y las plantas, pudiendo llevar a la desaparición de especies y a una disminución en la diversidad biológica.",
+    bg: "/img/purita/atiende/arrecifes.jpg",
   },
   {
-    bg: "/img/purita/atiende/arrecifes.jpg",
+    text: "El aumento de la temperatura está afectando a lugares asombrosos como los arrecifes de coral y los bosques tropicales. Esta situación no es favorable para los animales y las plantas, pudiendo llevar a la desaparición de especies y a una disminución en la diversidad biológica.",
   },
   {
     text: "Las empresas podrían enfrentar pérdidas económicas debido a la reducción del turismo, la disminución de la productividad y el aumento de los costos en energía y transporte.",

@@ -70,10 +70,10 @@ export default function PoderesPurita() {
           title={{ text: "Poderes de", resalted: "Purita" }}
           description="Descubre y usa los superpoderes de Purita para proteger nuestro medio ambiente."
         />
-        <div className="px-28">
-          <div className="relative aspect-[1.5/1] w-full overflow-hidden rounded-3xl bg-white/80 shadow-md backdrop-blur-md">
+        <div className="px-28 flex justify-center">
+          <div className="relative aspect-[1.5/1] max-w-5xl w-full overflow-hidden rounded-3xl bg-white/80 shadow-md backdrop-blur-md">
             <video
-              src="/img/purita/poderes/background.mp4"
+              src="/img/purita/poderes/background.mov"
               autoPlay
               muted
               loop
@@ -83,10 +83,10 @@ export default function PoderesPurita() {
               <div className="modalWrapper absolute left-0 top-0 z-10 grid h-full w-full place-content-center backdrop-blur-md">
                 {/* MAIN SCREEN 1 */}
                 <div className="relative flex w-full max-w-lg flex-col items-center gap-2 rounded-3xl border-stone-300 bg-white p-10 text-center shadow-md shadow-stone-500/20">
-                  <h4 className="text-xl font-semibold text-cens-dark">
+                  <h4 className="text-2xl font-bold text-cens-dark">
                     ¡Soy Purita!
                   </h4>
-                  <p>
+                  <p className="text-lg text-stone-500">
                     La protectora del medio ambiente, y estoy aquí para
                     enseñarte sobre nuestro hermoso planeta! ¿Estás listo para
                     empezar?
@@ -112,10 +112,10 @@ export default function PoderesPurita() {
               /* MAIN SCREEN 2 */
               <div className="modalWrapper absolute left-0 top-0 z-10 grid h-full w-full place-content-center backdrop-blur-md">
                 <div className="relative flex w-full max-w-lg flex-col items-center gap-2 rounded-3xl border-stone-300 bg-white p-10 text-center shadow-md shadow-stone-500/20">
-                  <h4 className="text-xl font-semibold text-cens-dark">
+                  <h4 className="text-2xl font-bold text-cens-dark">
                     ¿Sabes qué es el medio ambiente?
                   </h4>
-                  <p>
+                  <p className="text-lg text-stone-500">
                     El medio ambiente es como el hogar de todos nosotros, y eso
                     incluye todo lo que nos rodea. Esto significa el agua, los
                     minerales, los bosques, los animales, la tierra, la energía

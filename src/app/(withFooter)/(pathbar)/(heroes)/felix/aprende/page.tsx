@@ -23,8 +23,8 @@ export default function AprendeFelix() {
           }}
           description="¡Diviértete aprendiendo a evitar accidentes eléctricos en casa! Descubre los riesgos y cómo prevenirlos. ¡Hora de jugar! Coloca en el círculo el número correcto para cada situación mencionada."
         />
-        <div className="relative flex flex-col items-center gap-10 px-28">
-          <Swiper allowTouchMove={false} className="w-full shadow-md rounded-3xl">
+        <div className="justify-center relative flex flex-col items-center gap-10 px-28">
+          <Swiper allowTouchMove={false} className="max-w-5xl w-full shadow-md rounded-3xl">
             <SwiperSlide className="bg-white/80 p-4">
               <Guide />
             </SwiperSlide>

@@ -38,7 +38,7 @@ export const Mark = ({ size, x, y, content }: TProps) => {
         }}
       >
         <p className="text-stone-500">
-          <span className="mr-1 text-lg font-semibold text-cens-brand">
+          <span className="mr-1 text-lg font-bold text-cens-brand">
             {content?.title}
           </span>
           {content?.description}

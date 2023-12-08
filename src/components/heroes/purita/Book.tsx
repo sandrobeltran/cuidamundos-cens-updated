@@ -2,10 +2,11 @@
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import BookPage from "./BookPage";
-import Image, { StaticImageData } from "next/image";
 import PrevIcon from "../../../../public/icons/prev_icon.svg";
 import NextIcon from "../../../../public/icons/next_icon.svg";
 import dynamic from "next/dynamic";
+import Image from "next/image";
+import DividerImage from "@public/img/purita/atiende/divider.svg";
 
 export type TBookPage = {
   text?: React.ReactNode;
@@ -28,7 +29,7 @@ const Book = ({ pages }: TProps) => {
   function handleNextPage() {
     if (currentIndex > 1) {
       setLastAction(1);
-      setCurrentIndex(currentIndex - 1);
+      setCurrentIndex(currentIndex - 2);
       updatePages();
     }
   }
@@ -36,7 +37,7 @@ const Book = ({ pages }: TProps) => {
   function handlePrevPage() {
     if (currentIndex < bookPages.current!.length - 1) {
       setLastAction(0);
-      setCurrentIndex(currentIndex + 1);
+      setCurrentIndex(currentIndex + 2);
       updatePages();
     }
   }
@@ -69,18 +70,23 @@ const Book = ({ pages }: TProps) => {
     initBook();
   }, [initBook]);
 
+  console.log(currentIndex);
+
   return (
     <div className="relative flex w-full items-center px-16">
       <button
         onClick={() => handlePrevPage()}
-        className="absolute left-10 z-10 min-h-[42px] min-w-[42px] cursor-pointer rounded-full bg-cens-dark text-lg"
+        style={
+          currentIndex >= pages.length - 1 ? { filter: "grayscale(1)" } : {}
+        }
+        className="absolute left-10 z-10 min-h-[42px] min-w-[42px] cursor-pointer rounded-full bg-cens-dark text-lg transition-all"
       >
         <Image src={PrevIcon} alt="Icono de ir atrás" width={42} height={42} />
       </button>
       <div
         ref={bookRef}
         style={{ perspective: 1200 }}
-        className="book relative h-64 w-full rounded-3xl bg-white"
+        className="book relative h-64 w-full rounded-3xl bg-white shadow-md"
       >
         {sortedPages.map((page, index) => {
           let z = sortedPages.length;
@@ -90,8 +96,15 @@ const Book = ({ pages }: TProps) => {
               style={{ zIndex: z - index }}
               className={`${
                 currentIndex < index ? "turned" : ""
-              } book__page absolute right-[1%] top-[2.5%] flex h-[95%] w-[49%] origin-[center_left] items-center justify-center overflow-hidden rounded-br-3xl rounded-tr-3xl bg-white text-stone-500 shadow-md shadow-stone-300`}
+              } book__page absolute right-[1%] top-[2.5%] flex h-[95%] w-[49%] origin-[center_left] items-center justify-center overflow-hidden rounded-br-3xl rounded-tr-3xl bg-white text-stone-500 shadow-stone-300`}
             >
+              {page.bg ? (
+                <Image
+                  src={DividerImage}
+                  alt="Imagen de separador de página"
+                  className="pointer-events-none absolute left-[-21.5px] bg-blue top-0 z-50 h-full translate-x-3 object-contain"
+                />
+              ) : null}
               <BookPage {...page} />
             </div>
           );
@@ -99,7 +112,8 @@ const Book = ({ pages }: TProps) => {
       </div>
       <button
         onClick={() => handleNextPage()}
-        className="absolute right-10 z-10 min-h-[42px] min-w-[42px] cursor-pointer rounded-full bg-cens-dark text-lg"
+        style={currentIndex <= 1 ? { filter: "grayscale(1)" } : {}}
+        className="absolute right-10 z-10 min-h-[42px] min-w-[42px] cursor-pointer rounded-full bg-cens-dark text-lg transition-all"
       >
         <Image
           src={NextIcon}

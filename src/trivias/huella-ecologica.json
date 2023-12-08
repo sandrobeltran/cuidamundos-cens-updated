@@ -1,8 +1,8 @@
 {
   "title": "Huella Ecológica",
-  "description": "¿Puedes vencer el reloj y convertirte en un campeón de la eficiencia energética? ¡Demuestra tus habilidades y aprende a ahorrar energía mientras te diviertes!",
+  "description": "Descubre y reduce tu impacto en el planeta calculando tu huella ecológica con Purita. ¿Listo para ser un guardián del medio ambiente?",
   "active": true,
-  "cover": "https://ucarecdn.com/0a290a2a-beff-4113-902b-80fcfcd64572/-/preview/500x500/-/quality/smart/-/format/auto/",
+  "cover": "huella-ecologica.jpg",
   "data": {
     "questions": [
       {
@@ -129,24 +129,24 @@
     "ranges": [
       {
         "limit": 50,
-        "message": "¡Excelente! Tu impacto ecológico es bajo. Sigue así y comparte tus prácticas sostenibles con otros"
+        "message": "¡Increíble! Estás haciendo un trabajo fantástico cuidando nuestro planeta. Sigue así y comparte tus prácticas ecológicas con tus amigos. Tu impacto ha sido del:"
       },
       {
         "limit": 80,
-        "message": "Buen trabajo, pero aún hay espacio para mejorar. Ajusta ciertos hábitos para reducir tu huella ecológica."
+        "message": "¡Bien hecho! Estás en el camino correcto, pero aún hay espacio para mejoras. Intenta ajustar algunos hábitos para reducir tu impacto en el medio ambiente."
       },
       {
         "limit": 100,
-        "message": "Hay margen para hacer mejoras significativas. Identifica áreas donde puedas reducir tu impacto ambiental y toma medidas."
+        "message": "Puedes hacerlo aún mejor. Identifica áreas donde puedas reducir tu impacto ambiental y toma medidas. ¡Cada pequeño cambio cuenta!"
       },
       {
         "limit": 115,
-        "message": "Tu impacto ecológico es alto. Considere cambios sustanciales en sus hábitos para reducir su huella."
+        "message": "Tu impacto ecológico es alto. Piensa en hacer cambios significativos en tus hábitos para reducir tu huella. ¡Tu esfuerzo hará una gran diferencia!"
       }
     ],
-    "maxMessage": "Tu impacto ecológico es muy alto. Se requieren cambios urgentes y significativos para reducir tu huella a niveles sostenibles."
+    "maxMessage": "Tu impacto ecológico es muy alto. Se necesitan cambios urgentes y significativos para reducir tu huella a niveles sostenibles. ¡Hazlo por nuestro hermoso planeta!"
   },
-  "href": "/juega/huella-ecologica",
+  "href": "/purita/huella-ecologica",
   "points": 25,
   "type": "test",
   "winners": []

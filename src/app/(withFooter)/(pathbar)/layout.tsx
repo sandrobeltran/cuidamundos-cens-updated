@@ -4,7 +4,6 @@ import SkyBackground from "@/components/heroes/SkyBackground";
 const PathBarLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <SkyBackground />
       <PathBar />
       {children}
     </>

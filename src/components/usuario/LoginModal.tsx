@@ -1,6 +1,6 @@
 "use client";
 
-import { Formik } from "formik";
+import { Formik, FormikState } from "formik";
 import React, { Dispatch, SetStateAction, useRef } from "react";
 import FormWrapper from "../form/FormWrapper";
 import TextField from "../form/TextField";
@@ -38,7 +38,12 @@ const LoginModal = ({}: TProps) => {
     }
   }
 
-  async function handleSubmit(values: TInitialValues) {
+  async function handleSubmit(
+    values: TInitialValues,
+    reset: (
+      nextState?: Partial<FormikState<TInitialValues>> | undefined,
+    ) => void,
+  ) {
     if (loading) return;
     setLoading(true);
 
@@ -84,6 +89,7 @@ const LoginModal = ({}: TProps) => {
         fetchUserRes.data.lastname.split(" ")[0]
       }`,
     );
+    reset();
     modalWrapperRef.current!.style.display = "none";
   }
 
@@ -96,38 +102,32 @@ const LoginModal = ({}: TProps) => {
     >
       <div className="flex h-fit max-h-[90%] w-fit max-w-3xl flex-col items-center gap-10 overflow-y-auto rounded-3xl bg-white/90 px-16 py-8 shadow-xl shadow-stone-950/10">
         <div className="flex flex-col items-center gap-1 text-center">
-          <h2 className="text-3xl font-semibold text-cens-brand">
+          <h2 className="text-3xl font-bold text-cens-brand">
             ¡Bienvenido otra vez!
           </h2>
           <p className="text-sm text-stone-500">Nos alegra verte de nuevo</p>
         </div>
         <Formik
           initialValues={initialValues}
-          onSubmit={(values) => handleSubmit(values)}
+          onSubmit={(values, { resetForm }) => handleSubmit(values, resetForm)}
           validationSchema={loginValidationSchema}
         >
           <FormWrapper>
             <div>
-              <label
-                htmlFor="emailField"
-                className="mb-1 inline-block text-left font-semibold text-cens-brand"
-              >
+              <label className="mb-1 flex flex-col gap-1 text-left font-bold text-cens-brand">
                 Usuario
+                <TextField type="text" name="username" placeholder="Usuario" />
               </label>
-              <TextField type="text" name="username" placeholder="Usuario" />
             </div>
             <div>
-              <label
-                htmlFor="passwordField"
-                className="mb-1 inline-block text-left font-semibold text-cens-brand"
-              >
+              <label className="mb-1 flex flex-col gap-1 text-left font-bold text-cens-brand">
                 Contraseña
+                <TextField
+                  name="password"
+                  placeholder="Contraseña"
+                  password={true}
+                />
               </label>
-              <TextField
-                name="password"
-                placeholder="Contraseña"
-                password={true}
-              />
             </div>
             <div className="mt-4 flex">
               <Button hierarchy="primary" size="md" type="submit">

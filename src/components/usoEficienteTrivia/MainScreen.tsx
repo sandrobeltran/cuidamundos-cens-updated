@@ -26,20 +26,20 @@ const MainScreen = () => {
       <Image
         src={BulbImage}
         alt="Imagen de un bombillo CENS"
-        className={`bulb absolute left-14 -top-1 w-[13%] object-contain object-bottom`}
+        className={`bulb absolute -top-1 left-14 w-[13%] object-contain object-bottom`}
         style={{
           filter: lightState
-            ? "brightness(1) drop-shadow(0 10px 100px #ff0)"
+            ? "brightness(1) drop-shadow(0 10px 100px #ff04)"
             : "brightness(0.3) drop-shadow(0 10px 20px #ff00)",
         }}
       />
       <div className="p-4t relative flex h-fit w-full max-w-md flex-col items-center gap-8">
         <div className="flex flex-col gap-4 text-center">
-          <h6 className="text-xl font-semibold">
+          <h6 className="text-xl font-bold">
             USO EFICIENTE: <br />
             <span className="text-cens-brand">¡BIENVENIDOS!</span>
           </h6>
-          <p className="leading-tight opacity-70">
+          <p className="leading-tight">
             ¡Listos para la acción! Iniciemos nuestra pequeña trivia para
             explorar el increíble universo de la energía eléctrica y cómo
             podemos usarla de manera eficiente. ¡Prepárate para divertirte

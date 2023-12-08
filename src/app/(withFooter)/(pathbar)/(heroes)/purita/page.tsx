@@ -110,7 +110,7 @@ export default function Purita() {
               </div>
             </Link>
             <Link
-              href={"/juega/huella-ecologica"}
+              href={"/purita/huella-ecologica"}
               className="group relative col-span-3 row-span-2 cursor-pointer border-inherit bg-transparent transition-colors hover:bg-purita"
             >
               {/* BADGE */}

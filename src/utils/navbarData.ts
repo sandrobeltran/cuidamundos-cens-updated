@@ -32,23 +32,23 @@ export const navbarData: INavbarProps[] = [
     title: "Juega",
     items: [
       {
-        href: "/juega/uso-eficiente",
+        href: "/felix/uso-eficiente",
         title: "Uso Eficiente",
       },
       {
-        href: "/juega/riesgo-electrico",
+        href: "/felix/riesgo-electrico",
         title: "Riesgo Eléctrico",
       },
       {
-        href: "/juega/energias-renovables",
+        href: "/jirol/energias-renovables",
         title: "Energías Renovables",
       },
       {
-        href: "/juega/generacion-energia",
+        href: "/jirol/generacion-energia",
         title: "Energía Eléctrica",
       },
       {
-        href: "/juega/huella-ecologica",
+        href: "/purita/huella-ecologica",
         title: "Huella Ecológica",
       },
     ],

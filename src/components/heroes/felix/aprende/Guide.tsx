@@ -78,8 +78,8 @@ const Guide = () => {
           <div className="modalWrapper absolute left-0 top-0 z-10 grid h-full w-full place-content-center backdrop-blur-md">
             {/* MAIN SCREEN 1 */}
             <div className="relative flex w-full max-w-lg flex-col items-center gap-2 rounded-3xl border-stone-300 bg-white p-10 text-center shadow-md shadow-stone-500/20">
-              <h4 className="text-xl font-semibold text-cens-dark">Ahora</h4>
-              <p>
+              <h4 className="text-3xl font-bold text-cens-dark">¡Hola!</h4>
+              <p className="text-lg text-stone-500">
                 Soy Félix, el héroe de la energía eléctrica. Aprendamos juntos
                 cómo evitar accidentes eléctricos con nuestros
                 electrodomésticos. ¡Listos para la acción!
@@ -90,7 +90,7 @@ const Guide = () => {
                   size="lg"
                   onClick={() => setStage(1)}
                 >
-                  Siguiente
+                  Si
                 </Button>
               </div>
             </div>
@@ -98,24 +98,29 @@ const Guide = () => {
             <Image
               src={FelixImage}
               alt="Imagen de Felix con pose de victoria"
-              className="absolute bottom-0  right-5 w-5/12"
+              className="absolute bottom-0  right-5 w-4/12"
             />
           </div>
         ) : stage === 1 ? (
           /* MAIN SCREEN 2 */
           <div className="modalWrapper absolute left-0 top-0 z-10 grid h-full w-full place-content-center backdrop-blur-md">
-            <div className="relative flex w-full max-w-lg flex-col items-center gap-2 rounded-3xl border-stone-300 bg-white p-10 text-center shadow-md shadow-stone-500/20">
-              <p>
-                1. Potencia: Es la cantidad de energía eléctrica que necesita un
-                electrodoméstico para funcionar. Se mide en Vatios (W).
+            <div className="relative flex w-full max-w-3xl flex-col items-center gap-2 rounded-3xl border-stone-300 bg-white p-10 text-left shadow-md shadow-stone-500/20">
+              <p className="text-lg text-stone-500">
+                <b>Potencia:</b> Es la cantidad de energía eléctrica que
+                necesita un electrodoméstico para funcionar. Se mide en Vatios
+                (W).
                 <br />
-                <br />
-                2. Tiempo de uso: Es cuánto tiempo están encendidos los
+                <b>Tiempo de uso:</b> Indica cuánto tiempo están encendidos los
                 aparatos.
                 <br />
-                <br />
-                3. Hábitos de uso: Son las cosas que haces con tus
+                <b>Hábitos de uso:</b> Son las cosas que haces con tus
                 electrodomésticos.
+                <br />
+                <br />
+                Los Vatios <b>(W)</b> son como la medida de la fuerza que hace
+                que los electrodomésticos funcionen. ¿Cuánta energía necesita
+                una lámpara para brillar o una televisión para mostrarte tus
+                programas favoritos? ¡Eso es lo que medimos en vatios!
               </p>
               <div className="mt-4">
                 <Button
@@ -123,7 +128,7 @@ const Guide = () => {
                   size="lg"
                   onClick={() => setStage(2)}
                 >
-                  Empezar
+                  Aprende
                 </Button>
               </div>
             </div>
@@ -131,7 +136,7 @@ const Guide = () => {
             <Image
               src={FelixImage}
               alt="Imagen de Felix con pose de victoria"
-              className="absolute bottom-0 right-5 w-5/12"
+              className="absolute bottom-0 right-5 w-4/12"
             />
           </div>
         ) : (

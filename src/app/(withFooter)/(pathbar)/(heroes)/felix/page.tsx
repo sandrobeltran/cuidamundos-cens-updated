@@ -36,14 +36,14 @@ const SECTIONS_DATA = [
     title: "Uso eficiente",
     description:
       "Juega y supera la trivia de Uso Eficiente para convertirte en un auténtico héroe eléctrico.",
-    href: "/juega/uso-eficiente",
+    href: "/felix/uso-eficiente",
     icon: "power",
   },
   {
     title: "Riesgo eléctrico",
     description:
       "Aprueba la trivia de Riesgo Eléctrico para convertirte en un héroe y obtener una certificación.",
-    href: "/juega/riesgo-electrico",
+    href: "/felix/riesgo-electrico",
     icon: "thunder",
   },
 ];

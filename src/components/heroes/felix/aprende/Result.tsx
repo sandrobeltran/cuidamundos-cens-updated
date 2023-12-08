@@ -14,7 +14,6 @@ const PercentCirle = ({ kw }: { kw: number }) => {
       className="flex aspect-square w-40 flex-col items-center justify-center gap-0 rounded-full border-[12px] p-5 max-sm:w-52 max-sm:border-[18px]"
       style={{
         borderColor: `#D4E13D`,
-        backgroundColor: `#D4E13D44`,
       }}
     >
       <h6 className="text-5xl font-bold">{formatter.format(kw)}</h6>

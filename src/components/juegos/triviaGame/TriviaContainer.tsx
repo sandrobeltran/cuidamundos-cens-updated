@@ -33,23 +33,24 @@ const TriviaContainer = ({ trivia, mainScreen, resultScreen }: TProps) => {
     }
   }, [initializeTrivia, trivia, user]);
 
-
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-stone-300 bg-white/50 shadow-md">
-      {trivia ? <TriviaHeader time={trivia.data.timeLimit} /> : null}
-      {!user ? <GuestUser /> : null}
-      <Swiper allowTouchMove={false}>
-        {trivia ? <TimeRunOutModal /> : null}
-        <SwiperSlide>{mainScreen}</SwiperSlide>
-        {trivia
-          ? trivia.data.questions.map((question, index) => (
-              <SwiperSlide key={question.id}>
-                <TriviaQuestion question={question} index={index} />
-              </SwiperSlide>
-            ))
-          : null}
-        <SwiperSlide>{resultScreen}</SwiperSlide>
-      </Swiper>
+    <div className="flex justify-center">
+      <div className="relative h-fit max-w-5xl overflow-hidden rounded-3xl border border-stone-300 bg-white/80 shadow-md ">
+        {trivia ? <TriviaHeader time={trivia.data.timeLimit} /> : null}
+        {!user ? <GuestUser /> : null}
+        <Swiper allowTouchMove={false} className="h-[calc(100%-64px)]">
+          {trivia ? <TimeRunOutModal /> : null}
+          <SwiperSlide>{mainScreen}</SwiperSlide>
+          {trivia
+            ? trivia.data.questions.map((question, index) => (
+                <SwiperSlide key={question.id}>
+                  <TriviaQuestion question={question} index={index} />
+                </SwiperSlide>
+              ))
+            : null}
+          <SwiperSlide>{resultScreen}</SwiperSlide>
+        </Swiper>
+      </div>
     </div>
   );
 };

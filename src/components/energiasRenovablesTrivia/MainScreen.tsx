@@ -15,7 +15,7 @@ const MainScreen = () => {
     <div className="flex h-full w-full items-center justify-center bg-[url(/img/jirol/energias-renovables/background.jpg)] bg-cover bg-center bg-no-repeat p-8 text-white backdrop-blur-sm">
       <div className="p-4t relative flex h-fit w-full max-w-md flex-col items-center gap-8">
         <div className="flex flex-col gap-4 text-center">
-          <h6 className="text-xl font-semibold">
+          <h6 className="text-xl font-bold">
             TÚ Y LAS FUENTES DE ENERGÍAS: <br />
             <span className="text-cens-light">ENERGÍAS RENOVABLES</span>
           </h6>

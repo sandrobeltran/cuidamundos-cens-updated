@@ -40,34 +40,6 @@ const ResultsScreen = () => {
     totalValue: 0,
   });
 
-  const handleUploadPoints = useCallback(async () => {
-    console.log("Trying to add points");
-    if (test?.winners.includes(user?._id as string) || hasWon) return;
-
-    const token = localStorage.getItem("session-token");
-
-    if (!token) return toast("Acción inválida");
-
-    const updateUserRequest = await fetch("/usuario/api/puntos", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "api-key": process.env.NEXT_PUBLIC_API_KEY as string,
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({ points: test?.points, gameId: test?._id }),
-    });
-    const updateUserResponse = await updateUserRequest.json();
-
-    if (!updateUserRequest.ok) {
-      console.log(updateUserResponse);
-      return toast.error(updateUserResponse.message);
-    }
-
-    setHasWon(true);
-    console.log("Points added to user");
-  }, [test, user, hasWon, setHasWon]);
-
   useEffect(() => {
     if (results.length === questions.length && stage === 2) {
       // user has won
@@ -114,45 +86,47 @@ const ResultsScreen = () => {
     swiper.slideTo(0);
   }
 
-  const difference = 640 - 36;
-  const colorValue = (100 / difference) * (testResult.totalPercent - 36) + 30;
+  const numerator = testResult.totalPercent - 20;
+  const denominator = 300 - 20;
+  const colorValue = (numerator / denominator) * (120 - 0) + 0;
 
   return (
     <CustomSection>
       <div className="flex flex-col items-center gap-14 text-stone-500">
         {/* PERCENT CIRLCE */}
         <div className="flex w-full max-w-2xl flex-col items-center gap-14 text-center">
-          <h4 className="text-3xl font-bold text-cens-brand">
-            {testResult.message}
-          </h4>
+          <div>
+            <h4 className="text-3xl font-bold text-stone-500">
+              {testResult.totalPercent <= 75
+                ? "¡Eres un héroe"
+                : "¡La tierra te"}{" "}
+              <span className="text-cens-brand ">
+                {testResult.totalPercent <= 75 ? "del planeta!" : "necesita!"}
+              </span>
+            </h4>
+            <p className="mt-2 font-normal">{testResult.message}</p>
+          </div>
           <div
-            className="flex h-40 w-40 flex-col items-center justify-center gap-0 rounded-full border-[12px] p-5"
+            className="flex h-44 w-44 flex-col items-center justify-center gap-0 rounded-full border-[12px] p-5"
             style={{
               borderColor: `hsl(${formatter.format(
                 130 - colorValue,
               )}, 100%, 50%)`,
-              backgroundColor: `hsla(${formatter.format(
-                130 - colorValue,
-              )}, 100%, 50%, .2)`,
             }}
           >
             <h6 className="flex flex-col text-5xl font-bold">
-              {testResult.totalPercent}
-              <br />
-              <span className="text-lg">puntos</span>
+              {testResult.totalPercent}%
             </h6>
           </div>
           {/* CO2 */}
-          <p>CO2 {testResult.totalValue}</p>
+          <p>
+            <b>CO2</b> {testResult.totalValue}
+          </p>
         </div>
 
         <div className="flex w-full justify-center gap-6">
           <Link href={"/aprende"}>
-            <Button
-              hierarchy="primary"
-              size="lg"
-              onClick={() => handleResetTest()}
-            >
+            <Button hierarchy="primary" size="lg">
               Aprende
             </Button>
           </Link>

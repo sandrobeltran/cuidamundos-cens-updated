@@ -48,28 +48,29 @@ export default function AtiendeJirol() {
           title={{ text: "Proceso de la", resalted: "energía elétrica" }}
           description="Únete a nosotros para conocer la historia de Purita, la heroína del Medio Ambiente. Descubre sus poderes y aprende cómo puedes unirte a su misión o convertirte en un héroe en el mundo."
         />
-        <div className="px-28">
-          <div className="aspect-[16/8.5] w-full overflow-hidden rounded-3xl bg-white/80 shadow-md backdrop-blur-md">
+        <div className="flex w-full justify-center px-28">
+          <div className="pr aspect-[16/9] w-full max-w-5xl overflow-hidden rounded-3xl bg-white/80 shadow-md backdrop-blur-md">
             <Swiper
               direction="vertical"
-              className="h-full"
+              className="h-full w-full !pr-24"
               allowTouchMove={false}
             >
               <SliderController sliderData={SLIDER_DATA} />
-              <SwiperSlide className="">
-                <div className="flex h-full w-full flex-col items-center justify-center gap-4 p-10 px-40 text-center">
+              <SwiperSlide>
+                <div className="flex h-full w-full flex-col items-center justify-center gap-4 p-10 text-center">
                   <h3 className="text-3xl font-medium text-stone-500">
                     Proceso de la{" "}
                     <span className="text-cens-medium">Energía Eléctrica</span>
                   </h3>
-                  <p className="text-xl text-stone-500">
+                  <p className="text-xl text-stone-500 max-w-2xl">
                     ¡Hola, niños curiosos! ¿Están listos para descubrir cómo se
                     genera la energía elétrica? Vamos a explorar cuatro
                     emocionantes formas de hacerlo:
                   </p>
                   <Image
                     src={FlyingJirolImage}
-                    className="max-w-sm animate-levitating"
+                    width={300}
+                    className="max-w-xs animate-levitating object-contain"
                     alt="Imagen de Jirol volando"
                   />
                 </div>
@@ -85,7 +86,7 @@ export default function AtiendeJirol() {
                       src={`/img/jirol/atiende/${item.icon}.png`}
                       width={300}
                       height={200}
-                      className="mt-4 w-full max-w-lg"
+                      className="mt-4 w-full max-w-md"
                       alt={`Imagen de la Energía ${item.name}`}
                     />
                     <p className="text-lg text-stone-500">{item.description}</p>

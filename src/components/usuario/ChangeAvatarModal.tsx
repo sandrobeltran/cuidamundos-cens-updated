@@ -1,10 +1,7 @@
-"use client"
+"use client";
 
 import { Formik } from "formik";
-import React, {
-  useRef,
-  useState,
-} from "react";
+import React, { useRef, useState } from "react";
 import FormWrapper from "../form/FormWrapper";
 import TextField from "../form/TextField";
 import Button from "../Button";
@@ -20,7 +17,7 @@ import AVATARS_DATA from "@/utils/avatarsData";
 
 type TProps = {};
 
-const ChangeAvatarModal = ({ }: TProps) => {
+const ChangeAvatarModal = ({}: TProps) => {
   const { setUser, user, setLoading, setError } = useUserStore(
     (state) => state,
   );
@@ -55,7 +52,6 @@ const ChangeAvatarModal = ({ }: TProps) => {
       return toast.error(updateUserResponse.message);
     }
 
-
     setUser(updateUserResponse.data);
     setLoading(false);
     toast.success("Avatar actualizado con éxito.");
@@ -81,18 +77,18 @@ const ChangeAvatarModal = ({ }: TProps) => {
           <h6 className="text-3xl font-bold text-cens-brand">Avatar</h6>
         </div>
         <div className="grid h-fit w-full grid-cols-[repeat(auto-fill,_minmax(152px,_1fr))] items-start justify-center gap-5">
-          {AVATARS_DATA.map((avatar) => (
+          {Object.entries(AVATARS_DATA).map((avatar) => (
             <button
-              key={avatar}
+              key={avatar[0]}
               className="aspect-square rounded-full border-[6px] shadow-lg shadow-stone-900/20 outline outline-[6px] outline-offset-0 transition-all"
               style={{
-                borderColor: selected === avatar ? "#005F24" : "transparent",
-                outlineColor: selected === avatar ? "#93C01F" : "transparent",
+                borderColor: selected === avatar[1] ? "#005F24" : "transparent",
+                outlineColor: selected === avatar[1] ? "#93C01F" : "transparent",
               }}
-              onClick={() => setSelected(avatar)}
+              onClick={() => setSelected(avatar[1])}
             >
               <Image
-                src={avatar}
+                src={avatar[1]}
                 alt="User Avatar 01 CENS"
                 width={160}
                 height={160}

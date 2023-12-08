@@ -31,11 +31,11 @@ export default function Jirol() {
               className="h-full w-full animate-levitating object-contain"
             />
           </div>
-          <div className="relative grid grid-cols-2 grid-rows-2 gap-x-80">
-            <div className="flex aspect-[4/2.5] items-start justify-start">
+          <div className="relative grid grid-cols-2 grid-rows-2 gap-x-[30%] gap-y-20">
+            <div className="flex h-full max-h-[200px] min-h-[180px] items-start justify-start">
               <Link
                 href={"/jirol/quien"}
-                className="group flex h-fit min-h-[75%] w-full flex-col gap-2 rounded-3xl bg-white/80 p-7 text-stone-600 shadow-md transition-all hover:scale-105 hover:bg-cens-light hover:text-white"
+                className="group flex h-full min-h-[100%] w-full flex-col gap-2 rounded-3xl bg-white/80 p-7 text-stone-600 shadow-md transition-all hover:scale-105 hover:bg-cens-light hover:text-white"
               >
                 <h2 className="flex items-center justify-center gap-2 stroke-cens-light text-center text-2xl font-bold text-cens-light transition-colors group-hover:stroke-white group-hover:text-white">
                   <QuienIcon />
@@ -47,10 +47,10 @@ export default function Jirol() {
                 </p>
               </Link>
             </div>
-            <div className="flex aspect-[4/2.5] items-start justify-end">
+            <div className="flex h-full max-h-[200px] min-h-[180px] items-start justify-start">
               <Link
                 href={"/jirol/atiende"}
-                className="group flex h-fit min-h-[75%] w-full flex-col gap-2 rounded-3xl bg-white/80 p-7 text-stone-600 shadow-md transition-all hover:scale-105 hover:bg-cens-light hover:text-white"
+                className="group flex h-full min-h-[100%] w-full flex-col gap-2 rounded-3xl bg-white/80 p-7 text-stone-600 shadow-md transition-all hover:scale-105 hover:bg-cens-light hover:text-white"
               >
                 <h2 className="flex items-center justify-center gap-2 stroke-cens-light text-center text-2xl font-bold text-cens-light transition-colors group-hover:stroke-white group-hover:text-white">
                   <AtiendeIcon />
@@ -61,10 +61,10 @@ export default function Jirol() {
                 </p>
               </Link>
             </div>
-            <div className="flex aspect-[4/2.5] items-end justify-start">
+            <div className="flex h-full max-h-[200px] min-h-[180px] items-start justify-start">
               <Link
-                href={"/juega/energias-renovables"}
-                className="group flex h-fit min-h-[75%] w-full flex-col gap-2 rounded-3xl bg-white/80 p-7 text-stone-600 shadow-md transition-all hover:scale-105 hover:bg-cens-light hover:text-white"
+                href={"/jirol/energias-renovables"}
+                className="group flex h-full min-h-[100%] w-full flex-col gap-2 rounded-3xl bg-white/80 p-7 text-stone-600 shadow-md transition-all hover:scale-105 hover:bg-cens-light hover:text-white"
               >
                 <h2 className="flex items-center justify-center gap-2 stroke-cens-light text-center text-2xl font-bold text-cens-light transition-colors group-hover:stroke-white group-hover:text-white">
                   <EnergiasRenovablesIcon />
@@ -75,10 +75,10 @@ export default function Jirol() {
                 </p>
               </Link>
             </div>
-            <div className="flex aspect-[4/2.5] items-end justify-end">
+            <div className="flex h-full max-h-[200px] min-h-[180px] items-start justify-start">
               <Link
-                href={"/juega/generacion-energia"}
-                className="group flex h-fit min-h-[75%] w-full  flex-col gap-2 rounded-3xl bg-white/80 p-7 text-stone-600 shadow-md transition-all hover:scale-105 hover:bg-cens-light hover:text-white"
+                href={"/jirol/generacion-energia"}
+                className="group flex h-full min-h-[100%] w-full flex-col gap-2 rounded-3xl bg-white/80 p-7 text-stone-600 shadow-md transition-all hover:scale-105 hover:bg-cens-light hover:text-white"
               >
                 <h2 className="flex items-center justify-center gap-2 stroke-cens-light text-center text-2xl font-bold text-cens-light transition-colors group-hover:stroke-white group-hover:text-white">
                   <GeneracionEnergiaIcon />

@@ -1,6 +1,6 @@
 "use client";
 
-import { Formik } from "formik";
+import { Formik, FormikState } from "formik";
 import React, { Dispatch, SetStateAction, useRef } from "react";
 import FormWrapper from "../form/FormWrapper";
 import TextField from "../form/TextField";
@@ -43,7 +43,12 @@ const RegisterModal = ({}: TProps) => {
     }
   }
 
-  async function handleSubmit(values: TInitialValues) {
+  async function handleSubmit(
+    values: TInitialValues,
+    reset: (
+      nextState?: Partial<FormikState<TInitialValues>> | undefined,
+    ) => void,
+  ) {
     if (loading) return;
     setLoading(true);
     // Login user and get the token
@@ -87,6 +92,7 @@ const RegisterModal = ({}: TProps) => {
         fetchUserRes.data.lastname.split(" ")[0]
       }`,
     );
+    reset();
     modalWrapperRef.current!.style.display = "none";
   }
 
@@ -99,7 +105,7 @@ const RegisterModal = ({}: TProps) => {
     >
       <div className="flex h-fit max-h-[90%] w-fit max-w-3xl flex-col items-center gap-10 overflow-y-auto rounded-3xl bg-white/90 px-16 py-8 shadow-xl shadow-stone-950/10">
         <div className="flex flex-col items-center gap-1 text-center">
-          <h2 className="text-3xl font-semibold text-cens-brand">
+          <h2 className="text-3xl font-bold text-cens-brand">
             ¡Regístrate para empezar!
           </h2>
           <p className="text-sm text-stone-500">
@@ -108,7 +114,7 @@ const RegisterModal = ({}: TProps) => {
         </div>
         <Formik
           initialValues={initialValues}
-          onSubmit={(values) => handleSubmit(values)}
+          onSubmit={(values, { resetForm }) => handleSubmit(values, resetForm)}
           validationSchema={signUpValidationSchema}
         >
           <FormWrapper>

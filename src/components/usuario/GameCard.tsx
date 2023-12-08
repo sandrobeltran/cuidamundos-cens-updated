@@ -38,7 +38,7 @@ const GameCard = ({ game }: TProps) => {
           width={230}
           height={150}
           className="aspect-video h-48 rounded-3xl object-cover shadow-lg max-sm:h-32 max-sm:w-full"
-          src={game.cover}
+          src={`/img/covers/${game.cover}`}
           alt={`Juego ${game.title} CENS Portada`}
         />
       </div>

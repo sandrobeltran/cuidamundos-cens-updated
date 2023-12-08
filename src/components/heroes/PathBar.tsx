@@ -38,6 +38,12 @@ const PathBar = () => {
     })),
   ];
 
+  const heroesImages = {
+    jirol: `/img/avatars/${AVATARS_DATA.jirol}`,
+    felix: `/img/avatars/${AVATARS_DATA.felix}`,
+    purita: `/img/avatars/${AVATARS_DATA.purita}`,
+  };
+
   return (
     <nav className="fixed left-0 top-20 z-40 h-16 w-full px-16">
       <div className="flex h-full w-full items-center justify-between bg-cyan-950/70 px-6 backdrop-blur-md">
@@ -78,7 +84,7 @@ const PathBar = () => {
               }}
             >
               <Image
-                src={AVATARS_DATA[7]}
+                src={AVATARS_DATA.jirol}
                 width={64}
                 height={64}
                 alt="Imagen de Jirol"
@@ -95,7 +101,7 @@ const PathBar = () => {
               }}
             >
               <Image
-                src={AVATARS_DATA[5]}
+                src={AVATARS_DATA.felix}
                 width={64}
                 height={64}
                 alt="Imagen de Félix"
@@ -112,7 +118,7 @@ const PathBar = () => {
               }}
             >
               <Image
-                src={AVATARS_DATA[6]}
+                src={AVATARS_DATA.purita}
                 width={64}
                 height={64}
                 alt="Imagen de Purita"

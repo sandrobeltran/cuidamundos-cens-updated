@@ -16,7 +16,7 @@ const MainScreen = () => {
     <div className="flex h-full w-full items-center justify-center bg-white p-8 text-stone-500 backdrop-blur-sm">
       <div className="relative z-10 flex h-fit w-full max-w-2xl flex-col items-center gap-8 p-4">
         <div className="flex flex-col gap-6 text-center">
-          <h6 className="font-semibold">
+          <h6 className="font-bold">
             TÚ Y EL MEDIO AMBIENTE <br />
             <span className="text-2xl text-cens-brand">HUELLA ECOLÓGICA</span>
           </h6>

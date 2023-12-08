@@ -354,7 +354,6 @@ input:-webkit-autofill:active {
   0% {
     transform: translateY(0);
     scale: 1.1;
-
   }
   50% {
   }
@@ -385,5 +384,31 @@ input:-webkit-autofill:active {
   }
   100% {
     transform: rotateZ(0deg);
+  }
+}
+
+/* DETECT PORTRAIT SCREEN ORIENTATION */
+
+@media screen and (orientation: portrait) {
+  .landscapeWarning {
+    display: grid;
+  }
+}
+
+@keyframes rotateLand {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  40% {
+    transform: rotateZ(95deg);
+  }
+  50%{
+    transform: rotateZ(85deg);
+  }
+  60%{
+    transform: rotateZ(90deg);
+  }
+  100%{
+    transform: rotateZ(90deg);
   }
 }
