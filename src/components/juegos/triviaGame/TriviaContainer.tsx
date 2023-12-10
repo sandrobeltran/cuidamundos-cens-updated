@@ -35,10 +35,10 @@ const TriviaContainer = ({ trivia, mainScreen, resultScreen }: TProps) => {
 
   return (
     <div className="flex justify-center">
-      <div className="relative h-fit max-w-5xl overflow-hidden rounded-3xl border border-stone-300 bg-white/80 shadow-md ">
+      <div className="relative h-fit max-w-5xl mobile-land:max-w-full overflow-hidden rounded-3xl border border-stone-300 bg-white/80 shadow-md">
         {trivia ? <TriviaHeader time={trivia.data.timeLimit} /> : null}
         {!user ? <GuestUser /> : null}
-        <Swiper allowTouchMove={false} className="h-[calc(100%-64px)]">
+        <Swiper allowTouchMove={false}>
           {trivia ? <TimeRunOutModal /> : null}
           <SwiperSlide>{mainScreen}</SwiperSlide>
           {trivia

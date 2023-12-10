@@ -70,7 +70,7 @@ export default function PoderesPurita() {
           title={{ text: "Poderes de", resalted: "Purita" }}
           description="Descubre y usa los superpoderes de Purita para proteger nuestro medio ambiente."
         />
-        <div className="px-28 flex justify-center">
+        <div className="px-28 flex justify-center mobile-land:px-16">
           <div className="relative aspect-[1.5/1] max-w-5xl w-full overflow-hidden rounded-3xl bg-white/80 shadow-md backdrop-blur-md">
             <video
               src="/img/purita/poderes/background.mov"

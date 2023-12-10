@@ -72,14 +72,14 @@ const Guide = () => {
   const [stage, setStage] = useState<number>(0);
   const markSize = 65;
   return (
-    <>
+    <div className="rounded-3xl bg-white/80 p-4 backdrop-blur-md shadow-md">
       <div className="relative aspect-[1.6/1] w-full overflow-hidden rounded-3xl bg-[url(/img/felix/aprende/living_room.jpg)] bg-cover bg-center backdrop-blur-md">
         {stage === 0 ? (
           <div className="modalWrapper absolute left-0 top-0 z-10 grid h-full w-full place-content-center backdrop-blur-md">
             {/* MAIN SCREEN 1 */}
             <div className="relative flex w-full max-w-lg flex-col items-center gap-2 rounded-3xl border-stone-300 bg-white p-10 text-center shadow-md shadow-stone-500/20">
               <h4 className="text-3xl font-bold text-cens-dark">¡Hola!</h4>
-              <p className="text-lg text-stone-500">
+              <p className="mobile-land:text-sm text-lg text-stone-500">
                 Soy Félix, el héroe de la energía eléctrica. Aprendamos juntos
                 cómo evitar accidentes eléctricos con nuestros
                 electrodomésticos. ¡Listos para la acción!
@@ -103,9 +103,9 @@ const Guide = () => {
           </div>
         ) : stage === 1 ? (
           /* MAIN SCREEN 2 */
-          <div className="modalWrapper absolute left-0 top-0 z-10 grid h-full w-full place-content-center backdrop-blur-md">
-            <div className="relative flex w-full max-w-3xl flex-col items-center gap-2 rounded-3xl border-stone-300 bg-white p-10 text-left shadow-md shadow-stone-500/20">
-              <p className="text-lg text-stone-500">
+          <div className="modalWrapper absolute left-0 top-0 z-10 flex h-full w-full place-content-center items-center justify-center backdrop-blur-md">
+            <div className="mobile-land:max-w-[95%] relative flex w-full max-w-3xl flex-col items-center gap-2 rounded-3xl border-stone-300 bg-white p-10 text-left shadow-md shadow-stone-500/20">
+              <p className="mobile-land:text-sm text-lg text-stone-500">
                 <b>Potencia:</b> Es la cantidad de energía eléctrica que
                 necesita un electrodoméstico para funcionar. Se mide en Vatios
                 (W).
@@ -136,7 +136,7 @@ const Guide = () => {
             <Image
               src={FelixImage}
               alt="Imagen de Felix con pose de victoria"
-              className="absolute bottom-0 right-5 w-4/12"
+              className="pointer-events-none absolute bottom-0 right-5 w-4/12"
             />
           </div>
         ) : (
@@ -158,7 +158,7 @@ const Guide = () => {
           </div>
         </div>
       ) : null}
-    </>
+    </div>
   );
 };
 

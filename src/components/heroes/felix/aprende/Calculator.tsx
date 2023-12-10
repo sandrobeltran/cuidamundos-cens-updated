@@ -81,7 +81,7 @@ const Calculator = ({ set }: TProps) => {
   }
 
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-3xl bg-white/80 p-10 pt-24 text-lg text-stone-500 backdrop-blur-md after:absolute after:left-0 after:top-0 after:h-16 after:w-full after:bg-cens-brand">
+    <div className="relative h-full w-full overflow-hidden rounded-3xl shadow-md bg-white/80 p-10 pt-24 text-lg text-stone-500 backdrop-blur-md after:absolute after:left-0 after:top-0 after:h-16 after:w-full after:bg-cens-brand">
       <div
         className="flex w-full flex-col items-center gap-4 text-center"
         id="devicesTable"

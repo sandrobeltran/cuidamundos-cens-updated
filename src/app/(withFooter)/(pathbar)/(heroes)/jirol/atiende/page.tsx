@@ -48,7 +48,7 @@ export default function AtiendeJirol() {
           title={{ text: "Proceso de la", resalted: "energía elétrica" }}
           description="Únete a nosotros para conocer la historia de Purita, la heroína del Medio Ambiente. Descubre sus poderes y aprende cómo puedes unirte a su misión o convertirte en un héroe en el mundo."
         />
-        <div className="flex w-full justify-center px-28">
+        <div className="flex w-full justify-center px-28 mobile-land:px-16">
           <div className="pr aspect-[16/9] w-full max-w-5xl overflow-hidden rounded-3xl bg-white/80 shadow-md backdrop-blur-md">
             <Swiper
               direction="vertical"
@@ -57,12 +57,12 @@ export default function AtiendeJirol() {
             >
               <SliderController sliderData={SLIDER_DATA} />
               <SwiperSlide>
-                <div className="flex h-full w-full flex-col items-center justify-center gap-4 p-10 text-center">
-                  <h3 className="text-3xl font-medium text-stone-500">
+                <div className="flex h-full w-full flex-col items-center justify-center gap-4 mobile-land:gap-2 p-10 text-center">
+                  <h3 className="text-3xl font-medium text-stone-500 mobile-land:text-xl">
                     Proceso de la{" "}
                     <span className="text-cens-medium">Energía Eléctrica</span>
                   </h3>
-                  <p className="text-xl text-stone-500 max-w-2xl">
+                  <p className="text-xl text-stone-500 max-w-2xl mobile-land:text-lg">
                     ¡Hola, niños curiosos! ¿Están listos para descubrir cómo se
                     genera la energía elétrica? Vamos a explorar cuatro
                     emocionantes formas de hacerlo:
@@ -70,14 +70,14 @@ export default function AtiendeJirol() {
                   <Image
                     src={FlyingJirolImage}
                     width={300}
-                    className="max-w-xs animate-levitating object-contain"
+                    className="max-w-xs mobile-land:max-w-[30%] animate-levitating object-contain"
                     alt="Imagen de Jirol volando"
                   />
                 </div>
               </SwiperSlide>
               {SLIDER_DATA.map((item) => (
                 <SwiperSlide className="" key={item.index}>
-                  <div className="flex h-full w-full flex-col items-center justify-center gap-4 p-10 px-40 text-center">
+                  <div className="flex h-full w-full flex-col items-center justify-center gap-4 p-10 px-40 mobile-land:px-16 text-center">
                     <h3 className="text-3xl font-medium text-stone-500">
                       Energía{" "}
                       <span className="text-cens-medium">{item.name}</span>
@@ -86,10 +86,10 @@ export default function AtiendeJirol() {
                       src={`/img/jirol/atiende/${item.icon}.png`}
                       width={300}
                       height={200}
-                      className="mt-4 w-full max-w-md"
+                      className="mt-4 w-full max-w-md mobile-land:max-w-[50%]"
                       alt={`Imagen de la Energía ${item.name}`}
                     />
-                    <p className="text-lg text-stone-500">{item.description}</p>
+                    <p className="mobile-land:text-sm text-lg text-stone-500">{item.description}</p>
                   </div>
                 </SwiperSlide>
               ))}

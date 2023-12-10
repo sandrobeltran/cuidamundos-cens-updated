@@ -22,7 +22,7 @@ export default function Home() {
           />
           <div className="flex justify-center">
             {/* HEROES GRID */}
-            <div className="mt-6 grid w-full max-w-7xl grid-cols-3 justify-between gap-10 px-12">
+            <div className="mt-6 grid w-full max-w-7xl grid-cols-3 justify-between gap-10 px-12 mobile-land:px-6 mobile-land:m-0">
               {/* PURITA */}
               <Link href={"/purita"}>
                 <div className="group flex h-full cursor-pointer flex-col gap-2 transition-transform hover:-translate-y-10 hover:scale-110">

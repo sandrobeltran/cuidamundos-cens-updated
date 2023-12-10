@@ -32,7 +32,7 @@ export default function Jirol() {
             />
           </div>
           <div className="relative grid grid-cols-2 grid-rows-2 gap-x-[30%] gap-y-20">
-            <div className="flex h-full max-h-[200px] min-h-[180px] items-start justify-start">
+            <div className="flex h-full min-h-[180px] items-start justify-start">
               <Link
                 href={"/jirol/quien"}
                 className="group flex h-full min-h-[100%] w-full flex-col gap-2 rounded-3xl bg-white/80 p-7 text-stone-600 shadow-md transition-all hover:scale-105 hover:bg-cens-light hover:text-white"
@@ -47,7 +47,7 @@ export default function Jirol() {
                 </p>
               </Link>
             </div>
-            <div className="flex h-full max-h-[200px] min-h-[180px] items-start justify-start">
+            <div className="flex h-full min-h-[180px] items-start justify-start">
               <Link
                 href={"/jirol/atiende"}
                 className="group flex h-full min-h-[100%] w-full flex-col gap-2 rounded-3xl bg-white/80 p-7 text-stone-600 shadow-md transition-all hover:scale-105 hover:bg-cens-light hover:text-white"
@@ -61,7 +61,7 @@ export default function Jirol() {
                 </p>
               </Link>
             </div>
-            <div className="flex h-full max-h-[200px] min-h-[180px] items-start justify-start">
+            <div className="flex h-full min-h-[180px] items-start justify-start">
               <Link
                 href={"/jirol/energias-renovables"}
                 className="group flex h-full min-h-[100%] w-full flex-col gap-2 rounded-3xl bg-white/80 p-7 text-stone-600 shadow-md transition-all hover:scale-105 hover:bg-cens-light hover:text-white"
@@ -75,7 +75,7 @@ export default function Jirol() {
                 </p>
               </Link>
             </div>
-            <div className="flex h-full max-h-[200px] min-h-[180px] items-start justify-start">
+            <div className="flex h-full min-h-[180px] items-start justify-start">
               <Link
                 href={"/jirol/generacion-energia"}
                 className="group flex h-full min-h-[100%] w-full flex-col gap-2 rounded-3xl bg-white/80 p-7 text-stone-600 shadow-md transition-all hover:scale-105 hover:bg-cens-light hover:text-white"

@@ -21,9 +21,9 @@ export default function Purita() {
           }}
         />
         {/* MAIN CONTAINER */}
-        <div className="flex flex-col">
+        <div className="flex flex-col text-center">
           {/* FIRST ROW */}
-          <div className="grid h-72 w-full grid-cols-8 grid-rows-3 border-2 border-purita">
+          <div className="grid h-fit w-full grid-cols-8 grid-rows-3 border-2 border-purita">
             <div className="col-span-2 row-span-3 bg-purita">
               <Image
                 src={PuritaActionImage}
@@ -32,7 +32,7 @@ export default function Purita() {
               />
             </div>
             <div className="col-span-6 row-span-1 flex items-center justify-center border-b-2 border-inherit bg-transparent text-4xl uppercase ">
-              <h4 className="font-bold tracking-[20px] text-purita">
+              <h4 className="font-bold leading-none tracking-[20px] text-purita">
                 APRENDE SOBRE PURITA
               </h4>
             </div>
@@ -47,7 +47,7 @@ export default function Purita() {
                 </div>
               </div>
               <div className="h-20" />
-              <div className="relative flex flex-col items-center gap-2 px-4 text-center text-purita transition-colors group-hover:text-white ">
+              <div className="relative flex flex-col items-center gap-2 px-4 pb-4 text-center text-purita transition-colors group-hover:text-white ">
                 <h4 className="text-xl font-semibold">¿Quién es?</h4>
                 <p className="leading-tight text-stone-800 transition-colors group-hover:text-white">
                   Explora la historia de Purita, la heroína del Medio Ambiente,
@@ -66,7 +66,7 @@ export default function Purita() {
                 </div>
               </div>
               <div className="h-20" />
-              <div className="relative flex flex-col items-center gap-2 px-4 text-center text-purita transition-colors group-hover:text-white ">
+              <div className="relative flex flex-col items-center gap-2 px-4 pb-4 text-center text-purita transition-colors group-hover:text-white ">
                 <h4 className="text-xl font-semibold">¿Qué atiende?</h4>
                 <p className="leading-tight text-stone-800 transition-colors group-hover:text-white">
                   ¡Embárcate en un viaje para conocer el medio ambiente y el
@@ -77,9 +77,9 @@ export default function Purita() {
           </div>
 
           {/* SECOND ROW */}
-          <div className="grid h-72 w-full grid-cols-8 grid-rows-3 border-2 border-t-0 border-purita">
-            <div className="col-span-6 row-span-1 flex items-center justify-center border-b-2 border-inherit bg-transparent text-4xl uppercase ">
-              <h4 className="font-bold tracking-[20px] text-purita">
+          <div className="grid h-fit w-full grid-cols-8 grid-rows-3 border-2 border-t-0 border-purita">
+            <div className="col-span-6 row-span-1 flex items-center justify-center border-b-2 border-inherit bg-transparent text-4xl uppercase">
+              <h4 className="font-bold leading-none tracking-[20px] text-purita">
                 HORA DE JUGAR
               </h4>
             </div>
@@ -101,7 +101,7 @@ export default function Purita() {
                 </div>
               </div>
               <div className="h-20" />
-              <div className="relative flex flex-col items-center gap-2 px-4 text-center text-purita transition-colors group-hover:text-white ">
+              <div className="relative flex flex-col items-center gap-2 px-4 pb-4 text-center text-purita transition-colors group-hover:text-white ">
                 <h4 className="text-xl font-semibold">Poderes</h4>
                 <p className="leading-tight text-stone-800 transition-colors group-hover:text-white">
                   ¡Despierta los poderes de Purita y conviértete en un defensor
@@ -120,7 +120,7 @@ export default function Purita() {
                 </div>
               </div>
               <div className="h-20" />
-              <div className="relative flex flex-col items-center gap-2 px-4 text-center text-purita transition-colors group-hover:text-white ">
+              <div className="relative flex flex-col items-center gap-2 px-4 pb-4 text-center text-purita transition-colors group-hover:text-white ">
                 <h4 className="text-xl font-semibold">Huella Ecológica</h4>
                 <p className="leading-tight text-stone-800 transition-colors group-hover:text-white">
                   ¿Estás listo para convertirte en un guardián del medio

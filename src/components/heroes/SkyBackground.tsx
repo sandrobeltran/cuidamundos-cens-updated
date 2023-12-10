@@ -26,12 +26,20 @@ const SkyBackground = () => {
     window.addEventListener("scroll", () => {
       parallaxEffect(window.scrollY);
     });
+
+    var bMobile = // will be true if running on a mobile device
+      navigator.userAgent.indexOf("Mobile") !== -1 ||
+      navigator.userAgent.indexOf("iPhone") !== -1 ||
+      navigator.userAgent.indexOf("Android") !== -1 ||
+      navigator.userAgent.indexOf("Windows Phone") !== -1;
+
+    // if(document.)
   }, [parallaxEffect]);
 
   return (
     <div
       ref={skyRef}
-      className="absolute left-0 top-0 z-0 h-full w-full overflow-hidden bg-[url(/img/hero_sky.jpg)] bg-center bg-no-repeat before:absolute before:bottom-0 before:left-0 before:z-20 before:h-1/2 before:w-full before:bg-gradient-to-t before:from-white before:to-transparent"
+      className="absolute left-0 top-0 z-0 h-full w-full overflow-hidden bg-[url(/img/hero_sky.jpg)] bg-center bg-no-repeat before:absolute before:bottom-0 before:left-0 before:z-20 before:h-1/2 before:w-full before:bg-gradient-to-t before:from-white before:to-transparent mobile-land:h-[200%]"
       style={{ backgroundSize: "cover" }}
     >
       {/* <Image src={SkyBackgroundImage} alt="Fondo de cielo CENS" fill className="" /> */}

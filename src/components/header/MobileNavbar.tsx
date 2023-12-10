@@ -16,7 +16,7 @@ const MobileNavbar = ({ toggleMenu }: TProps) => {
   const user = useUserStore((state) => state.user);
 
   return (
-    <nav className="before relative z-10 hidden h-16 w-full items-center justify-between bg-black/30 px-6 text-white shadow-lg before:absolute before:left-0 before:top-0 before:h-full before:w-full before:backdrop-blur-lg max-lg:flex">
+    <nav className="before relative z-10 hidden h-16 w-full items-center justify-between bg-black/30 px-6 text-white shadow-lg before:absolute before:left-0 before:top-0 before:h-full before:w-full before:backdrop-blur-lg max-sm:flex">
       <Link href={"/"}>
         <Image
           src={CENSLogo}

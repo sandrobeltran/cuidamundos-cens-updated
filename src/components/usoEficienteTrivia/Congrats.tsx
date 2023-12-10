@@ -45,11 +45,10 @@ const Congrats = ({ Percent }: TProps) => {
     generateCertificate(user as TUserData, trivia.title)?.save();
   }
 
-
   return (
     <div
       ref={partyRef}
-      className="flex max-w-xl flex-col items-center gap-10 text-center"
+      className="mobile-land:gap-6 flex max-w-xl flex-col items-center gap-10 text-center"
     >
       <div className="flex flex-col items-center gap-2 text-center">
         <h3 className="text-3xl font-bold">
@@ -57,10 +56,9 @@ const Congrats = ({ Percent }: TProps) => {
         </h3>
         <p className="font-normal">
           Has superado la trivia con éxito. Tu conocimiento sobre{" "}
-          <b>{trivia.title}</b>{" "}
-          es impresionante. ¡Continúa cuidando nuestro planeta y aprendiendo más
-          sobre la sostenibilidad! ¡Te has convertido en un auténtico héroe
-          eléctrico! ¡Sigue así!
+          <b>{trivia.title}</b> es impresionante. ¡Continúa cuidando nuestro
+          planeta y aprendiendo más sobre la sostenibilidad! ¡Te has convertido
+          en un auténtico héroe eléctrico! ¡Sigue así!
         </p>
       </div>
       <Percent />

@@ -20,13 +20,12 @@ export default function Aprende() {
           title={{ text: "Explora y aprende", resalted: "con Purita" }}
           description="Acompáñanos para descubrir su historia, sus aventuras y cómo puedes unirte a su misión en nuestro mundo virtual y en la vida real"
         />
-        <div className="relative grid w-full grid-cols-6 gap-x-32 px-20">
-          {/* HERO IMAGE */}
-          <div className="col-span-4 flex">
-            <div className="flex h-full w-full max-w-2xl flex-col items-start justify-start gap-8">
+        <div className="mobile-land:px-16 mobile-land:gap-x-16 relative grid w-full grid-cols-6 gap-x-32 px-20">
+          <div className="mobile-land:col-span-4 col-span-4 flex">
+            <div className="mobile-land:max-w-full flex h-full w-full max-w-2xl flex-col items-start justify-start gap-8">
               <Link
                 href={"/aprende/historia"}
-                className="flex h-32 w-full flex-col justify-center gap-1 rounded-3xl bg-white/90 pl-16 shadow-md"
+                className="mobile-land:pl-10 flex h-32 w-full flex-col justify-center gap-1 rounded-3xl bg-white/90 p-2 pl-16 shadow-md"
               >
                 <h3 className="text-lg font-bold text-cens-medium">Historia</h3>
                 <p className="font-normal text-stone-500">
@@ -34,7 +33,7 @@ export default function Aprende() {
                   futuro sostenible
                 </p>
               </Link>
-              <div className="flex h-32 w-full flex-col justify-center gap-1 rounded-3xl bg-white/90 pl-16 shadow-md">
+              <div className="mobile-land:pl-10 flex h-32 w-full flex-col justify-center gap-1 rounded-3xl bg-white/90 p-2 pl-16 shadow-md">
                 <h3 className="text-lg font-bold text-cens-medium">
                   Evidencias
                 </h3>
@@ -44,7 +43,7 @@ export default function Aprende() {
                 </p>
               </div>
               {/* DOWNLOADS SECTION */}
-              <div className="flex w-full items-center justify-start gap-8">
+              <div className="mobile-land:flex-wrap flex w-full items-center justify-start gap-8">
                 <a
                   href="/some/download/some.pdf"
                   download={"SomePDFile.pdf"}
@@ -104,7 +103,9 @@ export default function Aprende() {
               </div>
             </div>
           </div>
-          <div className="col-span-2 -rotate-10">
+          {/* HERO IMAGE */}
+
+          <div className="-rotate-10 col-span-2">
             <Image
               src={PuritaImage}
               className="h-full w-full animate-levitating object-contain"

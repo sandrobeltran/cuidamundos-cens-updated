@@ -34,7 +34,7 @@ const TestContainer = ({ test, mainScreen, resultScreen }: TProps) => {
 
   return (
     <div className="flex justify-center">
-      <div className="relative h-fit max-w-5xl overflow-hidden rounded-3xl border border-stone-300 bg-white/80 shadow-md">
+      <div className="mobile-land:max-w-full relative h-fit max-w-5xl overflow-hidden rounded-3xl border border-stone-300 bg-white/80 shadow-md">
         {test ? <TestHeader /> : null}
         <Swiper className="h-[calc(100%-64px)]" allowTouchMove={false}>
           <SwiperSlide>{mainScreen}</SwiperSlide>

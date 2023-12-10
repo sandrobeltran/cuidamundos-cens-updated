@@ -9,7 +9,7 @@ type TProps = {
 const QuestionHeader = ({ title, image }: TProps) => {
   return (
     <div className="flex w-full max-w-2xl flex-col items-center gap-3 rounded-3xl text-center text-stone-600">
-      <div className="relative aspect-[7/3] w-full">
+      <div className="relative aspect-[7/3] mobile-land:aspect-[7/1.5]  w-full">
         <Image
           src={image}
           fill
@@ -17,7 +17,7 @@ const QuestionHeader = ({ title, image }: TProps) => {
           className="rounded-4xl object-contain"
         />
       </div>
-      <h4 className="w-full text-xl font-medium">{title}</h4>
+      <h4 className="w-full text-xl mobile-land:text-lg font-medium">{title}</h4>
     </div>
   );
 };

@@ -44,12 +44,12 @@ const TriviaQuestion = ({ question, index }: TProps) => {
   }
 
   return (
-    <div className="max-sm:mt-4 relative flex h-fit flex-col items-center gap-4 rounded-3xl p-6">
+    <div className="max-sm:mt-4 relative flex h-fit flex-col items-center gap-4 mobile-land:gap-2 rounded-3xl p-6">
       {/* HEADER */}
       <QuestionHeader image="/img/clicker_game.jpg" title={question.title} />
-      <div className="h-1.5 w-full rounded-3xl bg-cens-brand" />
+      <div className="h-1.5 mobile-land:h-1 w-full rounded-3xl bg-cens-brand" />
       {/* OPTIONS / BODY */}
-      <div className="flex w-full flex-wrap items-stretch justify-center gap-[20px_32px]">
+      <div className="flex w-full flex-wrap items-stretch justify-center gap-[20px_32px] mobile-land:gap-[12px_18px]">
         {mixedOptions.map((option) => (
           <OptionCard option={option} key={option} nextPage={handleNext} />
         ))}

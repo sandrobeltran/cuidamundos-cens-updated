@@ -25,13 +25,13 @@ const DesktopNavbar = () => {
   const inHome = true;
 
   return (
-    <nav className="before relative z-10 flex h-20 w-full justify-between bg-black/30 px-6 text-white shadow-lg before:absolute before:left-0 before:top-0 before:h-full before:w-full before:backdrop-blur-lg max-lg:hidden">
+    <nav className="mobile-land:h-16 before relative z-10 flex h-20 w-full justify-between bg-black/30 px-6 text-white shadow-lg before:absolute before:left-0 before:top-0 before:h-full before:w-full before:backdrop-blur-lg max-sm:hidden">
       <div className="flex items-center gap-8">
         <Link href={"/"}>
           <Image
             src={CENSLogo}
             alt="CENS Grupo EPM Logo"
-            className="w-20 brightness-[10]"
+            className="w-20 relative mobile-land:w-16"
           />
         </Link>
         <ul className="flex h-full gap-5">
@@ -54,15 +54,15 @@ const DesktopNavbar = () => {
                   alt="User avatar"
                   width={44}
                   height={44}
-                  className="rounded-full"
+                  className="aspect-square w-11 rounded-full mobile-land:w-9"
                 />
                 <div className="flex flex-col items-start">
-                  <h4 className="text-lg leading-tight">
+                  <h4 className="text-lg leading-tight mobile-land:text-sm mobile-land:font-medium">
                     {user.name.split(" ")[0]} {user.lastname.split(" ")[0]}
                   </h4>
-                  <p className="text-sm leading-tight">{user.username}</p>
+                  <p className="text-sm leading-tight mobile-land:text-xs">{user.username}</p>
                 </div>
-                <ChevronDownIcon className="h-6" />
+                <ChevronDownIcon className="h-6 mobile-land:h-5" />
               </div>
             </Link>
             <div className="absolute right-0 top-full z-50 hidden h-fit w-full flex-col items-stretch rounded-bl-lg rounded-br-lg bg-black/30 text-white shadow-lg  backdrop-blur-lg group-hover:flex ">

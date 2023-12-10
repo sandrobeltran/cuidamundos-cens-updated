@@ -16,7 +16,7 @@ export default function Certificados() {
   const winnedGames = games.filter((game) => game.winners.includes(user!._id));
 
   return (
-    <div className="flex w-full flex-col items-center gap-4">
+    <div className="flex w-full flex-col items-center gap-10">
       <h6 className="text-center text-2xl font-bold text-cens-brand">
         En total has logrado {winnedGames.length} Certificado
         {winnedGames.length > 1 || winnedGames.length === 0
@@ -25,7 +25,7 @@ export default function Certificados() {
       </h6>
       {/* CERTIFICATES GRID */}
       {winnedGames.length ? (
-        <div className="grid w-full max-w-5xl grid-cols-[repeat(auto-fill,_300px)] grid-rows-1 justify-center gap-5">
+        <div className="grid w-full max-w-5xl grid-cols-[repeat(2,_300px)] justify-center gap-y-10 gap-x-32">
           {winnedGames.map((game) => (
             <CertificateCard
               game={game}

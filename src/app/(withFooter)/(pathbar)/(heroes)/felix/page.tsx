@@ -86,7 +86,7 @@ export default function Felix() {
           <div className="col-span-2">
             <Image
               src={FelixHeroImage}
-              className="animate-levitating w-full"
+              className="w-full animate-levitating"
               alt="Imagen de Felix volando"
             />
           </div>
@@ -95,16 +95,17 @@ export default function Felix() {
             <div className="grid w-full place-content-center">
               <Link
                 href={SECTIONS_DATA[currentSection.index].href}
-                className="transition-transform hover:scale-110 hover:-rotate-3"
+                className="transition-transform hover:-rotate-3 hover:scale-110"
               >
-                <div className="animate-spinHighlight realtive group flex w-full max-w-sm flex-col gap-4">
-                  <div className="absolute right-0 top-0 flex scale-0 gap-1 text-stone-600 opacity-0 transition-all group-hover:scale-100 group-hover:opacity-100">
-                    Conocer más <LinkIcon className="h-5" />
-                  </div>
-                  <h4 className="border-b-2 border-b-felix text-3xl font-semibold text-felix">
+                <div className="realtive group flex w-full max-w-sm animate-spinHighlight flex-col gap-4">
+                  <h4 className="relative border-b-2 border-b-felix text-3xl mobile-land:text-2xl font-semibold text-felix">
                     {SECTIONS_DATA[currentSection.index].title}
+
+                    <div className="absolute bottom-0 right-0 top-0 my-auto flex scale-0 items-center gap-1 text-sm font-normal text-stone-600 opacity-0 transition-all group-hover:scale-100 group-hover:opacity-100">
+                      Conocer más <LinkIcon className="mobile-land:h-4 h-5" />
+                    </div>
                   </h4>
-                  <p className="pr-24 text-justify text-lg text-stone-500">
+                  <p className="pr-24 text-justify text-lg mobile-land:text-[1rem] mobile-land:leading-snug text-stone-500">
                     {SECTIONS_DATA[currentSection.index].description}
                   </p>
                 </div>

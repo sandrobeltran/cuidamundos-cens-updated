@@ -204,9 +204,9 @@ export default function AtiendeFelix() {
         />
 
         {/* MINIGAME SECTION */}
-        <div className="relative flex flex-col items-center justify-start gap-10 px-28">
+        <div className="relative flex flex-col items-center justify-start gap-10 px-28 mobile-land:px-16">
           <div className="relative aspect-[1.6/1] w-full max-w-5xl overflow-hidden rounded-3xl bg-[url(/img/felix/atiende/living_room.jpg)] bg-cover bg-center shadow-md backdrop-blur-md">
-            {/* TIP MODAL */}
+            {/* CORRECT ACTION MODAL */}
             <div
               id="felixTipModal"
               className="modalWrapper absolute left-0 top-0 hidden h-full w-full place-content-center bg-black/10 backdrop-blur-md"
@@ -343,7 +343,7 @@ export default function AtiendeFelix() {
                   <h4 className="text-xl font-semibold text-cens-dark">
                     ¡Saludos, héroes!
                   </h4>
-                  <p>
+                  <p className="mobile-land:text-sm">
                     Soy Félix, el héroe de la energía eléctrica. Aprendamos
                     juntos cómo evitar accidentes eléctricos con nuestros
                     electrodomésticos. ¡Listos para la acción!
@@ -362,14 +362,14 @@ export default function AtiendeFelix() {
                 <Image
                   src={FelixImage1}
                   alt="Imagen de Purita con pose de victoria"
-                  className="absolute bottom-0 right-10 w-5/12"
+                  className="pointer-events-none absolute bottom-0 right-10 w-5/12"
                 />
               </div>
             ) : stage === 1 ? (
               /* MAIN SCREEN 2 */
-              <div className="modalWrapper absolute left-0 top-0 z-10 grid h-full w-full place-content-center backdrop-blur-md">
-                <div className="relative flex w-full max-w-lg flex-col items-center gap-2 rounded-3xl border-stone-300 bg-white p-10 text-left shadow-md shadow-stone-500/20">
-                  <p>
+              <div className="modalWrapper absolute left-0 top-0 z-10 flex h-full w-full place-content-center items-center justify-center backdrop-blur-md">
+                <div className="mobile-land:max-w-[95%] relative flex w-full max-w-lg flex-col items-center gap-2 rounded-3xl border-stone-300 bg-white p-10 text-left shadow-md shadow-stone-500/20">
+                  <p className="mobile-land:text-sm">
                     ¡Para evitar accidentes eléctricos, es súper importante que
                     identifiquemos y corrijamos todo lo que pueda ser peligroso
                     con la electricidad. ¡Vamos a descubrir dos ideas clave!
@@ -425,7 +425,7 @@ export default function AtiendeFelix() {
 
             {/* PODER VERDE */}
           </div>
-          <div className="grid max-w-5xl grid-cols-2 grid-rows-3 gap-x-14 gap-y-6">
+          <div className="mobile-land:gap-x-10 mobile-land:gap-y-4 grid max-w-5xl grid-cols-2 grid-rows-3 gap-x-14 gap-y-6">
             {GAME_DATA.map((mark) => (
               <div
                 key={mark.content.title}
@@ -434,10 +434,12 @@ export default function AtiendeFelix() {
                   opacity: corrects.includes(mark.content.value) ? ".5" : "1",
                 }}
               >
-                <h6 className="text-6xl font-bold text-felix">
+                <h6 className="mobile-land:text-5xl text-6xl font-bold text-felix">
                   {mark.content.value}
                 </h6>
-                <p className="text-stone-600">{mark.content.title}</p>
+                <p className="mobile-land:text-sm text-stone-600">
+                  {mark.content.title}
+                </p>
               </div>
             ))}
           </div>

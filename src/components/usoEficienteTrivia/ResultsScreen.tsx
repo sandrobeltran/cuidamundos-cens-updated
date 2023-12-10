@@ -25,14 +25,14 @@ const PercentCirle = () => {
 
   return (
     <div
-      className="flex aspect-square w-40 flex-col items-center justify-center gap-0 rounded-full border-[12px] p-5 max-sm:w-52 max-sm:border-[18px]"
+      className="flex aspect-square mobile-land:w-36 w-40 flex-col items-center justify-center gap-0 rounded-full border-[12px] p-5 max-sm:w-52 max-sm:border-[18px]"
       style={{
         borderColor: `hsl(${formatter.format(
           (corrects.length / results.length) * 100,
         )}, 100%, 50%)`,
       }}
     >
-      <h6 className="text-5xl font-bold">
+      <h6 className="text-5xl mobile-land:text-4xl font-bold">
         {formatter.format((corrects.length / results.length) * 100)}%
       </h6>
       <p className="text-sm font-medium leading-none max-sm:text-lg">
@@ -105,7 +105,7 @@ const ResultsScreen = () => {
   ]);
 
   return (
-    <div className="flex h-full flex-col items-center justify-center text-stone-500 px-5">
+    <div className="flex h-full flex-col items-center justify-center text-stone-500 p-6">
       {results.length === questions.length && stage === 2 ? (
         corrects.length >= minCorrects && !lose ? (
           <Congrats Percent={PercentCirle} />

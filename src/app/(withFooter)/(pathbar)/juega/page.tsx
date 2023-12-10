@@ -79,26 +79,26 @@ export default function Juega() {
         />
         <div className="relative grid w-full grid-cols-6 gap-20 px-16">
           {/* HERO IMAGE */}
-          <div className="col-span-2 flex">
+          <div className="mobile-land:col-span-3 col-span-2 flex">
             <Image
               src={PuritaRenderImage}
-              className="w-full animate-levitating"
+              className="w-full animate-levitating mobile-land:w-1/3"
               alt="Render de Purita"
             />
             <Image
               src={FelixRenderImage}
-              className="w-full animate-levitating"
+              className="w-full animate-levitating mobile-land:w-1/3"
               alt="Render de Purita"
             />
             <Image
               src={JirolRenderImage}
-              className="w-full animate-levitating"
+              className="w-full animate-levitating mobile-land:w-1/3"
               alt="Render de Purita"
             />
           </div>
-          <div className="col-span-4 flex">
+          <div className="mobile-land:col-span-3 col-span-4 flex">
             {/* CONTENT */}
-            <div className="grid w-full place-content-center">
+            <div className="grid w-full place-content-center pr-10">
               <Link
                 href={SECTIONS_DATA[currentSection.index].href}
                 className="transition-transform hover:-rotate-3 hover:scale-110"
@@ -107,13 +107,13 @@ export default function Juega() {
                   {/* <div className="absolute right-0 top-0 flex scale-0 gap-1 text-stone-600 opacity-0 transition-all group-hover:scale-100 group-hover:opacity-100">
                     Conocer más <LinkIcon className="h-5" />
                   </div> */}
-                  <h4 className="border-b-2 border-b-cens-brand text-3xl font-semibold text-white">
+                  <h4 className="mobile-land:tex-2xl border-b-2 border-b-cens-brand text-3xl font-semibold text-white">
                     {SECTIONS_DATA[currentSection.index].title.text}{" "}
                     <span className="text-cens-brand">
                       {SECTIONS_DATA[currentSection.index].title.resalted}
                     </span>
                   </h4>
-                  <p className="pr-24 text-justify text-lg text-stone-500">
+                  <p className="mobile-land:text-[1rem] mobile-land:leading-snug pr-24 text-justify text-lg text-stone-500">
                     {SECTIONS_DATA[currentSection.index].description}
                   </p>
                 </div>

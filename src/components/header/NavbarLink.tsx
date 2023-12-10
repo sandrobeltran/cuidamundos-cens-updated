@@ -9,7 +9,7 @@ const NavbarLink = ({ title, href, items, selected }: INavbarProps) => {
     <li className="group relative flex h-full items-center">
       <Link
         href={href}
-        className="group relative font-medium text-white/80 transition-all hover:scale-105 hover:text-white"
+        className="mobile-land:text-sm group relative font-medium text-white/80 transition-all hover:scale-105 hover:text-white"
         style={
           selected
             ? {
@@ -32,14 +32,17 @@ const NavbarLink = ({ title, href, items, selected }: INavbarProps) => {
         {title}
       </Link>
       {items ? (
-        <div className="absolute left-0 top-full z-50 hidden h-fit w-32 flex-col items-stretch rounded-bl-lg rounded-br-lg bg-black/30 text-white shadow-lg  backdrop-blur-lg group-hover:flex ">
-          <ul className="py-4 flex flex-col gap-2">
+        <div className="absolute left-0 top-full z-50 hidden h-fit w-32 flex-col items-stretch rounded-bl-lg rounded-br-lg bg-black/30 text-white shadow-lg backdrop-blur-lg group-hover:flex ">
+          <ul className="flex flex-col gap-2 py-4">
             {items.map((item) => (
               <li
                 key={item.title}
-                className="leading-tight w-full bg-cens-medium/0 font-medium transition-colors hover:bg-stone-900/60 hover:font-semibold "
+                className="w-full bg-cens-medium/0 font-medium leading-tight transition-colors hover:bg-stone-900/60 hover:font-semibold "
               >
-                <Link href={item.href} className="inline-block w-full px-3 py-1">
+                <Link
+                  href={item.href}
+                  className="mobile-land:text-sm inline-block w-full px-3 py-1"
+                >
                   {item.title}
                 </Link>
               </li>

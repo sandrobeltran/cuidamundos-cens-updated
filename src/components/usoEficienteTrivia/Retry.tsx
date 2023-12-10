@@ -18,7 +18,7 @@ const Retry = ({ Percent }: TProps) => {
   }
 
   return (
-    <div className="flex max-w-xl flex-col items-center gap-10 text-center">
+    <div className="flex max-w-xl flex-col items-center gap-10 mobile-land:gap-6 text-center">
       <div className="flex flex-col items-center gap-2 text-center">
         <h3 className="text-3xl font-bold">
           ¡Ups! <span className="text-cens-brand">¡No te desanimes!</span>
