@@ -22,7 +22,7 @@ export default function Home() {
           />
           <div className="flex justify-center">
             {/* HEROES GRID */}
-            <div className="mt-6 grid w-full max-w-7xl grid-cols-3 justify-between gap-10 px-12 mobile-land:px-6 mobile-land:m-0">
+            <div className="mt-6 grid w-full max-w-7xl grid-cols-3 justify-between gap-10 px-12 mobile-land:px-0 mobile-land:m-0">
               {/* PURITA */}
               <Link href={"/purita"}>
                 <div className="group flex h-full cursor-pointer flex-col gap-2 transition-transform hover:-translate-y-10 hover:scale-110">
@@ -34,16 +34,17 @@ export default function Home() {
                     />
                   </div>
                   <div className="flex h-full flex-col items-center gap-2 rounded-bl-3xl rounded-br-3xl bg-purita px-5 pb-7 pt-3 text-center text-white shadow-xl shadow-stone-950/20 transition-shadow group-hover:shadow-stone-950/10">
-                    <h4 className="flex items-center gap-1 text-2xl font-semibold">
+                    <h4 className="flex items-center gap-1 text-2xl mobile-land:text-lg font-semibold">
                       <Image
                         src={AVATARS_DATA["purita-badget"]}
                         alt="Ícono de Purita CuidaMundos"
                         width={28}
                         height={28}
+                        className="w-7 aspect-square mobile-land:w-6"
                       />
                       Purita
                     </h4>
-                    <p className="font-normal leading-tight">
+                    <p className="font-normal leading-tight mobile-land:text-sm">
                       La protectora de la naturaleza, te enseñará a cuidar
                       nuestro hogar.
                     </p>
@@ -62,16 +63,17 @@ export default function Home() {
                     />
                   </div>
                   <div className="flex h-full flex-col items-center gap-2 rounded-bl-3xl rounded-br-3xl bg-jirol px-5 pb-7 pt-3 text-center text-white shadow-xl shadow-stone-950/20 transition-shadow group-hover:shadow-stone-950/10">
-                    <h4 className="flex items-center gap-1 text-2xl font-semibold">
+                    <h4 className="flex items-center gap-1 text-2xl mobile-land:text-lg font-semibold">
                       <Image
                         src={AVATARS_DATA["jirol-badget"]}
                         alt="Ícono de Jirol CuidaMundos"
                         width={28}
                         height={28}
+                        className="w-7 aspect-square mobile-land:w-6"
                       />
                       Jirol
                     </h4>
-                    <p className="font-normal leading-tight">
+                    <p className="font-normal leading-tight mobile-land:text-sm">
                       El estratega de la eficiencia energética, te guiará hacia
                       un futuro sostenible.
                     </p>
@@ -90,16 +92,17 @@ export default function Home() {
                     />
                   </div>
                   <div className="flex h-full flex-col items-center gap-2 rounded-bl-3xl rounded-br-3xl bg-felix px-5 pb-7 pt-3 text-center text-white shadow-xl shadow-stone-950/20 transition-shadow group-hover:shadow-stone-950/10">
-                    <h4 className="flex items-center gap-1 text-2xl font-semibold">
+                    <h4 className="flex items-center gap-1 text-2xl mobile-land:text-lg font-semibold">
                       <Image
                         src={AVATARS_DATA["felix-badget"]}
                         alt="Ícono de Félix CuidaMundos"
                         width={28}
                         height={28}
+                        className="w-7 aspect-square mobile-land:w-6"
                       />
                       Félix
                     </h4>
-                    <p className="font-normal leading-tight">
+                    <p className="font-normal leading-tight mobile-land:text-sm">
                       El maestro de la electricidad, te revelará los secretos de
                       la energía eléctrica.
                     </p>

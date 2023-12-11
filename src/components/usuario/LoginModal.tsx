@@ -47,8 +47,6 @@ const LoginModal = ({}: TProps) => {
     if (loading) return;
     setLoading(true);
 
-    console.log(process.env.NEXT_PUBLIC_API_KEY as string);
-
     // Login user and get the token
     const loginReq = await fetch("/iniciar-sesion/api", {
       method: "POST",
@@ -100,9 +98,9 @@ const LoginModal = ({}: TProps) => {
       onClick={handleClick}
       ref={modalWrapperRef}
     >
-      <div className="flex h-fit max-h-[90%] w-fit max-w-3xl flex-col items-center gap-10 overflow-y-auto rounded-3xl bg-white/90 px-16 py-8 shadow-xl shadow-stone-950/10">
+      <div className="flex h-fit max-h-[90%] w-fit max-w-3xl flex-col items-center gap-10 overflow-y-auto rounded-3xl bg-white/90 px-16 py-8 shadow-xl shadow-stone-950/10 mobile-land:max-h-[95%] mobile-land:gap-6">
         <div className="flex flex-col items-center gap-1 text-center">
-          <h2 className="text-3xl font-bold text-cens-brand">
+          <h2 className="text-3xl font-bold text-cens-brand mobile-land:text-2xl">
             ¡Bienvenido otra vez!
           </h2>
           <p className="text-sm text-stone-500">Nos alegra verte de nuevo</p>

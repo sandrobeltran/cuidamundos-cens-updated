@@ -90,8 +90,13 @@ const ResultsScreen = () => {
   const denominator = 300 - 20;
   const colorValue = (numerator / denominator) * (120 - 0) + 0;
 
+  function handleOpenLearnModal() {
+    document.getElementById("productsTableModalWrapper")!.style.display =
+      "flex";
+  }
+
   return (
-    <div className="items-center flex justify-center py-10 h-full p-6">
+    <div className="flex h-full items-center justify-center p-6 py-10">
       <div className="flex flex-col items-center gap-12 text-stone-500">
         <div className="flex w-full max-w-2xl flex-col items-center gap-8 text-center">
           <div>
@@ -107,14 +112,14 @@ const ResultsScreen = () => {
           </div>
           {/* PERCENT CIRLCE */}
           <div
-            className="mobile-land:w-36 mobile-land:h-36 flex h-44 w-44 flex-col items-center justify-center gap-0 rounded-full border-[12px] p-5"
+            className="flex h-44 w-44 flex-col items-center justify-center gap-0 rounded-full border-[12px] p-5 mobile-land:h-36 mobile-land:w-36"
             style={{
               borderColor: `hsl(${formatter.format(
                 130 - colorValue,
               )}, 100%, 50%)`,
             }}
           >
-            <h6 className="mobile-land:text-4xl flex flex-col text-5xl font-bold">
+            <h6 className="flex flex-col text-5xl font-bold mobile-land:text-4xl">
               {testResult.totalPercent}%
             </h6>
           </div>
@@ -125,11 +130,15 @@ const ResultsScreen = () => {
         </div>
 
         <div className="flex w-full justify-center gap-6">
-          <Link href={"/aprende"}>
-            <Button hierarchy="primary" size="lg">
+          <div>
+            <Button
+              hierarchy="primary"
+              onClick={() => handleOpenLearnModal()}
+              size="lg"
+            >
               Aprende
             </Button>
-          </Link>
+          </div>
           <div>
             <Button
               hierarchy="primary"

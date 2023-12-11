@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React from "react";
-import CENSLogo from "../../../public/logos/cens_white.svg";
+import CENSLogo from "@public/logos/cens_white.svg";
 import Button from "../Button";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -10,6 +10,7 @@ import NavbarLink from "./NavbarLink";
 import { navbarData } from "@/utils/navbarData";
 import { useUserStore } from "@/store/useUserStore";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { StarIcon } from "@heroicons/react/24/solid";
 
 const DesktopNavbar = () => {
   const { user, loading, logOut } = useUserStore((state) => state);
@@ -25,13 +26,13 @@ const DesktopNavbar = () => {
   const inHome = true;
 
   return (
-    <nav className="mobile-land:h-16 before relative z-10 flex h-20 w-full justify-between bg-black/30 px-6 text-white shadow-lg before:absolute before:left-0 before:top-0 before:h-full before:w-full before:backdrop-blur-lg max-sm:hidden">
+    <nav className="before relative z-10 flex h-20 w-full justify-between bg-black/30 px-6 text-white shadow-lg before:absolute before:left-0 before:top-0 before:h-full before:w-full before:backdrop-blur-lg mobile-land:h-16 max-sm:hidden">
       <div className="flex items-center gap-8">
         <Link href={"/"}>
           <Image
             src={CENSLogo}
             alt="CENS Grupo EPM Logo"
-            className="w-20 relative mobile-land:w-16"
+            className="relative w-20 mobile-land:w-16"
           />
         </Link>
         <ul className="flex h-full gap-5">
@@ -60,13 +61,27 @@ const DesktopNavbar = () => {
                   <h4 className="text-lg leading-tight mobile-land:text-sm mobile-land:font-medium">
                     {user.name.split(" ")[0]} {user.lastname.split(" ")[0]}
                   </h4>
-                  <p className="text-sm leading-tight mobile-land:text-xs">{user.username}</p>
+                  <p className="text-sm leading-tight mobile-land:text-xs">
+                    {user.username}
+                  </p>
                 </div>
                 <ChevronDownIcon className="h-6 mobile-land:h-5" />
               </div>
             </Link>
             <div className="absolute right-0 top-full z-50 hidden h-fit w-full flex-col items-stretch rounded-bl-lg rounded-br-lg bg-black/30 text-white shadow-lg  backdrop-blur-lg group-hover:flex ">
               <ul className="py-4">
+                <li
+                  onClick={() => handleLogOut()}
+                  className="w-full bg-cens-medium/0 px-3 font-medium transition-colors hover:bg-stone-900/60 hover:font-semibold"
+                >
+                  <p className="flex gap-1 font-semibold">
+                    Puntos:{" "}
+                    <span className="flex items-center gap-1 text-yellow-500">
+                      {user.points} <StarIcon className="h-5" />
+                    </span>
+                  </p>
+                </li>
+                <div className="my-2 h-[1px] w-full bg-white"></div>
                 <li className="w-full bg-cens-medium/0 font-medium transition-colors hover:bg-stone-900/60 hover:font-semibold">
                   <Link href={"/usuario"} className="inline-block w-full px-3">
                     Información

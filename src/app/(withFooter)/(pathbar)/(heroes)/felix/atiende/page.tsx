@@ -205,7 +205,7 @@ export default function AtiendeFelix() {
 
         {/* MINIGAME SECTION */}
         <div className="relative flex flex-col items-center justify-start gap-10 px-28 mobile-land:px-16">
-          <div className="relative aspect-[1.6/1] w-full max-w-5xl overflow-hidden rounded-3xl bg-[url(/img/felix/atiende/living_room.jpg)] bg-cover bg-center shadow-md backdrop-blur-md">
+          <div className="relative aspect-[1.6/1] mobile-land:aspect-[1.6/1.1] w-full max-w-5xl overflow-hidden rounded-3xl bg-[url(/img/felix/atiende/living_room.jpg)] bg-cover bg-center shadow-md backdrop-blur-md">
             {/* CORRECT ACTION MODAL */}
             <div
               id="felixTipModal"
@@ -368,7 +368,7 @@ export default function AtiendeFelix() {
             ) : stage === 1 ? (
               /* MAIN SCREEN 2 */
               <div className="modalWrapper absolute left-0 top-0 z-10 flex h-full w-full place-content-center items-center justify-center backdrop-blur-md">
-                <div className="mobile-land:max-w-[95%] relative flex w-full max-w-lg flex-col items-center gap-2 rounded-3xl border-stone-300 bg-white p-10 text-left shadow-md shadow-stone-500/20">
+                <div className="mobile-land:max-w-[95%] relative flex w-full max-w-3xl flex-col items-center gap-2 rounded-3xl border-stone-300 bg-white p-10 mobile-land:p-5 text-left shadow-md shadow-stone-500/20">
                   <p className="mobile-land:text-sm">
                     ¡Para evitar accidentes eléctricos, es súper importante que
                     identifiquemos y corrijamos todo lo que pueda ser peligroso

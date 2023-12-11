@@ -56,7 +56,7 @@ const Calculator = ({ set }: TProps) => {
     const days = 31;
     const index = kws.findIndex((e) => e.name === name);
     const kw =
-      hours * days * (CALCULATOR_DATA.find((e) => e.name === name)!.w / 1000); //! replace with formula
+      hours * days * (CALCULATOR_DATA.find((e) => e.name === name)!.w / 1000);
 
     if (index < 0) {
       kws.push({ name, kw });
@@ -81,7 +81,7 @@ const Calculator = ({ set }: TProps) => {
   }
 
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-3xl shadow-md bg-white/80 p-10 pt-24 text-lg text-stone-500 backdrop-blur-md after:absolute after:left-0 after:top-0 after:h-16 after:w-full after:bg-cens-brand">
+    <div className="relative h-full w-full overflow-hidden rounded-3xl bg-white/80 p-10 pt-24 text-lg text-stone-500 shadow-md backdrop-blur-md after:absolute after:left-0 after:top-0 after:h-16 after:w-full after:bg-cens-brand">
       <div
         className="flex w-full flex-col items-center gap-4 text-center"
         id="devicesTable"
@@ -97,7 +97,7 @@ const Calculator = ({ set }: TProps) => {
         {CALCULATOR_DATA.map((device) => (
           <div
             key={device.name}
-            className="min-h-12 grid w-full grid-cols-6 items-center rounded-3xl bg-white px-6 py-2 shadow-md"
+            className="text-stone-500 min-h-12 grid w-full grid-cols-6 items-center rounded-3xl bg-white px-6 py-2 shadow-md"
           >
             <p className="col-span-2 max-w-full">{device.name}</p>
             <p className="max-w-full">{device.w}</p>

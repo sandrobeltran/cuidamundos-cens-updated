@@ -103,9 +103,9 @@ const RegisterModal = ({}: TProps) => {
       onClick={handleClick}
       ref={modalWrapperRef}
     >
-      <div className="flex h-fit max-h-[90%] w-fit max-w-3xl flex-col items-center gap-10 overflow-y-auto rounded-3xl bg-white/90 px-16 py-8 shadow-xl shadow-stone-950/10">
+      <div className="flex h-fit max-h-[90%] w-fit max-w-3xl flex-col items-center gap-10 overflow-y-auto rounded-3xl bg-white/90 px-16 py-8 shadow-xl shadow-stone-950/10 mobile-land:max-h-[95%] mobile-land:gap-6">
         <div className="flex flex-col items-center gap-1 text-center">
-          <h2 className="text-3xl font-bold text-cens-brand">
+          <h2 className="text-3xl font-bold text-cens-brand mobile-land:text-2xl">
             ¡Regístrate para empezar!
           </h2>
           <p className="text-sm text-stone-500">
@@ -118,7 +118,7 @@ const RegisterModal = ({}: TProps) => {
           validationSchema={signUpValidationSchema}
         >
           <FormWrapper>
-            <h4 className="text-center text-lg font-semibold text-cens-brand">
+            <h4 className="text-center text-lg font-semibold text-cens-brand mobile-land:text-[1rem]">
               Crea tu cuenta para empezar a estudiar
             </h4>
             <TextField name="name" placeholder="Nombres" />

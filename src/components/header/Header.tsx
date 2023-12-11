@@ -13,16 +13,13 @@ import "react-toastify/dist/ReactToastify.css";
 const Header = () => {
   const pathname = usePathname();
   const [menuToggle, setMenuToggle] = useState<boolean>(false);
-  const [loginModalToggle, setLoginModalToggle] = useState<boolean>(false);
-  const [registerModalToggle, setRegisterModalToggle] =
-    useState<boolean>(false);
 
   useEffect(() => {
     setMenuToggle(false);
   }, [pathname]);
 
   return (
-    <header className="fixed left-0 top-0 z-50 w-full">
+    <header className="fixed left-0 top-0 z-50 w-full mobile-land:absolute">
       <ToastContainer
         position="top-right"
         autoClose={3500}

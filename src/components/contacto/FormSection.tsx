@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import CustomSection from "../layout/CustomSection";
-import HeroesImage from "../../../public/img/heroes.png";
+import HeroesImage from "@public/img/contacto/heroes.png";
 import Image from "next/image";
 import TextField from "../form/TextField";
 import { Formik } from "formik";
@@ -51,42 +51,45 @@ const FormSection = () => {
         pauseOnHover
         theme="light"
       />
-      <div className="flex max-sm:flex-col max-sm:gap-10">
-        <div className="flex flex-1 flex-col items-center pt-16">
-          <Formik
-            initialValues={initialValues}
-            onSubmit={(values) => handleSubmit(values)}
-            validationSchema={contactValidationSchema}
-          >
-            <FormWrapper>
-              <TextField placeholder="Nombre" name="name" />
-              <TextField placeholder="Correo" name="email" />
-              <TextField placeholder="Teléfono" name="phone" type="number" />
-              <TextArea name="message" placeholder="Mensaje" />
-              <div className="flex w-full gap-2">
-                <input
-                  id="captcha"
-                  type="checkbox"
-                  name="captcha"
-                  onChange={(e) => setCaptcha(e.target.checked)}
-                  checked={captcha}
-                />
-                <label htmlFor="captcha" className="font-medium text-stone-500">
-                  No soy un robot
-                </label>
-              </div>
-              <div className="w-full">
-                <Button type="submit" hierarchy="primary" size="lg">
-                  Enviar
-                </Button>
-              </div>
-            </FormWrapper>
-          </Formik>
+        <div className="grid max-w-5xl grid-cols-10 items-center max-sm:flex-col max-sm:gap-10">
+          <div className="col-span-4 flex flex-col items-center pt-16">
+            <Formik
+              initialValues={initialValues}
+              onSubmit={(values) => handleSubmit(values)}
+              validationSchema={contactValidationSchema}
+            >
+              <FormWrapper>
+                <TextField placeholder="Nombre" name="name" />
+                <TextField placeholder="Correo" name="email" />
+                <TextField placeholder="Teléfono" name="phone" type="number" />
+                <TextArea name="message" placeholder="Mensaje" />
+                <div className="flex w-full gap-2">
+                  <input
+                    id="captcha"
+                    type="checkbox"
+                    name="captcha"
+                    onChange={(e) => setCaptcha(e.target.checked)}
+                    checked={captcha}
+                  />
+                  <label
+                    htmlFor="captcha"
+                    className="font-medium text-stone-500"
+                  >
+                    No soy un robot
+                  </label>
+                </div>
+                <div className="w-full">
+                  <Button type="submit" hierarchy="primary" size="lg">
+                    Enviar
+                  </Button>
+                </div>
+              </FormWrapper>
+            </Formik>
+          </div>
+          <div className="col-span-6">
+            <Image src={HeroesImage} alt="Heroes Image" className="animate-levitating" />
+          </div>
         </div>
-        <div className="flex-1">
-          <Image src={HeroesImage} alt="Heroes Image" />
-        </div>
-      </div>
     </CustomSection>
   );
 };

@@ -70,23 +70,21 @@ const Book = ({ pages }: TProps) => {
     initBook();
   }, [initBook]);
 
-  console.log(currentIndex);
-
   return (
-    <div className="relative flex w-full items-center px-16">
+    <div className="relative flex w-full items-center px-16 mobile-land:px-10">
       <button
         onClick={() => handlePrevPage()}
         style={
           currentIndex >= pages.length - 1 ? { filter: "grayscale(1)" } : {}
         }
-        className="absolute left-10 z-10 min-h-[42px] min-w-[42px] cursor-pointer rounded-full bg-cens-dark text-lg transition-all"
+        className="absolute left-10 mobile-land:left-4 z-10 min-h-[42px] min-w-[42px] cursor-pointer rounded-full bg-cens-dark text-lg transition-all"
       >
         <Image src={PrevIcon} alt="Icono de ir atrás" width={42} height={42} />
       </button>
       <div
         ref={bookRef}
         style={{ perspective: 1200 }}
-        className="book relative h-64 w-full rounded-3xl bg-white shadow-md"
+        className="book relative h-64 mobile-land:h-[85vh] w-full rounded-3xl bg-white shadow-md"
       >
         {sortedPages.map((page, index) => {
           let z = sortedPages.length;
@@ -102,7 +100,7 @@ const Book = ({ pages }: TProps) => {
                 <Image
                   src={DividerImage}
                   alt="Imagen de separador de página"
-                  className="pointer-events-none absolute left-[-21.5px] bg-blue top-0 z-50 h-full translate-x-3 object-contain"
+                  className="pointer-events-none absolute left-[-21.5px] bg-blue top-0 z-50 h-full mobile-land:translate-x-4 translate-x-3 object-contain"
                 />
               ) : null}
               <BookPage {...page} />
@@ -113,7 +111,7 @@ const Book = ({ pages }: TProps) => {
       <button
         onClick={() => handleNextPage()}
         style={currentIndex <= 1 ? { filter: "grayscale(1)" } : {}}
-        className="absolute right-10 z-10 min-h-[42px] min-w-[42px] cursor-pointer rounded-full bg-cens-dark text-lg transition-all"
+        className="absolute right-10 mobile-land:right-4 z-10 min-h-[42px] min-w-[42px] cursor-pointer rounded-full bg-cens-dark text-lg transition-all"
       >
         <Image
           src={NextIcon}

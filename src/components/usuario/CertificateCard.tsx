@@ -13,13 +13,16 @@ type TProps = {
   user: TUserData;
 };
 
-
 const heroesColors = {
-}
+  felix: "felix",
+  jirol: "jirol",
+};
 
 const CertificateCard = ({ game, user }: TProps) => {
   const [image, setImage] = useState<string>("");
-  console.log(game)
+  const { href } = game;
+
+  // href
 
   const handleGenerate = useCallback(async () => {
     const url = await generateCertificateImage(user, game.title);

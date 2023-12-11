@@ -20,16 +20,15 @@ const Hero = ({ image, title, description, buttonLabel, href }: TProps) => {
   return (
     <section
       // style={{ backgroundSize: "115%" }}
-      className="relative col-span-12 flex h-screen items-start justify-start px-24 py-28 text-sm text-stone-700 max-sm:h-fit max-sm:flex-col max-sm:bg-[cover] max-sm:px-4 max-sm:py-0 max-sm:pt-36
+      className="relative col-span-12 flex h-fit min-h-[90vh] items-start justify-start px-24 py-28 text-sm text-stone-700 max-sm:h-fit max-sm:flex-col max-sm:bg-[cover] max-sm:px-4 mobile-land:px-4 max-sm:py-0 max-sm:pt-36
       "
     >
-      <SkyBackground />
       {/* <div className="absolute left-0 top-0 h-full w-full bg-[url(/img/hero_leafs.png)] bg-cover bg-bottom bg-no-repeat max-sm:bg-contain max-sm:bg-repeat-space" /> */}
-      <div className="relative z-20 flex w-1/2 flex-col gap-5 max-sm:w-full max-sm:items-center max-sm:text-center">
-        <h1 className="text-6xl font-bold text-stone-100 max-sm:text-4xl">
+      <div className="relative z-20 flex w-1/2 flex-col gap-5 mobile-land:gap-3 max-sm:w-full max-sm:items-center max-sm:text-center">
+        <h1 className="text-6xl font-bold text-stone-100 mobile-land:text-4xl max-sm:text-4xl">
           {title.text} <span className="text-cens-brand">{title.resalted}</span>
         </h1>
-        <p className="w-5/6 text-lg font-normal max-sm:w-full">{description}</p>{" "}
+        <p className="w-5/6 mobile-land:text-[1rem] text-lg font-normal max-sm:w-full">{description}</p>{" "}
         {buttonLabel ? (
           <div className="w-fit">
             <Button hierarchy="primary" size="lg" href={href}>

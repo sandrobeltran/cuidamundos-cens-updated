@@ -39,7 +39,7 @@ const PathBar = () => {
   ];
 
   return (
-    <nav className="mobile-land:top-16 mobile-land:h-12 mobile-land:px-6 fixed left-0 top-20 z-40 h-16 w-full px-16">
+    <nav className="mobile-land:top-16 mobile-land:h-12 mobile-land:px-6 fixed left-0 top-20 z-40 h-16 w-full px-16 mobile-land:absolute">
       <div className="flex h-full w-full items-center justify-between bg-cyan-950/70 px-6 backdrop-blur-md">
         {/* ROUTE */}
         <ul className="mobile-land:gap-2 mobile-land:text-lg flex items-center justify-start gap-4 text-2xl text-white">

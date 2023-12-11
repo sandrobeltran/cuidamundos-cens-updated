@@ -20,18 +20,18 @@ const SECTIONS_DATA = [
     },
     description:
       "Descubre la historia de Félix, el maestro de la electricidad, aprende sobre la energía y descubre cómo ser un héroe eléctrico.",
-    href: "/felix/quien",
-    icon: "library",
+    href: "/juega/1",
+    icon: "wand",
   },
   {
     title: {
-      text: "CuidaMundo",
+      text: "CuidaMundos",
       resalted: "Juego",
     },
     description:
       "Descubre la Inspiradora Historia de Purita, la Heroína del Medio Ambiente",
-    href: "/felix/atiende",
-    icon: "plug",
+    href: "/juega",
+    icon: "trophy",
   },
   {
     title: {
@@ -40,8 +40,8 @@ const SECTIONS_DATA = [
     },
     description:
       "Explora el mundo de la eficiencia energética, descubre los vatios y calcula tu consumo para convertirte en un héroe eléctrico.",
-    href: "/felix/aprende",
-    icon: "keyboard",
+    href: "/juega/3",
+    icon: "bookmark",
   },
 ];
 
@@ -79,7 +79,7 @@ export default function Juega() {
         />
         <div className="relative grid w-full grid-cols-6 gap-20 px-16">
           {/* HERO IMAGE */}
-          <div className="mobile-land:col-span-3 col-span-2 flex">
+          <div className="col-span-2 flex mobile-land:col-span-3">
             <Image
               src={PuritaRenderImage}
               className="w-full animate-levitating mobile-land:w-1/3"
@@ -96,7 +96,7 @@ export default function Juega() {
               alt="Render de Purita"
             />
           </div>
-          <div className="mobile-land:col-span-3 col-span-4 flex">
+          <div className="col-span-4 flex mobile-land:col-span-3">
             {/* CONTENT */}
             <div className="grid w-full place-content-center pr-10">
               <Link
@@ -113,7 +113,7 @@ export default function Juega() {
                       {SECTIONS_DATA[currentSection.index].title.resalted}
                     </span>
                   </h4>
-                  <p className="mobile-land:text-[1rem] mobile-land:leading-snug pr-24 text-justify text-lg text-stone-500">
+                  <p className="pr-24 text-justify text-lg text-stone-500 mobile-land:text-[1rem] mobile-land:leading-snug">
                     {SECTIONS_DATA[currentSection.index].description}
                   </p>
                 </div>
@@ -126,7 +126,7 @@ export default function Juega() {
                 return (
                   <button
                     key={section.href}
-                    className="section__selector__btn grid h-10 w-10 place-content-center rounded-full bg-cens-medium transition-all hover:brightness-75"
+                    className="section__selector__btn grid h-10 w-10 place-content-center rounded-full bg-stone-600 transition-all hover:brightness-75"
                     style={
                       currentSection.index === index
                         ? {
@@ -137,13 +137,14 @@ export default function Juega() {
                         : {}
                     }
                     onClick={(e) => {
-                      const top = calcTop(e.currentTarget);
-
-                      setCurrentSection({ index, top });
+                      if (index === 1) {
+                        const top = calcTop(e.currentTarget);
+                        setCurrentSection({ index, top });
+                      }
                     }}
                   >
                     <Image
-                      src={`/icons/felix/${section.icon}.svg`}
+                      src={`/icons/juega/${section.icon}.svg`}
                       alt={`Ícono de ${section.icon}`}
                       width={22}
                       height={22}
