@@ -1,6 +1,5 @@
 "use client";
 
-import useFetchAuthorData from "@/hooks/useFetchAuthorData";
 import { useUserStore } from "@/store/useUserStore";
 import { IAuthor, IComment } from "@/utils/customTypes";
 import { TrashIcon } from "@heroicons/react/24/outline";

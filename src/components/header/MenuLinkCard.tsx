@@ -23,9 +23,9 @@ const MenuLinkCard = ({ title, href, items }: INavbarProps) => {
       style={{ maxHeight: `${height}px` }}
     >
       {/* CARD HEADER */}
-      <div className="flex h-16 cursor-pointer items-center justify-between border-b border-b-stone-300 px-5 text-white">
+      <div className="flex h-12 cursor-pointer items-center justify-between border-b border-b-stone-300 px-5 text-white hover:bg-stone-900/60">
         <Link href={href} className="w-full">
-          <h4 className="flex items-center text-left text-lg font-normal">
+          <h4 className="flex items-center text-left font-normal hover:font-medium">
             {title}
           </h4>
         </Link>

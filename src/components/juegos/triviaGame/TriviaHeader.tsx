@@ -25,7 +25,6 @@ const TriviaHeader = ({ time }: TProps) => {
   }, []);
 
   const resetGame = useCallback(() => {
-    console.log("reset game");
     setRemainingTime(time);
     clearInterval(interval.current);
   }, [time]);

@@ -14,7 +14,7 @@ import { StarIcon } from "@heroicons/react/24/solid";
 
 const DesktopNavbar = () => {
   const { user, loading, logOut } = useUserStore((state) => state);
-  const pathName = usePathname();
+  const pathname = usePathname();
   const router = useRouter();
 
   function handleLogOut() {
@@ -26,7 +26,7 @@ const DesktopNavbar = () => {
   const inHome = true;
 
   return (
-    <nav className="before relative z-10 flex h-20 w-full justify-between bg-black/30 px-6 text-white shadow-lg before:absolute before:left-0 before:top-0 before:h-full before:w-full before:backdrop-blur-lg mobile-land:h-16 max-sm:hidden">
+    <nav className="before relative z-10 flex h-20 w-full justify-between bg-black/30 px-6 text-white shadow-lg before:absolute before:left-0 before:top-0 before:h-full before:w-full before:backdrop-blur-lg mobile-land:hidden mobile-land:h-16">
       <div className="flex items-center gap-8">
         <Link href={"/"}>
           <Image
@@ -40,7 +40,7 @@ const DesktopNavbar = () => {
             <NavbarLink
               key={link.title}
               {...link}
-              selected={link.href == pathName}
+              selected={link.href == pathname}
             />
           ))}
         </ul>

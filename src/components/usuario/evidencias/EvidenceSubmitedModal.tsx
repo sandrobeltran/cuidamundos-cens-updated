@@ -35,7 +35,7 @@ const EvidenceSubmitedModal = ({ evidenceId }: TProps) => {
       onClick={() => closeModal()}
       ref={modalWrapperRef}
     >
-      <div className="flex h-fit max-h-[90%] w-full max-w-lg flex-col items-center gap-3 overflow-y-auto rounded-3xl bg-white/90 px-16 py-8 text-center shadow-xl shadow-stone-950/10">
+      <div className="flex h-fit max-h-[90%] w-full max-w-lg flex-col items-center gap-3 overflow-y-auto rounded-3xl bg-white px-16 py-8 text-center shadow-xl shadow-stone-950/10">
         <h2 className="text-2xl font-bold text-cens-dark">¡Felicidades!</h2>
         <p className="text-stone-600">
           ¡Éxito! Tu actividad ha sido cargada correctamente. ¡Gracias por

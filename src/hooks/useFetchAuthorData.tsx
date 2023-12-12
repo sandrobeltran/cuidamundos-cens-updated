@@ -3,43 +3,44 @@ import { IAuthor, IEvidence } from "@/utils/customTypes";
 import React, { useCallback, useEffect, useState } from "react";
 
 type TProps = {
-    authorsId: string[];
+  authorsId: string[];
 };
 
 const useFetchAuthorData = ({ authorsId }: TProps) => {
-    const [data, setData] = useState<IAuthor[] | null>(null);
-    const { authors, addAuthor } = useAuthorsStore()
+  const [data, setData] = useState<IAuthor[] | null>(null);
+  const { authors, addAuthor } = useAuthorsStore();
 
-    const handleFetchAuthor = useCallback(
-        async (token: string) => {
+  const handleFetchAuthor = useCallback(
+    async (token: string) => {
+      if (!authorsId.length) return;
 
-            if (!authorsId.length) return
-
-            const req = await fetch(`/usuario/api/autor?authorsId=${authorsId.join()}`, {
-                method: "GET",
-                headers: {
-                    "api-key": process.env.NEXT_PUBLIC_API_KEY as string,
-                    Authorization: `Bearer ${token}`,
-                },
-
-            });
-
-            const res = await req.json();
-
-            res.data.forEach((e: IAuthor) => {
-                addAuthor(e)
-            })
-            //setData(res.data);
+      const req = await fetch(
+        `/usuario/api/autor?authorsId=${authorsId.join()}`,
+        {
+          method: "GET",
+          headers: {
+            "api-key": process.env.NEXT_PUBLIC_API_KEY as string,
+            Authorization: `Bearer ${token}`,
+          },
         },
-        [authorsId],
-    );
+      );
 
-    useEffect(() => {
-        const token = localStorage.getItem("session-token");
-        handleFetchAuthor(token as string);
-    }, [handleFetchAuthor]);
+      const res = await req.json();
 
-    return data;
+      res.data.forEach((e: IAuthor) => {
+        addAuthor(e);
+      });
+      //setData(res.data);
+    },
+    [authorsId],
+  );
+
+  useEffect(() => {
+    const token = localStorage.getItem("session-token");
+    handleFetchAuthor(token as string);
+  }, [handleFetchAuthor]);
+
+  return data;
 };
 
 export default useFetchAuthorData;

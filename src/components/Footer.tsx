@@ -6,23 +6,40 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer className="relative mt-20 flex h-fit grid-cols-4 flex-col items-center gap-4 bg-[url(/img/footer_bg.png)] bg-cover bg-center bg-no-repeat text-cens-brand max-sm:h-fit">
-      <div className="relative z-10 grid h-fit w-full grid-cols-4 gap-4 p-10 px-24 max-sm:grid-rows-3 max-sm:items-center max-sm:p-6">
-        <div className="flex flex-col gap-3 max-sm:col-span-4 max-sm:row-span-2 max-sm:items-center">
-          <Image src={CENSLogo} height={124} alt="CENS Grupo EPM Logo" />
+      <div className="relative z-10 grid h-fit w-full grid-cols-4 gap-4 p-10 px-24 mobile-land:p-6 max-sm:grid-rows-3 max-sm:items-center">
+        <div className="flex flex-col gap-3 mobile-land:items-center max-sm:col-span-4 max-sm:row-span-2">
+          <Image
+            src={CENSLogo}
+            height={124}
+            className="mobile-land:h-24"
+            alt="CENS Grupo EPM Logo"
+          />
         </div>
         <div className="max-sm:col-span-2 max-sm:row-span-2">
           <h6 className="mb-6 text-lg font-bold">Compañía</h6>
           <ul className="mt-3 flex list-none flex-col gap-2 font-medium">
-            <Link className="w-fit" href={"/"}>
+            <Link
+              className="w-fit underline-offset-1 hover:underline"
+              href={"/"}
+            >
               <li>Inicio</li>
             </Link>
-            <Link className="w-fit" href={"/juega"}>
+            <Link
+              className="w-fit underline-offset-1 hover:underline"
+              href={"/juega"}
+            >
               <li>Juego</li>
             </Link>
-            <Link className="w-fit" href={"/aprende"}>
+            <Link
+              className="w-fit underline-offset-1 hover:underline"
+              href={"/aprende"}
+            >
               <li>Dalia</li>
             </Link>
-            <Link className="w-fit" href={"/contacto"}>
+            <Link
+              className="w-fit underline-offset-1 hover:underline"
+              href={"/contacto"}
+            >
               <li>Contacto</li>
             </Link>
           </ul>
@@ -30,7 +47,11 @@ const Footer = () => {
         <div className="max-sm:col-span-2">
           <h6 className="mb-6 text-lg font-bold">Síguenos en</h6>
           <ul className="flex w-full list-none justify-start gap-2 text-3xl">
-            <a href={"/"} target="_blank">
+            <a
+              href={"/"}
+              className="transition-transform hover:scale-110"
+              target="_blank"
+            >
               <li>
                 <svg
                   stroke="currentColor"
@@ -45,7 +66,11 @@ const Footer = () => {
                 </svg>
               </li>
             </a>
-            <a href={"/"} target="_blank">
+            <a
+              href={"/"}
+              className="transition-transform hover:scale-110"
+              target="_blank"
+            >
               <li>
                 <svg
                   stroke="currentColor"
@@ -60,7 +85,11 @@ const Footer = () => {
                 </svg>
               </li>
             </a>
-            <a href={"/"} target="_blank">
+            <a
+              href={"/"}
+              className="transition-transform hover:scale-110"
+              target="_blank"
+            >
               <li>
                 <svg
                   stroke="currentColor"

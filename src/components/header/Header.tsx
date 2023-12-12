@@ -19,7 +19,10 @@ const Header = () => {
   }, [pathname]);
 
   return (
-    <header className="fixed left-0 top-0 z-50 w-full mobile-land:absolute">
+    <header
+      className="fixed left-0 top-0 z-50 w-full mobile-land:absolute"
+      style={menuToggle ? { position: "fixed" } : {}}
+    >
       <ToastContainer
         position="top-right"
         autoClose={3500}

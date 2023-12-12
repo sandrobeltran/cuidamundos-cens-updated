@@ -15,7 +15,7 @@ const PanelMainInfo = () => {
 
   return (
     <div className="w-full rounded-3xl bg-white/80 p-8 max-sm:p-4">
-      <div className="mb-14 flex items-center justify-between max-sm:mb-8">
+      <div className="mb-14 flex items-center justify-between mobile-land:mb-8">
         <div className="flex items-center gap-4 max-sm:gap-2">
           <div className="relative w-40 max-sm:w-32">
             <button
@@ -63,7 +63,7 @@ const PanelMainInfo = () => {
         </div>
       </div>
       <div className="w-full overflow-x-auto border-t-2 border-stone-300 pt-4">
-        <ul className="flex gap-16 font-normal text-stone-400 max-sm:gap-8 max-sm:pb-3">
+        <ul className="flex gap-16 font-normal text-stone-400 mobile-land:gap-8 mobile-land:text-sm">
           <li>
             <Link
               href={"/usuario"}

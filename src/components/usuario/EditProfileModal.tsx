@@ -80,7 +80,7 @@ const EditProfileModal = () => {
       onClick={handleClick}
       ref={modalWrapperRef}
     >
-      <div className="flex h-fit max-h-[90%] w-fit max-w-3xl flex-col items-center gap-10 overflow-y-auto rounded-3xl bg-white px-16 py-8">
+      <div className="flex h-fit max-h-[90%] w-fit max-w-3xl flex-col items-center gap-10 mobile-land:gap-6 overflow-y-auto rounded-3xl bg-white px-16 py-8">
         {/* PHOTO */}
         <div className="flex w-full flex-col items-center gap-2 border-b-2 border-stone-200 pb-4 text-center">
           <button
@@ -89,7 +89,7 @@ const EditProfileModal = () => {
                 "changeAvatarModalWrapper",
               )!.style.display = "flex")
             }
-            className="relative h-40 w-40 rounded-full border-4 border-white"
+            className="relative h-40 w-40 mobile-land:w-32 mobile-land:h-32 rounded-full border-4 border-white"
           >
             <Image
               src={user!.avatar}
@@ -97,11 +97,11 @@ const EditProfileModal = () => {
               fill
               className="rounded-full object-cover"
             />
-            <div className="absolute bottom-2 right-2 rounded-full bg-white p-2">
+            <div className="absolute bottom-2 right-2 mobile-land:bottom-0 mobile-land:right-0 shadow rounded-full bg-white p-2">
               <PencilIcon className="h-4" />
             </div>
           </button>
-          <h6 className="text-3xl font-bold text-cens-brand">
+          <h6 className="text-3xl mobile-land:text-2xl font-bold text-cens-brand">
             {user?.username}
           </h6>
         </div>

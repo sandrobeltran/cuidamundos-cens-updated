@@ -1,4 +1,4 @@
-import { IEvidence, ISubmission } from "@/utils/customTypes";
+import { ISubmission } from "@/utils/customTypes";
 import { LinkIcon } from "@heroicons/react/24/outline";
 import React from "react";
 
@@ -13,7 +13,7 @@ const CurrentEvidence = ({ submission }: TProps) => {
       <div className="w-full rounded-lg border-2 bg-stone-200/80 px-4 py-3 font-normal backdrop-blur-sm">
         {submission.content.answer}
       </div>
-      <div className="flex w-full flex-col justify-start gap-3 px-4">
+      <div className="flex w-full flex-col justify-start gap-3">
         <label className="flex items-center gap-2 font-medium text-stone-500">
           <LinkIcon className="h-6" /> Adjunta un vínculo
         </label>

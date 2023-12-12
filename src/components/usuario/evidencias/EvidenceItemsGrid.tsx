@@ -25,12 +25,12 @@ const EvidenceItemsGrid = ({ evidence }: TProps) => {
 
   return (
     <div className="grid w-full grid-cols-2 grid-rows-2 justify-between gap-4 max-sm:grid-cols-1">
-      <div className="flex justify-start">
-        <div className="flex h-fit min-h-[56px] w-full max-w-lg rounded-lg shadow-md shadow-stone-900/30">
-          <div className="relative z-10 w-full rounded-lg bg-cens-medium px-8 py-4 font-semibold text-white max-sm:px-4 max-sm:text-sm">
+      <div className="flex h-full justify-start">
+        <div className="flex h-full min-h-[56px] w-full max-w-lg rounded-lg shadow-md shadow-stone-900/30">
+          <div className="relative z-10 flex w-full items-center rounded-lg bg-cens-medium px-8 py-4 font-semibold text-white max-sm:px-4 max-sm:text-sm">
             Estado de la entrega
           </div>
-          <div className="-ml-2 w-full rounded-lg bg-white/80 px-8 py-4 text-stone-500 backdrop-blur-sm max-sm:px-4">
+          <div className="-ml-2 flex w-full items-center rounded-lg bg-white/80 px-8 py-4 text-stone-500 backdrop-blur-sm max-sm:px-4">
             {submission
               ? statesDic[submission.state as keyof typeof statesDic]
               : remainingTime.d < 0
@@ -39,33 +39,33 @@ const EvidenceItemsGrid = ({ evidence }: TProps) => {
           </div>
         </div>
       </div>
-      <div className="flex justify-end">
-        <div className="flex h-fit min-h-[56px] w-full max-w-lg rounded-lg shadow-md shadow-stone-900/30">
-          <div className="relative z-10 w-full rounded-lg bg-cens-medium px-8 py-4 font-semibold text-white max-sm:px-4 max-sm:text-sm">
+      <div className="flex h-full justify-end">
+        <div className="flex h-full min-h-[56px] w-full max-w-lg rounded-lg shadow-md shadow-stone-900/30">
+          <div className="relative z-10 flex w-full items-center rounded-lg bg-cens-medium px-8 py-4 font-semibold text-white max-sm:px-4 max-sm:text-sm">
             Fecha de entrega
           </div>
-          <div className="-ml-2 w-full rounded-lg bg-white/80 px-8 py-4 text-stone-500 backdrop-blur-sm max-sm:px-4">
+          <div className="-ml-2 flex w-full items-center rounded-lg bg-white/80 px-8 py-4 text-stone-500 backdrop-blur-sm max-sm:px-4">
             {dateToString(evidence.deadline)}
           </div>
         </div>
       </div>
-      <div className="flex justify-start">
-        <div className="flex h-fit min-h-[56px] w-full max-w-lg rounded-lg shadow-md shadow-stone-900/30">
-          <div className="relative z-10 w-full rounded-lg bg-cens-medium px-8 py-4 font-semibold text-white max-sm:px-4 max-sm:text-sm">
+      <div className="flex h-full justify-start">
+        <div className="flex h-full min-h-[56px] w-full max-w-lg rounded-lg shadow-md shadow-stone-900/30">
+          <div className="relative z-10 flex w-full items-center rounded-lg bg-cens-medium px-8 py-4 font-semibold text-white max-sm:px-4 max-sm:text-sm">
             Última modificación
           </div>
-          <div className="-ml-2 w-full rounded-lg bg-white/80 px-8 py-4 text-stone-500 backdrop-blur-sm max-sm:px-4">
+          <div className="-ml-2 flex w-full items-center rounded-lg bg-white/80 px-8 py-4 text-stone-500 backdrop-blur-sm max-sm:px-4">
             {submission ? dateToString(submission.lastUpdatedAt) : "Sin enviar"}
           </div>
         </div>
       </div>
-      <div className="flex justify-end">
-        <div className="flex h-fit min-h-[56px] w-full max-w-lg rounded-lg shadow-md shadow-stone-900/30">
-          <div className="relative z-10 w-full rounded-lg bg-cens-medium px-8 py-4 font-semibold text-white max-sm:px-4 max-sm:text-sm">
+      <div className="flex h-full justify-end">
+        <div className="flex h-full min-h-[56px] w-full max-w-lg rounded-lg shadow-md shadow-stone-900/30">
+          <div className="relative z-10 flex w-full items-center rounded-lg bg-cens-medium px-8 py-4 font-semibold text-white max-sm:px-4 max-sm:text-sm">
             Tiempo restante
           </div>
           <div
-            className="-ml-2 w-full rounded-lg bg-white/80 px-8 py-4 backdrop-blur-sm max-sm:px-4"
+            className="-ml-2 flex w-full items-center rounded-lg bg-white/80 px-8 py-4 backdrop-blur-sm max-sm:px-4"
             style={{
               color: remainingTime.d < 0 && !submission ? "#ed5c5c" : "#78716c",
             }}

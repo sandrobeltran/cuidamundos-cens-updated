@@ -7,6 +7,25 @@ import Button from "../Button";
 import Image from "next/image";
 import { StarIcon } from "@heroicons/react/24/solid";
 
+const userNavbarData = [
+  {
+    title: "Información",
+    href: "/usuario",
+  },
+  {
+    title: "Certificados",
+    href: "/usuario/certificados",
+  },
+  {
+    title: "Juegos",
+    href: "/usuario/juegos",
+  },
+  {
+    title: "Evidencias",
+    href: "/usuario/evidencias",
+  },
+];
+
 const MobileMenu = () => {
   const user = useUserStore((state) => state.user);
   const { logOut } = useUserStore((state) => state);
@@ -19,17 +38,17 @@ const MobileMenu = () => {
   }
 
   return (
-    <div className="fixed bottom-0 left-0 hidden h-[calc(100%-64px)] w-full flex-col items-center gap-10 bg-black/30 backdrop-blur-lg max-lg:flex">
+    <div className="fixed bottom-0 left-0 hidden h-[calc(100%-64px)] w-full flex-col items-center gap-4 overflow-y-auto bg-black/30 py-9 backdrop-blur-lg max-lg:flex">
       {user ? (
-        <div className="flex w-full flex-col items-center gap-4 pt-12 text-white">
+        <div className="flex w-full items-center gap-4 px-10 text-white">
           <Image
             src={user!.avatar}
             alt="Avatar del Usuario"
-            width={200}
-            height={200}
-            className="aspect-square w-5/12 object-cover object-center"
+            width={100}
+            height={100}
+            className="aspect-square w-[13%] max-w-[100px] object-cover object-center"
           />
-          <div className="flex flex-col items-center text-center">
+          <div className="flex w-full flex-col items-start text-center">
             <h5 className="text-2xl font-medium">{`${user?.name.split(
               " ",
             )[0]} ${user?.lastname.split(" ")[0]}`}</h5>
@@ -37,14 +56,16 @@ const MobileMenu = () => {
           </div>
           <div className="flex items-center justify-start gap-1 text-xl font-semibold">
             Puntos:
+            <p className="text-xl font-semibold text-[#ffb800]">
+              {user?.points}
+            </p>
             <StarIcon color="#ffb800" className="h-7" />
-            <p className="text-xl font-semibold">{user?.points}</p>
           </div>
         </div>
       ) : null}
-      <ul className="flex w-full flex-col gap-4">
+      <ul className="flex w-full flex-col gap-0">
         <li className="w-full">
-          {navbarData.map((link) => (
+          {userNavbarData.map((link) => (
             <MenuLinkCard key={link.title} {...link} />
           ))}
         </li>

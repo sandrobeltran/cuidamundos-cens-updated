@@ -28,7 +28,6 @@ const TriviaContainer = ({ trivia, mainScreen, resultScreen }: TProps) => {
 
   useEffect(() => {
     if (trivia && user) {
-      console.log("initialize trivia");
       initializeTrivia(
         trivia.data.questions,
         trivia.winners.includes(user?._id as string),
@@ -37,12 +36,9 @@ const TriviaContainer = ({ trivia, mainScreen, resultScreen }: TProps) => {
   }, [initializeTrivia, trivia, user, hasWon, setHasWon]);
 
   useEffect(() => {
-    console.log("setting stage 0");
     // setStage(0);
     resetTrivia();
   }, [pathname, resetTrivia]);
-
-  console.log(hasWon);
 
   return (
     <div className="flex justify-center">

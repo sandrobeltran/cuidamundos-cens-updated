@@ -12,6 +12,7 @@ import { contactValidationSchema } from "@/utils/validations";
 import Button from "../Button";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/ReactToastify.css";
+import EmailSentModal from "./EmailSentModal";
 
 type TInitialValues = {
   name: string;
@@ -54,7 +55,13 @@ const FormSection = () => {
       return toast.error(res.message);
     }
 
-    toast.success("Mensaje enviado con éxito");
+    document.getElementById("emailSentModalWrapper")!.style.display = "flex";
+
+    const timer = setTimeout(() => {
+      document.getElementById("emailSentModalWrapper")!.style.display = "none";
+      clearTimeout(timer);
+    }, 3000);
+
     reset();
   }
 
@@ -72,8 +79,9 @@ const FormSection = () => {
         pauseOnHover
         theme="light"
       />
+      <EmailSentModal />
       <div className="grid max-w-5xl grid-cols-10 items-center max-sm:flex-col max-sm:gap-10">
-        <div className="col-span-4 flex flex-col items-center pt-16">
+        <div className="col-span-4 flex flex-col items-center pt-16 mobile-land:pt-6">
           <Formik
             initialValues={initialValues}
             onSubmit={(values, { resetForm }) =>

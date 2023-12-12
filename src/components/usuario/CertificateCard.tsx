@@ -48,7 +48,7 @@ const CertificateCard = ({ game, user }: TProps) => {
           <div className="aspect-video w-full rounded-3xl bg-white object-cover object-center shadow-lg" />
         )}
       </div>
-      <div className="flex flex-1 flex-col items-center justify-between border-t bg-white py-8 text-center text-stone-500 shadow-[0_-2px_5px_#121212aa]">
+      <div className="flex flex-1 flex-col items-center justify-between border-t bg-white py-8 mobile-land:py-6 text-center text-stone-500 shadow-[0_-2px_5px_#121212aa]">
         <h6 className="text-xl font-medium">{game.title}</h6>
         <div className="flex items-center gap-1 text-lg font-semibold text-stone-400">
           <p>{game.points}</p>{" "}

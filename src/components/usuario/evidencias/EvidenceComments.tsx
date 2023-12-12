@@ -5,7 +5,6 @@ import { Form, Formik, FormikState } from "formik";
 import { IComment } from "@/utils/customTypes";
 import { postCommentValdationSchema } from "@/utils/validations";
 import { useParams } from "next/navigation";
-import Image from "next/image";
 import CommentCard from "./CommentCard";
 import useFetchAuthorData from "@/hooks/useFetchAuthorData";
 import { useAuthorsStore } from "@/store/useAuthorsStore";

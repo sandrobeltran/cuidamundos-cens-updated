@@ -8,7 +8,6 @@ import { IEvidence } from "@/utils/customTypes";
 import { submitEvidenceValidationSchema } from "@/utils/validations";
 import { LinkIcon } from "@heroicons/react/24/outline";
 import { Form, Formik } from "formik";
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import EvidenceSubmitedModal from "./EvidenceSubmitedModal";
 
@@ -20,10 +19,10 @@ const SubmitEvidence = ({ evidence }: TProps) => {
   const user = useUserStore((state) => state.user);
   const [submitted, setSubmitted] = useState<boolean>(false);
 
+  // ? The idea is to use a component-local state to store the evidence so we can update it when any change happens
   const [currentEvidence, setCurrentEvidence] = useState<IEvidence | null>(
     evidence,
   );
-  // ? The idea is to use a component-local state to store the evidence so we can update it when any change happens
 
   // Check if there is a submission yet to update
   const submission = evidence.submissions.find(
@@ -75,7 +74,7 @@ const SubmitEvidence = ({ evidence }: TProps) => {
               rows={4}
             />
           </label>
-          <div className="flex w-full flex-col justify-start gap-3 px-4">
+          <div className="flex w-full flex-col justify-start gap-3">
             <label className="flex items-center gap-2 font-medium text-stone-500">
               <LinkIcon className="h-6" /> Adjunta un vínculo
             </label>

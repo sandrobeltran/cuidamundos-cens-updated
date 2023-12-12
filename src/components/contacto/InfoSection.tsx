@@ -12,7 +12,7 @@ const InfoSection = () => {
             <p>info@cens.com</p>
           </div>
           <div className="flex flex-col">
-            <h5 className="font-semibold">Dirección de la Empresa</h5>
+            <h5 className="font-semibold">Dirección</h5>
             <p>xxxxxxxxxxxx</p>
           </div>
           <div className="flex flex-col">
