@@ -1,5 +1,5 @@
 import Button from "@/components/Button";
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import { toast } from "react-toastify";
 import { useSwiper } from "swiper/react";
 
@@ -48,7 +48,7 @@ type TProps = {
 
 const Calculator = ({ set }: TProps) => {
   const swiper = useSwiper();
-  let kws: { name: string; kw: number }[] = [];
+  const [kws, setKws] = useState<{ name: string; kw: number }[]>([]);
 
   function handleChangeValue(hours: number, name: string) {
     if (!hours) return;
@@ -59,9 +59,11 @@ const Calculator = ({ set }: TProps) => {
       hours * days * (CALCULATOR_DATA.find((e) => e.name === name)!.w / 1000);
 
     if (index < 0) {
-      kws.push({ name, kw });
+      setKws([...kws, { name, kw }]);
     } else {
-      kws[index].kw = kw;
+      const newKws = [...kws];
+      newKws[index].kw = kw;
+      setKws(newKws);
     }
   }
 
@@ -81,7 +83,10 @@ const Calculator = ({ set }: TProps) => {
   }
 
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-3xl bg-white/80 p-10 pt-24 text-lg text-stone-500 shadow-md backdrop-blur-md after:absolute after:left-0 after:top-0 after:h-16 after:w-full after:bg-cens-brand">
+    <div className="relative h-full w-full overflow-hidden rounded-3xl bg-white/80 p-10 pt-24 text-lg text-stone-500 shadow-md backdrop-blur-md">
+      <div className="absolute left-0 top-0 z-10 grid h-16 w-full place-content-center bg-cens-brand text-white mobile-land:h-10 mobile-land:text-sm">
+        Coloca la cantidad de horas que dedicas diariamente a tus equipos
+      </div>
       <div
         className="flex w-full flex-col items-center gap-4 text-center"
         id="devicesTable"
@@ -97,7 +102,7 @@ const Calculator = ({ set }: TProps) => {
         {CALCULATOR_DATA.map((device) => (
           <div
             key={device.name}
-            className="text-stone-500 min-h-12 grid w-full grid-cols-6 items-center rounded-3xl bg-white px-6 py-2 shadow-md"
+            className="min-h-12 grid w-full grid-cols-6 items-center rounded-3xl bg-white px-6 py-2 text-stone-500 shadow-md"
           >
             <p className="col-span-2 max-w-full">{device.name}</p>
             <p className="max-w-full">{device.w}</p>

@@ -44,6 +44,7 @@ const SliderController = ({ sliderData }: TProps) => {
               width={56}
               height={56}
               alt={`Imagen de ${item.name} de Jirol`}
+              className="w-14 aspect-square mobile-land:w-11"
             />
           </button>
         ))}

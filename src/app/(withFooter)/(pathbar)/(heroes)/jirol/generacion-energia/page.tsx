@@ -24,10 +24,10 @@ export default function GeneracionEnergiaTrivia() {
     <CustomMain>
       <GamesHero
         title={{
-          text: "Generación",
-          resalted: "de Energía Eléctrica",
+          text: "Aprende y",
+          resalted: "Transforma",
         }}
-        description="¡Diviértete conquistando la Trivia de Energías Renovables y conviértete en un auténtico héroe eléctrico, al igual que Jirol! ¡Obtén tu certificado de héroe y demuestra que eres un experto en seguridad eléctrica!"
+        description="Descubre la generación de energía eléctrica y sus diversas fuentes. Prepárate para desatar tu potencial y convertirte en un experto en fuentes de energía. ¡Vamos a comenzar la aventura!"
       />
       <PaddingWrapper>
         <CustomSection>

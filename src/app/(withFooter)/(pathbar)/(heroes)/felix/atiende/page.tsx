@@ -172,12 +172,12 @@ export default function AtiendeFelix() {
   }, [corrects]);
 
   function showRecommendation1() {
-    document.getElementById("felixRecommendation1")!.style.display = "grid";
+    document.getElementById("felixRecommendation1")!.style.display = "flex";
     document.getElementById("felixRecommendation2")!.style.display = "none";
   }
   function showRecommendation2() {
     document.getElementById("felixRecommendation1")!.style.display = "none";
-    document.getElementById("felixRecommendation2")!.style.display = "grid";
+    document.getElementById("felixRecommendation2")!.style.display = "flex";
   }
 
   function hideTipModal() {
@@ -204,8 +204,8 @@ export default function AtiendeFelix() {
         />
 
         {/* MINIGAME SECTION */}
-        <div className="relative flex flex-col items-center justify-start gap-10 px-28 mobile-land:px-16">
-          <div className="relative aspect-[1.6/1] mobile-land:aspect-[1.6/1.1] w-full max-w-5xl overflow-hidden rounded-3xl bg-[url(/img/felix/atiende/living_room.jpg)] bg-cover bg-center shadow-md backdrop-blur-md">
+        <div className="relative flex flex-col items-center justify-start gap-10 px-28 mobile-land:px-6">
+          <div className="relative aspect-[1.6/1] w-full max-w-5xl overflow-hidden rounded-3xl bg-[url(/img/felix/atiende/living_room.jpg)] bg-cover bg-center shadow-md backdrop-blur-md mobile-land:aspect-[1.6/1.1] mobile-land:max-w-3xl">
             {/* CORRECT ACTION MODAL */}
             <div
               id="felixTipModal"
@@ -231,17 +231,17 @@ export default function AtiendeFelix() {
 
             {/* RECOMMENDATION 1 */}
             <div
-              className="modalWrapper absolute left-0 top-0 hidden h-full w-full place-content-center bg-black/10 backdrop-blur-md"
+              className="modalWrapper absolute left-0 top-0 hidden h-full w-full items-center justify-center bg-black/10 backdrop-blur-md"
               id="felixRecommendation1"
             >
-              <div className="flex w-full max-w-3xl flex-col items-center gap-4 rounded-3xl bg-white p-16 text-center">
-                <h3 className="text-xl font-medium text-stone-500">
+              <div className="flex w-full max-w-3xl flex-col items-center gap-4 rounded-3xl bg-white p-16 text-center mobile-land:max-w-[95%] mobile-land:gap-2 mobile-land:p-8">
+                <h3 className="text-xl font-medium text-stone-500 mobile-land:text-lg">
                   Recomendaciones en caso de{" "}
                   <span className="text-cens-medium">
                     accidentes eléctricos
                   </span>
                 </h3>
-                <p className="text-left text-stone-500">
+                <p className="text-left text-stone-500 mobile-land:text-sm">
                   Ante cualquier situación de accidente eléctrico, es esencial
                   seguir estos pasos para garantizar una respuesta segura y
                   efectiva. En primer lugar, mantén la calma y, si es posible,
@@ -286,15 +286,15 @@ export default function AtiendeFelix() {
 
             {/* RECOMMENDATION 2 */}
             <div
-              className="modalWrapper absolute left-0 top-0 hidden h-full w-full place-content-center bg-black/10 backdrop-blur-md"
+              className="modalWrapper absolute left-0 top-0 hidden h-full w-full items-center justify-center bg-black/10 backdrop-blur-md"
               id="felixRecommendation2"
             >
-              <div className="flex w-full max-w-3xl flex-col items-center gap-4 rounded-3xl bg-white p-16 text-center">
-                <h3 className="text-xl font-medium text-stone-500">
+              <div className="flex w-full max-w-3xl flex-col items-center gap-4 rounded-3xl bg-white p-16 text-center mobile-land:max-w-[95%] mobile-land:gap-2 mobile-land:p-8">
+                <h3 className="text-xl font-medium text-stone-500 mobile-land:text-lg">
                   Recomendaciones{" "}
                   <span className="text-cens-medium">externas</span>
                 </h3>
-                <p className="text-left text-stone-500">
+                <p className="text-left text-stone-500 mobile-land:text-sm">
                   Evita elevar cometas cerca de las redes eléctricas y abstente
                   de subir por árboles, postes de energía o andamios cercanos a
                   estas estructuras. También es importante no subirse a las
@@ -368,7 +368,7 @@ export default function AtiendeFelix() {
             ) : stage === 1 ? (
               /* MAIN SCREEN 2 */
               <div className="modalWrapper absolute left-0 top-0 z-10 flex h-full w-full place-content-center items-center justify-center backdrop-blur-md">
-                <div className="mobile-land:max-w-[95%] relative flex w-full max-w-3xl flex-col items-center gap-2 rounded-3xl border-stone-300 bg-white p-10 mobile-land:p-5 text-left shadow-md shadow-stone-500/20">
+                <div className="relative flex w-full max-w-3xl flex-col items-center gap-2 rounded-3xl border-stone-300 bg-white p-10 text-left shadow-md shadow-stone-500/20 mobile-land:max-w-[95%] mobile-land:p-5">
                   <p className="mobile-land:text-sm">
                     ¡Para evitar accidentes eléctricos, es súper importante que
                     identifiquemos y corrijamos todo lo que pueda ser peligroso
@@ -425,7 +425,7 @@ export default function AtiendeFelix() {
 
             {/* PODER VERDE */}
           </div>
-          <div className="mobile-land:gap-x-10 mobile-land:gap-y-4 grid max-w-5xl grid-cols-2 grid-rows-3 gap-x-14 gap-y-6">
+          <div className="grid max-w-5xl grid-cols-2 grid-rows-3 gap-x-14 gap-y-6 mobile-land:gap-x-10 mobile-land:gap-y-4">
             {GAME_DATA.map((mark) => (
               <div
                 key={mark.content.title}
@@ -434,10 +434,10 @@ export default function AtiendeFelix() {
                   opacity: corrects.includes(mark.content.value) ? ".5" : "1",
                 }}
               >
-                <h6 className="mobile-land:text-5xl text-6xl font-bold text-felix">
+                <h6 className="text-6xl font-bold text-felix mobile-land:text-5xl">
                   {mark.content.value}
                 </h6>
-                <p className="mobile-land:text-sm text-stone-600">
+                <p className="text-stone-600 mobile-land:text-sm">
                   {mark.content.title}
                 </p>
               </div>

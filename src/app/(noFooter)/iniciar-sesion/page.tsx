@@ -35,8 +35,6 @@ export default function Login() {
     if (loading) return;
     setLoading(true);
 
-    console.log(process.env.NEXT_PUBLIC_API_KEY as string);
-
     // Login user and get the token
     const loginReq = await fetch("/iniciar-sesion/api", {
       method: "POST",

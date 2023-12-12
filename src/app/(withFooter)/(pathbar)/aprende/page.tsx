@@ -4,11 +4,10 @@ import CustomMain from "@/components/layout/CustomMain";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import PuritaImage from "@public/img/aprende/purita-hero.png";
+import DaliaImage from "@public/img/aprende/dalia-hero.png";
 import HeroeSection from "@/components/heroes/HeroeSection";
 import HeroeTitle from "@/components/heroes/HeroeTitle";
 import Image from "next/image";
-import { RiFilePdf2Fill } from "react-icons/ri";
 import PDFIcon from "@public/icons/pdf.svg";
 import Link from "next/link";
 
@@ -20,30 +19,35 @@ export default function Aprende() {
           title={{ text: "Explora y aprende", resalted: "con Purita" }}
           description="Acompáñanos para descubrir su historia, sus aventuras y cómo puedes unirte a su misión en nuestro mundo virtual y en la vida real"
         />
-        <div className="mobile-land:px-16 mobile-land:gap-x-16 relative grid w-full grid-cols-6 gap-x-32 px-20">
-          <div className="mobile-land:col-span-4 col-span-4 flex">
-            <div className="mobile-land:max-w-full flex h-full w-full max-w-2xl flex-col items-start justify-start gap-8">
+        <div className="relative grid w-full grid-cols-6 gap-x-32 px-20 mobile-land:gap-x-16 mobile-land:px-10">
+          <div className="col-span-4 flex mobile-land:col-span-4">
+            <div className="flex h-full w-full max-w-2xl flex-col items-start justify-start gap-8 mobile-land:max-w-full">
               <Link
                 href={"/aprende/historia"}
-                className="mobile-land:pl-10 flex h-32 w-full flex-col justify-center gap-1 rounded-3xl bg-white/90 p-2 pl-16 shadow-md"
+                className="hover:bg-dalia group flex h-32 w-full flex-col justify-center gap-1 rounded-3xl bg-white/90 p-2 pl-16 shadow-md transition-colors mobile-land:pl-10"
               >
-                <h3 className="text-lg font-bold text-cens-medium">Historia</h3>
-                <p className="font-normal text-stone-500">
+                <h3 className="text-lg font-bold text-cens-medium transition-colors group-hover:text-white">
+                  Historia
+                </h3>
+                <p className="font-normal text-stone-500 transition-colors group-hover:text-white">
                   El estratega de la eficiencia energética, te guiará hacia un
                   futuro sostenible
                 </p>
               </Link>
-              <div className="mobile-land:pl-10 flex h-32 w-full flex-col justify-center gap-1 rounded-3xl bg-white/90 p-2 pl-16 shadow-md">
-                <h3 className="text-lg font-bold text-cens-medium">
+              <Link
+                href={"/usuario/evidencias"}
+                className="hover:bg-dalia group flex h-32 w-full flex-col justify-center gap-1 rounded-3xl bg-white/90 p-2 pl-16 shadow-md transition-colors mobile-land:pl-10"
+              >
+                <h3 className="text-lg font-bold text-cens-medium transition-colors group-hover:text-white">
                   Evidencias
                 </h3>
-                <p className="font-normal text-stone-500">
+                <p className="font-normal text-stone-500 transition-colors group-hover:text-white">
                   El estratega de la eficiencia energética, te guiará hacia un
                   futuro sostenible
                 </p>
-              </div>
+              </Link>
               {/* DOWNLOADS SECTION */}
-              <div className="mobile-land:flex-wrap flex w-full items-center justify-start gap-8">
+              <div className="flex w-full items-center justify-start gap-8 mobile-land:flex-wrap">
                 <a
                   href="/some/download/some.pdf"
                   download={"SomePDFile.pdf"}
@@ -103,11 +107,11 @@ export default function Aprende() {
               </div>
             </div>
           </div>
-          {/* HERO IMAGE */}
 
+          {/* HERO IMAGE */}
           <div className="-rotate-10 col-span-2">
             <Image
-              src={PuritaImage}
+              src={DaliaImage}
               className="h-full w-full animate-levitating object-contain"
               alt="Imagen de Purita con pose de victoria"
             />

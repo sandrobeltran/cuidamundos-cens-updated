@@ -28,7 +28,7 @@ const Hero = ({ image, title, description, buttonLabel, href }: TProps) => {
         <h1 className="text-6xl font-bold text-stone-100 mobile-land:text-4xl max-sm:text-4xl">
           {title.text} <span className="text-cens-brand">{title.resalted}</span>
         </h1>
-        <p className="w-5/6 mobile-land:text-[1rem] text-lg font-normal max-sm:w-full">{description}</p>{" "}
+        <p className="w-5/6 mobile-land:text-[1rem] text-stone-600 text-lg font-normal max-sm:w-full">{description}</p>{" "}
         {buttonLabel ? (
           <div className="w-fit">
             <Button hierarchy="primary" size="lg" href={href}>

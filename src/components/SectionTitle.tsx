@@ -21,7 +21,7 @@ const SectionTitle = ({ title, description }: TProps) => {
           {title.resalted}
         </span>
       </h2>
-      <p className="mt-5 font-normal">{description}</p>
+      <p className="mt-5 font-normal text-stone-600">{description}</p>
     </div>
   );
 };

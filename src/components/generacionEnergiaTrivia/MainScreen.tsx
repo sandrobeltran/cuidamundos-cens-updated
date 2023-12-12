@@ -16,19 +16,18 @@ const MainScreen = () => {
       <div className="p-4t relative flex h-fit w-full max-w-md flex-col items-center gap-8">
         <div className="flex flex-col gap-4 text-center">
           <h6 className="text-xl font-bold">
-            TÚ Y LAS FUENTES DE ENERGÍAS: <br />
-            <span className="text-cens-light">
-              GENERACIÓN DE ENERGÍA ELÉCTRICA
-            </span>
+            ¡SÉ UN HÉROE!
+            <br />
+            <span className="text-cens-light">ENERGÍAS EN ACCIÓN</span>
           </h6>
           <p className="leading-tight">
-            La dinámica es simple: responderán preguntas sobre las distintas
-            fuentes de energía, desde la hidroeléctrica hasta la solar. Cada
-            respuesta correcta los acercará más al título de &quot;Héroes de las
-            fuentes de energía&quot;. ¡Pero ojo!¡Cuidado con las respuestas
-            incorrectas, podrían enfrentar desafíos inesperados! Listos para
-            desatar su potencial y convertirse en expertos en fuentes de
-            energía. ¡Vamos a comenzar la aventura!
+            La dinámica es simple; responde preguntas sobre las distintas
+            fuentes de energía y la generación de energía eléctrica, desde la
+            hidroeléctrica hasta la solar. Cada respuesta correcta te acercará
+            más al título de “Héroe de las Fuentes de Energía”. ¡Pero cuidado
+            con las respuestas incorrectas, tendrás que volver a empezar! Listo
+            para desatar tu potencial y convertirte en un experto en fuentes de
+            energía. ¡Juega ya!
           </p>
         </div>
         <Button

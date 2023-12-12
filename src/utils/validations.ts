@@ -40,7 +40,7 @@ export const contactValidationSchema = Yup.object().shape({
     )
     .required("Ingresa tu número telefónico"),
   message: Yup.string()
-    .min(30, "Mensaje muy corto")
+    .min(20, "Mensaje muy corto")
     .max(500, "Mensaje muy largo")
     .required("Ingresa tu mensaje"),
 });

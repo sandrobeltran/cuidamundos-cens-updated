@@ -16,17 +16,15 @@ const MainScreen = () => {
       <div className="p-4t relative flex h-fit w-full max-w-md flex-col items-center gap-8">
         <div className="flex flex-col gap-4 text-center">
           <h6 className="text-xl font-bold">
-            TÚ Y LAS FUENTES DE ENERGÍAS: <br />
-            <span className="text-cens-light">ENERGÍAS RENOVABLES</span>
+            ¡SÉ UN HÉROE!
+            <br />
+            <span className="text-cens-light">ENERGÍAS EN ACCIÓN</span>
           </h6>
           <p className="leading-tight">
-            ¡Saludos, amigos! nuestra nueva misión es explorar los secretos del
-            mundo de las fuentes de energía y convertinos en verdaderos Héroes
-            de las fuentes de Energía. ¿Su objetivo? Descifrar los enigmas sobre
-            las fuentes de energía y su misterio, deberán responder preguntas
-            clave sobre la energía renovable, las no renovables y las diferentes
-            formas de generar electricidad. ¡Prepárate para la aventura! ¿Listo
-            para comenzar?
+            Aprende sobre energía renovable, no renovable y las diversas formas
+            de generar electricidad para convertirte en un verdadero Héroe de
+            las fuentes de energía. Responde preguntas claves sobre la energía.
+            ¿Listo para comenzar?
           </p>
         </div>
         <Button

@@ -20,6 +20,7 @@ const config: Config = {
         purita: "#3B699A",
         jirol: "#93C01F",
         felix: "#EC8334",
+        dalia: "#9A85BD"
       },
       borderRadius: {
         "4xl": "56px",

@@ -98,14 +98,14 @@ export default function Felix() {
                 className="transition-transform hover:-rotate-3 hover:scale-110"
               >
                 <div className="realtive group flex w-full max-w-sm animate-spinHighlight flex-col gap-4">
-                  <h4 className="relative border-b-2 border-b-felix text-3xl mobile-land:text-2xl font-semibold text-felix">
+                  <h4 className="relative border-b-2 border-b-felix text-3xl font-semibold text-felix mobile-land:text-2xl">
                     {SECTIONS_DATA[currentSection.index].title}
 
                     <div className="absolute bottom-0 right-4 top-0 my-auto flex scale-0 items-center gap-1 text-sm font-normal text-stone-600 opacity-0 transition-all group-hover:scale-100 group-hover:opacity-100">
-                      Conocer más <LinkIcon className="mobile-land:h-4 h-5" />
+                      Conocer más <LinkIcon className="h-5 mobile-land:h-4" />
                     </div>
                   </h4>
-                  <p className="pr-24 text-justify text-lg mobile-land:text-[1rem] mobile-land:leading-snug text-stone-500">
+                  <p className="pr-24 text-justify text-lg text-stone-500 mobile-land:text-[1rem] mobile-land:leading-snug">
                     {SECTIONS_DATA[currentSection.index].description}
                   </p>
                 </div>

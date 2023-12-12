@@ -18,13 +18,13 @@ export default function AprendeFelix() {
       <HeroeSection>
         <HeroeTitle
           title={{
-            text: "¡Juega y",
+            text: "¡Conoce y",
             resalted: "aprende!",
           }}
-          description="¡Diviértete aprendiendo a evitar accidentes eléctricos en casa! Descubre los riesgos y cómo prevenirlos. ¡Hora de jugar! Coloca en el círculo el número correcto para cada situación mencionada."
+          description="¡Explora con Félix cómo usar eficientemente tus electrodomésticos, entiende el consumo en vatios y sé un héroe!"
         />
-        <div className="justify-center relative flex flex-col items-center gap-10 px-28 mobile-land:px-16">
-          <Swiper allowTouchMove={false} className="max-w-5xl w-full">
+        <div className="relative flex flex-col items-center justify-center gap-10 px-28 mobile-land:px-16">
+          <Swiper allowTouchMove={false} className="w-full max-w-5xl">
             <SwiperSlide className="p-2">
               <Guide />
             </SwiperSlide>

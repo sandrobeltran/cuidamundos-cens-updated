@@ -42,8 +42,8 @@ export default function Jirol() {
                   ¿Quién es?
                 </h2>
                 <p className="text-lg">
-                  El maestro de la electricidad, te revelará los secretos de la
-                  energía eléctrica
+                  Conoce a Jirol, el capitán de la eficiencia y sostenibilidad,
+                  y aprende a optimizar el uso de energías.
                 </p>
               </Link>
             </div>
@@ -57,7 +57,8 @@ export default function Jirol() {
                   ¿Qué atiende?
                 </h2>
                 <p className="text-lg">
-                  Aprende Todo Sobre Jirol el héroe de CuidaMundos
+                  Descubre las fuentes de energía renovable y aprende sobre el
+                  suministro de energía eléctrica.
                 </p>
               </Link>
             </div>
@@ -71,7 +72,8 @@ export default function Jirol() {
                   Energías Renovables
                 </h2>
                 <p className="text-lg">
-                  Juega la trivia de Energías Renovables
+                  Explora la trivia sobre energía renovable, no renovable y
+                  diversas formas de generar electricidad.
                 </p>
               </Link>
             </div>
@@ -85,7 +87,8 @@ export default function Jirol() {
                   Generación de Energía Eléctrica
                 </h2>
                 <p className="text-lg">
-                  Juega la trivia de Generación de Energia Eléctrica
+                  Trivia sobre la generación de energía eléctrica y sus diversas
+                  fuentes.
                 </p>
               </Link>
             </div>

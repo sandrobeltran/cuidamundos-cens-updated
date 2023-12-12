@@ -20,11 +20,11 @@ const MainScreen = () => {
             <span className="text-cens-light">¡BIENVENIDOS!</span>
           </h6>
           <p className="leading-tight">
-            ¡Listos para la acción! Iniciemos nuestra pequeña trivia para
-            explorar el increíble universo de la energía eléctrica y cómo
-            podemos usarla de manera eficiente. ¡Prepárate para divertirte
-            mientras aprendemos a cuidar nuestro planeta! ¡Es hora de encender
-            la luz del conocimiento!
+            ¡Preparados para la acción! Iniciemos nuestra pequeña trivia para
+            explorar el increíble universo de la energía eléctrica y el riesgo
+            eléctrico. ¡Prepárate para divertirte mientras aprendemos a cuidar
+            nuestro planeta y entendemos los riesgos eléctricos! ¡Vamos a
+            comenzar!
           </p>
         </div>
         <Button

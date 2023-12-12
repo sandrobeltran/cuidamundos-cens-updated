@@ -14,28 +14,28 @@ const SLIDER_DATA = [
     name: "Eólica",
     icon: "eolica",
     description:
-      "¿Te gustaría ser un viento poderoso? ¡Con la energía eólica, el viento hace girar aspas gigantes como molinos de viento modernos! Estas aspas hacen que un generador convierta el movimiento en energía elétrica, ¡Como un juguete que gira y brilla!",
+      "¡Con la energía eólica, el viento hace girar aspas gigantes como molinos de viento modernos! Estas aspas impulsan un generador que convierte el movimiento en energía eléctrica.",
     index: 1,
   },
   {
     name: "Geotérmica",
     icon: "geotermica",
     description:
-      "Aquí, ¿Calentamos el agua como una olla mágica! El vapor que se forma empuja turbinas especiales, como un viento fuerte. Estas turbinas hacen girar un generador que crea energía eléctrica. Es como una máquina de vapor moderna.",
+      "¡Se calienta el agua como en una olla mágica! El vapor resultante impulsa turbinas especiales, como un viento fuerte. Estas turbinas, a su vez, hacen girar un generador que crea energía eléctrica. Es como tener una máquina de vapor moderna en acción.",
     index: 2,
   },
   {
     name: "Hidroeléctrica",
     icon: "hidroelectrica",
     description:
-      "En las hidroelétricas, usamos presas para detener el agua de un río y convertirla en energía. Cuando abrimos las compuertas, el agua fluye con fuerza y hace girar turbinas súper rápidas. Estas turbinas generan energía mecánica, que se convierte en energía eléctrica y viaja por cables gigantes",
+      "¡Imagina controlar la fuerza del agua! En las hidroeléctricas, utilizamos presas para detener el agua de un río y convertirla en energía. Cuando abrimos las compuertas, el agua fluye con fuerza y hace girar turbinas súper rápidas. Estas turbinas generan energía mecánica, que se convierte en energía eléctrica y viaja por cables gigantes.",
     index: 3,
   },
   {
     name: "Solar",
     icon: "solar",
     description:
-      '¿Alguna vez atrapaste rayos de sol en una caja? Con la energía solar, utilizamos paneles mágicos llamados "paneles fotovoltaicos". Estos paneles capturan las luz del sol y la convierten en electricidad. Es como magia con luz solar.',
+      '¡El poder de los rayos del sol! Con la energía solar, utilizamos paneles mágicos llamados "paneles fotovoltaicos". Estos paneles capturan la luz del sol y la transforman en electricidad.',
     index: 4,
   },
 ];
@@ -45,8 +45,11 @@ export default function AtiendeJirol() {
     <CustomMain>
       <HeroeSection>
         <HeroeTitle
-          title={{ text: "Proceso de la", resalted: "energía elétrica" }}
-          description="Únete a nosotros para conocer la historia de Purita, la heroína del Medio Ambiente. Descubre sus poderes y aprende cómo puedes unirte a su misión o convertirte en un héroe en el mundo."
+          title={{
+            text: "Energía Renovable y",
+            resalted: "Suministro Eléctrico",
+          }}
+          description="Descubre las fuentes de energía renovable y aprende sobre la transmisión, distribución y comercialización de la energía eléctrica. ¡Desliza los íconos y conviértete en un héroe estratégico!"
         />
         <div className="flex w-full justify-center px-28 mobile-land:px-16">
           <div className="pr aspect-[16/9] w-full max-w-5xl overflow-hidden rounded-3xl bg-white/80 shadow-md backdrop-blur-md">
@@ -57,30 +60,32 @@ export default function AtiendeJirol() {
             >
               <SliderController sliderData={SLIDER_DATA} />
               <SwiperSlide>
-                <div className="flex h-full w-full flex-col items-center justify-center gap-4 mobile-land:gap-2 p-10 text-center">
-                  <h3 className="text-3xl font-medium text-stone-500 mobile-land:text-xl">
-                    Proceso de la{" "}
-                    <span className="text-cens-medium">Energía Eléctrica</span>
+                <div className="flex h-full w-full flex-col items-center justify-center gap-4 p-10 text-center mobile-land:gap-2">
+                  <h3 className="text-3xl font-medium text-stone-500 mobile-land:text-2xl">
+                    Poderes <span className="text-cens-medium">Renovables</span>
                   </h3>
-                  <p className="text-xl text-stone-500 max-w-2xl mobile-land:text-lg">
-                    ¡Hola, niños curiosos! ¿Están listos para descubrir cómo se
-                    genera la energía elétrica? Vamos a explorar cuatro
-                    emocionantes formas de hacerlo:
+                  <p className="max-w-2xl mobile-land:max-w-sm text-xl text-stone-500 mobile-land:text-sm">
+                    ¡Hola, soy Jirol! ¡Acompáñame para explorar juntos las
+                    fuentes de energía renovable! ¿Listos para descubrir cómo se
+                    genera la energía eléctrica? ¡Vamos a explorar cuatro
+                    emocionantes formas de hacerlo!
                   </p>
                   <Image
                     src={FlyingJirolImage}
                     width={300}
-                    className="max-w-xs mobile-land:max-w-[30%] animate-levitating object-contain"
+                    className="max-w-xs animate-levitating object-contain mobile-land:max-w-[30%]"
                     alt="Imagen de Jirol volando"
                   />
                 </div>
               </SwiperSlide>
               {SLIDER_DATA.map((item) => (
                 <SwiperSlide className="" key={item.index}>
-                  <div className="flex h-full w-full flex-col items-center justify-center gap-4 p-10 px-40 mobile-land:px-16 text-center">
-                    <h3 className="text-3xl font-medium text-stone-500">
+                  <div className="flex h-full w-full flex-col items-center justify-center gap-4 p-10 px-40 text-center mobile-land:px-16">
+                    <h3 className="text-3xl mobile-land:text-2xl font-medium text-stone-500">
                       Energía{" "}
-                      <span className="text-cens-medium">{item.name}</span>
+                      <span className="text-cens-medium">
+                        {item.name.toLowerCase()}
+                      </span>
                     </h3>
                     <Image
                       src={`/img/jirol/atiende/${item.icon}.png`}
@@ -89,7 +94,9 @@ export default function AtiendeJirol() {
                       className="mt-4 w-full max-w-md mobile-land:max-w-[50%]"
                       alt={`Imagen de la Energía ${item.name}`}
                     />
-                    <p className="mobile-land:text-sm text-lg text-stone-500">{item.description}</p>
+                    <p className="text-lg text-stone-500 mobile-land:text-sm">
+                      {item.description}
+                    </p>
                   </div>
                 </SwiperSlide>
               ))}

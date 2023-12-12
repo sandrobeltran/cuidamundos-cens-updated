@@ -82,17 +82,17 @@ export default function Juega() {
           <div className="col-span-2 flex mobile-land:col-span-3">
             <Image
               src={PuritaRenderImage}
-              className="w-full animate-levitating mobile-land:w-1/3"
+              className="w-full animate-levitating mobile-land:w-1/3 object-contain"
               alt="Render de Purita"
             />
             <Image
               src={FelixRenderImage}
-              className="w-full animate-levitating mobile-land:w-1/3"
+              className="w-full animate-levitating mobile-land:w-1/3 object-contain"
               alt="Render de Purita"
             />
             <Image
               src={JirolRenderImage}
-              className="w-full animate-levitating mobile-land:w-1/3"
+              className="w-full animate-levitating mobile-land:w-1/3 object-contain"
               alt="Render de Purita"
             />
           </div>
