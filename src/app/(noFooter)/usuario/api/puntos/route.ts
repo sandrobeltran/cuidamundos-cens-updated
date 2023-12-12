@@ -14,19 +14,36 @@ export async function PUT(req: NextRequest) {
   try {
     const uid = validateUserToken(headers);
 
-    const user = await User.findByIdAndUpdate(
-      uid,
-      { $inc: { points: body.points } },
-      { new: true },
-    );
-    await Game.findByIdAndUpdate(body.gameId, { $push: { winners: uid } });
-    console.log(body.gameId);
+    let updatedUser;
+
+    if (body.points) {
+      updatedUser = await User.findByIdAndUpdate(
+        uid,
+        { $inc: { points: body.points } },
+        {
+          new: true,
+          fields: {
+            _id: 1,
+            name: 1,
+            lastname: 1,
+            city: 1,
+            username: 1,
+            createdAt: 1,
+            bio: 1,
+            avatar: 1,
+            points: 1
+          }
+        },
+      )
+    }
+
+    const updatedGame = await Game.findByIdAndUpdate(body.gameId, { $push: { winners: uid } }, { new: true });
 
     return NextResponse.json<ICustomResponse>(
       {
         status: "success",
         message: "Usuario actualizado con éxito.",
-        data: user,
+        data: { updatedUser, updatedGame },
       },
       { status: 200 },
     );

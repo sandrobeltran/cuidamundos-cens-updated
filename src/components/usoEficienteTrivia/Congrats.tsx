@@ -32,7 +32,6 @@ const Congrats = ({ Percent }: TProps) => {
 
   useEffect(() => {
     if (partyRef.current && stage === 2) {
-      console.log("Confetti!!");
       party.confetti(partyRef.current, {
         count: party.variation.range(30, 50),
         size: party.variation.range(1.3, 2.8),

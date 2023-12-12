@@ -2,13 +2,15 @@
 
 import { useUserStore } from "@/store/useUserStore";
 import dateToString from "@/utils/dateToString";
+import { useCallback, useEffect } from "react";
 
 export default function Usuario() {
-  const { user } = useUserStore();
+  const { user, setLoading, setError, setUser } = useUserStore();
 
   function showEditModal() {
     document.getElementById("editProfileModalWrapper")!.style.display = "flex";
   }
+
 
   return (
     <div className="flex w-full gap-4 max-sm:flex-col-reverse">

@@ -17,6 +17,8 @@ type TUsoEficiente = {
   stage: number; // 0: Start | 1: Playing | 2: Finished,
   hasWon: boolean;
   lose: boolean;
+  userIsUpdated: boolean;
+  setUserIsUpdated: (value: boolean) => void
   setLose: () => void;
   setHasWon: (value: boolean) => void;
   nextPage: () => void;
@@ -39,21 +41,21 @@ const initialState = {
   stage: 0,
   hasWon: false,
   lose: false,
+  userIsUpdated: false
 };
 
 export const useUsoEficiente = create<TUsoEficiente>((set) => ({
   ...initialState,
+  setUserIsUpdated: (value) => set({ userIsUpdated: value }),
   nextPage: () => set((state) => ({ currentPage: state.currentPage + 1 })),
   prevPage: () => set((state) => ({ currentPage: state.currentPage - 1 })),
   initializeTrivia: (questions, hasWon) =>
     set((state) => {
-      state.resetTrivia()
 
       return {
         questions,
-        results: [],
         currentPage: 0,
-        hasWon: state.hasWon ? state.hasWon : hasWon,
+        hasWon: hasWon
       };
     }),
   addResult: (result) =>

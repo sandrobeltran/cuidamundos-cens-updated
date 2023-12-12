@@ -12,6 +12,7 @@ import GuestUser from "../../juega/GuestUser";
 import { ITrivia } from "@/utils/customTypes";
 import SpinLoader from "../../SpinLoader";
 import TimeRunOutModal from "./TimeRunOutModal";
+import { usePathname } from "next/navigation";
 
 type TProps = {
   trivia: ITrivia | undefined;
@@ -21,21 +22,31 @@ type TProps = {
 
 const TriviaContainer = ({ trivia, mainScreen, resultScreen }: TProps) => {
   const user = useUserStore((state) => state.user);
-
-  const { initializeTrivia, hasWon } = useUsoEficiente((state) => state);
+  const pathname = usePathname();
+  const { initializeTrivia, hasWon, setStage, setHasWon, resetTrivia } =
+    useUsoEficiente((state) => state);
 
   useEffect(() => {
-    if (trivia) {
+    if (trivia && user) {
+      console.log("initialize trivia");
       initializeTrivia(
         trivia.data.questions,
         trivia.winners.includes(user?._id as string),
       );
     }
-  }, [initializeTrivia, trivia, user]);
+  }, [initializeTrivia, trivia, user, hasWon, setHasWon]);
+
+  useEffect(() => {
+    console.log("setting stage 0");
+    // setStage(0);
+    resetTrivia();
+  }, [pathname, resetTrivia]);
+
+  console.log(hasWon);
 
   return (
     <div className="flex justify-center">
-      <div className="relative h-fit max-w-5xl mobile-land:max-w-full overflow-hidden rounded-3xl border border-stone-300 bg-white/80 shadow-md">
+      <div className="relative h-fit max-w-5xl overflow-hidden rounded-3xl border border-stone-300 bg-white/80 shadow-md mobile-land:max-w-full">
         {trivia ? <TriviaHeader time={trivia.data.timeLimit} /> : null}
         {!user ? <GuestUser /> : null}
         <Swiper allowTouchMove={false}>

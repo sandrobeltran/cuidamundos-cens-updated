@@ -25,14 +25,14 @@ const PercentCirle = () => {
 
   return (
     <div
-      className="flex aspect-square mobile-land:w-36 w-40 flex-col items-center justify-center gap-0 rounded-full border-[12px] p-5 max-sm:w-52 max-sm:border-[18px]"
+      className="flex aspect-square w-40 flex-col items-center justify-center gap-0 rounded-full border-[12px] p-5 mobile-land:w-36 max-sm:w-52 max-sm:border-[18px]"
       style={{
         borderColor: `hsl(${formatter.format(
           (corrects.length / results.length) * 100,
         )}, 100%, 50%)`,
       }}
     >
-      <h6 className="text-5xl mobile-land:text-4xl font-bold">
+      <h6 className="text-5xl font-bold mobile-land:text-4xl">
         {formatter.format((corrects.length / results.length) * 100)}%
       </h6>
       <p className="text-sm font-medium leading-none max-sm:text-lg">
@@ -43,17 +43,25 @@ const PercentCirle = () => {
 };
 
 const ResultsScreen = () => {
-  const { results, questions, stage, lose, setHasWon, hasWon } =
-    useUsoEficiente();
+  const {
+    results,
+    questions,
+    stage,
+    lose,
+    setHasWon,
+    hasWon,
+    setUserIsUpdated,
+    userIsUpdated,
+  } = useUsoEficiente();
   const corrects = results.filter((e) => e.correct);
   const incorrects = results.filter((e) => !e.correct);
-  const user = useUserStore((state) => state.user);
-  const { games } = useGamesStore();
+  const { user, setUser } = useUserStore((state) => state);
+  const { games, updateGame } = useGamesStore();
   const pathname = usePathname();
   const trivia = games.find((game) => game.href === pathname);
 
   // ? REPLACE WITH THE REAL THRESHOLD WHEN FINISHED
-  const minCorrects = 4;
+  const minCorrects = 1;
 
   const handleUploadPoints = useCallback(async () => {
     console.log("Trying to add points");
@@ -80,8 +88,11 @@ const ResultsScreen = () => {
     }
 
     setHasWon(true);
+    setUser(updateUserResponse.data.updatedUser);
+    // setUserIsUpdated(true);
+    updateGame(updateUserResponse.data.updatedGame)
     console.log("Points added to user");
-  }, [trivia, user, hasWon, setHasWon]);
+  }, [trivia, user, hasWon, setHasWon, setUser, updateGame]);
 
   useEffect(() => {
     if (
@@ -104,8 +115,9 @@ const ResultsScreen = () => {
     stage,
   ]);
 
+
   return (
-    <div className="flex h-full flex-col items-center justify-center text-stone-500 p-6">
+    <div className="flex h-full flex-col items-center justify-center p-6 text-stone-500">
       {results.length === questions.length && stage === 2 ? (
         corrects.length >= minCorrects && !lose ? (
           <Congrats Percent={PercentCirle} />
@@ -113,6 +125,7 @@ const ResultsScreen = () => {
           <Retry Percent={PercentCirle} />
         )
       ) : null}
+      {/* {userIsUpdated ? <Congrats Percent={PercentCirle} /> : null} */}
     </div>
   );
 };
