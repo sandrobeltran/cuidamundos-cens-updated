@@ -125,7 +125,7 @@ const ResultsScreen = () => {
           </div>
           {/* CO2 */}
           <p>
-            <b>CO2</b> {testResult.totalValue}
+            <b>CO2</b> {testResult.totalValue}kg
           </p>
         </div>
 

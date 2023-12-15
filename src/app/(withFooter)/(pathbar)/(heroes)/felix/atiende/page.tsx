@@ -184,7 +184,7 @@ export default function AtiendeFelix() {
     document.getElementById("felixTipModal")!.style.display = "none";
     if (corrects.length >= GAME_DATA.length) {
       // THE GAME HAS FINISHED
-      showRecommendation1();
+      document.getElementById("felixWinModal")!.style.display = "flex";
     }
   }
 
@@ -192,6 +192,7 @@ export default function AtiendeFelix() {
     setCorrects([]);
     document.getElementById("felixRecommendation2")!.style.display = "none";
     document.getElementById("felixRecommendation1")!.style.display = "none";
+    document.getElementById("felixWinModal")!.style.display = "none";
     document.getElementById("felixTipModal")!.style.display = "none";
   }
 
@@ -226,6 +227,53 @@ export default function AtiendeFelix() {
                 >
                   Continuar
                 </Button>
+              </div>
+            </div>
+
+            {/* WIN MODAL */}
+            <div
+              className="modalWrapper absolute left-0 top-0 hidden h-full w-full items-center justify-center bg-black/10 backdrop-blur-md"
+              id="felixWinModal"
+            >
+              <div className="flex w-full max-w-3xl flex-col items-center gap-4 rounded-3xl bg-white p-16 text-center mobile-land:max-w-[95%] mobile-land:gap-2 mobile-land:p-8">
+                <h3 className="text-xl font-medium text-stone-500 mobile-land:text-lg">
+                  ¡Felicidades por{" "}
+                  <span className="text-cens-medium">
+                    completar la lección!
+                  </span>
+                </h3>
+                <p className="text-left text-stone-500 mobile-land:text-sm">
+                  Ya eres todo un experto en evitar accidentes eléctricos. ¡Gran
+                  trabajo! Aquí va otra recomendación crucial: Si ves cables de
+                  energía caídos, ¡no los toques! En su lugar, informa de
+                  inmediato llamando a la línea gratuita 01 8000 414 115 o
+                  marcando #515 desde Claro si te encuentras en el sur del Cesar
+                  o sur de Bolívar. Recuerda, la diversión con seguridad es
+                  responsabilidad de todos y puede marcar la diferencia en la
+                  seguridad de tu vida, la de tu familia y amigos.
+                </p>
+
+                {/* BUTTONS */}
+                <div className="flex w-full justify-center gap-12">
+                  <div>
+                    <Button
+                      hierarchy="primary"
+                      size="md"
+                      onClick={() => showRecommendation1()}
+                    >
+                      Recomendación 1
+                    </Button>
+                  </div>
+                  <div>
+                    <Button
+                      hierarchy="primary"
+                      size="md"
+                      onClick={() => showRecommendation2()}
+                    >
+                      Recomendación 2
+                    </Button>
+                  </div>
+                </div>
               </div>
             </div>
 

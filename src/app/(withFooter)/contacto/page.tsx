@@ -11,15 +11,14 @@ export default function Contacto() {
     <CustomMain>
       <Hero
         title={{
-          text: "Contáctate con el equipo de",
-          resalted: "CuidaMundos",
+          text: "Contacta al equipo",
+          resalted: "de CuidaMundos",
         }}
-        description="En Ecoaventura Sostenible, puedes unirte a nuestra misión para ayudar a cuidar el planeta y promover la energía sostenible.
-        "
+        description="Contáctanos para descubrir más sobre los Cuidamundos, resolver tus dudas o recibir ayuda y asesoría."
         image={CuidaMundosLogo}
       />
       <PaddingWrapper>
-        <div className="col-span-12 flex justify-center z-10">
+        <div className="z-10 col-span-12 flex justify-center">
           <section className="max-w-5xl">
             <FormHeader />
             <FormSection />

@@ -24,7 +24,7 @@ export default function Aprende() {
             <div className="flex h-full w-full max-w-2xl flex-col items-start justify-start gap-8 mobile-land:max-w-full">
               <Link
                 href={"/aprende/historia"}
-                className="hover:bg-dalia group flex h-32 w-full flex-col justify-center gap-1 rounded-3xl bg-white/90 p-2 pl-16 shadow-md transition-colors mobile-land:pl-10"
+                className="group flex h-32 w-full flex-col justify-center gap-1 rounded-3xl bg-white/90 p-2 pl-16 shadow-md transition-colors hover:bg-dalia mobile-land:pl-10"
               >
                 <h3 className="text-lg font-bold text-cens-medium transition-colors group-hover:text-white">
                   Historia
@@ -36,7 +36,7 @@ export default function Aprende() {
               </Link>
               <Link
                 href={"/usuario/evidencias"}
-                className="hover:bg-dalia group flex h-32 w-full flex-col justify-center gap-1 rounded-3xl bg-white/90 p-2 pl-16 shadow-md transition-colors mobile-land:pl-10"
+                className="group flex h-32 w-full flex-col justify-center gap-1 rounded-3xl bg-white/90 p-2 pl-16 shadow-md transition-colors hover:bg-dalia mobile-land:pl-10"
               >
                 <h3 className="text-lg font-bold text-cens-medium transition-colors group-hover:text-white">
                   Evidencias
@@ -47,11 +47,11 @@ export default function Aprende() {
                 </p>
               </Link>
               {/* DOWNLOADS SECTION */}
-              <div className="flex w-full items-center justify-start gap-8 mobile-land:flex-wrap">
+              <div className="flex w-full items-center justify-center gap-8 mobile-land:flex-wrap">
                 <a
-                  href="/some/download/some.pdf"
-                  download={"SomePDFile.pdf"}
-                  className="flex w-full flex-1 flex-col items-center gap-3 text-center"
+                  href="/pdf/cartillas/purita.pdf"
+                  download={"Cartilla de Purita.pdf"}
+                  className="max-w-[135px] flex w-full flex-1 flex-col items-center gap-3 text-center"
                 >
                   <div className="flex aspect-square w-full place-content-center items-center justify-center rounded-3xl bg-white/90 text-8xl shadow-md">
                     <Image
@@ -60,12 +60,12 @@ export default function Aprende() {
                       className="w-3/4"
                     />
                   </div>
-                  <p className="text-lg font-bold text-cens-medium">Título</p>
+                  <p className="text-lg font-bold text-cens-medium">Purita</p>
                 </a>
                 <a
-                  href="/some/download/some.pdf"
-                  download={"SomePDFile.pdf"}
-                  className="flex w-full flex-1 flex-col items-center gap-3 text-center"
+                  href="/pdf/cartillas/Jirol.pdf"
+                  download={"Cartilla de Jirol.pdf"}
+                  className="max-w-[135px] flex w-full flex-1 flex-col items-center gap-3 text-center"
                 >
                   <div className="flex aspect-square w-full place-content-center items-center justify-center rounded-3xl bg-white/90 text-8xl shadow-md">
                     <Image
@@ -74,12 +74,12 @@ export default function Aprende() {
                       className="w-3/4"
                     />
                   </div>
-                  <p className="text-lg font-bold text-cens-medium">Título</p>
+                  <p className="text-lg font-bold text-cens-medium">Jirol</p>
                 </a>
                 <a
-                  href="/some/download/some.pdf"
-                  download={"SomePDFile.pdf"}
-                  className="flex w-full flex-1 flex-col items-center gap-3 text-center"
+                  href="/pdf/cartillas/felix.pdf"
+                  download={"Cartilla de Felix.pdf"}
+                  className="max-w-[135px] flex w-full flex-1 flex-col items-center gap-3 text-center"
                 >
                   <div className="flex aspect-square w-full place-content-center items-center justify-center rounded-3xl bg-white/90 text-8xl shadow-md">
                     <Image
@@ -88,21 +88,7 @@ export default function Aprende() {
                       className="w-3/4"
                     />
                   </div>
-                  <p className="text-lg font-bold text-cens-medium">Título</p>
-                </a>
-                <a
-                  href="/some/download/some.pdf"
-                  download={"SomePDFile.pdf"}
-                  className="flex w-full flex-1 flex-col items-center gap-3 text-center"
-                >
-                  <div className="flex aspect-square w-full place-content-center items-center justify-center rounded-3xl bg-white/90 text-8xl shadow-md">
-                    <Image
-                      src={PDFIcon}
-                      alt="Ícono de archivo PDF"
-                      className="w-3/4"
-                    />
-                  </div>
-                  <p className="text-lg font-bold text-cens-medium">Título</p>
+                  <p className="text-lg font-bold text-cens-medium">Felix</p>
                 </a>
               </div>
             </div>

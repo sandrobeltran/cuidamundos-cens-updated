@@ -37,7 +37,7 @@ export default function Jirol() {
                 href={"/jirol/quien"}
                 className="group flex h-full min-h-[100%] w-full flex-col gap-2 rounded-3xl bg-white/80 p-7 text-stone-600 shadow-md transition-all hover:scale-105 hover:bg-cens-light hover:text-white"
               >
-                <h2 className="flex items-center justify-center gap-2 stroke-cens-light text-center text-2xl font-bold text-cens-light transition-colors group-hover:stroke-white group-hover:text-white">
+                <h2 className="flex items-center justify-center gap-2 fill-cens-light stroke-cens-light text-center text-2xl font-bold text-cens-light transition-colors group-hover:fill-cens-light group-hover:stroke-white group-hover:text-white">
                   <QuienIcon />
                   ¿Quién es?
                 </h2>
@@ -52,7 +52,7 @@ export default function Jirol() {
                 href={"/jirol/atiende"}
                 className="group flex h-full min-h-[100%] w-full flex-col gap-2 rounded-3xl bg-white/80 p-7 text-stone-600 shadow-md transition-all hover:scale-105 hover:bg-cens-light hover:text-white"
               >
-                <h2 className="flex items-center justify-center gap-2 stroke-cens-light text-center text-2xl font-bold text-cens-light transition-colors group-hover:stroke-white group-hover:text-white">
+                <h2 className="flex items-center justify-center gap-2 fill-cens-light stroke-cens-light text-center text-2xl font-bold text-cens-light transition-colors group-hover:fill-cens-light group-hover:stroke-white group-hover:text-white">
                   <AtiendeIcon />
                   ¿Qué atiende?
                 </h2>
@@ -67,7 +67,7 @@ export default function Jirol() {
                 href={"/jirol/energias-renovables"}
                 className="group flex h-full min-h-[100%] w-full flex-col gap-2 rounded-3xl bg-white/80 p-7 text-stone-600 shadow-md transition-all hover:scale-105 hover:bg-cens-light hover:text-white"
               >
-                <h2 className="flex items-center justify-center gap-2 stroke-cens-light text-center text-2xl font-bold text-cens-light transition-colors group-hover:stroke-white group-hover:text-white">
+                <h2 className="flex items-center justify-center gap-2 fill-cens-light stroke-cens-light text-center text-2xl font-bold text-cens-light transition-colors group-hover:fill-white group-hover:stroke-white group-hover:text-white">
                   <EnergiasRenovablesIcon />
                   Energías Renovables
                 </h2>
@@ -79,12 +79,12 @@ export default function Jirol() {
             </div>
             <div className="flex h-full min-h-[180px] items-start justify-start">
               <Link
-                href={"/jirol/generacion-energia"}
+                href={"/jirol/fuentes-energia"}
                 className="group flex h-full min-h-[100%] w-full flex-col gap-2 rounded-3xl bg-white/80 p-7 text-stone-600 shadow-md transition-all hover:scale-105 hover:bg-cens-light hover:text-white"
               >
-                <h2 className="flex items-center justify-center gap-2 stroke-cens-light text-center text-2xl font-bold text-cens-light transition-colors group-hover:stroke-white group-hover:text-white">
+                <h2 className="flex items-center justify-center gap-2 fill-cens-light stroke-cens-light text-center text-2xl font-bold text-cens-light transition-colors group-hover:fill-white group-hover:stroke-white group-hover:text-white">
                   <GeneracionEnergiaIcon />
-                  Generación de Energía Eléctrica
+                  Fuentes de Energía
                 </h2>
                 <p className="text-lg">
                   Trivia sobre la generación de energía eléctrica y sus diversas

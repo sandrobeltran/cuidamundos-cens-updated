@@ -1,0 +1,130 @@
+{
+  "title": "Fuentes de Energía",
+  "description": "Descubre y reduce tu impacto en el planeta calculando tu huella ecológica con Purita. ¿Listo para ser un guardián del medio ambiente?",
+  "data": {
+    "questions": [
+      {
+        "id": 1,
+        "title": "¿Cuál de las siguientes fuentes de energía utiliza la fuerza o presión del agua para generar electricidad?",
+        "options": [
+          "Energía térmica",
+          "Energía hidráulica",
+          "Energía eólica",
+          "Energía solar"
+        ],
+        "answer": "Energía hidráulica",
+        "image": "https://jdelectricos.com.co/wp-content/uploads/2021/06/fuentes-renovables.jpg"
+      },
+      {
+        "id": 2,
+        "title": "¿Cómo se genera la energía en una planta termoeléctrica?",
+        "options": [
+          "Utilizando la fuerza del viento",
+          "A través del movimiento de las aspas",
+          "Calentando agua para producir vapor",
+          "Capturando la radiación solar con paneles fotovoltaicos"
+        ],
+        "answer": "Calentando agua para producir vapor",
+        "image": "https://2.bp.blogspot.com/_nufqsEkAHTc/SdA1U01Yy5I/AAAAAAAAABw/snE7HQcXinA/w1200-h630-p-k-no-nu/gases+efecto+invernadero.bmp"
+      },
+      {
+        "id": 3,
+        "title": "¿Cuál de las siguientes afirmaciones es cierta sobre la generación de energía eólica?",
+        "options": [
+          "Se utiliza una olla a presión para generar vapor",
+          "Las turbinas son impulsadas por el movimiento del agua",
+          "La energía del viento hace girar las aspas para generar electricidad",
+          "Se emplean paneles fotovoltaicos para capturar la radiación solar"
+        ],
+        "answer": "La energía del viento hace girar las aspas para generar electricidad",
+        "image": "https://i0.wp.com/www.azpirilejardi.com/wp-content/uploads/2014/11/bombillas-bajo-consumo-led1.jpg"
+      },
+      {
+        "id": 4,
+        "title": "¿Qué dispositivo se utiliza para producir energía eléctrica a partir de la radiación solar?",
+        "options": [
+          "Generador termoeléctrico",
+          "Molino de viento",
+          "Paneles fotovoltaicos",
+          "Caldera a presión"
+        ],
+        "answer": "Paneles fotovoltaicos",
+        "image": "https://www.amoquimicos.com/images/Noticias_2021//quimicos-contaminantes-para-fuentes-hidricas1.jpg"
+      },
+      {
+        "id": 5,
+        "title": "¡Están volando alto con su conocimiento! En la generación hidroeléctrica, ¿qué estructura obstruye el paso del agua y crea un embalse?",
+        "options": ["Aerogenerador", "Presa", "Caldera", "Generador eólico"],
+        "answer": "Presa",
+        "image": "https://lamamapachama.files.wordpress.com/2015/02/carbon_8547.jpg"
+      },
+      {
+        "id": 6,
+        "title": "¿Qué función tienen los transformadores en el proceso de generación de energía eléctrica?",
+        "options": [
+          "Modificar la cantidad de tensión para el transporte",
+          "Generar vapor para mover las turbinas",
+          "Transformar la radiación solar en corriente continua",
+          "Controlan la caja de control para evitar sobrecalentamientos"
+        ],
+        "answer": "Modificar la cantidad de tensión para el transporte",
+        "image": "https://www.shutterstock.com/image-vector/methane-ch4-molecule-model-chemical-600w-1213786645.jpg"
+      },
+      {
+        "id": 7,
+        "title": "¿Qué combustibles se utilizan para calentar el agua y generar vapor en la caldera?",
+        "options": [
+          "Carbón, gas y petróleo",
+          "Agua y viento",
+          "Luz solar y aire",
+          "Aceite y madera"
+        ],
+        "answer": "Carbón, gas y petróleo",
+        "image": "https://cdn0.ecologiaverde.com/es/posts/6/6/0/cuales_son_los_beneficios_de_reciclar_66_orig.jpg"
+      },
+      {
+        "id": 8,
+        "title": "¿Cómo se llama el dispositivo que contiene placas para capturar la radiación solar y convertirla en energía eléctrica?",
+        "options": [
+          "Hidrogenerador",
+          "Aerogenerador",
+          "Paneles fotovoltaicos",
+          "Generador termoeléctrico"
+        ],
+        "answer": "Paneles fotovoltaicos",
+        "image": "https://www.researchgate.net/profile/Juan-Rocha-Hoyos/publication/321295360/figure/fig20/AS:564662639251467@1511637472667/Figura-2-Porcentaje-gases-que-conforma-el-aire-Fuente-Autor.png"
+      },
+      {
+        "id": 9,
+        "title": "¡Están en llamas con estas respuestas! En la generación de energía eólica, ¿qué hace girar las turbinas para producir electricidad?",
+        "options": [
+          "Fuerza del agua",
+          "Energía térmica",
+          "Movimiento del viento",
+          "Presión del vapor"
+        ],
+        "answer": "Movimiento del viento",
+        "image": "https://www.researchgate.net/profile/Juan-Rocha-Hoyos/publication/321295360/figure/fig20/AS:564662639251467@1511637472667/Figura-2-Porcentaje-gases-que-conforma-el-aire-Fuente-Autor.png"
+      },
+      {
+        "id": 10,
+        "title": "¡Casi hemos desbloqueado todo el conocimiento! ¿Qué función tienen las compuertas en una planta hidroeléctrica?",
+        "options": [
+          "Generar vapor",
+          "Bloquear el paso del agua",
+          "Capturar la radiación solar",
+          "Regular la presión del vapor"
+        ],
+        "answer": "Bloquear el paso del agua",
+        "image": "https://www.researchgate.net/profile/Juan-Rocha-Hoyos/publication/321295360/figure/fig20/AS:564662639251467@1511637472667/Figura-2-Porcentaje-gases-que-conforma-el-aire-Fuente-Autor.png"
+      }
+    ],
+    "timeLimit": 180
+  },
+  "cover": "generacion-energia.jpg",
+  "active": true,
+  "href": "/jirol/fuentes-energia",
+  "points": 25,
+  "type": "trivia",
+  "winners": []
+}

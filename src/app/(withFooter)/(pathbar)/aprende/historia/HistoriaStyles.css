@@ -1,0 +1,46 @@
+.storm-cloud {
+  position: absolute;
+  /* width: 100px; */
+  /* left: 100%; */
+  animation: cloudMovement linear infinite;
+}
+
+@keyframes cloudMovement {
+  0% {
+    opacity: 0;
+    transform: translateX(0vw);
+  }
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-70vw);
+  }
+}
+
+.autumn-tree{
+  animation: autumnTree 3s ease infinite;
+}
+
+@keyframes autumnTree {
+  0%{
+    transform: rotateZ(0deg);
+  }
+  25%{
+    transform: rotateZ(-2deg);
+  }
+  50%{
+    transform: rotateZ(0deg);
+  }
+  75%{
+    transform: rotateZ(2deg);
+  }
+  100%{
+    transform: rotateZ(0deg);
+  }
+}

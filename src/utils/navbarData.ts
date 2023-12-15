@@ -44,8 +44,8 @@ export const navbarData: INavbarProps[] = [
         title: "Energías Renovables",
       },
       {
-        href: "/jirol/generacion-energia",
-        title: "Energía Eléctrica",
+        href: "/jirol/fuentes-energia",
+        title: "Fuentes de Energía",
       },
       {
         href: "/purita/huella-ecologica",

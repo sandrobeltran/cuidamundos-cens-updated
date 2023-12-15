@@ -24,8 +24,8 @@ export default function EnergiasRenovablesTrivia() {
     <CustomMain>
       <GamesHero
         title={{
-          text: "Aprende y",
-          resalted: "Transforma",
+          text: "Energías",
+          resalted: "Renovables",
         }}
         description="Descubre las energías renovables, no renovables y formas de generar electricidad. Conviértete en un Héroe de las fuentes de energía, aprueba la trivia y obtén tu certificación."
       />

@@ -12,12 +12,12 @@ const TestHeader = () => {
   const { results, questions, stage } = useHuellaEcologica();
 
   return (
-    <div className="relative z-10 flex h-16 mobile-land:h-10 w-full items-center justify-between bg-cens-brand px-6 text-white shadow-md">
+    <div className="relative z-10 flex h-16 w-full items-center justify-between bg-cens-brand px-6 text-white shadow-md mobile-land:h-10">
       {stage === 1 ? (
         <>
           {/* USER BADGE */}
           {user ? (
-            <div className="absolute left-6 mobile-land:h-24 top-full flex h-28 w-12 items-end justify-center rounded-b-3xl bg-cens-brand p-1 shadow-[inset_0_5px_5px_#0003]">
+            <div className="absolute left-6 top-full flex h-28 w-12 items-end justify-center rounded-b-3xl bg-cens-brand p-1 shadow-[inset_0_5px_5px_#0003] mobile-land:h-24">
               <Image
                 src={user!.avatar}
                 alt="Avatar del usuario"
@@ -30,9 +30,7 @@ const TestHeader = () => {
           ) : null}
           <h6>{`${results.length + 1}/${questions.length}`}</h6>
           {/* div */}
-          <button>
-            <SpeakerWaveIcon className="h-6" />
-          </button>
+          <span>{/* <SpeakerWaveIcon className="h-6" /> */}</span>
         </>
       ) : null}
     </div>

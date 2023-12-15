@@ -51,8 +51,8 @@ export default function AtiendeJirol() {
           }}
           description="Descubre las fuentes de energía renovable y aprende sobre la transmisión, distribución y comercialización de la energía eléctrica. ¡Desliza los íconos y conviértete en un héroe estratégico!"
         />
-        <div className="flex w-full justify-center px-28 mobile-land:px-16">
-          <div className="pr aspect-[16/9] w-full max-w-5xl overflow-hidden rounded-3xl bg-white/80 shadow-md backdrop-blur-md">
+        <div className="flex w-full flex-col items-center gap-12 px-28 mobile-land:px-16">
+          <div className="aspect-[16/9] w-full max-w-5xl overflow-hidden rounded-3xl bg-white/80 shadow-md backdrop-blur-md">
             <Swiper
               direction="vertical"
               className="h-full w-full !pr-24"
@@ -64,7 +64,7 @@ export default function AtiendeJirol() {
                   <h3 className="text-3xl font-medium text-stone-500 mobile-land:text-2xl">
                     Poderes <span className="text-cens-medium">Renovables</span>
                   </h3>
-                  <p className="max-w-2xl mobile-land:max-w-sm text-xl text-stone-500 mobile-land:text-sm">
+                  <p className="max-w-2xl text-xl text-stone-500 mobile-land:max-w-sm mobile-land:text-sm">
                     ¡Hola, soy Jirol! ¡Acompáñame para explorar juntos las
                     fuentes de energía renovable! ¿Listos para descubrir cómo se
                     genera la energía eléctrica? ¡Vamos a explorar cuatro
@@ -81,7 +81,7 @@ export default function AtiendeJirol() {
               {SLIDER_DATA.map((item) => (
                 <SwiperSlide className="" key={item.index}>
                   <div className="flex h-full w-full flex-col items-center justify-center gap-4 p-10 px-40 text-center mobile-land:px-16">
-                    <h3 className="text-3xl mobile-land:text-2xl font-medium text-stone-500">
+                    <h3 className="text-3xl font-medium text-stone-500 mobile-land:text-2xl">
                       Energía{" "}
                       <span className="text-cens-medium">
                         {item.name.toLowerCase()}
@@ -102,6 +102,16 @@ export default function AtiendeJirol() {
               ))}
             </Swiper>
           </div>
+          <h4 className="text-3xl font-bold text-stone-700">
+            Procesos de Generación{" "}
+            <span className="text-cens-brand">de Energía</span>
+          </h4>
+          {/* VIDEOS SECTION */}
+          {/* <div className="grid w-full max-w-5xl grid-cols-[repeat(2,_minmax(300px,_500px))] items-start gap-16 bg-red-300">
+            <div className="flex-col gap-3 rounded-3xl bg-white p-3 shadow-md">
+              <Image src={} />
+            </div>
+          </div> */}
         </div>
       </HeroeSection>
     </CustomMain>

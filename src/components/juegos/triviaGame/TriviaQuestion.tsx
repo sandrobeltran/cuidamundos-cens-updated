@@ -4,13 +4,15 @@ import { SwiperSlide, useSwiper } from "swiper/react";
 import QuestionHeader from "./QuestionHeader";
 import OptionCard from "./OptionCard";
 import { useUsoEficiente } from "@/store/useUsoEficiente";
+import { StaticImageData } from "next/image";
 
 type TProps = {
   question: TTriviaQuestion;
   index: number;
+  cover: StaticImageData;
 };
 
-const TriviaQuestion = ({ question, index }: TProps) => {
+const TriviaQuestion = ({ question, index, cover }: TProps) => {
   const swiper = useSwiper();
 
   const { addResult, questions, setPlaying, setStage } = useUsoEficiente();
@@ -44,10 +46,10 @@ const TriviaQuestion = ({ question, index }: TProps) => {
   }
 
   return (
-    <div className="max-sm:mt-4 relative flex h-fit flex-col items-center gap-4 mobile-land:gap-2 rounded-3xl p-6">
+    <div className="relative flex h-fit flex-col items-center gap-4 rounded-3xl p-6 mobile-land:gap-2 max-sm:mt-4">
       {/* HEADER */}
-      <QuestionHeader image="/img/clicker_game.jpg" title={question.title} />
-      <div className="h-1.5 mobile-land:h-1 w-full rounded-3xl bg-cens-brand" />
+      <QuestionHeader image={cover} title={question.title} />
+      <div className="h-1.5 w-full rounded-3xl bg-cens-brand mobile-land:h-1" />
       {/* OPTIONS / BODY */}
       <div className="flex w-full flex-wrap items-stretch justify-center gap-[20px_32px] mobile-land:gap-[12px_18px]">
         {mixedOptions.map((option) => (

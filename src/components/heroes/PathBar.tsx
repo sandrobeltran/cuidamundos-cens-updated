@@ -22,7 +22,7 @@ const names = {
   "uso-eficiente": "Uso Eficiente",
   "huella-ecologica": "Huella Ecológica",
   "riesgo-electrico": "Riesgo Eléctrico",
-  "generacion-energia": "Energía Eléctrica",
+  "fuentes-energia": "Fuentes de Energía",
   "energias-renovables": "Energías Renovables",
 };
 
@@ -39,12 +39,12 @@ const PathBar = () => {
   ];
 
   return (
-    <nav className="mobile-land:top-16 mobile-land:h-12 mobile-land:px-6 fixed left-0 top-20 z-40 h-16 w-full px-16 mobile-land:absolute">
+    <nav className="fixed left-0 top-20 z-40 h-16 w-full px-16 mobile-land:absolute mobile-land:top-16 mobile-land:h-12 mobile-land:px-6">
       <div className="flex h-full w-full items-center justify-between bg-cyan-950/70 px-6 backdrop-blur-md">
         {/* ROUTE */}
-        <ul className="mobile-land:gap-2 mobile-land:text-lg flex items-center justify-start gap-4 text-2xl text-white">
+        <ul className="flex items-center justify-start gap-4 text-2xl text-white mobile-land:gap-2 mobile-land:text-lg">
           {routesHistory.map((route, index) => (
-            <div key={index} className="mobile-land:gap-2 flex gap-4">
+            <div key={index} className="flex gap-4 mobile-land:gap-2">
               {index === routesHistory.length - 1 ? (
                 <p>{route.name}</p>
               ) : (
@@ -58,7 +58,7 @@ const PathBar = () => {
               {index < routesHistory.length - 1 ? (
                 <Image
                   src={HeroesArrowImage}
-                  className="mobile-land:w-12 w-20"
+                  className="w-20 mobile-land:w-12"
                   alt="Flecha hacia la derecha"
                 />
               ) : null}

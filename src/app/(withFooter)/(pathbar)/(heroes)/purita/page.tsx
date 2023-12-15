@@ -9,6 +9,7 @@ import PuritaActionImage from "@public/img/purita/action.png";
 import PuritaBadgetImage from "@public/img/purita/badget.png";
 import Image from "next/image";
 import Link from "next/link";
+import DandelionImage from "@public/img/purita/dandelion.svg";
 
 export default function Purita() {
   return (
@@ -24,12 +25,51 @@ export default function Purita() {
         <div className="flex flex-col text-center">
           {/* FIRST ROW */}
           <div className="grid h-fit w-full grid-cols-8 grid-rows-3 border-2 border-purita">
-            <div className="col-span-2 row-span-3 bg-purita">
+            <div className="relative col-span-2 row-span-3 bg-purita">
               <Image
                 src={PuritaActionImage}
                 alt="Imagen de Purita"
                 className="h-full w-full object-contain object-center"
               />
+
+              {/* DANDELIONS */}
+              <div className="absolute left-0 top-0 h-full w-full overflow-hidden">
+                <Image
+                  src={DandelionImage}
+                  alt="Imagen de diente de león"
+                  className="dandelion absolute bottom-full right-0 w-12"
+                />
+                <Image
+                  src={DandelionImage}
+                  alt="Imagen de diente de león"
+                  className="dandelion delayed absolute bottom-32 right-32 w-12"
+                />
+                <Image
+                  src={DandelionImage}
+                  alt="Imagen de diente de león"
+                  className="dandelion absolute bottom-3/4 right-16 w-12"
+                />
+                <Image
+                  src={DandelionImage}
+                  alt="Imagen de diente de león"
+                  className="dandelion delayed absolute bottom-full right-3/4 w-12"
+                />
+                <Image
+                  src={DandelionImage}
+                  alt="Imagen de diente de león"
+                  className="dandelion absolute bottom-1/2 left-full w-12"
+                />
+                <Image
+                  src={DandelionImage}
+                  alt="Imagen de diente de león"
+                  className="dandelion delayed absolute left-full top-32 w-12"
+                />
+                <Image
+                  src={DandelionImage}
+                  alt="Imagen de diente de león"
+                  className="dandelion delayed absolute bottom-44 left-full w-12"
+                />
+              </div>
             </div>
             <div className="col-span-6 row-span-1 flex items-center justify-center border-b-2 border-inherit bg-transparent text-4xl uppercase ">
               <h4 className="font-bold leading-none tracking-[20px] text-purita">
@@ -87,7 +127,7 @@ export default function Purita() {
               <Image
                 src={PuritaBadgetImage}
                 alt="Placa de Purita"
-                className="h-full w-full object-contain object-center drop-shadow-[0_5px_12px_#fff8]"
+                className="h-full w-full animate-[badgetShine_1s_ease-in-out_infinite_alternate] object-contain object-center"
               />
             </div>
             <Link

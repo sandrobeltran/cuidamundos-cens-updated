@@ -3,16 +3,17 @@
 import React, { useEffect } from "react";
 import { useUsoEficiente } from "@/store/useUsoEficiente";
 import { useUserStore } from "@/store/useUserStore";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import dynamic from "next/dynamic";
 import TriviaQuestion from "./TriviaQuestion";
 import TriviaHeader from "./TriviaHeader";
 import GuestUser from "../../juega/GuestUser";
 import { ITrivia } from "@/utils/customTypes";
-import SpinLoader from "../../SpinLoader";
 import TimeRunOutModal from "./TimeRunOutModal";
 import { usePathname } from "next/navigation";
+import FelixImage from "@public/img/felix/atiende/felix_1.png";
+import JirolImage from "@public/img/hero_capitan.png";
 
 type TProps = {
   trivia: ITrivia | undefined;
@@ -27,7 +28,8 @@ const TriviaContainer = ({ trivia, mainScreen, resultScreen }: TProps) => {
     useUsoEficiente((state) => state);
 
   useEffect(() => {
-    if (trivia && user) {
+    if (trivia) {
+      // console.log("init")
       initializeTrivia(
         trivia.data.questions,
         trivia.winners.includes(user?._id as string),
@@ -40,6 +42,8 @@ const TriviaContainer = ({ trivia, mainScreen, resultScreen }: TProps) => {
     resetTrivia();
   }, [pathname, resetTrivia]);
 
+  const hero = trivia?.href.includes("felix") ? "felix" : "jirol";
+
   return (
     <div className="flex justify-center">
       <div className="relative h-fit max-w-5xl overflow-hidden rounded-3xl border border-stone-300 bg-white/80 shadow-md mobile-land:max-w-full">
@@ -51,7 +55,11 @@ const TriviaContainer = ({ trivia, mainScreen, resultScreen }: TProps) => {
           {trivia
             ? trivia.data.questions.map((question, index) => (
                 <SwiperSlide key={question.id}>
-                  <TriviaQuestion question={question} index={index} />
+                  <TriviaQuestion
+                    cover={hero === "felix" ? FelixImage : JirolImage}
+                    question={question}
+                    index={index}
+                  />
                 </SwiperSlide>
               ))
             : null}
