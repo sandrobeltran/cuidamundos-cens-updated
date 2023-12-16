@@ -7,102 +7,106 @@
         "id": 1,
         "title": "¿Cómo puedes ahorrar energía al iluminar tu hogar?",
         "options": [
-          "Dejar las luces encendidas todo el tiempo",
-          "Reemplazar bombillos incandescentes por LED o CFL",
-          "Utilizar bombillas incandescentes exclusivamente"
+          "Dejar las luces encendidas todo el tiempo.",
+          "Reemplazar bombillos incandescentes por LED o CFL.",
+          "Utilizar bombillas incandescentes exclusivamente."
         ],
-        "answer": "Reemplazar bombillos incandescentes por LED o CFL",
+        "answer": "Reemplazar bombillos incandescentes por LED o CFL.",
         "image": "https://jdelectricos.com.co/wp-content/uploads/2021/06/fuentes-renovables.jpg"
       },
       {
         "id": 2,
         "title": "¿Cuál es el consumo promedio de una bombilla LED?",
-        "options": ["0,35 kilovatios", "0,007 kilovatios", "0,075 kilovatios"],
-        "answer": "0,007 kilovatios",
+        "options": [
+          "0,35 kilovatios.",
+          "0,007 kilovatios.",
+          "0,075 kilovatios."
+        ],
+        "answer": "0,007 kilovatios.",
         "image": "https://2.bp.blogspot.com/_nufqsEkAHTc/SdA1U01Yy5I/AAAAAAAAABw/snE7HQcXinA/w1200-h630-p-k-no-nu/gases+efecto+invernadero.bmp"
       },
       {
         "id": 3,
         "title": "¿Cómo puedes reducir el consumo de energía al utilizar una licuadora?",
         "options": [
-          "Dejarla en funcionamiento sin motivo",
-          "Apagarla tan pronto como termines de licuar",
-          "Utilizarla siempre que puedas"
+          "Dejarla en funcionamiento sin motivo.",
+          "Apagarla tan pronto como termines de licuar.",
+          "Utilizarla siempre que puedas."
         ],
-        "answer": "Apagarla tan pronto como termines de licuar",
+        "answer": "Apagarla tan pronto como termines de licuar.",
         "image": "https://i0.wp.com/www.azpirilejardi.com/wp-content/uploads/2014/11/bombillas-bajo-consumo-led1.jpg"
       },
       {
         "id": 4,
         "title": "¿Cómo puedes ahorrar energía al utilizar un televisor?",
         "options": [
-          "Mantenerlo encendido todo el tiempo",
-          "Ajustar el brillo y contraste",
-          "No apagarlo cuando no lo estés viendo"
+          "Mantenerlo encendido todo el tiempo.",
+          "Ajustar el brillo y contraste.",
+          "No apagarlo cuando no lo estés viendo."
         ],
-        "answer": "Ajustar el brillo y contraste",
+        "answer": "Ajustar el brillo y contraste.",
         "image": "https://www.amoquimicos.com/images/Noticias_2021//quimicos-contaminantes-para-fuentes-hidricas1.jpg"
       },
       {
         "id": 5,
         "title": "¿Cuál es la recomendación para ahorrar energía al usar un aire acondicionado?",
         "options": [
-          "Mantener puertas y ventanas abiertas",
-          "Ajustar la temperatura a un nivel muy bajo",
-          "Mantener puertas y ventanas cerradas y programar su funcionamiento en horarios específicos"
+          "Mantener puertas y ventanas abiertas.",
+          "Ajustar la temperatura a un nivel muy bajo.",
+          "Mantener puertas y ventanas cerradas y programar su funcionamiento en horarios específicos."
         ],
-        "answer": "Mantener puertas y ventanas cerradas y programar su funcionamiento en horarios específicos",
+        "answer": "Mantener puertas y ventanas cerradas y programar su funcionamiento en horarios específicos.",
         "image": "https://lamamapachama.files.wordpress.com/2015/02/carbon_8547.jpg"
       },
       {
         "id": 6,
         "title": "¿Cómo puedes ahorrar energía al utilizar una nevera?",
         "options": [
-          "Abrir la puerta innecesariamente",
-          "Colocar la nevera en un lugar caliente y soleado",
-          "No apagarla a menos que no la uses por más de 10 días y ajustar la temperatura adecuadamente"
+          "Abrir la puerta innecesariamente.",
+          "Colocar la nevera en un lugar caliente y soleado.",
+          "No apagarla a menos que no la uses por más de 10 días y ajustar la temperatura adecuadamente."
         ],
-        "answer": "No apagarla a menos que no la uses por más de 10 días y ajustar la temperatura adecuadamente",
+        "answer": "No apagarla a menos que no la uses por más de 10 días y ajustar la temperatura adecuadamente.",
         "image": "https://www.shutterstock.com/image-vector/methane-ch4-molecule-model-chemical-600w-1213786645.jpg"
       },
       {
         "id": 7,
         "title": "¿Cuál es la recomendación para ahorrar energía al utilizar un ventilador?",
         "options": [
-          "Mantenerlo encendido todo el tiempo",
-          "Apagarlo cuando no lo necesites y ajustar la velocidad",
-          "Utilizarlo para secar la ropa"
+          "Mantenerlo encendido todo el tiempo.",
+          "Apagarlo cuando no lo necesites y ajustar la velocidad.",
+          "Utilizarlo para secar la ropa."
         ],
-        "answer": "Apagarlo cuando no lo necesites y ajustar la velocidad",
+        "answer": "Apagarlo cuando no lo necesites y ajustar la velocidad.",
         "image": "https://cdn0.ecologiaverde.com/es/posts/6/6/0/cuales_son_los_beneficios_de_reciclar_66_orig.jpg"
       },
       {
         "id": 8,
         "title": "¿Cuál es el consumo promedio de una bombilla incandescente?",
-        "options": ["0,007 kilovatios", "0,1 kilovatios", "1,2 kilovatios"],
-        "answer": "0,1 kilovatios",
+        "options": ["0,007 kilovatios.", "0,1 kilovatios.", "1,2 kilovatios."],
+        "answer": "0,1 kilovatios.",
         "image": "https://www.researchgate.net/profile/Juan-Rocha-Hoyos/publication/321295360/figure/fig20/AS:564662639251467@1511637472667/Figura-2-Porcentaje-gases-que-conforma-el-aire-Fuente-Autor.png"
       },
       {
         "id": 9,
         "title": "¿Cómo puedes maximizar el ahorro de energía al utilizar un ventilador?",
         "options": [
-          "Ajustar la velocidad para un consumo aún menor y realizar mantenimiento periódico",
-          "Mantenerlo encendido durante todo el día",
-          "Utilizarlo para secar la ropa y otros materiales"
+          "Ajustar la velocidad para un consumo aún menor y realizar mantenimiento periódico.",
+          "Mantenerlo encendido durante todo el día.",
+          "Utilizarlo para secar la ropa y otros materiales."
         ],
-        "answer": "Ajustar la velocidad para un consumo aún menor y realizar mantenimiento periódico",
+        "answer": "Ajustar la velocidad para un consumo aún menor y realizar mantenimiento periódico.",
         "image": "https://www.endesa.com/content/dam/endesa-com/endesaclientes/blog/imagees/C%C3%B3mo%20se%20produce%20la%20energ%C3%ADa%20el%C3%A9ctrica%20Energia%20solar%20628x335.jpg"
       },
       {
         "id": 10,
         "title": "¿Cuál es la recomendación para ahorrar energía al utilizar una lámpara fluorescente compacta (CFL)? ",
         "options": [
-          "Reemplazarlas por bombillas incandescentes",
-          "Utilizarlas solo en horarios específicos",
-          "Asegurarse de apagar las luces cuando no se necesiten y utilizar CFL en lugar de bombillas incandescentes"
+          "Reemplazarlas por bombillas incandescentes.",
+          "Utilizarlas solo en horarios específicos.",
+          "Asegurarse de apagar las luces cuando no se necesiten y utilizar CFL en lugar de bombillas incandescentes."
         ],
-        "answer": "Asegurarse de apagar las luces cuando no se necesiten y utilizar CFL en lugar de bombillas incandescentes",
+        "answer": "Asegurarse de apagar las luces cuando no se necesiten y utilizar CFL en lugar de bombillas incandescentes.",
         "image": "https://www.renovablesverdes.com/wp-content/uploads/2018/09/Energias-no-renovables.jpg"
       }
     ],

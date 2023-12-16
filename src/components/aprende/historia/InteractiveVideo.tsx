@@ -17,6 +17,7 @@ import Page3 from "./Page3";
 import Page4 from "./Page4";
 import Page5 from "./Page5";
 import Page6 from "./Page6";
+import Page7 from "./Page7";
 
 export const AnimationContext = createContext<{
   state: {
@@ -65,6 +66,9 @@ const InteractiveVideo = () => {
             </SwiperSlide>
             <SwiperSlide>
               <Page6 />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Page7 />
             </SwiperSlide>
             {/* NAVIGATION BAR */}
             <AnimationControls />

@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useCallback, useEffect, useRef } from "react";
-import SkyBackgroundImage from "../../../public/img/hero_sky.jpg";
-import Image from "next/image";
 
 const SkyBackground = () => {
   const skyRef = useRef<HTMLDivElement>(null);

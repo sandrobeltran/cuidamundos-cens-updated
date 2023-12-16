@@ -10,12 +10,15 @@ const LeavesFalling = () => {
     purita: 90,
     felix: 310,
     jirol: 0,
+    ignis: 190,
   };
 
   const currentHue = pathname.includes("/purita")
     ? HEROES_HUE.purita
     : pathname.includes("/felix")
     ? HEROES_HUE.felix
+    : pathname.includes("/aprende")
+    ? HEROES_HUE.ignis
     : HEROES_HUE.jirol;
 
   return (

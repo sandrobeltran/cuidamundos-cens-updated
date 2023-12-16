@@ -14,7 +14,7 @@ const names = {
   atiende: "¿Qué atiende?",
   poderes: "Poderes",
   felix: "Félix",
-  aprende: "Aprende",
+  aprende: "Ignis",
   jirol: "Jirol",
   juega: "Juega",
   historia: "Historia",

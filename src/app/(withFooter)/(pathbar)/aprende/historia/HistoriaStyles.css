@@ -23,24 +23,110 @@
   }
 }
 
-.autumn-tree{
+.autumn-tree {
   animation: autumnTree 3s ease infinite;
 }
 
 @keyframes autumnTree {
-  0%{
+  0% {
     transform: rotateZ(0deg);
   }
-  25%{
+  25% {
     transform: rotateZ(-2deg);
   }
-  50%{
+  50% {
     transform: rotateZ(0deg);
   }
-  75%{
+  75% {
     transform: rotateZ(2deg);
   }
-  100%{
+  100% {
     transform: rotateZ(0deg);
+  }
+}
+
+.dalia {
+  animation: dalia 6s infinite ease-in-out;
+}
+
+@keyframes dalia {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  10% {
+    transform: translate(-10px, 10px);
+  }
+  20% {
+    transform: translate(40px, 10px);
+  }
+  40% {
+    transform: translate(-35px, -8px);
+  }
+  50% {
+    transform: translate(0px, 0px);
+  }
+  /* STAND BY */
+  100% {
+  }
+}
+
+.progressBar .bar {
+  animation: progressBar 6s infinite ease-in-out;
+}
+
+.progressBar > svg:nth-child(2) {
+  animation: toggleVisibility 6s infinite ease-in-out;
+}
+.progressBar > svg:nth-child(3) {
+  animation: toggleVisibility 6s infinite ease-in-out;
+  animation-delay: 3s;
+}
+
+@keyframes toggleVisibility {
+  0% {
+    display: flex;
+  }
+  50% {
+    display: none;
+  }
+  100% {
+    display: none;
+  }
+}
+
+@keyframes progressBar {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.bird {
+  position: absolute;
+  animation: bird linear infinite;
+  object-position: 0 30px;
+  object-fit: contain;
+}
+
+@keyframes bird {
+  0% {
+    opacity: 0;
+    transform: translateX(0vw);
+  }
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100vw);
   }
 }

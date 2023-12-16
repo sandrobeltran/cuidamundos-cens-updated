@@ -7,37 +7,37 @@ const CALCULATOR_DATA = [
   {
     name: "TV",
     w: 75,
-    days: 31,
+    days: 30,
   },
   {
     name: "Nevera",
     w: 300,
-    days: 31,
+    days: 30,
   },
   {
     name: "Ventilador",
     w: 80,
-    days: 31,
+    days: 30,
   },
   {
     name: "Plancha",
     w: 1000,
-    days: 31,
+    days: 30,
   },
   {
     name: "Computador",
     w: 250,
-    days: 31,
+    days: 30,
   },
   {
     name: "Aire acondicionado",
     w: 1200,
-    days: 31,
+    days: 30,
   },
   {
     name: "Equipo de Sonido",
     w: 100,
-    days: 31,
+    days: 30,
   },
 ];
 
@@ -53,7 +53,7 @@ const Calculator = ({ set }: TProps) => {
   function handleChangeValue(hours: number, name: string) {
     if (!hours) return;
 
-    const days = 31;
+    const days = 30;
     const index = kws.findIndex((e) => e.name === name);
     const kw =
       hours * days * (CALCULATOR_DATA.find((e) => e.name === name)!.w / 1000);
@@ -68,10 +68,12 @@ const Calculator = ({ set }: TProps) => {
   }
 
   function handleNext() {
-    if (kws.length < 7) {
+    /* VALIDATE AT LEAST ONE FIELD ARE FILLED */
+    if (kws.length < 1) {
       toast.error("Ingresa el número de horas que usas cada equipo");
       return;
     }
+
     const { kw } = kws.reduce((a, b) => ({ ...a, kw: a.kw + b.kw }));
     set({ kw });
     swiper.slideNext();
@@ -80,6 +82,8 @@ const Calculator = ({ set }: TProps) => {
       .getElementById("devicesTable")
       ?.querySelectorAll("input")
       .forEach((e) => (e.value = ""));
+
+    kws.length = 0;
   }
 
   return (
@@ -94,7 +98,7 @@ const Calculator = ({ set }: TProps) => {
         <div className="grid w-full grid-cols-6 rounded-3xl bg-cens-medium px-6 py-7 text-white">
           <h6 className="col-span-2">EQUIPO</h6>
           <h6 className="w-full">W</h6>
-          <h6 className="w-full">KW</h6>
+          <h6 className="w-full">kW</h6>
           <h6 className="w-full">HORAS</h6>
           <h6 className="w-full">DÍAS</h6>
         </div>

@@ -2,9 +2,14 @@ import React, { useContext, useEffect, useRef } from "react";
 import { AnimationContext } from "./InteractiveVideo";
 import DaliaImage from "@public/img/aprende/dalia-hero.png";
 import Image from "next/image";
-import TreeImage1 from "@public/img/aprende/historia/tree-1.png";
-import TreeImage2 from "@public/img/aprende/historia/tree-2.png";
-import TreeImage3 from "@public/img/aprende/historia/tree-3.png";
+import BottomDeskImage from "@public/img/aprende/historia/bottom-desk.svg";
+import TopDeskImage from "@public/img/aprende/historia/top-desk.svg";
+import {
+  PauseIcon,
+  PlayIcon,
+  SpeakerWaveIcon,
+  StopIcon,
+} from "@heroicons/react/24/solid";
 
 const Page5 = () => {
   const {
@@ -33,9 +38,43 @@ const Page5 = () => {
             electricidad. ¡Vamos a descubrir dos ideas clave!
           </p>
         </div>
+
+        {/* DALIA IMAGE */}
+        <div className="absolute bottom-32 left-0 right-0 mx-auto h-[44%] w-[43%] overflow-hidden bg-red-500/30">
+          <Image
+            src={DaliaImage}
+            alt="Imagen de Dalia"
+            className="dalia absolute bottom-0 left-0 right-0 top-0 mx-auto w-40 object-cover object-top"
+          />
+
+          {/* MEDIA CONTROLS */}
+          <div className="progressBar absolute bottom-0 flex w-full items-center gap-1 px-6 pb-2 text-white">
+            <StopIcon className="h-7" />
+            <PauseIcon className="h-7" />
+            <PlayIcon className="h-7" />
+            {/* PROGRESS BAR */}
+            <div className="relative h-2 flex-1 overflow-hidden rounded-s-full bg-stone-500">
+              <span className="bar absolute left-0 top-0 h-full w-1/2 bg-white"></span>
+            </div>
+            <SpeakerWaveIcon className="h-7" />
+            <div className="relative h-2 w-10 rounded-e-full bg-stone-500" />
+          </div>
+        </div>
+
+        <Image
+          src={BottomDeskImage}
+          alt="Imagen inferior de la mesa"
+          className="absolute bottom-0 left-0 right-0 z-10 mx-auto w-3/4"
+        />
       </div>
       {/* BACKGROUND */}
-      <div className="absolute left-0 top-0 z-0 h-full w-full"></div>
+      <div className="absolute left-0 top-0 z-0 h-full w-full">
+        <Image
+          src={TopDeskImage}
+          alt="Imagen inferior de la mesa"
+          className="absolute bottom-32 left-0 right-0 mx-auto w-3/4"
+        />
+      </div>
     </div>
   );
 };

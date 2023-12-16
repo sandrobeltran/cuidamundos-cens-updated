@@ -4,14 +4,13 @@ import { useSwiper } from "swiper/react";
 
 const formatter = new Intl.NumberFormat("es-CO", {
   style: "decimal",
-  maximumFractionDigits: 0,
+  maximumFractionDigits: 2,
 });
 
 const PercentCirle = ({ kw }: { kw: number }) => {
-
   return (
     <div
-      className="flex aspect-square w-40 flex-col items-center justify-center gap-0 rounded-full border-[12px] p-5 max-sm:w-52 max-sm:border-[18px]"
+      className="flex aspect-square flex-col items-center justify-center gap-0 rounded-full border-[12px] p-5 max-sm:w-52 max-sm:border-[18px]"
       style={{
         borderColor: `#D4E13D`,
       }}
@@ -30,7 +29,7 @@ const Result = ({ kw }: TProps) => {
   const swiper = useSwiper();
 
   return (
-    <div className="relative flex h-fit w-full flex-col items-center gap-10 overflow-hidden rounded-3xl bg-white/80 p-10 shadow-md pt-24 text-center text-lg text-stone-500 backdrop-blur-md after:absolute after:left-0 after:top-0 after:h-16 after:w-full after:bg-cens-brand">
+    <div className="relative flex h-fit w-full flex-col items-center gap-10 overflow-hidden rounded-3xl bg-white/80 p-10 pt-24 text-center text-lg text-stone-500 shadow-md backdrop-blur-md after:absolute after:left-0 after:top-0 after:h-16 after:w-full after:bg-cens-brand">
       <div className="flex max-w-xl flex-col items-center gap-10 pt-10">
         <div className="flex flex-col items-center gap-2 text-center">
           <h3 className="text-3xl font-bold">

@@ -8,6 +8,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Image from "next/image";
 import FlyingJirolImage from "@public/img/jirol/atiende/flying.png";
+import { PlayIcon } from "@heroicons/react/24/solid";
+import JirolVideosModal from "@/components/jirol/JirolVideosModal";
+import { useState } from "react";
 
 const SLIDER_DATA = [
   {
@@ -41,8 +44,28 @@ const SLIDER_DATA = [
 ];
 
 export default function AtiendeJirol() {
+  const [video, setVideo] = useState<{
+    src: string;
+    poster: string;
+    title: string;
+  }>({
+    src: "",
+    poster: "",
+    title: "",
+  });
+
+  function showVideosModal(video: {
+    title: string;
+    poster: string;
+    src: string;
+  }) {
+    setVideo(video);
+    document.getElementById("jirolVideosModalWrapper")!.style.display = "flex";
+  }
+
   return (
     <CustomMain>
+      <JirolVideosModal video={video} set={setVideo} />
       <HeroeSection>
         <HeroeTitle
           title={{
@@ -107,11 +130,67 @@ export default function AtiendeJirol() {
             <span className="text-cens-brand">de Energía</span>
           </h4>
           {/* VIDEOS SECTION */}
-          {/* <div className="grid w-full max-w-5xl grid-cols-[repeat(2,_minmax(300px,_500px))] items-start gap-16 bg-red-300">
-            <div className="flex-col gap-3 rounded-3xl bg-white p-3 shadow-md">
-              <Image src={} />
+          <div className="grid w-full max-w-5xl grid-cols-[repeat(2,_minmax(300px,_450px))] items-start justify-center gap-16">
+            <div className="flex flex-col items-center gap-2 rounded-3xl bg-white p-4 text-center shadow-lg">
+              <button
+                onClick={() =>
+                  showVideosModal({
+                    title: "Generación de energía solar",
+                    src: "/video/jirol/generacion-solar.mp4",
+                    poster: "/img/jirol/generacion-electrica/solar-cover.jpg",
+                  })
+                }
+                className="group relative aspect-video w-full text-white"
+              >
+                <PlayIcon className="absolute inset-0 m-auto h-10 transition-transform group-hover:scale-125" />
+                <Image
+                  src={"/img/jirol/generacion-electrica/solar-cover.jpg"}
+                  alt="Portada de video de Jirol 1"
+                  width={300}
+                  height={200}
+                  className="h-full w-full rounded-3xl object-cover"
+                />
+              </button>
+              <h4 className="text-lg font-medium text-cens-medium">
+                Generación de energía solar
+              </h4>
+              <p className="text-stone-500">
+                La energía solar es limpia, renovable y esencial para un futuro
+                sostenible.
+              </p>
             </div>
-          </div> */}
+            <div className="flex flex-col items-center gap-2 rounded-3xl bg-white p-4 text-center shadow-lg">
+              <button
+                onClick={() =>
+                  showVideosModal({
+                    title: "Generación de energía hidroeléctrica",
+                    src: "/video/jirol/generacion-hidroelectrica.mp4",
+                    poster:
+                      "/img/jirol/generacion-electrica/hidroelectrica-cover.jpg",
+                  })
+                }
+                className="group relative aspect-video w-full text-white"
+              >
+                <PlayIcon className="absolute inset-0 m-auto h-10 transition-transform group-hover:scale-125" />
+                <Image
+                  src={
+                    "/img/jirol/generacion-electrica/hidroelectrica-cover.jpg"
+                  }
+                  alt="Portada de video de Jirol 1"
+                  width={300}
+                  height={200}
+                  className="h-full w-full rounded-3xl object-cover"
+                />
+              </button>
+              <h4 className="text-lg font-medium text-cens-medium">
+                Generación de energía hidroeléctrica
+              </h4>
+              <p className="text-stone-500">
+                La energía hidroeléctrica es vital por ser renovable, confiable
+                y amigable con el medio ambiente.
+              </p>
+            </div>
+          </div>
         </div>
       </HeroeSection>
     </CustomMain>

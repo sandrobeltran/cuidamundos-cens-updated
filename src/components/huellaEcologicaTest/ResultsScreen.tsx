@@ -1,30 +1,26 @@
 "use client";
 
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import party from "party-js";
-import Link from "next/link";
+import React, { useEffect, useState } from "react";
 import Button from "../Button";
 import { useUserStore } from "@/store/useUserStore";
-import { useUsoEficiente } from "@/store/useUsoEficiente";
-import { TTriviaQuestion } from "@/trivias/cuidaMundosQuestions";
-import CustomSection from "../layout/CustomSection";
-import { toast } from "react-toastify";
 import { useGamesStore } from "@/store/useGamesStore";
 import { usePathname } from "next/navigation";
 import { useHuellaEcologica } from "@/store/useHuellaEcologica";
-import { ITest, TUserData } from "@/utils/customTypes";
+import { ITest } from "@/utils/customTypes";
 import { useSwiper } from "swiper/react";
-import generateCertificate from "@/utils/generateCertificate";
-import { BellAlertIcon } from "@heroicons/react/24/outline";
 
 const formatter = new Intl.NumberFormat("es-CO", {
   style: "decimal",
   maximumFractionDigits: 0,
 });
 
+const co2Formatter = new Intl.NumberFormat("es-CO", {
+  style: "decimal",
+  maximumFractionDigits: 2,
+});
+
 const ResultsScreen = () => {
-  const { results, questions, stage, setHasWon, hasWon, resetGame } =
-    useHuellaEcologica();
+  const { results, questions, stage, resetGame } = useHuellaEcologica();
   const user = useUserStore((state) => state.user);
   const swiper = useSwiper();
   const { games } = useGamesStore();
@@ -125,7 +121,7 @@ const ResultsScreen = () => {
           </div>
           {/* CO2 */}
           <p>
-            <b>CO2</b> {testResult.totalValue}kg
+            <b>CO2</b> {co2Formatter.format(testResult.totalValue)}kg
           </p>
         </div>
 

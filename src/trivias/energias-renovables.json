@@ -7,88 +7,88 @@
         "id": 1,
         "title": "¿Qué es la energía renovable?",
         "options": [
-          "Es la energía que se genera a partir de combustibles fósiles",
-          "Es la energía que se genera a partir de fuentes que se renuevan naturalmente, como el agua, el sol o el viento",
-          "Es la energía que se genera a partir del movimiento del agua"
+          "Es la energía que se genera a partir de combustibles fósiles.",
+          "Es la energía que se genera a partir de fuentes que se renuevan naturalmente, como el agua, el sol o el viento.",
+          "Es la energía que se genera a partir del movimiento del agua."
         ],
-        "answer": "Es la energía que se genera a partir de fuentes que se renuevan naturalmente, como el agua, el sol o el viento",
+        "answer": "Es la energía que se genera a partir de fuentes que se renuevan naturalmente, como el agua, el sol o el viento.",
         "image": "https://jdelectricos.com.co/wp-content/uploads/2021/06/fuentes-renovables.jpg"
       },
       {
         "id": 2,
         "title": "¿Qué son las energías no renovables?",
         "options": [
-          "Son las energías que se generan a partir de fuentes que se renuevan naturalmente, como el sol o el viento",
-          "Son las energías que se generan a partir de combustibles fósiles, como el petróleo o el carbón",
-          "Son las energías que se generan a partir del movimiento del agua"
+          "Son las energías que se generan a partir de fuentes que se renuevan naturalmente, como el sol o el viento.",
+          "Son las energías que se generan a partir de combustibles fósiles, como el petróleo o el carbón.",
+          "Son las energías que se generan a partir del movimiento del agua."
         ],
-        "answer": "Son las energías que se generan a partir de combustibles fósiles, como el petróleo o el carbón",
+        "answer": "Son las energías que se generan a partir de combustibles fósiles, como el petróleo o el carbón.",
         "image": "https://2.bp.blogspot.com/_nufqsEkAHTc/SdA1U01Yy5I/AAAAAAAAABw/snE7HQcXinA/w1200-h630-p-k-no-nu/gases+efecto+invernadero.bmp"
       },
       {
         "id": 3,
         "title": "¿Qué es la energía hidráulica?",
         "options": [
-          "Es la energía que se obtiene a partir del movimiento del agua en ríos y lagos",
-          "Es la energía que se obtiene a partir de la luz del sol",
-          "Es la energía que se obtiene a partir del calor del interior de la Tierra"
+          "Es la energía que se obtiene a partir del movimiento del agua en ríos y lagos.",
+          "Es la energía que se obtiene a partir de la luz del sol.",
+          "Es la energía que se obtiene a partir del calor del interior de la Tierra."
         ],
-        "answer": "Es la energía que se obtiene a partir del movimiento del agua en ríos y lagos",
+        "answer": "Es la energía que se obtiene a partir del movimiento del agua en ríos y lagos.",
         "image": "https://i0.wp.com/www.azpirilejardi.com/wp-content/uploads/2014/11/bombillas-bajo-consumo-led1.jpg"
       },
       {
         "id": 4,
         "title": "¿Qué es la energía eólica?",
         "options": [
-          "Es la energía que se obtiene a partir del sol",
-          "Es la energía que se obtiene del viento",
-          "Es la energía que se obtiene del agua"
+          "Es la energía que se obtiene a partir del sol.",
+          "Es la energía que se obtiene del viento.",
+          "Es la energía que se obtiene del agua."
         ],
-        "answer": "Es la energía que se obtiene del viento",
+        "answer": "Es la energía que se obtiene del viento.",
         "image": "https://www.amoquimicos.com/images/Noticias_2021//quimicos-contaminantes-para-fuentes-hidricas1.jpg"
       },
       {
         "id": 5,
         "title": "¿Qué es la energía solar?",
         "options": [
-          "Es la energía que se obtiene del viento",
-          "Es la energía que se obtiene a partir del sol",
-          "Es la energía que se obtiene del agua"
+          "Es la energía que se obtiene del viento.",
+          "Es la energía que se obtiene a partir del sol.",
+          "Es la energía que se obtiene del agua."
         ],
-        "answer": "Es la energía que se obtiene a partir del sol",
+        "answer": "Es la energía que se obtiene a partir del sol.",
         "image": "https://lamamapachama.files.wordpress.com/2015/02/carbon_8547.jpg"
       },
       {
         "id": 6,
         "title": "¿Cómo funciona una central hidroeléctrica para generar energía eléctrica?",
         "options": [
-          "A través del movimiento de las turbinas por el agua que fluye en un río o presa",
-          "A través de la quema de combustibles fósiles para calentar agua y generar vapor, que a su vez mueve una turbina",
-          "A través de la captación de la energía solar y su conversión en energía eléctrica"
+          "A través del movimiento de las turbinas por el agua que fluye en un río o presa.",
+          "A través de la quema de combustibles fósiles para calentar agua y generar vapor, que a su vez mueve una turbina.",
+          "A través de la captación de la energía solar y su conversión en energía eléctrica."
         ],
-        "answer": "A través del movimiento de las turbinas por el agua que fluye en un río o presa",
+        "answer": "A través del movimiento de las turbinas por el agua que fluye en un río o presa.",
         "image": "https://www.shutterstock.com/image-vector/methane-ch4-molecule-model-chemical-600w-1213786645.jpg"
       },
       {
         "id": 7,
         "title": "¿Qué es un panel solar y cómo genera energía eléctrica?",
         "options": [
-          "Es un dispositivo que convierte la energía mecánica en energía eléctrica",
-          "Es un dispositivo que almacena energía eléctrica",
-          "Es un dispositivo que convierte la energía solar en energía eléctrica a través de células fotovoltaicas"
+          "Es un dispositivo que convierte la energía mecánica en energía eléctrica.",
+          "Es un dispositivo que almacena energía eléctrica.",
+          "Es un dispositivo que convierte la energía solar en energía eléctrica a través de células fotovoltaicas."
         ],
-        "answer": "Es un dispositivo que convierte la energía solar en energía eléctrica a través de células fotovoltaicas",
+        "answer": "Es un dispositivo que convierte la energía solar en energía eléctrica a través de células fotovoltaicas.",
         "image": "https://cdn0.ecologiaverde.com/es/posts/6/6/0/cuales_son_los_beneficios_de_reciclar_66_orig.jpg"
       },
       {
         "id": 8,
         "title": "¿Cómo se transmite y se distribuye la energía eléctrica hasta los hogares y negocios?",
         "options": [
-          "A través de torres, subestaciones, postes y redes de energía",
-          "A través de los transformadores y bombillas",
-          "A través de los medidores eléctricos y apagadores"
+          "A través de torres, subestaciones, postes y redes de energía.",
+          "A través de los transformadores y bombillas.",
+          "A través de los medidores eléctricos y apagadores."
         ],
-        "answer": "A través de torres, subestaciones, postes y redes de energía",
+        "answer": "A través de torres, subestaciones, postes y redes de energía.",
         "image": "https://www.researchgate.net/profile/Juan-Rocha-Hoyos/publication/321295360/figure/fig20/AS:564662639251467@1511637472667/Figura-2-Porcentaje-gases-que-conforma-el-aire-Fuente-Autor.png"
       }
     ],

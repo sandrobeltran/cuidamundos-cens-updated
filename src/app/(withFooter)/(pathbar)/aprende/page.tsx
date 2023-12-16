@@ -16,34 +16,34 @@ export default function Aprende() {
     <CustomMain>
       <HeroeSection>
         <HeroeTitle
-          title={{ text: "Explora y aprende", resalted: "con Purita" }}
-          description="Acompáñanos para descubrir su historia, sus aventuras y cómo puedes unirte a su misión en nuestro mundo virtual y en la vida real"
+          title={{ text: "¡Aprende", resalted: "con Ignis!" }}
+          description="Descubre cómo ser un héroe CuidaMundos y aprende a cuidar nuestro hogar. ¡Diviértete mientras proteges nuestro planeta!"
         />
         <div className="relative grid w-full grid-cols-6 gap-x-32 px-20 mobile-land:gap-x-16 mobile-land:px-10">
           <div className="col-span-4 flex mobile-land:col-span-4">
             <div className="flex h-full w-full max-w-2xl flex-col items-start justify-start gap-8 mobile-land:max-w-full">
               <Link
                 href={"/aprende/historia"}
-                className="group flex h-32 w-full flex-col justify-center gap-1 rounded-3xl bg-white/90 p-2 pl-16 shadow-md transition-colors hover:bg-dalia mobile-land:pl-10"
+                className="group flex h-32 w-full flex-col justify-center gap-1 rounded-3xl bg-white/90 p-2 pl-16 shadow-md transition-all hover:rounded-e-4xl hover:bg-dalia mobile-land:pl-10"
               >
                 <h3 className="text-lg font-bold text-cens-medium transition-colors group-hover:text-white">
                   Historia
                 </h3>
                 <p className="font-normal text-stone-500 transition-colors group-hover:text-white">
-                  El estratega de la eficiencia energética, te guiará hacia un
-                  futuro sostenible
+                  Conoce a Ignis, descubre sus poderes y conocimientos, y
+                  acompáñala en su misión de proteger el planeta.
                 </p>
               </Link>
               <Link
                 href={"/usuario/evidencias"}
-                className="group flex h-32 w-full flex-col justify-center gap-1 rounded-3xl bg-white/90 p-2 pl-16 shadow-md transition-colors hover:bg-dalia mobile-land:pl-10"
+                className="group flex h-32 w-full flex-col justify-center gap-1 rounded-3xl bg-white/90 p-2 pl-16 shadow-md transition-all hover:rounded-e-4xl hover:bg-dalia mobile-land:pl-10"
               >
                 <h3 className="text-lg font-bold text-cens-medium transition-colors group-hover:text-white">
                   Evidencias
                 </h3>
                 <p className="font-normal text-stone-500 transition-colors group-hover:text-white">
-                  El estratega de la eficiencia energética, te guiará hacia un
-                  futuro sostenible
+                  Sección de actividades ambientales y evidencias, orientada a
+                  colegios.
                 </p>
               </Link>
               {/* DOWNLOADS SECTION */}
@@ -51,7 +51,7 @@ export default function Aprende() {
                 <a
                   href="/pdf/cartillas/purita.pdf"
                   download={"Cartilla de Purita.pdf"}
-                  className="max-w-[135px] flex w-full flex-1 flex-col items-center gap-3 text-center"
+                  className="flex w-full max-w-[135px] flex-1 flex-col items-center gap-3 text-center transition-transform hover:scale-110"
                 >
                   <div className="flex aspect-square w-full place-content-center items-center justify-center rounded-3xl bg-white/90 text-8xl shadow-md">
                     <Image
@@ -65,7 +65,7 @@ export default function Aprende() {
                 <a
                   href="/pdf/cartillas/Jirol.pdf"
                   download={"Cartilla de Jirol.pdf"}
-                  className="max-w-[135px] flex w-full flex-1 flex-col items-center gap-3 text-center"
+                  className="flex w-full max-w-[135px] flex-1 flex-col items-center gap-3 text-center transition-transform hover:scale-110"
                 >
                   <div className="flex aspect-square w-full place-content-center items-center justify-center rounded-3xl bg-white/90 text-8xl shadow-md">
                     <Image
@@ -79,7 +79,7 @@ export default function Aprende() {
                 <a
                   href="/pdf/cartillas/felix.pdf"
                   download={"Cartilla de Felix.pdf"}
-                  className="max-w-[135px] flex w-full flex-1 flex-col items-center gap-3 text-center"
+                  className="flex w-full max-w-[135px] flex-1 flex-col items-center gap-3 text-center transition-transform hover:scale-110"
                 >
                   <div className="flex aspect-square w-full place-content-center items-center justify-center rounded-3xl bg-white/90 text-8xl shadow-md">
                     <Image

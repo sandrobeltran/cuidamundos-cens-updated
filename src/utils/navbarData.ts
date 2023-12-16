@@ -55,7 +55,7 @@ export const navbarData: INavbarProps[] = [
   },
   {
     href: "/aprende",
-    title: "Dalia",
+    title: "Ignis",
   },
   {
     href: "/contacto",

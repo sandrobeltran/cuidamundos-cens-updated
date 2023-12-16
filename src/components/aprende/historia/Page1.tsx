@@ -18,7 +18,7 @@ const Page1 = () => {
     >
       <div
         id="daliaMask"
-        className="absolute inset-0 m-auto flex aspect-square w-52 items-center justify-center overflow-hidden rounded-full bg-white"
+        className="absolute inset-0 m-auto flex aspect-square w-52 items-center justify-center overflow-hidden rounded-full"
       >
         <Image
           src={"/img/aprende/dalia-hero.png"}

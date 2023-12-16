@@ -13,35 +13,35 @@ const Page4 = () => {
   const pageRef = useRef<HTMLDivElement>(null);
 
   function initializeBirds() {
-    const cloudsLenght = 15;
+    const cloudsLenght = 4;
 
     for (let i = 0; i < cloudsLenght; i++) {
-      const y = Math.random() * 80;
-      const x = Math.random() * 40 - 30;
+      const y = Math.random() * 50;
+      const x = Math.random() * 50 + 80;
       const width = Math.random() * 80 + 100;
-      const velocity = Math.random() * 30 + 20;
+      const velocity = Math.random() * 5 + 5;
       const delay = Math.random();
 
       const baseSprite = "/img/aprende/historia/cloud-";
       const cloudEl = document.createElement("img");
-      cloudEl.classList.add("storm-cloud");
-      cloudEl.src = `${baseSprite}${Math.floor(Math.random() * 6) + 1}.png`;
+      cloudEl.classList.add("bird");
+      cloudEl.src = `/img/aprende/historia/bird.gif`;
       cloudEl.style.top = `${y}%`;
-      cloudEl.style.right = `${x}%`;
+      cloudEl.style.left = `-${x}px`;
       cloudEl.style.width = `${width}px`;
       cloudEl.style.animationDuration = `${velocity}s`;
       cloudEl.style.animationDelay = `${delay}s`;
       // cloudEl.style.animationDirection = left ? "reverse" : "normal";
 
-      pageRef.current?.appendChild(cloudEl);
+      pageRef.current!.querySelector(".birdsContainer")!.appendChild(cloudEl);
     }
   }
 
   useEffect(() => {
-    // initializeBirds();
+    initializeBirds();
   }, []);
 
-  useEffect(() => {}, [play]);
+  // useEffect(() => {}, [play]);
 
   return (
     <div
@@ -53,6 +53,7 @@ const Page4 = () => {
       {/* FOREGROUND */}
       <div className="absolute left-0 top-0 z-10 flex h-full w-full flex-col gap-8">
         {/* DIALOG */}
+        <div className="birdsContainer"></div>
         <div className="absolute bottom-0 left-0 right-0 z-20 mx-auto h-fit w-11/12 rounded-tl-3xl rounded-tr-3xl bg-white/80 p-5 text-center text-xl text-stone-500 shadow-md backdrop-blur-md">
           <p>
             ¡Para evitar accidentes eléctricos, es súper importante que
