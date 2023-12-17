@@ -41,35 +41,34 @@ const JirolVideosModal = ({ video, set }: TProps) => {
 
   return (
     <div
-      className="modalWrapper flex-col gap-8 fixed left-0 top-0 z-50 hidden h-full w-full items-center justify-center bg-black/40 backdrop-blur-md"
+      className="modalWrapper fixed left-0 top-0 z-50 hidden h-full w-full flex-col items-center justify-center gap-8 bg-black/40 backdrop-blur-md"
       id="jirolVideosModalWrapper"
       onClick={handleClick}
       ref={modalWrapperRef}
     >
-      
-        {/* CURRENT VIDEO */}
-        <div className="relative aspect-video w-full max-w-4xl rounded-3xl bg-cens-brand p-2">
-          <video
-            ref={videoRef}
-            src={video.src}
-            className="h-full w-full rounded-2xl object-cover object-center"
-            controls
-            poster={video.poster}
-          ></video>
-          <button
-            onClick={(e) => {
-              videoRef.current!.play();
-              e.currentTarget.style.display = "none";
-            }}
-            className="group absolute left-0 top-0 z-10 m-auto grid aspect-square h-full w-full place-content-center text-white"
-          >
-            <PlayIcon className="h-14 transition-transform group-hover:scale-125" />
-          </button>
-        </div>
+      {/* CURRENT VIDEO */}
+      <div className="relative aspect-video mobile-land:max-w-2xl w-full max-w-4xl rounded-3xl bg-cens-brand p-2">
+        <video
+          ref={videoRef}
+          src={video.src}
+          className="h-full w-full rounded-2xl object-cover object-center"
+          controls
+          poster={video.poster}
+        ></video>
+        <button
+          onClick={(e) => {
+            videoRef.current!.play();
+            e.currentTarget.style.display = "none";
+          }}
+          className="group absolute left-0 top-0 z-10 m-auto grid aspect-square h-full w-full place-content-center text-white"
+        >
+          <PlayIcon className="h-14 transition-transform group-hover:scale-125" />
+        </button>
+      </div>
 
-        {/* AVAILABLE VIDEOS */}
+      {/* AVAILABLE VIDEOS */}
 
-        <div className="flex justify-center gap-8">
+      {/* <div className="flex justify-center gap-8">
           {availableVideos.map((video) => (
             <button
               key={video.src}
@@ -89,8 +88,8 @@ const JirolVideosModal = ({ video, set }: TProps) => {
               </h4>
             </button>
           ))}
-        </div>
-      </div>
+        </div> */}
+    </div>
   );
 };
 

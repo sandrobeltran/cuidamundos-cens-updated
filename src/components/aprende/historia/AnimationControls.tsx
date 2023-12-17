@@ -13,9 +13,9 @@ const AnimationControls = () => {
       <button onClick={() => swiper.slidePrev()}>
         <BackwardIcon className="h-10 fill-transparent transition-colors hover:fill-white" />
       </button>
-      <button onClick={() => {}}>
+      {/*  <button onClick={() => {}}>
         <PlayIcon className="h-10 fill-transparent transition-colors hover:fill-white" />
-      </button>
+      </button> */}
       <button onClick={() => swiper.slideNext()}>
         <ForwardIcon className="h-10 fill-transparent transition-colors hover:fill-white" />
       </button>

@@ -16,7 +16,7 @@ const PercentCirle = ({ kw }: { kw: number }) => {
       }}
     >
       <h6 className="text-5xl font-bold">{formatter.format(kw)}</h6>
-      <p className="text-3xl font-medium">kw</p>
+      <p className="text-3xl font-medium">kW</p>
     </div>
   );
 };
