@@ -84,7 +84,7 @@ const Book = ({ pages }: TProps) => {
       <div
         ref={bookRef}
         style={{ perspective: 1200 }}
-        className="book relative h-64 mobile-land:h-[85vh] w-full rounded-3xl bg-white shadow-md"
+        className="book relative h-64 mobile-land:h-[95vh] w-full rounded-3xl bg-white shadow-md"
       >
         {sortedPages.map((page, index) => {
           let z = sortedPages.length;

@@ -5,7 +5,7 @@ const BookPage = ({ text, bg }: TBookPage) => {
   return (
     <div className="content h-full w-full">
       {text ? (
-        <div className="relative flex h-full w-full items-center justify-start p-8 text-lg">
+        <div className="relative flex h-full w-full items-center justify-start p-8 text-lg mobile-land:text-[1rem]">
           <p className="leading-snug">{text}</p>
         </div>
       ) : (

@@ -31,7 +31,7 @@ const MARKERS_DATA = [
     },
   },
   {
-    x: 49,
+    x: 55,
     y: 88,
     content: {
       title: "Agua Sabia",
@@ -40,8 +40,8 @@ const MARKERS_DATA = [
     },
   },
   {
-    x: 58.5,
-    y: 45,
+    x: 65,
+    y: 44,
     content: {
       title: "Poder Acuático",
       description:
@@ -49,7 +49,7 @@ const MARKERS_DATA = [
     },
   },
   {
-    x: 86,
+    x: 96,
     y: 32,
     content: {
       title: "Poder Verde",
@@ -70,14 +70,14 @@ export default function PoderesPurita() {
           title={{ text: "Poderes de", resalted: "Purita" }}
           description="Descubre y usa los superpoderes de Purita para proteger nuestro medio ambiente."
         />
-        <div className="px-28 flex justify-center mobile-land:px-16">
-          <div className="relative aspect-[1.5/1] max-w-5xl w-full overflow-hidden rounded-3xl bg-white/80 shadow-md backdrop-blur-md">
+        <div className="flex justify-center px-28 mobile-land:px-16">
+          <div className="relative aspect-[1.5/1] w-full max-w-5xl overflow-hidden rounded-3xl bg-white/80 shadow-md backdrop-blur-md">
             <video
-              src="/img/purita/poderes/background.mov"
+              src="/img/purita/poderes/background.mp4"
               autoPlay
               muted
               loop
-              className="h-full w-full"
+              className="h-full min-w-[101%] -translate-x-2 object-cover"
             ></video>
             {stage === 0 ? (
               <div className="modalWrapper absolute left-0 top-0 z-10 grid h-full w-full place-content-center backdrop-blur-md">
