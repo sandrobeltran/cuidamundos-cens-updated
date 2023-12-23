@@ -25,7 +25,7 @@ export const Mark = ({ size, x, y, content }: TProps) => {
 
       {/* CONTENT */}
       <div
-        className="pointer-events-none absolute z-10 flex w-96 translate-y-4 rounded-3xl border border-stone-300 bg-white p-6 opacity-0 shadow-md shadow-stone-500/20 transition-all group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100"
+        className="pointer-events-none absolute z-10 flex mobile-land:w-72 w-96 translate-y-4 rounded-3xl border border-stone-300 bg-white p-6 opacity-0 shadow-md shadow-stone-500/20 transition-all group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100"
         style={{
           left: x < 50 ? 20 : "unset",
           right: x > 50 ? 20 : "unset",
@@ -37,8 +37,8 @@ export const Mark = ({ size, x, y, content }: TProps) => {
           borderBottomRightRadius: y > 50 && x > 50 ? 0 : 24,
         }}
       >
-        <p className="text-stone-500">
-          <span className="mr-1 text-lg font-bold text-cens-brand">
+        <p className="text-stone-500 mobile-land:text-sm">
+          <span className="mr-1 mobile-land:text-sm text-lg font-bold text-cens-brand">
             {content?.title}
           </span>
           {content?.description}

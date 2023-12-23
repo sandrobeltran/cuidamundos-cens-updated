@@ -83,10 +83,10 @@ export default function PoderesPurita() {
               <div className="modalWrapper absolute left-0 top-0 z-10 grid h-full w-full place-content-center backdrop-blur-md">
                 {/* MAIN SCREEN 1 */}
                 <div className="relative flex w-full max-w-lg flex-col items-center gap-2 rounded-3xl border-stone-300 bg-white p-10 text-center shadow-md shadow-stone-500/20">
-                  <h4 className="text-2xl font-bold text-cens-dark">
+                  <h4 className="text-2xl font-bold text-cens-dark mobile-land:text-xl">
                     ¡Soy Purita!
                   </h4>
-                  <p className="text-lg text-stone-500">
+                  <p className="text-lg text-stone-500 mobile-land:text-sm">
                     La protectora del medio ambiente, y estoy aquí para
                     enseñarte sobre nuestro hermoso planeta! ¿Estás listo para
                     empezar?
@@ -105,17 +105,17 @@ export default function PoderesPurita() {
                 <Image
                   src={PuritaImage1}
                   alt="Imagen de Purita con pose de victoria"
-                  className="absolute bottom-0 right-24 w-3/12"
+                  className="absolute bottom-0 right-24 w-3/12 mobile-land:right-10"
                 />
               </div>
             ) : stage === 1 ? (
               /* MAIN SCREEN 2 */
-              <div className="modalWrapper absolute left-0 top-0 z-10 grid h-full w-full place-content-center backdrop-blur-md">
+              <div className="modalWrapper absolute left-0 top-0 z-10 flex h-full w-full items-center justify-center backdrop-blur-md">
                 <div className="relative flex w-full max-w-lg flex-col items-center gap-2 rounded-3xl border-stone-300 bg-white p-10 text-center shadow-md shadow-stone-500/20">
-                  <h4 className="text-2xl font-bold text-cens-dark">
+                  <h4 className="text-2xl font-bold text-cens-dark mobile-land:text-xl">
                     ¿Sabes qué es el medio ambiente?
                   </h4>
-                  <p className="text-lg text-stone-500">
+                  <p className="text-lg text-stone-500 mobile-land:text-sm">
                     El medio ambiente es como el hogar de todos nosotros, y eso
                     incluye todo lo que nos rodea. Esto significa el agua, los
                     minerales, los bosques, los animales, la tierra, la energía
@@ -136,7 +136,7 @@ export default function PoderesPurita() {
                 <Image
                   src={PuritaImage2}
                   alt="Imagen de Purita con pose de victoria"
-                  className="absolute bottom-0 right-24 w-3/12"
+                  className="absolute bottom-0 right-24 w-3/12 mobile-land:right-10"
                 />
               </div>
             ) : (

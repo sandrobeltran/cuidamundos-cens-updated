@@ -3,6 +3,11 @@
 import Button from "@/components/Button";
 import React, { useRef } from "react";
 
+const formatter = new Intl.NumberFormat("es-CO", {
+  style: "decimal",
+  maximumFractionDigits: 0,
+});
+
 const PRODUCTS_DATA = [
   {
     name: "Carne",
@@ -19,7 +24,7 @@ const PRODUCTS_DATA = [
   {
     name: "Leche",
     amount: "1 Litro y Medio",
-    water: 1.906,
+    water: 1906,
     co2: 458,
   },
   {
@@ -31,7 +36,7 @@ const PRODUCTS_DATA = [
   {
     name: "Arroz",
     amount: "1 Kilogramo",
-    water: 2.558,
+    water: 2558,
     co2: 242,
   },
   {
@@ -107,8 +112,8 @@ const ProductsTableModal = ({}: TProps) => {
             >
               <p className="max-w-full">{product.name}</p>
               <p className="max-w-full">{product.amount}</p>
-              <p className="max-w-full">{product.water}</p>
-              <p className="max-w-full">{product.co2}</p>
+              <p className="max-w-full">{formatter.format(product.water)}</p>
+              <p className="max-w-full">{formatter.format(product.co2)}</p>
             </div>
           ))}
           <div className="mt-4">
