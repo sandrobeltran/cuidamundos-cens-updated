@@ -36,7 +36,7 @@ const MARKERS_DATA = [
     content: {
       title: "Agua Sabia",
       description:
-        "Aunque la Tierra está cubierta de agua, solo un poquito es dulce y aún menos está en ríos y lagos. El agua es un tesoro vital para beber, cocinar y proteger la naturaleza. ¡Úsala sabiamente y cuida este recurso mágico!",
+        "Aunque la tierra está cubierta de agua, solo una pequeña cantidad se puede consumir. ¡Úsala sabiamente y cuida este recurso mágico! Aquí algunas prácticas: Cierra la llave cuando no lo estés usando, toma duchas o baños cortos, no desperdicie en juegos innecesarios.",
     },
   },
   {
@@ -45,7 +45,7 @@ const MARKERS_DATA = [
     content: {
       title: "Poder Acuático",
       description:
-        "Proteger ríos, lagos y humedales es como activar un escudo mágico para garantizar que siempre tengamos agua fresca. ¡El agua es como un tesoro para la naturaleza y para nosotros!",
+        "Proteger ríos, lagos y humedales es como activar un escudo mágico para garantizar que siempre tengamos agua fresca. ¡El agua es un tesoro para los seres humanos y para el planeta!",
     },
   },
   {
@@ -54,7 +54,16 @@ const MARKERS_DATA = [
     content: {
       title: "Poder Verde",
       description:
-        "Plantar árboles es como lanzar hechizos mágicos que hacen que el aire respire feliz. Los árboles atrapan el dióxido de carbono y nos ayudan a mantener la Tierra fresca y contenta.",
+        "Plantar árboles es como lanzar hechizos mágicos que hacen que el aire respire feliz. Los árboles atrapan el dióxido de carbono y nos ayudan a reducir el calentamiento global.",
+    },
+  },
+  {
+    x: 50,
+    y: 50,
+    content: {
+      title: "Poder 3R",
+      description:
+        "Usa menos cosas de las que necesitas ¡reduce!, usa las cosas varias veces antes de tirarlas ¡reutiliza!, convierte cosas viejas en cosas nuevas ¡recicla! ¡Haciendo estas cosas, ayudamos a cuidar nuestro hogar, la Tierra!",
     },
   },
 ];
@@ -87,8 +96,8 @@ export default function PoderesPurita() {
                     ¡Soy Purita!
                   </h4>
                   <p className="text-lg text-stone-500 mobile-land:text-sm">
-                    La protectora del medio ambiente, y estoy aquí para
-                    enseñarte sobre nuestro hermoso planeta! ¿Estás listo para
+                    La &quot;guardiana del agua&quot; y estoy aquí para
+                    enseñarte sobre nuestro hermoso planeta ¿estás listo para
                     empezar?
                   </p>
                   <div className="mt-4">
@@ -116,11 +125,10 @@ export default function PoderesPurita() {
                     ¿Sabes qué es el medio ambiente?
                   </h4>
                   <p className="text-lg text-stone-500 mobile-land:text-sm">
-                    El medio ambiente es como el hogar de todos nosotros, y eso
-                    incluye todo lo que nos rodea. Esto significa el agua, los
-                    minerales, los bosques, los animales, la tierra, la energía
-                    del sol y ¡muchas cosas más! ¡Todo es parte de este lugar
-                    asombroso en el que vivimos!
+                    El medio ambiente es el hogar donde vivimos, incluyendo todo
+                    lo que nos rodea, como el agua, Ios minerales, los bosques,
+                    la fauna, los suelos, la energía solar, entre otros. ¡Todo
+                    es parte de este lugar asombroso en el que habitamos!
                   </p>
                   <div className="mt-4">
                     <Button

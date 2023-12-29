@@ -14,7 +14,7 @@ export default function QuienPurita() {
       <HeroeSection>
         <HeroeTitle
           title={{ text: "Historia de", resalted: "Purita" }}
-          description="Únete a nosotros para conocer la historia de Purita, la heroína del Medio Ambiente. Descubre sus poderes y aprende cómo puedes unirte a su misión o convertirte en un héroe en el mundo."
+          description="Acompáñanos y explora la fascinante historia de Purita, la guardiana del agua. Descubre sus poderes y aprende cómo puedes sumarte a su causa y convertirte en un Cuidamundos CENS."
         />
         <div className="flex justify-center px-28 mobile-land:px-16">
           <div className="relative aspect-video w-full max-w-5xl overflow-hidden rounded-3xl bg-white/80 shadow-md backdrop-blur-md">

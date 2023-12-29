@@ -90,8 +90,8 @@ export default function Purita() {
               <div className="relative flex flex-col items-center gap-2 px-4 pb-4 text-center text-purita transition-colors group-hover:text-white ">
                 <h4 className="text-xl font-semibold">¿Quién es?</h4>
                 <p className="leading-tight text-stone-700 transition-colors group-hover:text-white">
-                  Explora la historia de Purita, la heroína del Medio Ambiente,
-                  y descubre cómo puedes convertirte en un héroe o heroína.
+                  Explora la historia de Purita y descubre cómo puedes
+                  convertirte en un guardián Cuidamundos.
                 </p>
               </div>
             </Link>
@@ -144,8 +144,8 @@ export default function Purita() {
               <div className="relative flex flex-col items-center gap-2 px-4 pb-4 text-center text-purita transition-colors group-hover:text-white ">
                 <h4 className="text-xl font-semibold">Poderes</h4>
                 <p className="leading-tight text-stone-700 transition-colors group-hover:text-white">
-                  ¡Despierta los poderes de Purita y conviértete en un defensor
-                  del medio ambiente, protegiendo todos sus tesoros naturales!
+                  Despierta los poderes de Purita y conviértete en un guardián
+                  del medio ambiente, protegiendo todos sus tesoros naturales.
                 </p>
               </div>
             </Link>
@@ -163,8 +163,8 @@ export default function Purita() {
               <div className="relative flex flex-col items-center gap-2 px-4 pb-4 text-center text-purita transition-colors group-hover:text-white ">
                 <h4 className="text-xl font-semibold">Huella Ecológica</h4>
                 <p className="leading-tight text-stone-700 transition-colors group-hover:text-white">
-                  ¿Estás listo para convertirte en un guardián del medio
-                  ambiente y ayudar a reducir la huella ecológica?
+                  ¿Estás listo para ser Cuidamundos, contribuir al cuidado del
+                  agua y a la reducción de la huella ecológica?
                 </p>
               </div>
             </Link>

@@ -4,7 +4,7 @@ import CustomMain from "@/components/layout/CustomMain";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import DaliaImage from "@public/img/aprende/dalia-hero.png";
+import DaliaImage from "@public/img/aprende/dalia.png";
 import HeroeSection from "@/components/heroes/HeroeSection";
 import HeroeTitle from "@/components/heroes/HeroeTitle";
 import Image from "next/image";
@@ -19,7 +19,7 @@ export default function Aprende() {
           title={{ text: "¡Aprende", resalted: "con Ignis!" }}
           description="Descubre cómo ser un héroe CuidaMundos y aprende a cuidar nuestro hogar. ¡Diviértete mientras proteges nuestro planeta!"
         />
-        <div className="relative grid w-full grid-cols-6 gap-x-32 px-20 mobile-land:gap-x-16 mobile-land:px-10">
+        <div className="relative grid w-full grid-cols-6 gap-x-0 px-20 mobile-land:gap-x-16 mobile-land:px-10">
           <div className="col-span-4 flex mobile-land:col-span-4">
             <div className="flex h-full w-full max-w-2xl flex-col items-start justify-start gap-8 mobile-land:max-w-full">
               <Link

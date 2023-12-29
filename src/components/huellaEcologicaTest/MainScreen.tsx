@@ -20,12 +20,12 @@ const MainScreen = () => {
             TÚ Y EL MEDIO AMBIENTE <br />
             <span className="text-2xl text-cens-brand">HUELLA ECOLÓGICA</span>
           </h6>
-          <p className="leading-tight opacity-70 text-lg">
+          <p className="text-lg leading-tight opacity-70">
             La huella ecológica es como una marca que dejamos en el planeta con
-            nuestras acciones diarias. ¿Estás listo para convertirte en un
-            guardián del medio ambiente y ayudar a reducir esa huella? Resuelve
-            las siguientes preguntas y descubre en qué áreas puedes mejorar para
-            ser un superhéroe más ecológico. ¡Vamos a empezar!
+            nuestras acciones diarias. Contesta las siguientes preguntas y
+            descubre cómo podemos tomar decisiones más amigables con la Tierra.
+            ¿Estás listo para convertirte en un guardián Cuidamundos y ayudar a
+            reducir nuestra huella de carbono? ¡Vamos a empezar!
           </p>
         </div>
         <Button
