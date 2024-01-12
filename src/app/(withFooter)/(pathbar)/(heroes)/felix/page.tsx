@@ -29,7 +29,7 @@ const SECTIONS_DATA = [
     title: "Aprende",
     description:
       "Explora el mundo de la eficiencia energética, descubre los vatios y calcula tu consumo para convertirte en un héroe eléctrico.",
-    href: "/felix/aprende",
+    href: "/felix/calculadora",
     icon: "keyboard",
   },
   {

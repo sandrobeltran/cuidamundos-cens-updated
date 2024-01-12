@@ -4,7 +4,6 @@ import AutumnTreeImage from "@public/img/aprende/historia/autumn-tree.png";
 import StormCloudImage from "@public/img/aprende/historia/storm-cloud.png";
 import Image from "next/image";
 
-
 const Page2 = () => {
   const {
     state: { play },
@@ -96,9 +95,11 @@ const Page2 = () => {
       {/* DIALOG */}
       <div className="absolute bottom-0 left-0 right-0 z-20 mx-auto h-fit w-11/12 rounded-tl-3xl rounded-tr-3xl bg-white/80 p-5 text-center text-xl text-stone-500 shadow-md backdrop-blur-md">
         <p>
-          ¡Para evitar accidentes eléctricos, es súper importante que
-          identifiquemos y corrijamos todo lo que pueda ser peligroso con la
-          electricidad. ¡Vamos a descubrir dos ideas clave!
+          Hay cosas que pueden dañar la naturaleza, como el humo de los carros,
+          la basura que no tiramos en su lugar, o los químicos que van a los
+          ríos. Esto se llama contaminación y puede hacer que el aire, el agua y
+          el suelo estén sucios o enfermos. ¿Cómo podemos ayudar? ¡Aprendiendo a
+          cuidar nuestro hogar y previniendo la contaminación!
         </p>
       </div>
     </div>

@@ -17,7 +17,7 @@ const TestQuestion = ({ question, index }: TProps) => {
 
   const { addResult, questions, setStage } = useHuellaEcologica();
 
-  function handleNext(option: { percent: number; value: number }) {
+  function handleNext(option: { percent: number; co2: number, lt: number }) {
     addResult({ question: question, selection: option });
     swiper.slideNext();
     if (index === questions.length - 1) {
@@ -36,7 +36,7 @@ const TestQuestion = ({ question, index }: TProps) => {
         {question.options.map((option) => (
           <OptionCard
             option={option.title}
-            value={{ percent: option.percent, value: option.value }}
+            value={{ percent: option.percent, co2: option.co2, lt: option.lt }}
             key={option.title}
             nextPage={handleNext}
           />

@@ -33,9 +33,10 @@ const Page5 = () => {
         {/* DIALOG */}
         <div className="left-0 right-0 z-20 mx-auto h-fit w-11/12 rounded-bl-3xl rounded-br-3xl bg-slate-800/50 p-5 text-center text-xl text-white shadow-md backdrop-blur-md">
           <p>
-            ¡Para evitar accidentes eléctricos, es súper importante que
-            identifiquemos y corrijamos todo lo que pueda ser peligroso con la
-            electricidad. ¡Vamos a descubrir dos ideas clave!
+            Cada vez que encendemos una luz o usamos un electrodoméstico,
+            estamos usando electricidad. Pero si no los necesitamos, ¡podemos
+            apagarlos! Así ayudamos a que no se desperdicie energía. ¡Pequeñas
+            acciones pueden hacer una gran diferencia!
           </p>
         </div>
 

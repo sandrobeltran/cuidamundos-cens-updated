@@ -16,8 +16,8 @@ export default function Aprende() {
     <CustomMain>
       <HeroeSection>
         <HeroeTitle
-          title={{ text: "¡Aprende", resalted: "con Ignis!" }}
-          description="Descubre cómo ser un héroe CuidaMundos y aprende a cuidar nuestro hogar. ¡Diviértete mientras proteges nuestro planeta!"
+          title={{ text: "Protegiendo", resalted: "Nuestro Hogar" }}
+          description="¡Hola! Soy Ignis, exploremos cómo cuidar nuestro planeta. ¿Están listos para convertirse en defensores del medio ambiente? ¡Vamos a aprender juntos explorando los siguientes conceptos!"
         />
         <div className="relative grid w-full grid-cols-6 gap-x-0 px-20 mobile-land:gap-x-16 mobile-land:px-10">
           <div className="col-span-4 flex mobile-land:col-span-4">
@@ -63,7 +63,7 @@ export default function Aprende() {
                   <p className="text-lg font-bold text-cens-medium">Purita</p>
                 </a>
                 <a
-                  href="/pdf/cartillas/Jirol.pdf"
+                  href="/pdf/cartillas/jirol.pdf"
                   download={"Cartilla de Jirol.pdf"}
                   className="flex w-full max-w-[135px] flex-1 flex-col items-center gap-3 text-center transition-transform hover:scale-110"
                 >
@@ -88,7 +88,7 @@ export default function Aprende() {
                       className="w-3/4"
                     />
                   </div>
-                  <p className="text-lg font-bold text-cens-medium">Felix</p>
+                  <p className="text-lg font-bold text-cens-medium">Félix</p>
                 </a>
               </div>
             </div>

@@ -9,11 +9,31 @@
         "id": 1,
         "title": "¿Cuánta carne consume en un mes?",
         "options": [
-          { "title": "Menos de 10 porciones", "percent": 5, "value": 8461.5 },
-          { "title": "10 a 20 porciones", "percent": 15, "value": 16923 },
-          { "title": "20 a 50 porciones", "percent": 25, "value": 31025.5 },
-          { "title": "Más de 50 porciones", "percent": 30, "value": 39487 },
-          { "title": "No consumo carne", "percent": 2, "value": 0 }
+          {
+            "title": "Menos de 10 porciones",
+            "percent": 5,
+            "lt": 15000,
+            "co2": 8461.5
+          },
+          {
+            "title": "10 a 20 porciones",
+            "percent": 15,
+            "lt": 30000,
+            "co2": 16923
+          },
+          {
+            "title": "20 a 50 porciones",
+            "percent": 25,
+            "lt": 75000,
+            "co2": 31025.5
+          },
+          {
+            "title": "Más de 50 porciones",
+            "percent": 30,
+            "lt": 75000,
+            "co2": 39487
+          },
+          { "title": "No consumo carne", "percent": 2, "lt": 0, "co2": 0 }
         ],
         "image": "/img/purita/huella-ecologica/carnes.png"
       },
@@ -21,11 +41,26 @@
         "id": 2,
         "title": "¿Cuantas unidades de huevos consume en un mes?",
         "options": [
-          { "title": "Menos de 6 huevos", "percent": 5, "value": 50.5 },
-          { "title": "6 a 12 huevos", "percent": 15, "value": 151.5 },
-          { "title": "13 a 24 huevos", "percent": 25, "value": 309.167 },
-          { "title": "Más de 24 huevos", "percent": 30, "value": 404 },
-          { "title": "No consumo huevos", "percent": 2, "value": 0 }
+          {
+            "title": "Menos de 6 huevos",
+            "percent": 5,
+            "lt": 261.5,
+            "co2": 50.5
+          },
+          { "title": "6 a 12 huevos", "percent": 15, "lt": 523, "co2": 151.5 },
+          {
+            "title": "13 a 24 huevos",
+            "percent": 25,
+            "lt": 1046,
+            "co2": 309.167
+          },
+          {
+            "title": "Más de 24 huevos",
+            "percent": 30,
+            "lt": 1046,
+            "co2": 404
+          },
+          { "title": "No consumo huevos", "percent": 2, "lt": 0, "co2": 0 }
         ],
         "image": "/img/purita/huella-ecologica/huevos.png"
       },
@@ -33,11 +68,26 @@
         "id": 3,
         "title": "¿Cuánta leche se consume en un mes?",
         "options": [
-          { "title": "Menos de 5 vasos", "percent": 5, "value": 152.67 },
-          { "title": "5 a 15 vasos", "percent": 15, "value": 610.67 },
-          { "title": "15 a 25 vasos", "percent": 25, "value": 1213.33 },
-          { "title": "Más de 25 vasos", "percent": 30, "value": 1213.33 },
-          { "title": "No consumo leche", "percent": 2, "value": 0 }
+          {
+            "title": "Menos de 5 vasos",
+            "percent": 5,
+            "lt": 1.25,
+            "co2": 152.67
+          },
+          { "title": "5 a 15 vasos", "percent": 15, "lt": 1.25, "co2": 610.67 },
+          {
+            "title": "15 a 25 vasos",
+            "percent": 25,
+            "lt": 3.75,
+            "co2": 1213.33
+          },
+          {
+            "title": "Más de 25 vasos",
+            "percent": 30,
+            "lt": 6.25,
+            "co2": 1213.33
+          },
+          { "title": "No consumo leche", "percent": 2, "lt": 0, "co2": 0 }
         ],
         "image": "/img/purita/huella-ecologica/leche.png"
       },
@@ -45,11 +95,21 @@
         "id": 4,
         "title": "¿Cuánto pan consume en un mes?",
         "options": [
-          { "title": "Menos de 7 unidades", "percent": 5, "value": 11 },
-          { "title": "7 a 14 unidades", "percent": 15, "value": 33 },
-          { "title": "14 a 21 unidades", "percent": 25, "value": 55 },
-          { "title": "Más de 21 unidades", "percent": 30, "value": 55 },
-          { "title": "No consumo pan", "percent": 2, "value": 0 }
+          {
+            "title": "Menos de 7 unidades",
+            "percent": 5,
+            "lt": 187.5,
+            "co2": 11
+          },
+          { "title": "7 a 14 unidades", "percent": 15, "lt": 375, "co2": 33 },
+          { "title": "14 a 21 unidades", "percent": 25, "lt": 750, "co2": 55 },
+          {
+            "title": "Más de 21 unidades",
+            "percent": 30,
+            "lt": 750,
+            "co2": 55
+          },
+          { "title": "No consumo pan", "percent": 2, "lt": 0, "co2": 0 }
         ],
         "image": "/img/purita/huella-ecologica/pan.png"
       },
@@ -57,73 +117,153 @@
         "id": 5,
         "title": "¿Cuánto arroz se consume en un mes?",
         "options": [
-          { "title": "Menos de 10 porciones", "percent": 5, "value": 121 },
-          { "title": "10 a 30 porciones", "percent": 15, "value": 484 },
-          { "title": "30 a 50 porciones", "percent": 25, "value": 968 },
-          { "title": "Más de 50 porciones", "percent": 30, "value": 1210 },
-          { "title": "No consumo arroz", "percent": 2, "value": 0 }
+          {
+            "title": "Menos de 10 porciones",
+            "percent": 5,
+            "lt": 76.74,
+            "co2": 121
+          },
+          {
+            "title": "10 a 30 porciones",
+            "percent": 15,
+            "lt": 76.74,
+            "co2": 484
+          },
+          {
+            "title": "30 a 50 porciones",
+            "percent": 25,
+            "lt": 230.22,
+            "co2": 968
+          },
+          {
+            "title": "Más de 50 porciones",
+            "percent": 30,
+            "lt": 383.7,
+            "co2": 1210
+          },
+          { "title": "No consumo arroz", "percent": 2, "lt": 0, "co2": 0 }
         ],
         "image": "/img/purita/huella-ecologica/arroz.png"
       },
       {
         "id": 6,
-        "title": "¿Cuántas tazas de café consume en un mes?",
+        "title": "¿Cuánto pollo consume en un mes?",
         "options": [
-          { "title": "Menos de 20 tazas", "percent": 5, "value": 77.5 },
-          { "title": "20 a 25 tazas", "percent": 15, "value": 310 },
-          { "title": "25 a 45 tazas", "percent": 25, "value": 620 },
-          { "title": "Más de 45 tazas", "percent": 30, "value": 775 },
-          { "title": "No consumo café", "percent": 2, "value": 0 }
+          {
+            "title": "Menos de 5 porciones",
+            "percent": 5,
+            "lt": 32.49,
+            "co2": 142
+          },
+          {
+            "title": "5 a 15 porciones",
+            "percent": 15,
+            "lt": 32.49,
+            "co2": 426
+          },
+          {
+            "title": "15 a 25 porciones",
+            "percent": 25,
+            "lt": 97.47,
+            "co2": 710
+          },
+          {
+            "title": "Más de 25 porciones",
+            "percent": 30,
+            "lt": 162.45,
+            "co2": 284
+          },
+          { "title": "No consumo pollo", "percent": 2, "lt": 0, "co2": 0 }
         ],
-        "image": "/img/purita/huella-ecologica/cafe.png"
+        "image": "/img/purita/huella-ecologica/pollo.png"
       },
       {
         "id": 7,
-        "title": "¿Cuánto pollo consume en un mes?",
+        "title": "¿Cuánto tiempo te demoras en una ducha típica al día?",
         "options": [
-          { "title": "Menos de 5 porciones", "percent": 5, "value": 142 },
-          { "title": "5 a 15 porciones", "percent": 15, "value": 426 },
-          { "title": "15 a 25 porciones", "percent": 25, "value": 710 },
-          { "title": "Más de 25 porciones", "percent": 30, "value": 284 },
-          { "title": "No consumo pollo", "percent": 2, "value": 0 }
+          {
+            "title": "Menos de 5 minutos",
+            "percent": 2,
+            "co2": 0,
+            "lt": 675
+          },
+          { "title": "5 a 10 minutos", "percent": 5, "co2": 0, "lt": 1350 },
+          { "title": "10 a 15 minutos", "percent": 15, "co2": 0, "lt": 2700 },
+          { "title": "15 a 30 minutos", "percent": 25, "co2": 0, "lt": 4050 },
+          {
+            "title": "Más de 30 minutos",
+            "percent": 30,
+            "co2": 0,
+            "lt": 13500
+          }
         ],
         "image": "/img/purita/huella-ecologica/pollo.png"
       },
       {
         "id": 8,
-        "title": "¿Cuántas papas consume en un mes?",
+        "title": "¿Cuánto tiempo te demoras habitualmente al lavarte las manos?",
         "options": [
-          { "title": "Menos de 5 porciones", "percent": 5, "value": 4.5 },
-          { "title": "5 a 15 porciones", "percent": 15, "value": 18 },
-          { "title": "15 a 25 porciones", "percent": 25, "value": 36 },
-          { "title": "Más de 25 porciones", "percent": 30, "value": 45 },
-          { "title": "No consumo papas", "percent": 2, "value": 0 }
+          {
+            "title": "Menos de 20 segundos",
+            "percent": 2,
+            "co2": 0,
+            "lt": 30
+          },
+          { "title": "20 a 30 segundos", "percent": 5, "co2": 0, "lt": 60 },
+          { "title": "30 a 40 segundos ", "percent": 15, "co2": 0, "lt": 90 },
+          {
+            "title": "40 segundos a 1 minuto ",
+            "percent": 25,
+            "co2": 0,
+            "lt": 120
+          },
+          { "title": "Más de 1 minuto", "percent": 30, "co2": 0, "lt": 300 }
         ],
-        "image": "/img/purita/huella-ecologica/papas.png"
+        "image": "/img/purita/huella-ecologica/pollo.png"
       },
       {
         "id": 9,
-        "title": "¿Cuántos bananos consume en un mes?",
+        "title": "¿Cuánto tiempo te demoras al lavarte los dientes con el grifo abierto?",
         "options": [
-          { "title": "Menos de 5 bananos", "percent": 5, "value": 14.28 },
-          { "title": "5 a 10 bananos", "percent": 15, "value": 26.79 },
-          { "title": "10 a 20 bananos", "percent": 25, "value": 53.57 },
-          { "title": "Más de 20 bananos", "percent": 30, "value": 53.57 },
-          { "title": "No consumo bananos", "percent": 2, "value": 0 }
+          { "title": "Menos de 1 minuto", "percent": 2, "co2": 0, "lt": 90 },
+          { "title": "1 a 2 minutos", "percent": 5, "co2": 0, "lt": 180 },
+          { "title": "2 a 3 minutos ", "percent": 15, "co2": 0, "lt": 360 },
+          { "title": "3 a 4 minutos ", "percent": 25, "co2": 0, "lt": 540 },
+          { "title": "Más de 4 minutos", "percent": 30, "co2": 0, "lt": 720 }
         ],
-        "image": "/img/purita/huella-ecologica/bananos.png"
+        "image": "/img/purita/huella-ecologica/pollo.png"
       },
       {
         "id": 10,
-        "title": "¿Cuántos aguacates consume en un mes?",
+        "title": "¿Cuántas descargas de agua en el inodoro realizas al día?",
         "options": [
-          { "title": "Menos de 3 aguacates", "percent": 5, "value": 48 },
-          { "title": "3 a 6 aguacates", "percent": 15, "value": 96 },
-          { "title": "6 a 10 aguacates", "percent": 25, "value": 192 },
-          { "title": "Más de 10 aguacates", "percent": 30, "value": 288 },
-          { "title": "No consumo aguacates", "percent": 2, "value": 0 }
+          {
+            "title": "Menos de 2 descargas",
+            "percent": 2,
+            "co2": 0,
+            "lt": 450
+          },
+          { "title": "2 a 4 descargas", "percent": 5, "co2": 0, "lt": 900 },
+          {
+            "title": "4 a 6 descargas ",
+            "percent": 15,
+            "co2": 0,
+            "lt": 1800
+          },
+          {
+            "title": "6 a 10 descargas ",
+            "percent": 25,
+            "co2": 0,
+            "lt": 2700
+          },
+          {
+            "title": "Más de 10 descargas",
+            "percent": 30,
+            "co2": 0,
+            "lt": 4500
+          }
         ],
-        "image": "/img/purita/huella-ecologica/aguacate.png"
+        "image": "/img/purita/huella-ecologica/pollo.png"
       }
     ],
     "ranges": [

@@ -29,11 +29,13 @@ const ResultsScreen = () => {
   const [testResult, setTestResult] = useState<{
     message: string;
     totalPercent: number;
-    totalValue: number;
+    totalCo2: number;
+    totalLt: number;
   }>({
     message: "",
     totalPercent: 0,
-    totalValue: 0,
+    totalCo2: 0,
+    totalLt: 0,
   });
 
   useEffect(() => {
@@ -44,26 +46,33 @@ const ResultsScreen = () => {
 
       /* CALC USER RESULT */
       const {
-        selection: { percent: totalPercent, value: totalValue },
+        selection: { percent: totalPercent, co2: totalCo2, lt: totalLt },
       } = results.reduce((a, b) => ({
         ...a,
         selection: {
           percent: a.selection.percent + b.selection.percent,
-          value: a.selection.value + b.selection.value,
+          co2: a.selection.co2 + b.selection.co2,
+          lt: a.selection.lt + b.selection.lt,
         },
       }));
 
       const sortedRanges = ranges.sort((a, b) => a.limit - b.limit);
 
       setTestResult({
-        totalPercent: totalPercent,
-        totalValue: totalValue,
+        totalPercent,
+        totalCo2,
+        totalLt,
         message: test.data.maxMessage,
       });
 
       for (const range of sortedRanges) {
         if (totalPercent <= range.limit) {
-          setTestResult({ totalPercent, totalValue, message: range.message });
+          setTestResult({
+            totalPercent,
+            totalCo2,
+            message: range.message,
+            totalLt,
+          });
           break;
         }
       }
@@ -78,7 +87,7 @@ const ResultsScreen = () => {
 
   function handleResetTest() {
     resetGame();
-    setTestResult({ message: "", totalPercent: 0, totalValue: 0 });
+    setTestResult({ message: "", totalPercent: 0, totalCo2: 0, totalLt: 0 });
     swiper.slideTo(0);
   }
 
@@ -121,7 +130,8 @@ const ResultsScreen = () => {
           </div>
           {/* CO2 */}
           <p>
-            <b>CO2</b> {co2Formatter.format(testResult.totalValue)}kg
+            <b>CO2</b> {co2Formatter.format(testResult.totalCo2)}kg <br />
+            <b>L.</b> {co2Formatter.format(testResult.totalLt)} litros de agua
           </p>
         </div>
 

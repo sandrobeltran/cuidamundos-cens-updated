@@ -56,9 +56,11 @@ const Page4 = () => {
         <div className="birdsContainer"></div>
         <div className="absolute bottom-0 left-0 right-0 z-20 mx-auto h-fit w-11/12 rounded-tl-3xl rounded-tr-3xl bg-white/80 p-5 text-center text-xl text-stone-500 shadow-md backdrop-blur-md">
           <p>
-            ¡Para evitar accidentes eléctricos, es súper importante que
-            identifiquemos y corrijamos todo lo que pueda ser peligroso con la
-            electricidad. ¡Vamos a descubrir dos ideas clave!
+            La biodiversidad es como la magia que llena nuestro mundo. ¿Saben
+            que en un bosque hay muchos tipos de plantas, animales, insectos y
+            microorganismos? Todos estos seres vivos juntos hacen que el bosque
+            esté equilibrado y saludable. Cada uno tiene un papel importante,
+            ¡como piezas de un rompecabezas!
           </p>
         </div>
       </div>

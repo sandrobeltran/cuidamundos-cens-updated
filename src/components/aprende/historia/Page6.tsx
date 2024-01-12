@@ -57,9 +57,10 @@ const Page6 = () => {
         {/* DIALOG */}
         <div className="absolute bottom-0 left-0 right-0 z-20 mx-auto h-fit w-11/12 rounded-tl-3xl rounded-tr-3xl bg-slate-800/50 p-5 text-center text-xl text-white shadow-md backdrop-blur-md">
           <p>
-            ¡Para evitar accidentes eléctricos, es súper importante que
-            identifiquemos y corrijamos todo lo que pueda ser peligroso con la
-            electricidad. ¡Vamos a descubrir dos ideas clave!
+            ¿Alguna vez han sentido el viento en sus caras? ¡Ese viento puede
+            hacer girar asombrosos molinos que nos dan electricidad! Es como
+            tener un súper poder del viento para generar energía sin dañar el
+            aire.
           </p>
         </div>
 

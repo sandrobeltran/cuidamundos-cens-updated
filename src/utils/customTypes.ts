@@ -102,7 +102,8 @@ export interface ITestQuestion {
   options: {
     title: string;
     percent: number;
-    value: number
+    co2: number;
+    lt: number
   }[];
   image: string
 }

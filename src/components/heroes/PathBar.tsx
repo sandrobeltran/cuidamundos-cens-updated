@@ -18,6 +18,7 @@ const names = {
   jirol: "Jirol",
   juega: "Juega",
   historia: "Historia",
+  calculadora: "Calculadora",
   /* GAMES */
   "uso-eficiente": "Uso Eficiente",
   "huella-ecologica": "Huella Ecológica",

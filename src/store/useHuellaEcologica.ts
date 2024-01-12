@@ -6,7 +6,8 @@ type TResult = {
   question: ITestQuestion;
   selection: {
     percent: number,
-    value: number
+    co2: number,
+    lt: number
   };
 };
 
