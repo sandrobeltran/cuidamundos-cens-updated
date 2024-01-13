@@ -20,8 +20,8 @@ const CALCULATOR_DATA = [
     days: 30,
   },
   {
-    name: "Plancha",
-    w: 1000,
+    name: "Bombillo LED",
+    w: 13,
     days: 30,
   },
   {

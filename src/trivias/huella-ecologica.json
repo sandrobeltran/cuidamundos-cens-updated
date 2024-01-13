@@ -197,7 +197,7 @@
             "lt": 13500
           }
         ],
-        "image": "/img/purita/huella-ecologica/pollo.png"
+        "image": "/img/purita/huella-ecologica/ducha.png"
       },
       {
         "id": 8,
@@ -219,7 +219,7 @@
           },
           { "title": "Más de 1 minuto", "percent": 30, "co2": 0, "lt": 300 }
         ],
-        "image": "/img/purita/huella-ecologica/pollo.png"
+        "image": "/img/purita/huella-ecologica/manos.png"
       },
       {
         "id": 9,
@@ -231,7 +231,7 @@
           { "title": "3 a 4 minutos ", "percent": 25, "co2": 0, "lt": 540 },
           { "title": "Más de 4 minutos", "percent": 30, "co2": 0, "lt": 720 }
         ],
-        "image": "/img/purita/huella-ecologica/pollo.png"
+        "image": "/img/purita/huella-ecologica/dientes.png"
       },
       {
         "id": 10,
@@ -263,7 +263,7 @@
             "lt": 4500
           }
         ],
-        "image": "/img/purita/huella-ecologica/pollo.png"
+        "image": "/img/purita/huella-ecologica/inodoro.png"
       }
     ],
     "ranges": [

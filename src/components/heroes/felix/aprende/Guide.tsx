@@ -50,11 +50,11 @@ const MARKERS_DATA = [
     },
   },
   {
-    x: 25,
-    y: 81,
+    x: 50,
+    y: 50,
     content: {
-      title: "Plancha",
-      description: "Consumo de 1 kW.",
+      title: "Bombillo LED",
+      description: "Consumo de 0.013 kW.",
     },
   },
   {
