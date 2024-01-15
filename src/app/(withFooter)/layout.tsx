@@ -9,11 +9,6 @@ const ubuntu = Ubuntu({
   adjustFontFallback: false,
 });
 
-export const metadata: Metadata = {
-  title: "Ecoaventura Sostenible - CENS",
-  description: "Page description placeholder",
-};
-
 export default function FooterLayout({
   children,
 }: {

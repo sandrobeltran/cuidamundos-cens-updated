@@ -1,8 +1,6 @@
-import Footer from "@/components/Footer";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
-import Script from "next/script";
 import GetUserByToken from "@/components/validations/GetUserByToken";
 import Header from "@/components/header/Header";
 import LeavesFalling from "@/components/LeavesFalling";
@@ -18,8 +16,9 @@ const ubuntu = Ubuntu({
 });
 
 export const metadata: Metadata = {
-  title: "Ecoaventura Sostenible - CENS",
-  description: "Page description placeholder",
+  title: "Cuidamundos CENS",
+  description:
+    "Videojuego 2D de aventura y educativo sobre los CuidaMundos de CENS. ¡Donde serás Purita, Jirol y Félix, y tendrás que ser un héroe para salvar nuestro planeta!",
 };
 
 export default function RootLayout({

@@ -50,8 +50,8 @@ const MARKERS_DATA = [
     },
   },
   {
-    x: 50,
-    y: 50,
+    x: 20.5,
+    y: 82,
     content: {
       title: "Bombillo LED",
       description: "Consumo de 0.013 kW.",

@@ -13,11 +13,7 @@ const InfoSection = () => {
           </div>
           <div className="flex flex-col">
             <h5 className="font-semibold">Dirección</h5>
-            <p>xxxxxxxxxxxx</p>
-          </div>
-          <div className="flex flex-col">
-            <h5 className="font-semibold">Número de Contacto</h5>
-            <p>+57 3XXXXX-XXXX</p>
+            <a target="_blank" className="underline" href="https://www.cens.com.co" >www.cens.com.co</a>
           </div>
         </div>
       </div>

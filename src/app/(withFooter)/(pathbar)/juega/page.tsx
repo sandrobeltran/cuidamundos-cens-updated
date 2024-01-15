@@ -9,7 +9,6 @@ import JirolRenderImage from "@public/img/juega/jirol-render.png";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import SkyBackground from "@/components/heroes/SkyBackground";
 
 /* SECTIONS DATA */
 const SECTIONS_DATA = [
@@ -29,7 +28,7 @@ const SECTIONS_DATA = [
       resalted: "Juego",
     },
     description:
-      "Descubre la Inspiradora Historia de Purita, la Heroína del Medio Ambiente",
+      "Videojuego 2D de aventura y educativo sobre los CuidaMundos de CENS. ¡Donde serás Purita, Jirol y Félix, y tendrás que ser un héroe para salvar nuestro planeta!",
     href: "/juega",
     icon: "trophy",
   },
@@ -73,7 +72,7 @@ export default function Juega() {
       <HeroeSection>
         <HeroeTitle
           title={{
-            text: "Videojuego",
+            text: "¡Videojuego",
             resalted: "CuidaMundos!",
           }}
         />
@@ -82,17 +81,17 @@ export default function Juega() {
           <div className="col-span-2 flex mobile-land:col-span-3">
             <Image
               src={PuritaRenderImage}
-              className="w-full animate-levitating mobile-land:w-1/3 object-contain"
+              className="w-full animate-levitating object-contain mobile-land:w-1/3"
               alt="Render de Purita"
             />
             <Image
               src={FelixRenderImage}
-              className="w-full animate-levitating mobile-land:w-1/3 object-contain"
+              className="w-full animate-levitating object-contain mobile-land:w-1/3"
               alt="Render de Purita"
             />
             <Image
               src={JirolRenderImage}
-              className="w-full animate-levitating mobile-land:w-1/3 object-contain"
+              className="w-full animate-levitating object-contain mobile-land:w-1/3"
               alt="Render de Purita"
             />
           </div>
