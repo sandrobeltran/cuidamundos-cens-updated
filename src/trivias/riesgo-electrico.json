@@ -5,108 +5,108 @@
     "questions": [
       {
         "id": 1,
-        "title": "¿Cuál de las siguientes acciones aumenta el riesgo eléctrico en el hogar?",
+        "title": "¿Cómo debo desconectar un aparato eléctrico de la manera más segura?",
         "options": [
-          "Desconectar los electrodomésticos jalando el cable.",
-          "Utilizar enchufes y cables en buen estado.",
-          "Sobrecargar los enchufes con múltiples adaptadores."
+          "Tirando fuertemente del cable.",
+          "Desconectando directamente del enchufe.",
+          "Dejando que el cable se enrolle solo."
         ],
-        "answer": "Sobrecargar los enchufes con múltiples adaptadores.",
+        "answer": "Desconectando directamente del enchufe.",
         "image": "https://jdelectricos.com.co/wp-content/uploads/2021/06/fuentes-renovables.jpg"
       },
       {
         "id": 2,
-        "title": "¿Cuáles de las siguientes acciones no debemos hacer?",
+        "title": "¿Por qué debo evitar conectar varios equipos eléctricos en un solo tomacorriente?",
         "options": [
-          "Podemos malgastar la electricidad sin preocuparnos por el medio ambiente.",
-          "Debemos avisar a un adulto si vemos un cable eléctrico roto.",
-          "Usar bombillas ahorradoras."
+          "Porque aumenta la durabilidad de los cables.",
+          "Porque reduce la emisión de gases.",
+          "Porque me ayuda a prevenir incendios."
         ],
-        "answer": "Podemos malgastar la electricidad sin preocuparnos por el medio ambiente.",
+        "answer": "Porque me ayuda a prevenir incendios.",
         "image": "https://2.bp.blogspot.com/_nufqsEkAHTc/SdA1U01Yy5I/AAAAAAAAABw/snE7HQcXinA/w1200-h630-p-k-no-nu/gases+efecto+invernadero.bmp"
       },
       {
         "id": 3,
-        "title": "¿Cuál es el propósito de un interruptor de circuito (breaker)?",
+        "title": " ¿Cuál riesgo puedo generar al usar electrodomésticos en mal estado?",
         "options": [
-          "Aumentar la corriente eléctrica.",
-          "Cortar la corriente en caso de sobrecarga o cortocircuito.",
-          "Mejorar la eficiencia energética."
+          "Mayor eficiencia energética.",
+          "Menor riesgo de seguridad ",
+          "Sufrir accidentes eléctricos."
         ],
-        "answer": "Cortar la corriente en caso de sobrecarga o cortocircuito.",
+        "answer": "Sufrir accidentes eléctricos.",
         "image": "https://i0.wp.com/www.azpirilejardi.com/wp-content/uploads/2014/11/bombillas-bajo-consumo-led1.jpg"
       },
       {
         "id": 4,
-        "title": "¿Qué precaución adicional debes tomar al utilizar dispositivos eléctricos cerca del agua?",
+        "title": "No manipular equipos eléctricos con el cuerpo mojado, me ayuda a:",
         "options": [
-          "Ninguna, siempre es seguro.",
-          "Utilizar dispositivos eléctricos sumergibles.",
-          "Mantener los dispositivos eléctricos alejados del agua."
+          "Obtener mayor eficiencia en el trabajo.",
+          "Evitar lesiones por descargas eléctricas.",
+          "Mejorar en la conexión de dispositivos."
         ],
-        "answer": "Mantener los dispositivos eléctricos alejados del agua.",
+        "answer": "Evitar lesiones por descargas eléctricas.",
         "image": "https://www.amoquimicos.com/images/Noticias_2021//quimicos-contaminantes-para-fuentes-hidricas1.jpg"
       },
       {
         "id": 5,
-        "title": "¿Cuál es la medida de seguridad más importante al trabajar con herramientas eléctricas?",
+        "title": "Evitar lesiones por descargas eléctricas.",
         "options": [
-          "Usar calzado con suela aislante.",
-          "Trabajar en un ambiente húmedo.",
-          "Ignorar las advertencias del fabricante."
+          "Podría ocasionar un daño al medio ambiente.",
+          "Puedo sufrir una lesión grave por descarga eléctrica.",
+          "Mejorar la señal del teléfono"
         ],
-        "answer": "Usar calzado con suela aislante.",
+        "answer": "Puedo sufrir una lesión grave por descarga eléctrica.",
         "image": "https://lamamapachama.files.wordpress.com/2015/02/carbon_8547.jpg"
       },
       {
         "id": 6,
-        "title": "¿Qué precaución se debe tomar al cambiar un bombillo en casa?",
+        "title": "Puedo sufrir una lesión grave por descarga eléctrica.",
         "options": [
-          "Hacerlo con las manos mojadas.",
-          "Asegurarse de que el interruptor esté apagado antes de reemplazarlo.",
-          "Ignorar el voltaje del bombillo."
+          "Usar guantes e hidratación.",
+          "Mantener una distancia segura hacia las torres y redes de energía.",
+          "Utilizar luces brillantes"
         ],
-        "answer": "Asegurarse de que el interruptor esté apagado antes de reemplazarlo.",
+        "answer": "Mantener una distancia segura hacia las torres y redes de energía.",
         "image": "https://www.shutterstock.com/image-vector/methane-ch4-molecule-model-chemical-600w-1213786645.jpg"
       },
       {
         "id": 7,
-        "title": "¿Cuál es la mejor práctica al usar cables de extensión?",
+        "title": "Mantener una distancia segura hacia las torres y redes de energía.",
         "options": [
-          "Conectar varios cables de extensión para mayor longitud.",
-          "Evite enrollar los cables de extensión mientras están en uso.",
-          "No importa cómo se utilicen, los cables de extensión son siempre seguros."
+          "Así protejo el estado de los objetos metálicos.",
+          "Evito interferencias en las comunicaciones.",
+          "Porque así se prevengo accidentes eléctricos."
         ],
-        "answer": "Evite enrollar los cables de extensión mientras están en uso.",
+        "answer": "Porque así se prevengo accidentes eléctricos.",
         "image": "https://cdn0.ecologiaverde.com/es/posts/6/6/0/cuales_son_los_beneficios_de_reciclar_66_orig.jpg"
       },
       {
         "id": 8,
-        "title": "¿Cuál es la principal causa de incendios relacionados con la electricidad en el hogar?",
+        "title": "¿Cuáles son los beneficios de desconectar mis equipos eléctricos?",
         "options": [
-          "Uso de electrodomésticos defectuosos.",
-          "Apagar los dispositivos antes de cargarlos.",
-          "No hay riesgo de incendio relacionado con la electricidad."
+          "Facilito la instalación de nuevos dispositivos.",
+          "Evito accidentes eléctricos y altos consumos de energía.",
+          "Mejoro la velocidad de carga de los dispositivos."
         ],
-        "answer": "Uso de electrodomésticos defectuosos.",
+        "answer": "Evito accidentes eléctricos y altos consumos de energía.",
         "image": "https://www.researchgate.net/profile/Juan-Rocha-Hoyos/publication/321295360/figure/fig20/AS:564662639251467@1511637472667/Figura-2-Porcentaje-gases-que-conforma-el-aire-Fuente-Autor.png"
       },
       {
         "id": 9,
-        "title": "¿Qué debe hacerse en caso de una tormenta eléctrica para prevenir daños eléctricos?",
+        "title": "Si encuentro un cable eléctrico dañado en mi casa ¿cuál es la medida más segura que debo tomar?",
         "options": [
-          "Desconectar todos los electrodomésticos y dispositivos electrónicos.",
-          "Dejar todos los electrodomésticos encendidos.",
-          "Permanecer cerca de dispositivos electrónicos para protegerlos."
+          "Tocar el cable con cuidado para evaluar el daño.",
+          "Utilizar cinta adhesiva para reparar el cable.",
+          "Apagar la electricidad bajando el interruptor o breaker y llamar a un adulto responsable."
         ],
-        "answer": "Desconectar todos los electrodomésticos y dispositivos electrónicos.",
+        "answer": "Apagar la electricidad bajando el interruptor o breaker y llamar a un adulto responsable.",
         "image": "https://www.endesa.com/content/dam/endesa-com/endesaclientes/blog/imagees/C%C3%B3mo%20se%20produce%20la%20energ%C3%ADa%20el%C3%A9ctrica%20Energia%20solar%20628x335.jpg"
       },
       {
         "id": 10,
-        "title": "¿Qué equipo de protección personal es esencial al realizar trabajos eléctricos?",
-        "options": ["Gafas de sol.", "Guantes y casco.", "Ropa mojada."],
-        "answer": "Guantes y casco.",
+        "title": "¿Cuál es la línea gratuita para reportar daños eléctricos?",
+        "options": ["911", "01 8000 414 115", "123"],
+        "answer": "01 8000 414 115",
         "image": "https://www.renovablesverdes.com/wp-content/uploads/2018/09/Energias-no-renovables.jpg"
       }
     ],

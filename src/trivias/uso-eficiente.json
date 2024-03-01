@@ -5,108 +5,112 @@
     "questions": [
       {
         "id": 1,
-        "title": "¿Cómo puedes ahorrar energía al iluminar tu hogar?",
+        "title": "¿Cómo puedo ahorrar energía al utilizar las luces?",
         "options": [
-          "Dejar las luces encendidas todo el tiempo.",
-          "Reemplazar bombillos incandescentes por LED o CFL.",
-          "Utilizar bombillas incandescentes exclusivamente."
+          "Dejando las luces encendidas todo el tiempo.",
+          "Apagando las luces cuando no se necesitan.",
+          "Usar luces más brillantes siempre."
         ],
-        "answer": "Reemplazar bombillos incandescentes por LED o CFL.",
+        "answer": "Apagando las luces cuando no se necesitan.",
         "image": "https://jdelectricos.com.co/wp-content/uploads/2021/06/fuentes-renovables.jpg"
       },
       {
         "id": 2,
-        "title": "¿Cuál es el consumo promedio de una bombilla LED?",
+        "title": "¿Cómo puedo ahorrar energía al utilizar mi televisor?",
         "options": [
-          "0,35 kilovatios.",
-          "0,007 kilovatios.",
-          "0,075 kilovatios."
+          "Dejándolo encendido todo el día.",
+          "Apagándolo cuando no le esté aprovechando.",
+          "Ajustándole el brillo al máximo."
         ],
-        "answer": "0,007 kilovatios.",
+        "answer": "Apagándolo cuando no le esté aprovechando.",
         "image": "https://2.bp.blogspot.com/_nufqsEkAHTc/SdA1U01Yy5I/AAAAAAAAABw/snE7HQcXinA/w1200-h630-p-k-no-nu/gases+efecto+invernadero.bmp"
       },
       {
         "id": 3,
-        "title": "¿Cómo puedes reducir el consumo de energía al utilizar una licuadora?",
+        "title": "¿Qué beneficio obtengo si desconecto el cargador del celular cuando no se está utilizando?",
         "options": [
-          "Dejarla en funcionamiento sin motivo.",
-          "Apagarla tan pronto como termines de licuar.",
-          "Utilizarla siempre que puedas."
+          "Ahorro energía.",
+          "Protejo el celular.",
+          "Mejoro la velocidad de carga."
         ],
-        "answer": "Apagarla tan pronto como termines de licuar.",
+        "answer": "Ahorro energía.",
         "image": "https://i0.wp.com/www.azpirilejardi.com/wp-content/uploads/2014/11/bombillas-bajo-consumo-led1.jpg"
       },
       {
         "id": 4,
-        "title": "¿Cómo puedes ahorrar energía al utilizar un televisor?",
+        "title": "¿Qué acción debo hacer para ahorrar energía con la nevera?",
         "options": [
-          "Mantenerlo encendido todo el tiempo.",
-          "Ajustar el brillo y contraste.",
-          "No apagarlo cuando no lo estés viendo."
+          "Mantener la nevera a la máxima temperatura todo el tiempo.",
+          "Ajustar la temperatura de acuerdo con la carga de alimentos y cerrar la puerta.",
+          "Ubicar la nevera en lugares cálidos."
         ],
-        "answer": "Ajustar el brillo y contraste.",
+        "answer": "Ajustar la temperatura de acuerdo con la carga de alimentos y cerrar la puerta.",
         "image": "https://www.amoquimicos.com/images/Noticias_2021//quimicos-contaminantes-para-fuentes-hidricas1.jpg"
       },
       {
         "id": 5,
-        "title": "¿Cuál es la recomendación para ahorrar energía al usar un aire acondicionado?",
+        "title": "¿Cómo puedo contribuir al ahorro de energía con mi nevera?",
         "options": [
-          "Mantener puertas y ventanas abiertas.",
-          "Ajustar la temperatura a un nivel muy bajo.",
-          "Mantener puertas y ventanas cerradas y programar su funcionamiento en horarios específicos."
+          "Almacenar alimentos calientes directamente.",
+          "Abrirla lo menos posible e invitar a hacerle mantenimiento.",
+          "Mantener la nevera vacía."
         ],
-        "answer": "Mantener puertas y ventanas cerradas y programar su funcionamiento en horarios específicos.",
+        "answer": "Abrirla lo menos posible e invitar a hacerle mantenimiento.",
         "image": "https://lamamapachama.files.wordpress.com/2015/02/carbon_8547.jpg"
       },
       {
         "id": 6,
-        "title": "¿Cómo puedes ahorrar energía al utilizar una nevera?",
+        "title": "Si necesito secar mi ropa, ¿cuál no sería una alternativa adecuada para hacerlo?",
         "options": [
-          "Abrir la puerta innecesariamente.",
-          "Colocar la nevera en un lugar caliente y soleado.",
-          "No apagarla a menos que no la uses por más de 10 días y ajustar la temperatura adecuadamente."
+          "Usar el ventilador.",
+          "Tenderla al sol.",
+          "Tenderla al viento."
         ],
-        "answer": "No apagarla a menos que no la uses por más de 10 días y ajustar la temperatura adecuadamente.",
+        "answer": "Usar el ventilador.",
         "image": "https://www.shutterstock.com/image-vector/methane-ch4-molecule-model-chemical-600w-1213786645.jpg"
       },
       {
         "id": 7,
-        "title": "¿Cuál es la recomendación para ahorrar energía al utilizar un ventilador?",
+        "title": "¿Cuál sería mi contribución al cuidado ambiental si elijo utilizar la energía de manera más eficiente?",
         "options": [
-          "Mantenerlo encendido todo el tiempo.",
-          "Apagarlo cuando no lo necesites y ajustar la velocidad.",
-          "Utilizarlo para secar la ropa."
+          "Habrá mayor necesidad de energía eléctrica.",
+          "Habrá menor consumo de recursos naturales.",
+          "Habrá un cambio climático negativo."
         ],
-        "answer": "Apagarlo cuando no lo necesites y ajustar la velocidad.",
+        "answer": "Habrá menor consumo de recursos naturales.",
         "image": "https://cdn0.ecologiaverde.com/es/posts/6/6/0/cuales_son_los_beneficios_de_reciclar_66_orig.jpg"
       },
       {
         "id": 8,
-        "title": "¿Cuál es el consumo promedio de una bombilla incandescente?",
-        "options": ["0,007 kilovatios.", "0,1 kilovatios.", "1,2 kilovatios."],
-        "answer": "0,1 kilovatios.",
+        "title": "¿Cuál de estos electrodomésticos suele consumir menos energía eléctrica?",
+        "options": [
+          "Nevera eficiente.",
+          "Plancha de ropa.",
+          "Horno eléctrico convencional."
+        ],
+        "answer": "Nevera eficiente.",
         "image": "https://www.researchgate.net/profile/Juan-Rocha-Hoyos/publication/321295360/figure/fig20/AS:564662639251467@1511637472667/Figura-2-Porcentaje-gases-que-conforma-el-aire-Fuente-Autor.png"
       },
       {
         "id": 9,
-        "title": "¿Cómo puedes maximizar el ahorro de energía al utilizar un ventilador?",
+        "title": "¿Cómo puedo ahorrar energía cuando utilizo electrodomésticos?",
         "options": [
-          "Ajustar la velocidad para un consumo aún menor y realizar mantenimiento periódico.",
-          "Mantenerlo encendido durante todo el día.",
-          "Utilizarlo para secar la ropa y otros materiales."
+          "No realizando aseo mantenimiento regular.",
+          "Utilizando electrodomésticos eficientes (Tipo A).",
+          "Dejando los electrodomésticos encendidos todo el día."
         ],
-        "answer": "Ajustar la velocidad para un consumo aún menor y realizar mantenimiento periódico.",
+        "answer": "Utilizando electrodomésticos eficientes (Tipo A).",
         "image": "https://www.endesa.com/content/dam/endesa-com/endesaclientes/blog/imagees/C%C3%B3mo%20se%20produce%20la%20energ%C3%ADa%20el%C3%A9ctrica%20Energia%20solar%20628x335.jpg"
       },
       {
         "id": 10,
-        "title": "¿Cuál es la recomendación para ahorrar energía al utilizar una lámpara fluorescente compacta (CFL)? ",
+        "title": "¿Cuál es una ventaja al utilizar vehículos eléctricos?",
         "options": [
-          "Reemplazarlas por bombillas incandescentes.",
-          "Utilizarlas solo en horarios específicos.",
-          "Asegurarse de apagar las luces cuando no se necesiten y utilizar CFL en lugar de bombillas incandescentes."
+          "Menor emisión de gases contaminantes.",
+          "Mayor velocidad.",
+          "Disponibilidad de estaciones de carga."
         ],
-        "answer": "Asegurarse de apagar las luces cuando no se necesiten y utilizar CFL en lugar de bombillas incandescentes.",
+        "answer": "Menor emisión de gases contaminantes.",
         "image": "https://www.renovablesverdes.com/wp-content/uploads/2018/09/Energias-no-renovables.jpg"
       }
     ],

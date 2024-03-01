@@ -27,68 +27,74 @@
       },
       {
         "id": 3,
-        "title": "¿Qué es la energía hidráulica?",
-        "options": [
-          "Es la energía que se obtiene a partir del movimiento del agua en ríos y lagos.",
-          "Es la energía que se obtiene a partir de la luz del sol.",
-          "Es la energía que se obtiene a partir del calor del interior de la Tierra."
-        ],
-        "answer": "Es la energía que se obtiene a partir del movimiento del agua en ríos y lagos.",
+        "title": "¿Cuál de las siguientes es una fuente de energía renovable?",
+        "options": ["Carbón.", "Solar.", "Petróleo."],
+        "answer": "Solar",
         "image": "https://i0.wp.com/www.azpirilejardi.com/wp-content/uploads/2014/11/bombillas-bajo-consumo-led1.jpg"
       },
       {
         "id": 4,
-        "title": "¿Qué es la energía eólica?",
-        "options": [
-          "Es la energía que se obtiene a partir del sol.",
-          "Es la energía que se obtiene del viento.",
-          "Es la energía que se obtiene del agua."
-        ],
-        "answer": "Es la energía que se obtiene del viento.",
+        "title": "¿Cuál de las siguientes es una fuente de energía No renovable?",
+        "options": ["Eólica.", "Nuclear.", "Gas natural."],
+        "answer": "Gas natural.",
         "image": "https://www.amoquimicos.com/images/Noticias_2021//quimicos-contaminantes-para-fuentes-hidricas1.jpg"
       },
       {
         "id": 5,
-        "title": "¿Qué es la energía solar?",
+        "title": "¿Cuál es la característica principal de una Hidroeléctrica?",
         "options": [
-          "Es la energía que se obtiene del viento.",
-          "Es la energía que se obtiene a partir del sol.",
-          "Es la energía que se obtiene del agua."
+          "Genera energía a partir del movimiento del agua.",
+          "Utiliza el calor de la Tierra para generar energía.",
+          "Convierte la luz solar en electricidad"
         ],
-        "answer": "Es la energía que se obtiene a partir del sol.",
+        "answer": "Genera energía a partir del movimiento del agua.",
         "image": "https://lamamapachama.files.wordpress.com/2015/02/carbon_8547.jpg"
       },
       {
         "id": 6,
-        "title": "¿Cómo funciona una central hidroeléctrica para generar energía eléctrica?",
+        "title": "¿Cuál es una característica principal de la energía solar fotovoltaica?",
         "options": [
-          "A través del movimiento de las turbinas por el agua que fluye en un río o presa.",
-          "A través de la quema de combustibles fósiles para calentar agua y generar vapor, que a su vez mueve una turbina.",
-          "A través de la captación de la energía solar y su conversión en energía eléctrica."
+          "Utiliza el calor de la Tierra.",
+          "Convierte la luz solar en electricidad.",
+          "Genera electricidad a partir de corrientes marinas."
         ],
-        "answer": "A través del movimiento de las turbinas por el agua que fluye en un río o presa.",
+        "answer": "Convierte la luz solar en electricidad.",
         "image": "https://www.shutterstock.com/image-vector/methane-ch4-molecule-model-chemical-600w-1213786645.jpg"
       },
       {
         "id": 7,
-        "title": "¿Qué es un panel solar y cómo genera energía eléctrica?",
+        "title": "¿Qué es la energía eólica?",
         "options": [
-          "Es un dispositivo que convierte la energía mecánica en energía eléctrica.",
-          "Es un dispositivo que almacena energía eléctrica.",
-          "Es un dispositivo que convierte la energía solar en energía eléctrica a través de células fotovoltaicas."
+          "Es la energía que se obtiene a partir del sol.",
+          "Es la energía que se obtiene a partir del viento.",
+          "Es la energía que se obtiene a partir del agua."
         ],
-        "answer": "Es un dispositivo que convierte la energía solar en energía eléctrica a través de células fotovoltaicas.",
+        "answer": "Es la energía que se obtiene a partir del viento.",
         "image": "https://cdn0.ecologiaverde.com/es/posts/6/6/0/cuales_son_los_beneficios_de_reciclar_66_orig.jpg"
       },
       {
         "id": 8,
-        "title": "¿Cómo se transmite y se distribuye la energía eléctrica hasta los hogares y negocios?",
+        "title": "¿Cuál de las siguientes fuentes de energía es conocida por producir baja contaminación?",
+        "options": ["Carbón.", "Energía solar.", "Petróleo."],
+        "answer": "Energía solar.",
+        "image": "https://www.researchgate.net/profile/Juan-Rocha-Hoyos/publication/321295360/figure/fig20/AS:564662639251467@1511637472667/Figura-2-Porcentaje-gases-que-conforma-el-aire-Fuente-Autor.png"
+      },
+      {
+        "id": 9,
+        "title": "¿Cuál es el recurso natural más utilizado para la generación de electricidad a nivel nacional?",
+        "options": ["Carbón.", "Agua.", "Gas natural."],
+        "answer": "Agua.",
+        "image": "https://www.researchgate.net/profile/Juan-Rocha-Hoyos/publication/321295360/figure/fig20/AS:564662639251467@1511637472667/Figura-2-Porcentaje-gases-que-conforma-el-aire-Fuente-Autor.png"
+      },
+      {
+        "id": 10,
+        "title": "¿Cómo afecta el mal uso de energía eléctrica a los recursos naturales?",
         "options": [
-          "A través de torres, subestaciones, postes y redes de energía.",
-          "A través de los transformadores y bombillas.",
-          "A través de los medidores eléctricos y apagadores."
+          "Genera más lluvia ácida.",
+          "Aumenta el uso de recursos no renovables y acelera su agotamiento.",
+          "Promueve la reforestación."
         ],
-        "answer": "A través de torres, subestaciones, postes y redes de energía.",
+        "answer": "Aumenta el uso de recursos no renovables y acelera su agotamiento.",
         "image": "https://www.researchgate.net/profile/Juan-Rocha-Hoyos/publication/321295360/figure/fig20/AS:564662639251467@1511637472667/Figura-2-Porcentaje-gases-que-conforma-el-aire-Fuente-Autor.png"
       }
     ],

@@ -33,6 +33,7 @@ const JirolVideosModal = ({ video, set }: TProps) => {
 
   function handleClick(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     if ((e.target as HTMLDivElement).id === modalWrapperRef.current?.id) {
+      videoRef.current?.pause();
       modalWrapperRef.current.style.display = "none";
     }
   }
