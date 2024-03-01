@@ -22,7 +22,7 @@
 [Configurar MongoDB en Windows y Ubuntu](https://platzi.com/blog/como-instalar-mongodb-en-window-linux-y-mac/)
 ## Variables de entorno
 ### ¿Dónde deben ir?
-Dentro de la carpeta raíz del proyecto se debe crear un archivo `.env.local`, el cual será leído por la aplicación y contendrá las variables de entorno necesarias.
+Dentro de la carpeta raíz del proyecto se debe crear un archivo `.env.local`, el cual será leído por la aplicación y debe contener las variables de entorno necesarias.
 **NOTA: Estas variables solo deben ser conocidas por los administradores**
 ### ¿Cuáles son?
 - MONGODB_URI: Especifica el URI de conexión a la base de datos de MongoDB (Sugerencia: "mongodb://127.0.0.1:27017/cuidamundos")
