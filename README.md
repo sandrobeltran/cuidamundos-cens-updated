@@ -30,3 +30,4 @@ Dentro de la carpeta raíz del proyecto se debe crear un archivo `.env.local`, e
 - API_KEY: Clave local para proteger la API de otras aplicaciones.
 - ADMIN_API_KEY: Clave requerida para realizar acciones de administrador en la API de la aplicación.
 - NEXT_PUBLIC_API_KEY: Representación pública de la API_KEY (Deben coincidir, comunica el cliente con el servidor)
+# cuidamundos-cens-updated
