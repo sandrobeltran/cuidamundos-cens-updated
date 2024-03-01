@@ -49,29 +49,29 @@
       },
       {
         "id": 5,
-        "title": "Evitar lesiones por descargas eléctricas.",
+        "title": "¿Cuáles son los riesgos que enfrento al subir a las torres de energía?",
         "options": [
           "Podría ocasionar un daño al medio ambiente.",
           "Puedo sufrir una lesión grave por descarga eléctrica.",
-          "Mejorar la señal del teléfono"
+          "Mejorar la señal del teléfono."
         ],
         "answer": "Puedo sufrir una lesión grave por descarga eléctrica.",
         "image": "https://lamamapachama.files.wordpress.com/2015/02/carbon_8547.jpg"
       },
       {
         "id": 6,
-        "title": "Puedo sufrir una lesión grave por descarga eléctrica.",
+        "title": "¿Qué medida de seguridad debo tomar al volar cometas?",
         "options": [
           "Usar guantes e hidratación.",
           "Mantener una distancia segura hacia las torres y redes de energía.",
-          "Utilizar luces brillantes"
+          "Utilizar luces brillantes."
         ],
         "answer": "Mantener una distancia segura hacia las torres y redes de energía.",
         "image": "https://www.shutterstock.com/image-vector/methane-ch4-molecule-model-chemical-600w-1213786645.jpg"
       },
       {
         "id": 7,
-        "title": "Mantener una distancia segura hacia las torres y redes de energía.",
+        "title": "¿Por qué debo evitar acercar objetos metálicos a las redes de energía?",
         "options": [
           "Así protejo el estado de los objetos metálicos.",
           "Evito interferencias en las comunicaciones.",
@@ -105,8 +105,8 @@
       {
         "id": 10,
         "title": "¿Cuál es la línea gratuita para reportar daños eléctricos?",
-        "options": ["911", "01 8000 414 115", "123"],
-        "answer": "01 8000 414 115",
+        "options": ["911.", "01 8000 414 115.", "123."],
+        "answer": "01 8000 414 115.",
         "image": "https://www.renovablesverdes.com/wp-content/uploads/2018/09/Energias-no-renovables.jpg"
       }
     ],

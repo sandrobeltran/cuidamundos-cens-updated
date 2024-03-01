@@ -24,8 +24,8 @@ export default function RiesgoElectricoTrivia() {
     <CustomMain>
       <GamesHero
         title={{
-          text: "Riesgo",
-          resalted: "Eléctrico",
+          text: "Prevención",
+          resalted: "Riesgo Eléctrico",
         }}
         description="¡Diviértete conquistando la Trivia de Riesgo Eléctrico y conviértete en un auténtico héroe eléctrico, al igual que Félix! ¡Obtén tu certificado de héroe y demuestra que eres un experto en seguridad eléctrica!"
       />

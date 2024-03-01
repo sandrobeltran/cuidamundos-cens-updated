@@ -24,8 +24,8 @@ export default function GeneracionEnergiaTrivia() {
     <CustomMain>
       <GamesHero
         title={{
-          text: "Héroe de las",
-          resalted: "Fuentes de Energía",
+          text: "Proceso de la",
+          resalted: "Energía Eléctrica",
         }}
         description="Descubre la generación de energía eléctrica y sus diversas fuentes. Prepárate para desatar tu potencial y convertirte en un experto en fuentes de energía. ¡Vamos a comenzar la aventura!"
       />

@@ -52,21 +52,9 @@ const TriviaQuestion = ({ question, index, cover }: TProps) => {
       <div className="h-1.5 w-full rounded-3xl bg-cens-brand mobile-land:h-1" />
       {/* OPTIONS / BODY */}
       <div className="flex w-full flex-wrap items-stretch justify-center gap-[20px_32px] mobile-land:gap-[12px_18px]">
-        {mixedOptions.map((option) => {
-          let normalizedOption = option.trim();
-
-          if (option[option.length - 1] !== ".") {
-            normalizedOption += ".";
-          }
-
-          return (
-            <OptionCard
-              option={normalizedOption}
-              key={normalizedOption}
-              nextPage={handleNext}
-            />
-          );
-        })}
+        {mixedOptions.map((option) => (
+          <OptionCard option={option} key={option} nextPage={handleNext} />
+        ))}
       </div>
     </div>
   );

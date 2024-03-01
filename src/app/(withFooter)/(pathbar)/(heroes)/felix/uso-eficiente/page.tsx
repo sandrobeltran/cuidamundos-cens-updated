@@ -24,8 +24,8 @@ export default function UsoEficienteTrivia() {
     <CustomMain>
       <GamesHero
         title={{
-          text: "Uso",
-          resalted: "Eficiente",
+          text: "Uso Eficiente de",
+          resalted: "la Energía Eléctrica",
         }}
         description="¡Diviértete mientras conquistas la Trivia del Uso Eficiente y conviértete en un auténtico héroe eléctrico, al igual que Félix! ¡Obtén tu certificado de héroe y demuestra que eres un maestro en el manejo eficiente de la energía!"
       />
