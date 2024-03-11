@@ -31,13 +31,34 @@ export async function PUT(req: NextRequest) {
             createdAt: 1,
             bio: 1,
             avatar: 1,
-            points: 1
-          }
+            points: 1,
+          },
         },
-      )
+      );
     }
 
-    const updatedGame = await Game.findByIdAndUpdate(body.gameId, { $push: { winners: uid } }, { new: true });
+    let updatedGame;
+
+    if (body.time && body.score) {
+      // mobile game
+      const newMatch = {
+        uid,
+        time: body.time,
+        score: body.score,
+      };
+      updatedGame = await Game.findByIdAndUpdate(
+        body.gameId,
+        { $push: { winners: uid, "data.matches": newMatch } },
+        { new: true },
+      );
+    } else {
+      // trivia
+      updatedGame = await Game.findByIdAndUpdate(
+        body.gameId,
+        { $push: { winners: uid } },
+        { new: true },
+      );
+    }
 
     return NextResponse.json<ICustomResponse>(
       {

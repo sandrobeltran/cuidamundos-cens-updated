@@ -3,7 +3,9 @@
   "description": "Descripción del juego mobile de Félix",
   "active": true,
   "cover": "huella-ecologica.jpg",
-  "data": {},
+  "data": {
+    "matches": []
+  },
   "href": "/juega/felix",
   "points": 25,
   "type": "mobile",

@@ -3,7 +3,9 @@
   "description": "Descripción del juego mobile de Jirol",
   "active": true,
   "cover": "huella-ecologica.jpg",
-  "data": {},
+  "data": {
+    "matches": []
+  },
   "href": "/juega/jirol",
   "points": 25,
   "type": "mobile",
