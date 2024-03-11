@@ -39,7 +39,7 @@ export async function PUT(req: NextRequest) {
 
     let updatedGame;
 
-    if (body.time && body.score) {
+    if (body.time != null && body.score != null) {
       // mobile game
       const newMatch = {
         uid,
@@ -48,7 +48,7 @@ export async function PUT(req: NextRequest) {
       };
       updatedGame = await Game.findByIdAndUpdate(
         body.gameId,
-        { $push: { winners: uid, "data.matches": newMatch } },
+        { $push: { matches: newMatch, winners: uid } },
         { new: true },
       );
     } else {

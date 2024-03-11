@@ -46,6 +46,14 @@ const gameSchema = new Schema({
     winners: {
         type: Array<String>,
         required: true
+    },
+    matches: {
+        type: {
+            uid: String,
+            time: Number,
+            score: Number
+        },
+        required: true,
     }
 }, {
     timestamps: true,
