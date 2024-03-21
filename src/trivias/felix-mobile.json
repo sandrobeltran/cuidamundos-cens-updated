@@ -2,7 +2,7 @@
   "title": "Juego mobile de Félix",
   "description": "Descripción del juego mobile de Félix",
   "active": true,
-  "cover": "huella-ecologica.jpg",
+    "cover": "riesgo-electrico.jpg",
   "data": {
     "matches": []
   },

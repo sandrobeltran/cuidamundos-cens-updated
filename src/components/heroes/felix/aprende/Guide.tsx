@@ -14,7 +14,7 @@ const MARKERS_DATA = [
     y: 8.5,
     content: {
       title: "Aire acondicionado",
-      description: "Consumo de 1.2 kW.",
+      description: "Potencia 1.200 W, es decir, su consumo es 1,2 kWh.",
     },
   },
   {
@@ -22,7 +22,7 @@ const MARKERS_DATA = [
     y: 12,
     content: {
       title: "Televisión",
-      description: "Consumo de 0.075 kW.",
+      description: "Potencia 75 W, es decir, su consumo es 0,075 kWh.",
     },
   },
   {
@@ -30,7 +30,7 @@ const MARKERS_DATA = [
     y: 45,
     content: {
       title: "Nevera",
-      description: "Consumo de 0.3 kW.",
+      description: "Potencia 300 W, es decir, su consumo es de 0,3 kWh.",
     },
   },
   {
@@ -38,7 +38,7 @@ const MARKERS_DATA = [
     y: 44,
     content: {
       title: "Computador",
-      description: "Consumo de 0.25 kW.",
+      description: "Potencia 250 W, es decir, su consumo es 0,25 kWh",
     },
   },
   {
@@ -46,7 +46,7 @@ const MARKERS_DATA = [
     y: 53.5,
     content: {
       title: "Equipo de sonido",
-      description: "Consumo de 0.1 kW.",
+      description: "Potencia 100 W, es decir, su consumo es de 0,1 kWh.",
     },
   },
   {
@@ -54,7 +54,7 @@ const MARKERS_DATA = [
     y: 82,
     content: {
       title: "Bombillo LED",
-      description: "Consumo de 0.013 kW.",
+      description: "Potencia 13 W, es decir, su consumo es 0,013 kWh.",
     },
   },
   {
@@ -62,7 +62,7 @@ const MARKERS_DATA = [
     y: 73,
     content: {
       title: "Ventilador",
-      description: "Consumo de 0.08 kW.",
+      description: "Potencia 80 W, es decir, su consumo es 0,08 kWh.",
     },
   },
 ];
@@ -72,14 +72,14 @@ const Guide = () => {
   const [stage, setStage] = useState<number>(0);
   const markSize = 65;
   return (
-    <div className="rounded-3xl bg-white/80 p-4 backdrop-blur-md shadow-md">
+    <div className="rounded-3xl bg-white/80 p-4 shadow-md backdrop-blur-md">
       <div className="relative aspect-[1.6/1] w-full overflow-hidden rounded-3xl bg-[url(/img/felix/aprende/living_room.jpg)] bg-cover bg-center backdrop-blur-md">
         {stage === 0 ? (
           <div className="modalWrapper absolute left-0 top-0 z-10 grid h-full w-full place-content-center backdrop-blur-md">
             {/* MAIN SCREEN 1 */}
             <div className="relative flex w-full max-w-lg flex-col items-center gap-2 rounded-3xl border-stone-300 bg-white p-10 text-center shadow-md shadow-stone-500/20">
               <h4 className="text-3xl font-bold text-cens-dark">¡Hola!</h4>
-              <p className="mobile-land:text-sm text-lg text-stone-500">
+              <p className="text-lg text-stone-500 mobile-land:text-sm">
                 Soy Félix, el héroe de la energía eléctrica. Aprendamos juntos
                 cómo evitar accidentes eléctricos con nuestros
                 electrodomésticos. ¡Listos para la acción!
@@ -104,8 +104,8 @@ const Guide = () => {
         ) : stage === 1 ? (
           /* MAIN SCREEN 2 */
           <div className="modalWrapper absolute left-0 top-0 z-10 flex h-full w-full place-content-center items-center justify-center backdrop-blur-md">
-            <div className="mobile-land:max-w-[95%] relative flex w-full max-w-3xl flex-col items-center gap-2 rounded-3xl border-stone-300 bg-white p-10 text-left shadow-md shadow-stone-500/20">
-              <p className="mobile-land:text-sm text-lg text-stone-500">
+            <div className="relative flex w-full max-w-3xl flex-col items-center gap-2 rounded-3xl border-stone-300 bg-white p-10 text-left shadow-md shadow-stone-500/20 mobile-land:max-w-[95%]">
+              <p className="text-lg text-stone-500 mobile-land:text-sm">
                 <b>Potencia:</b> Es la cantidad de energía eléctrica que
                 necesita un electrodoméstico para funcionar. Se mide en Vatios
                 (W).

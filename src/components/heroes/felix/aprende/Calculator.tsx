@@ -51,6 +51,7 @@ const Calculator = ({ set }: TProps) => {
   const [kws, setKws] = useState<{ name: string; kw: number }[]>([]);
 
   function handleChangeValue(hours: number, name: string) {
+    console.log(hours)
     if (!hours) return;
 
     const days = 30;
@@ -117,14 +118,17 @@ const Calculator = ({ set }: TProps) => {
                 type="number"
                 id={`${device.name.split(" ")[0]}DeviceInput`}
                 className="h-full w-full max-w-[100px] bg-transparent px-2 text-center shadow-[inset_0px_0px_8px_#12121240]"
-                max={999}
-                maxLength={3}
+                max={24}
+                maxLength={2}
                 onChange={(e) =>
                   handleChangeValue(parseInt(e.target.value), device.name)
                 }
                 onInput={(e) => {
-                  if (e.currentTarget.value.length > 3) {
-                    e.currentTarget.value = e.currentTarget.value.slice(0, 3);
+                  if (e.currentTarget.value.length > 2) {
+                    e.currentTarget.value = e.currentTarget.value.slice(0, 2);
+                  }
+                  if (parseFloat(e.currentTarget.value) > 24) {
+                    e.currentTarget.value = "24";
                   }
                 }}
               />

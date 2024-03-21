@@ -339,26 +339,37 @@ export default function AtiendeFelix() {
             >
               <div className="flex w-full max-w-3xl flex-col items-center gap-4 rounded-3xl bg-white p-16 text-center mobile-land:max-w-[95%] mobile-land:gap-2 mobile-land:p-8">
                 <h3 className="text-xl font-medium text-stone-500 mobile-land:text-lg">
-                  Recomendaciones{" "}
-                  <span className="text-cens-medium">externas</span>
+                  Recomendaciones de seguridad{" "}
+                  <span className="text-cens-medium">
+                    con la infraestructura eléctrica
+                  </span>
                 </h3>
-                <p className="text-left text-stone-500 mobile-land:text-sm">
-                  Evita elevar cometas cerca de las redes eléctricas y abstente
-                  de subir por árboles, postes de energía o andamios cercanos a
-                  estas estructuras. También es importante no subirse a las
-                  torres y evitar tocar los cables o líneas de transmisión. En
-                  caso de observar actividades sospechosas, como manipulación,
-                  hurto o construcción cercana a las redes, informa a la empresa
-                  correspondiente. No utilices las torres como soporte para
-                  colgar ropa, banderas u otros elementos, y evita construir,
-                  sembrar o realizar actividades cerca de la infraestructura
-                  eléctrica sin mantener las distancias mínimas. Si las ramas de
-                  un árbol interfieren con los cables, comunica a CENS. Además,
-                  no acerques varillas, tubos, palos u otros elementos a las
-                  líneas de transmisión, ya que una descarga de energía podría
-                  resultar en una electrocución. Estas precauciones son
-                  esenciales para garantizar la seguridad y prevenir accidentes.
-                </p>
+                <ul className="text-left text-stone-500 mobile-land:text-sm list-disc">
+                  <li>
+                    Evita elevar cometas cerca de las redes eléctricas. Intentar
+                    retirar cometas, globos o cualquier otro objeto ¡es
+                    peligroso!
+                  </li>
+                  <li>
+                    No suba a los postes o torres de energía. Tampoco suba a los
+                    árboles o andamios que estén cerca de las redes de energía
+                    ¡puede causarte un accidente!
+                  </li>
+                  <li>
+                    No acerques a las redes eléctricas varillas, tubos u otros
+                    elementos. Una descarga de energía ¡te puede electrocutar!
+                  </li>
+                  <li>
+                    Evita sembrar o realizar otras actividades sin mantener las
+                    distancias mínimas con la infraestructura eléctrica.
+                  </li>
+                  <li>
+                    Recomienda a tus padres informar a la línea de atención al
+                    cliente 01 8000 415 115 cuando personas estén manipulando,
+                    hurtando o construyendo cerca de las redes o torres de
+                    energía.
+                  </li>
+                </ul>
 
                 {/* BUTTONS */}
                 <div className="flex w-full justify-center gap-12">
