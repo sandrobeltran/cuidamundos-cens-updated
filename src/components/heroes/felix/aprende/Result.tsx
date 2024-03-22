@@ -16,7 +16,7 @@ const PercentCirle = ({ kw }: { kw: number }) => {
       }}
     >
       <h6 className="text-5xl font-bold">{formatter.format(kw)}</h6>
-      <p className="text-3xl font-medium">kW</p>
+      <p className="text-3xl font-medium">kWh/mes</p>
     </div>
   );
 };
@@ -35,6 +35,8 @@ const Result = ({ kw }: TProps) => {
           <h3 className="text-3xl font-bold">
             ¡Tu <span className="text-cens-brand">consumo!</span>
           </h3>
+          <PercentCirle kw={kw} />
+
           <p className="font-normal">
             <b>Recuerda:</b> Si vives en un municipio <b>caliente</b> o a menos
             de 1000 metros sobre el nivel del mar, te recomendamos usar menos de{" "}
@@ -46,7 +48,6 @@ const Result = ({ kw }: TProps) => {
             ¡Cuida la energía eléctrica y cuidarás nuestro planeta! 🌍💡
           </p>
         </div>
-        <PercentCirle kw={kw} />
         <div className="flex w-full flex-wrap justify-center gap-6">
           <div>
             <Button
