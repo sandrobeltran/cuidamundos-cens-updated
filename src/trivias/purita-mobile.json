@@ -3,11 +3,10 @@
   "description": "Descripción del juego mobile de Purita",
   "active": true,
   "cover": "huella-ecologica.jpg",
-  "data": {
-    "matches": []
-  },
+  "data": {},
   "href": "/juega/purita",
   "points": 25,
   "type": "mobile",
-  "winners": []
+  "winners": [],
+  "matches": []
 }

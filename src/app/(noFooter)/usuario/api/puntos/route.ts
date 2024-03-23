@@ -39,7 +39,17 @@ export async function PUT(req: NextRequest) {
 
     let updatedGame;
 
-    if (body.time != null && body.score != null) {
+    const game = await Game.findById(body.gameId);
+
+    if (game.type === "mobile") {
+      if (!body.time && !body.score)
+        return NextResponse.json<ICustomResponse>(
+          {
+            status: "error",
+            message: "Necesitas pasar un tiempo y puntaje.",
+          },
+          { status: 400 },
+        );
       // mobile game
       const newMatch = {
         uid,
@@ -48,7 +58,11 @@ export async function PUT(req: NextRequest) {
       };
       updatedGame = await Game.findByIdAndUpdate(
         body.gameId,
-        { $push: { matches: newMatch, winners: uid } },
+        {
+          $push: game.winners.includes(uid)
+            ? { matches: newMatch }
+            : { matches: newMatch, winners: uid },
+        },
         { new: true },
       );
     } else {

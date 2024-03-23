@@ -48,12 +48,11 @@ const gameSchema = new Schema({
         required: true
     },
     matches: {
-        type: {
+        type: Array<{
             uid: String,
             time: Number,
             score: Number
-        },
-        required: true,
+        }>,
     }
 }, {
     timestamps: true,

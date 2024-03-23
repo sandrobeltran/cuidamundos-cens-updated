@@ -22,7 +22,7 @@ export type TUserData = {
   bio: string;
 };
 
-export interface IUserCertificate { }
+export interface IUserCertificate {}
 
 export interface IAuthor {
   _id: string;
@@ -62,12 +62,17 @@ export interface IGame {
   _id: string;
   title: string;
   description: string;
-  type: "trivia" | "test";
+  type: "trivia" | "test" | "mobile";
   href: string;
   cover: string;
   active: boolean;
   points: number;
   winners: string[];
+}
+
+/* MOBILE GAMES */
+export interface IMobileGame extends IGame {
+  matches: { uid: string; time: number; score: number }[];
 }
 
 /* TRIVIAS */
@@ -103,9 +108,9 @@ export interface ITestQuestion {
     title: string;
     percent: number;
     co2: number;
-    lt: number
+    lt: number;
   }[];
-  image: string
+  image: string;
 }
 
 export interface ITestRange {
