@@ -20,13 +20,14 @@ export async function GET(req: NextRequest) {
 
     const gamesWon = games
       .filter((game) => game.winners.includes(uid))
-      .map(({ title, cover, type, matches }) => {
+      .map(({ title, cover, type, matches, _id }) => {
         let game: {
+          _id: string;
           title: string;
           cover: string;
           type: typeof type;
           matches?: typeof matches;
-        } = { title, cover, type };
+        } = { title, cover, type, _id };
 
         if (matches.length) {
           game.matches = matches
