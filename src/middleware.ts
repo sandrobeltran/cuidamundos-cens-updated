@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 import getCustomError from "./utils/getCustomError";
 import rateLimit from "./utils/rateLimit";
 import { NextApiResponse } from "next";
-import mongodbConnect from "./db/mongodbConnect";
+import NextCors from "nextjs-cors";
 
 export interface ICustomResponse {
   status: "success" | "error";
@@ -31,8 +31,11 @@ export default async function middleware(
 
   const apiKey = headers.get("api-key");
 
-  // ? Admin actions validation
+  if (req.method === "OPTIONS") {
+    return NextResponse.json({}, { status: 200 });
+  }
 
+  // ? Admin actions validation
   if (req.nextUrl.pathname.includes("/admin")) {
     if (apiKey !== process.env.ADMIN_API_KEY) {
       return NextResponse.json<ICustomResponse>(
@@ -56,20 +59,8 @@ export default async function middleware(
       );
     }
   }
-  const newRes = NextResponse.next();
 
-  newRes.headers.append("Access-Control-Allow-Credentials", "true");
-  newRes.headers.append("Access-Control-Allow-Origin", "*"); // replace this your actual origin
-  newRes.headers.append(
-    "Access-Control-Allow-Methods",
-    "GET,DELETE,PATCH,POST,PUT",
-  );
-  newRes.headers.append(
-    "Access-Control-Allow-Headers",
-    "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
-  );
-
-  return newRes;
+  return NextResponse.next();
 }
 
 // See "Matching Paths" below to learn more
