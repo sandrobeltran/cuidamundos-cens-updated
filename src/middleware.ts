@@ -16,21 +16,20 @@ export interface ICustomResponse {
 const limiter = rateLimit({
   interval: 30 * 1000, // 30 seconds
   uniqueTokenPerInterval: 400, // Max 400 users per second
-})
-
+});
 
 // This function can be marked `async` if using `await` inside
-export default async function middleware(req: NextRequest, res: NextApiResponse) {
-
-  console.log("calling...")
+export default async function middleware(
+  req: NextRequest,
+  res: NextApiResponse,
+) {
+  console.log("calling...");
   // API RATE LIMITER, DON'T DELETE
-  await limiter.check(res, 1000, 'CACHE_TOKEN') // 15 requests per a half minute
-
+  await limiter.check(res, 1000, "CACHE_TOKEN"); // 15 requests per a half minute
 
   const headers = new Headers(req.headers);
 
   const apiKey = headers.get("api-key");
-
 
   // ? Admin actions validation
 
@@ -57,8 +56,20 @@ export default async function middleware(req: NextRequest, res: NextApiResponse)
       );
     }
   }
+  const newRes = NextResponse.next();
 
-  return NextResponse.next();
+  newRes.headers.append("Access-Control-Allow-Credentials", "true");
+  newRes.headers.append("Access-Control-Allow-Origin", "*"); // replace this your actual origin
+  newRes.headers.append(
+    "Access-Control-Allow-Methods",
+    "GET,DELETE,PATCH,POST,PUT",
+  );
+  newRes.headers.append(
+    "Access-Control-Allow-Headers",
+    "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
+  );
+
+  return newRes;
 }
 
 // See "Matching Paths" below to learn more
