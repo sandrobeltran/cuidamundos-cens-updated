@@ -1,0 +1,799 @@
+use cuidamundos
+
+db.createCollection("evidences")
+db.createCollection("games")
+db.createCollection("messages")
+db.createCollection("users")
+
+db.games.insertMany([
+    {
+  "title": "Energías Renovables",
+  "description": "Descubre y reduce tu impacto en el planeta calculando tu huella ecológica con Purita. ¿Listo para ser un guardián del medio ambiente?",
+  "data": {
+    "questions": [
+      {
+        "id": 1,
+        "title": "¿Qué es la energía renovable?",
+        "options": [
+          "Es la energía que se genera a partir de combustibles fósiles.",
+          "Es la energía que se genera a partir de fuentes que se renuevan naturalmente, como el agua, el sol o el viento.",
+          "Es la energía que se genera a partir del movimiento del agua."
+        ],
+        "answer": "Es la energía que se genera a partir de fuentes que se renuevan naturalmente, como el agua, el sol o el viento.",
+        "image": "https://jdelectricos.com.co/wp-content/uploads/2021/06/fuentes-renovables.jpg"
+      },
+      {
+        "id": 2,
+        "title": "¿Qué son las energías no renovables?",
+        "options": [
+          "Son las energías que se generan a partir de fuentes que se renuevan naturalmente, como el sol o el viento.",
+          "Son las energías que se generan a partir de combustibles fósiles, como el petróleo o el carbón.",
+          "Son las energías que se generan a partir del movimiento del agua."
+        ],
+        "answer": "Son las energías que se generan a partir de combustibles fósiles, como el petróleo o el carbón.",
+        "image": "https://2.bp.blogspot.com/_nufqsEkAHTc/SdA1U01Yy5I/AAAAAAAAABw/snE7HQcXinA/w1200-h630-p-k-no-nu/gases+efecto+invernadero.bmp"
+      },
+      {
+        "id": 3,
+        "title": "¿Cuál de las siguientes es una fuente de energía renovable?",
+        "options": ["Carbón.", "Solar.", "Petróleo."],
+        "answer": "Solar.",
+        "image": "https://i0.wp.com/www.azpirilejardi.com/wp-content/uploads/2014/11/bombillas-bajo-consumo-led1.jpg"
+      },
+      {
+        "id": 4,
+        "title": "¿Cuál de las siguientes es una fuente de energía No renovable?",
+        "options": ["Eólica.", "Nuclear.", "Gas natural."],
+        "answer": "Gas natural.",
+        "image": "https://www.amoquimicos.com/images/Noticias_2021//quimicos-contaminantes-para-fuentes-hidricas1.jpg"
+      },
+      {
+        "id": 5,
+        "title": "¿Cuál es la característica principal de una Hidroeléctrica?",
+        "options": [
+          "Genera energía a partir del movimiento del agua.",
+          "Utiliza el calor de la Tierra para generar energía.",
+          "Convierte la luz solar en electricidad"
+        ],
+        "answer": "Genera energía a partir del movimiento del agua.",
+        "image": "https://lamamapachama.files.wordpress.com/2015/02/carbon_8547.jpg"
+      },
+      {
+        "id": 6,
+        "title": "¿Cuál es una característica principal de la energía solar fotovoltaica?",
+        "options": [
+          "Utiliza el calor de la Tierra.",
+          "Convierte la luz solar en electricidad.",
+          "Genera electricidad a partir de corrientes marinas."
+        ],
+        "answer": "Convierte la luz solar en electricidad.",
+        "image": "https://www.shutterstock.com/image-vector/methane-ch4-molecule-model-chemical-600w-1213786645.jpg"
+      },
+      {
+        "id": 7,
+        "title": "¿Qué es la energía eólica?",
+        "options": [
+          "Es la energía que se obtiene a partir del sol.",
+          "Es la energía que se obtiene a partir del viento.",
+          "Es la energía que se obtiene a partir del agua."
+        ],
+        "answer": "Es la energía que se obtiene a partir del viento.",
+        "image": "https://cdn0.ecologiaverde.com/es/posts/6/6/0/cuales_son_los_beneficios_de_reciclar_66_orig.jpg"
+      },
+      {
+        "id": 8,
+        "title": "¿Cuál de las siguientes fuentes de energía es conocida por producir baja contaminación?",
+        "options": ["Carbón.", "Energía solar.", "Petróleo."],
+        "answer": "Energía solar.",
+        "image": "https://www.researchgate.net/profile/Juan-Rocha-Hoyos/publication/321295360/figure/fig20/AS:564662639251467@1511637472667/Figura-2-Porcentaje-gases-que-conforma-el-aire-Fuente-Autor.png"
+      },
+      {
+        "id": 9,
+        "title": "¿Cuál es el recurso natural más utilizado para la generación de electricidad a nivel nacional?",
+        "options": ["Carbón.", "Agua.", "Gas natural."],
+        "answer": "Agua.",
+        "image": "https://www.researchgate.net/profile/Juan-Rocha-Hoyos/publication/321295360/figure/fig20/AS:564662639251467@1511637472667/Figura-2-Porcentaje-gases-que-conforma-el-aire-Fuente-Autor.png"
+      },
+      {
+        "id": 10,
+        "title": "¿Cómo afecta el mal uso de energía eléctrica a los recursos naturales?",
+        "options": [
+          "Genera más lluvia ácida.",
+          "Aumenta el uso de recursos no renovables y acelera su agotamiento.",
+          "Promueve la reforestación."
+        ],
+        "answer": "Aumenta el uso de recursos no renovables y acelera su agotamiento.",
+        "image": "https://www.researchgate.net/profile/Juan-Rocha-Hoyos/publication/321295360/figure/fig20/AS:564662639251467@1511637472667/Figura-2-Porcentaje-gases-que-conforma-el-aire-Fuente-Autor.png"
+      }
+    ],
+    "timeLimit": 180
+  },
+  "cover": "energias-renovables.jpg",
+  "active": true,
+  "href": "/jirol/energias-renovables",
+  "points": 25,
+  "type": "trivia",
+  "winners": []
+},
+{
+  "title": "Juego mobile de Félix",
+  "description": "Descripción del juego mobile de Félix",
+  "active": true,
+    "cover": "riesgo-electrico.jpg",
+  "data": {
+  },
+  "href": "/juega/felix",
+  "points": 25,
+  "type": "mobile",
+  "winners": [],
+  "matches": []
+},
+{
+  "title": "Fuentes de Energía",
+  "description": "Descubre y reduce tu impacto en el planeta calculando tu huella ecológica con Purita. ¿Listo para ser un guardián del medio ambiente?",
+  "data": {
+    "questions": [
+      {
+        "id": 1,
+        "title": "¿Cuál es el principal principio de funcionamiento de la generación hidroeléctrica?",
+        "options": [
+          "Conversión de energía solar.",
+          "Transformación de energía térmica.",
+          "Aprovechamiento del movimiento del agua para generar energía eléctrica."
+        ],
+        "answer": "Aprovechamiento del movimiento del agua para generar energía eléctrica.",
+        "image": "https://jdelectricos.com.co/wp-content/uploads/2021/06/fuentes-renovables.jpg"
+      },
+      {
+        "id": 2,
+        "title": "¿Qué componente clave se utiliza en una central hidroeléctrica?",
+        "options": ["Paneles solares.", "Turbina.", "Generador eólico."],
+        "answer": "Turbina.",
+        "image": "https://2.bp.blogspot.com/_nufqsEkAHTc/SdA1U01Yy5I/AAAAAAAAABw/snE7HQcXinA/w1200-h630-p-k-no-nu/gases+efecto+invernadero.bmp"
+      },
+      {
+        "id": 3,
+        "title": "¿Qué dispositivo convierte la energía solar en energía eléctrica?",
+        "options": [
+          "Panel solar fotovoltaico.",
+          "Molino de viento.",
+          "Generador térmico."
+        ],
+        "answer": "Panel solar fotovoltaico.",
+        "image": "https://i0.wp.com/www.azpirilejardi.com/wp-content/uploads/2014/11/bombillas-bajo-consumo-led1.jpg"
+      },
+      {
+        "id": 4,
+        "title": "¿Cuál es la función principal de las centrales eólicas?",
+        "options": [
+          "Captar la radiación solar.",
+          "Convertir la energía térmica en eléctrica.",
+          "Transformar el movimiento del viento en energía eléctrica."
+        ],
+        "answer": "Transformar el movimiento del viento en energía eléctrica.",
+        "image": "https://www.amoquimicos.com/images/Noticias_2021//quimicos-contaminantes-para-fuentes-hidricas1.jpg"
+      },
+      {
+        "id": 5,
+        "title": "¿Cuál es la principal fuente de energía en la generación solar de electricidad?",
+        "options": ["Carbón.", "Viento.", "Luz solar."],
+        "answer": "Luz solar.",
+        "image": "https://lamamapachama.files.wordpress.com/2015/02/carbon_8547.jpg"
+      },
+      {
+        "id": 6,
+        "title": "¿Cuál es el proceso básico en una central térmica para generar electricidad?",
+        "options": [
+          "Cocinar alimentos.",
+          "Hervir agua para producir vapor.",
+          "Cargar teléfonos móviles."
+        ],
+        "answer": "Hervir agua para producir vapor.",
+        "image": "https://www.shutterstock.com/image-vector/methane-ch4-molecule-model-chemical-600w-1213786645.jpg"
+      },
+      {
+        "id": 7,
+        "title": "¿Cuál es el principal recurso utilizado en la generación térmica de energía eléctrica?",
+        "options": ["Agua.", "Carbón.", "Viento."],
+        "answer": "Carbón.",
+        "image": "https://cdn0.ecologiaverde.com/es/posts/6/6/0/cuales_son_los_beneficios_de_reciclar_66_orig.jpg"
+      },
+      {
+        "id": 8,
+        "title": "¿Cómo se transporta la electricidad generada en una central hasta nuestros hogares?",
+        "options": [
+          "En camiones.",
+          "A través de torres, subestaciones, postes y redes de energía.",
+          "En botellas especiales."
+        ],
+        "answer": "A través de torres, subestaciones, postes y redes de energía.",
+        "image": "https://www.researchgate.net/profile/Juan-Rocha-Hoyos/publication/321295360/figure/fig20/AS:564662639251467@1511637472667/Figura-2-Porcentaje-gases-que-conforma-el-aire-Fuente-Autor.png"
+      },
+      {
+        "id": 9,
+        "title": "¿Qué es lo que utilizamos en casa para medir la cantidad de energía que consumimos?",
+        "options": ["Reloj de pulsera.", "Medidor de energía.", "Termómetro."],
+        "answer": "Medidor de energía.",
+        "image": "https://www.researchgate.net/profile/Juan-Rocha-Hoyos/publication/321295360/figure/fig20/AS:564662639251467@1511637472667/Figura-2-Porcentaje-gases-que-conforma-el-aire-Fuente-Autor.png"
+      },
+      {
+        "id": 10,
+        "title": "¿Cuál es la empresa que presta el servicio de energía en Norte de Santander, 6 municipios del Sur de Cesar y 1 municipio Sur de Bolívar?",
+        "options": ["CENS.", "Centrales de Cúcuta.", "Cuidamundos."],
+        "answer": "CENS.",
+        "image": "https://www.researchgate.net/profile/Juan-Rocha-Hoyos/publication/321295360/figure/fig20/AS:564662639251467@1511637472667/Figura-2-Porcentaje-gases-que-conforma-el-aire-Fuente-Autor.png"
+      }
+    ],
+    "timeLimit": 180
+  },
+  "cover": "generacion-energia.jpg",
+  "active": true,
+  "href": "/jirol/fuentes-energia",
+  "points": 25,
+  "type": "trivia",
+  "winners": []
+},
+{
+  "title": "Huella Ecológica",
+  "description": "Descubre y reduce tu impacto en el planeta calculando tu huella ecológica con Purita. ¿Listo para ser un guardián del medio ambiente?",
+  "active": true,
+  "cover": "huella-ecologica.jpg",
+  "data": {
+    "questions": [
+      {
+        "id": 1,
+        "title": "¿Cuánta carne consume en un mes?",
+        "options": [
+          {
+            "title": "Menos de 10 porciones",
+            "percent": 5,
+            "lt": 15000,
+            "co2": 8461.5
+          },
+          {
+            "title": "10 a 20 porciones",
+            "percent": 15,
+            "lt": 30000,
+            "co2": 16923
+          },
+          {
+            "title": "20 a 50 porciones",
+            "percent": 25,
+            "lt": 75000,
+            "co2": 31025.5
+          },
+          {
+            "title": "Más de 50 porciones",
+            "percent": 30,
+            "lt": 75000,
+            "co2": 39487
+          },
+          { "title": "No consumo carne", "percent": 2, "lt": 0, "co2": 0 }
+        ],
+        "image": "/img/purita/huella-ecologica/carnes.png"
+      },
+      {
+        "id": 2,
+        "title": "¿Cuantas unidades de huevos consume en un mes?",
+        "options": [
+          {
+            "title": "Menos de 6 huevos",
+            "percent": 5,
+            "lt": 261.5,
+            "co2": 50.5
+          },
+          { "title": "6 a 12 huevos", "percent": 15, "lt": 523, "co2": 151.5 },
+          {
+            "title": "13 a 24 huevos",
+            "percent": 25,
+            "lt": 1046,
+            "co2": 309.167
+          },
+          {
+            "title": "Más de 24 huevos",
+            "percent": 30,
+            "lt": 1046,
+            "co2": 404
+          },
+          { "title": "No consumo huevos", "percent": 2, "lt": 0, "co2": 0 }
+        ],
+        "image": "/img/purita/huella-ecologica/huevos.png"
+      },
+      {
+        "id": 3,
+        "title": "¿Cuánta leche se consume en un mes?",
+        "options": [
+          {
+            "title": "Menos de 5 vasos",
+            "percent": 5,
+            "lt": 1.25,
+            "co2": 152.67
+          },
+          { "title": "5 a 15 vasos", "percent": 15, "lt": 1.25, "co2": 610.67 },
+          {
+            "title": "15 a 25 vasos",
+            "percent": 25,
+            "lt": 3.75,
+            "co2": 1213.33
+          },
+          {
+            "title": "Más de 25 vasos",
+            "percent": 30,
+            "lt": 6.25,
+            "co2": 1213.33
+          },
+          { "title": "No consumo leche", "percent": 2, "lt": 0, "co2": 0 }
+        ],
+        "image": "/img/purita/huella-ecologica/leche.png"
+      },
+      {
+        "id": 4,
+        "title": "¿Cuánto pan consume en un mes?",
+        "options": [
+          {
+            "title": "Menos de 7 unidades",
+            "percent": 5,
+            "lt": 187.5,
+            "co2": 11
+          },
+          { "title": "7 a 14 unidades", "percent": 15, "lt": 375, "co2": 33 },
+          { "title": "14 a 21 unidades", "percent": 25, "lt": 750, "co2": 55 },
+          {
+            "title": "Más de 21 unidades",
+            "percent": 30,
+            "lt": 750,
+            "co2": 55
+          },
+          { "title": "No consumo pan", "percent": 2, "lt": 0, "co2": 0 }
+        ],
+        "image": "/img/purita/huella-ecologica/pan.png"
+      },
+      {
+        "id": 5,
+        "title": "¿Cuánto arroz se consume en un mes?",
+        "options": [
+          {
+            "title": "Menos de 10 porciones",
+            "percent": 5,
+            "lt": 76.74,
+            "co2": 121
+          },
+          {
+            "title": "10 a 30 porciones",
+            "percent": 15,
+            "lt": 76.74,
+            "co2": 484
+          },
+          {
+            "title": "30 a 50 porciones",
+            "percent": 25,
+            "lt": 230.22,
+            "co2": 968
+          },
+          {
+            "title": "Más de 50 porciones",
+            "percent": 30,
+            "lt": 383.7,
+            "co2": 1210
+          },
+          { "title": "No consumo arroz", "percent": 2, "lt": 0, "co2": 0 }
+        ],
+        "image": "/img/purita/huella-ecologica/arroz.png"
+      },
+      {
+        "id": 6,
+        "title": "¿Cuánto pollo consume en un mes?",
+        "options": [
+          {
+            "title": "Menos de 5 porciones",
+            "percent": 5,
+            "lt": 32.49,
+            "co2": 142
+          },
+          {
+            "title": "5 a 15 porciones",
+            "percent": 15,
+            "lt": 32.49,
+            "co2": 426
+          },
+          {
+            "title": "15 a 25 porciones",
+            "percent": 25,
+            "lt": 97.47,
+            "co2": 710
+          },
+          {
+            "title": "Más de 25 porciones",
+            "percent": 30,
+            "lt": 162.45,
+            "co2": 284
+          },
+          { "title": "No consumo pollo", "percent": 2, "lt": 0, "co2": 0 }
+        ],
+        "image": "/img/purita/huella-ecologica/pollo.png"
+      },
+      {
+        "id": 7,
+        "title": "¿Cuánto tiempo te demoras en una ducha típica al día?",
+        "options": [
+          {
+            "title": "Menos de 5 minutos",
+            "percent": 2,
+            "co2": 0,
+            "lt": 675
+          },
+          { "title": "5 a 10 minutos", "percent": 5, "co2": 0, "lt": 1350 },
+          { "title": "10 a 15 minutos", "percent": 15, "co2": 0, "lt": 2700 },
+          { "title": "15 a 30 minutos", "percent": 25, "co2": 0, "lt": 4050 },
+          {
+            "title": "Más de 30 minutos",
+            "percent": 30,
+            "co2": 0,
+            "lt": 13500
+          }
+        ],
+        "image": "/img/purita/huella-ecologica/ducha.png"
+      },
+      {
+        "id": 8,
+        "title": "¿Cuánto tiempo te demoras habitualmente al lavarte las manos?",
+        "options": [
+          {
+            "title": "Menos de 20 segundos",
+            "percent": 2,
+            "co2": 0,
+            "lt": 30
+          },
+          { "title": "20 a 30 segundos", "percent": 5, "co2": 0, "lt": 60 },
+          { "title": "30 a 40 segundos ", "percent": 15, "co2": 0, "lt": 90 },
+          {
+            "title": "40 segundos a 1 minuto ",
+            "percent": 25,
+            "co2": 0,
+            "lt": 120
+          },
+          { "title": "Más de 1 minuto", "percent": 30, "co2": 0, "lt": 300 }
+        ],
+        "image": "/img/purita/huella-ecologica/manos.png"
+      },
+      {
+        "id": 9,
+        "title": "¿Cuánto tiempo te demoras al lavarte los dientes con el grifo abierto?",
+        "options": [
+          { "title": "Menos de 1 minuto", "percent": 2, "co2": 0, "lt": 90 },
+          { "title": "1 a 2 minutos", "percent": 5, "co2": 0, "lt": 180 },
+          { "title": "2 a 3 minutos ", "percent": 15, "co2": 0, "lt": 360 },
+          { "title": "3 a 4 minutos ", "percent": 25, "co2": 0, "lt": 540 },
+          { "title": "Más de 4 minutos", "percent": 30, "co2": 0, "lt": 720 }
+        ],
+        "image": "/img/purita/huella-ecologica/dientes.png"
+      },
+      {
+        "id": 10,
+        "title": "¿Cuántas descargas de agua en el inodoro realizas al día?",
+        "options": [
+          {
+            "title": "Menos de 2 descargas",
+            "percent": 2,
+            "co2": 0,
+            "lt": 450
+          },
+          { "title": "2 a 4 descargas", "percent": 5, "co2": 0, "lt": 900 },
+          {
+            "title": "4 a 6 descargas ",
+            "percent": 15,
+            "co2": 0,
+            "lt": 1800
+          },
+          {
+            "title": "6 a 10 descargas ",
+            "percent": 25,
+            "co2": 0,
+            "lt": 2700
+          },
+          {
+            "title": "Más de 10 descargas",
+            "percent": 30,
+            "co2": 0,
+            "lt": 4500
+          }
+        ],
+        "image": "/img/purita/huella-ecologica/inodoro.png"
+      }
+    ],
+    "ranges": [
+      {
+        "limit": 50,
+        "message": "¡Increíble! Estás haciendo un trabajo fantástico cuidando nuestro planeta. Sigue así y comparte tus prácticas ecológicas con tus amigos. Tu impacto ha sido del:"
+      },
+      {
+        "limit": 80,
+        "message": "¡Bien hecho! Estás en el camino correcto, pero aún hay espacio para mejoras. Intenta ajustar algunos hábitos para reducir tu impacto en el medio ambiente."
+      },
+      {
+        "limit": 100,
+        "message": "Puedes hacerlo aún mejor. Identifica áreas donde puedas reducir tu impacto ambiental y toma medidas. ¡Cada pequeño cambio cuenta!"
+      },
+      {
+        "limit": 115,
+        "message": "Tu impacto ecológico es alto. Piensa en hacer cambios significativos en tus hábitos para reducir tu huella. ¡Tu esfuerzo hará una gran diferencia!"
+      }
+    ],
+    "maxMessage": "Tu impacto ecológico es muy alto. Se necesitan cambios urgentes y significativos para reducir tu huella a niveles sostenibles. ¡Hazlo por nuestro hermoso planeta!"
+  },
+  "href": "/purita/huella-ecologica",
+  "points": 25,
+  "type": "test",
+  "winners": []
+},
+{
+  "title": "Juego mobile de Jirol",
+  "description": "Descripción del juego mobile de Jirol",
+  "active": true,
+  "cover": "energias-renovables.jpg",
+  "data": {},
+  "href": "/juega/jirol",
+  "points": 25,
+  "type": "mobile",
+  "winners": [],
+  "matches": []
+},
+{
+  "title": "Juego mobile de Purita",
+  "description": "Descripción del juego mobile de Purita",
+  "active": true,
+  "cover": "huella-ecologica.jpg",
+  "data": {},
+  "href": "/juega/purita",
+  "points": 25,
+  "type": "mobile",
+  "winners": [],
+  "matches": []
+},
+{
+  "title": "Riesgo Eléctrico",
+  "description": "¡Diviértete conquistando la Trivia de Riesgo Eléctrico y conviértete en un auténtico héroe eléctrico, al igual que Félix! ¡Obtén tu certificado de héroe y demuestra que eres un experto en seguridad eléctrica!",
+  "data": {
+    "questions": [
+      {
+        "id": 1,
+        "title": "¿Cómo debo desconectar un aparato eléctrico de la manera más segura?",
+        "options": [
+          "Tirando fuertemente del cable.",
+          "Desconectando directamente del enchufe.",
+          "Dejando que el cable se enrolle solo."
+        ],
+        "answer": "Desconectando directamente del enchufe.",
+        "image": "https://jdelectricos.com.co/wp-content/uploads/2021/06/fuentes-renovables.jpg"
+      },
+      {
+        "id": 2,
+        "title": "¿Por qué debo evitar conectar varios equipos eléctricos en un solo tomacorriente?",
+        "options": [
+          "Porque aumenta la durabilidad de los cables.",
+          "Porque reduce la emisión de gases.",
+          "Porque me ayuda a prevenir incendios."
+        ],
+        "answer": "Porque me ayuda a prevenir incendios.",
+        "image": "https://2.bp.blogspot.com/_nufqsEkAHTc/SdA1U01Yy5I/AAAAAAAAABw/snE7HQcXinA/w1200-h630-p-k-no-nu/gases+efecto+invernadero.bmp"
+      },
+      {
+        "id": 3,
+        "title": " ¿Cuál riesgo puedo generar al usar electrodomésticos en mal estado?",
+        "options": [
+          "Mayor eficiencia energética.",
+          "Menor riesgo de seguridad ",
+          "Sufrir accidentes eléctricos."
+        ],
+        "answer": "Sufrir accidentes eléctricos.",
+        "image": "https://i0.wp.com/www.azpirilejardi.com/wp-content/uploads/2014/11/bombillas-bajo-consumo-led1.jpg"
+      },
+      {
+        "id": 4,
+        "title": "No manipular equipos eléctricos con el cuerpo mojado, me ayuda a:",
+        "options": [
+          "Obtener mayor eficiencia en el trabajo.",
+          "Evitar lesiones por descargas eléctricas.",
+          "Mejorar en la conexión de dispositivos."
+        ],
+        "answer": "Evitar lesiones por descargas eléctricas.",
+        "image": "https://www.amoquimicos.com/images/Noticias_2021//quimicos-contaminantes-para-fuentes-hidricas1.jpg"
+      },
+      {
+        "id": 5,
+        "title": "¿Cuáles son los riesgos que enfrento al subir a las torres de energía?",
+        "options": [
+          "Podría ocasionar un daño al medio ambiente.",
+          "Puedo sufrir una lesión grave por descarga eléctrica.",
+          "Mejorar la señal del teléfono."
+        ],
+        "answer": "Puedo sufrir una lesión grave por descarga eléctrica.",
+        "image": "https://lamamapachama.files.wordpress.com/2015/02/carbon_8547.jpg"
+      },
+      {
+        "id": 6,
+        "title": "¿Qué medida de seguridad debo tomar al volar cometas?",
+        "options": [
+          "Usar guantes e hidratación.",
+          "Mantener una distancia segura hacia las torres y redes de energía.",
+          "Utilizar luces brillantes."
+        ],
+        "answer": "Mantener una distancia segura hacia las torres y redes de energía.",
+        "image": "https://www.shutterstock.com/image-vector/methane-ch4-molecule-model-chemical-600w-1213786645.jpg"
+      },
+      {
+        "id": 7,
+        "title": "¿Por qué debo evitar acercar objetos metálicos a las redes de energía?",
+        "options": [
+          "Así protejo el estado de los objetos metálicos.",
+          "Evito interferencias en las comunicaciones.",
+          "Porque así se prevengo accidentes eléctricos."
+        ],
+        "answer": "Porque así se prevengo accidentes eléctricos.",
+        "image": "https://cdn0.ecologiaverde.com/es/posts/6/6/0/cuales_son_los_beneficios_de_reciclar_66_orig.jpg"
+      },
+      {
+        "id": 8,
+        "title": "¿Cuáles son los beneficios de desconectar mis equipos eléctricos?",
+        "options": [
+          "Facilito la instalación de nuevos dispositivos.",
+          "Evito accidentes eléctricos y altos consumos de energía.",
+          "Mejoro la velocidad de carga de los dispositivos."
+        ],
+        "answer": "Evito accidentes eléctricos y altos consumos de energía.",
+        "image": "https://www.researchgate.net/profile/Juan-Rocha-Hoyos/publication/321295360/figure/fig20/AS:564662639251467@1511637472667/Figura-2-Porcentaje-gases-que-conforma-el-aire-Fuente-Autor.png"
+      },
+      {
+        "id": 9,
+        "title": "Si encuentro un cable eléctrico dañado en mi casa ¿cuál es la medida más segura que debo tomar?",
+        "options": [
+          "Tocar el cable con cuidado para evaluar el daño.",
+          "Utilizar cinta adhesiva para reparar el cable.",
+          "Apagar la electricidad bajando el interruptor o breaker y llamar a un adulto responsable."
+        ],
+        "answer": "Apagar la electricidad bajando el interruptor o breaker y llamar a un adulto responsable.",
+        "image": "https://www.endesa.com/content/dam/endesa-com/endesaclientes/blog/imagees/C%C3%B3mo%20se%20produce%20la%20energ%C3%ADa%20el%C3%A9ctrica%20Energia%20solar%20628x335.jpg"
+      },
+      {
+        "id": 10,
+        "title": "¿Cuál es la línea gratuita para reportar daños eléctricos?",
+        "options": ["911.", "01 8000 414 115.", "123."],
+        "answer": "01 8000 414 115.",
+        "image": "https://www.renovablesverdes.com/wp-content/uploads/2018/09/Energias-no-renovables.jpg"
+      }
+    ],
+    "timeLimit": 180
+  },
+  "cover": "riesgo-electrico.jpg",
+  "active": true,
+  "href": "/felix/riesgo-electrico",
+  "points": 25,
+  "type": "trivia",
+  "winners": []
+},
+{
+  "title": "Uso Eficiente",
+  "description": "¡Listos para la acción! Iniciemos nuestra pequeña trivia para explorar el increíble universo de la energía eléctrica y cómo podemos usarla de manera eficiente. ¡Prepárate para divertirte mientras aprendemos a cuidar nuestro planeta! ¡Es hora de encender la luz del conocimiento!",
+  "data": {
+    "questions": [
+      {
+        "id": 1,
+        "title": "¿Cómo puedo ahorrar energía al utilizar las luces?",
+        "options": [
+          "Dejando las luces encendidas todo el tiempo.",
+          "Apagando las luces cuando no se necesitan.",
+          "Usar luces más brillantes siempre."
+        ],
+        "answer": "Apagando las luces cuando no se necesitan.",
+        "image": "https://jdelectricos.com.co/wp-content/uploads/2021/06/fuentes-renovables.jpg"
+      },
+      {
+        "id": 2,
+        "title": "¿Cómo puedo ahorrar energía al utilizar mi televisor?",
+        "options": [
+          "Dejándolo encendido todo el día.",
+          "Apagándolo cuando no le esté aprovechando.",
+          "Ajustándole el brillo al máximo."
+        ],
+        "answer": "Apagándolo cuando no le esté aprovechando.",
+        "image": "https://2.bp.blogspot.com/_nufqsEkAHTc/SdA1U01Yy5I/AAAAAAAAABw/snE7HQcXinA/w1200-h630-p-k-no-nu/gases+efecto+invernadero.bmp"
+      },
+      {
+        "id": 3,
+        "title": "¿Qué beneficio obtengo si desconecto el cargador del celular cuando no se está utilizando?",
+        "options": [
+          "Ahorro energía.",
+          "Protejo el celular.",
+          "Mejoro la velocidad de carga."
+        ],
+        "answer": "Ahorro energía.",
+        "image": "https://i0.wp.com/www.azpirilejardi.com/wp-content/uploads/2014/11/bombillas-bajo-consumo-led1.jpg"
+      },
+      {
+        "id": 4,
+        "title": "¿Qué acción debo hacer para ahorrar energía con la nevera?",
+        "options": [
+          "Mantener la nevera a la máxima temperatura todo el tiempo.",
+          "Ajustar la temperatura de acuerdo con la carga de alimentos y cerrar la puerta.",
+          "Ubicar la nevera en lugares cálidos."
+        ],
+        "answer": "Ajustar la temperatura de acuerdo con la carga de alimentos y cerrar la puerta.",
+        "image": "https://www.amoquimicos.com/images/Noticias_2021//quimicos-contaminantes-para-fuentes-hidricas1.jpg"
+      },
+      {
+        "id": 5,
+        "title": "¿Cómo puedo contribuir al ahorro de energía con mi nevera?",
+        "options": [
+          "Almacenar alimentos calientes directamente.",
+          "Abrirla lo menos posible e invitar a hacerle mantenimiento.",
+          "Mantener la nevera vacía."
+        ],
+        "answer": "Abrirla lo menos posible e invitar a hacerle mantenimiento.",
+        "image": "https://lamamapachama.files.wordpress.com/2015/02/carbon_8547.jpg"
+      },
+      {
+        "id": 6,
+        "title": "Si necesito secar mi ropa, ¿cuál no sería una alternativa adecuada para hacerlo?",
+        "options": [
+          "Usar el ventilador.",
+          "Tenderla al sol.",
+          "Tenderla al viento."
+        ],
+        "answer": "Usar el ventilador.",
+        "image": "https://www.shutterstock.com/image-vector/methane-ch4-molecule-model-chemical-600w-1213786645.jpg"
+      },
+      {
+        "id": 7,
+        "title": "¿Cuál sería mi contribución al cuidado ambiental si elijo utilizar la energía de manera más eficiente?",
+        "options": [
+          "Habrá mayor necesidad de energía eléctrica.",
+          "Habrá menor consumo de recursos naturales.",
+          "Habrá un cambio climático negativo."
+        ],
+        "answer": "Habrá menor consumo de recursos naturales.",
+        "image": "https://cdn0.ecologiaverde.com/es/posts/6/6/0/cuales_son_los_beneficios_de_reciclar_66_orig.jpg"
+      },
+      {
+        "id": 8,
+        "title": "¿Cuál de estos electrodomésticos suele consumir menos energía eléctrica?",
+        "options": [
+          "Nevera eficiente.",
+          "Plancha de ropa.",
+          "Horno eléctrico convencional."
+        ],
+        "answer": "Nevera eficiente.",
+        "image": "https://www.researchgate.net/profile/Juan-Rocha-Hoyos/publication/321295360/figure/fig20/AS:564662639251467@1511637472667/Figura-2-Porcentaje-gases-que-conforma-el-aire-Fuente-Autor.png"
+      },
+      {
+        "id": 9,
+        "title": "¿Cómo puedo ahorrar energía cuando utilizo electrodomésticos?",
+        "options": [
+          "No realizando aseo mantenimiento regular.",
+          "Utilizando electrodomésticos eficientes (Tipo A).",
+          "Dejando los electrodomésticos encendidos todo el día."
+        ],
+        "answer": "Utilizando electrodomésticos eficientes (Tipo A).",
+        "image": "https://www.endesa.com/content/dam/endesa-com/endesaclientes/blog/imagees/C%C3%B3mo%20se%20produce%20la%20energ%C3%ADa%20el%C3%A9ctrica%20Energia%20solar%20628x335.jpg"
+      },
+      {
+        "id": 10,
+        "title": "¿Cuál es una ventaja al utilizar vehículos eléctricos?",
+        "options": [
+          "Menor emisión de gases contaminantes.",
+          "Mayor velocidad.",
+          "Disponibilidad de estaciones de carga."
+        ],
+        "answer": "Menor emisión de gases contaminantes.",
+        "image": "https://www.renovablesverdes.com/wp-content/uploads/2018/09/Energias-no-renovables.jpg"
+      }
+    ],
+    "timeLimit": 180
+  },
+  "cover": "uso-eficiente.jpg",
+  "active": true,
+  "href": "/felix/uso-eficiente",
+  "points": 25,
+  "type": "trivia",
+  "winners": []
+}
+])

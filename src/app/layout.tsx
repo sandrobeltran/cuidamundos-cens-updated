@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Ubuntu } from "next/font/google";
+import localFont from "next/font/local";
 import GetUserByToken from "@/components/validations/GetUserByToken";
 import Header from "@/components/header/Header";
 import LeavesFalling from "@/components/LeavesFalling";
@@ -8,12 +8,23 @@ import LoadGames from "@/components/juega/LoadGames";
 import SkyBackground from "@/components/heroes/SkyBackground";
 import LandscapeWarning from "@/components/LandscapeWarning";
 
-const ubuntu = Ubuntu({
+const ubuntu = localFont({
+  src: [
+    { path: "../fonts/Ubuntu-Light.ttf", weight: "300" },
+    { path: "../fonts/Ubuntu-Regular.ttf", weight: "400" },
+    { path: "../fonts/Ubuntu-Medium.ttf", weight: "500" },
+  ],
+  adjustFontFallback: false,
+  display: "swap",
+});
+
+//? To fetch the font directly from google fonts
+/* const ubuntu = Ubuntu({
   weight: ["300", "400", "500"],
   subsets: ["latin"],
   display: "swap",
   adjustFontFallback: false,
-});
+}); */
 
 export const metadata: Metadata = {
   title: "Cuidamundos CENS",

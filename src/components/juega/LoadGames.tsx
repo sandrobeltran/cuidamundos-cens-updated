@@ -12,7 +12,7 @@ const LoadGames = () => {
     if (!gamesStore.games.length && games) {
       gamesStore.setGames(games);
     }
-  }, [games, gamesStore]);
+  }, []);
 
 
   return <></>;

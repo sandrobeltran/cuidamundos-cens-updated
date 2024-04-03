@@ -5,7 +5,6 @@ import jwt from "jsonwebtoken";
 import getCustomError from "./utils/getCustomError";
 import rateLimit from "./utils/rateLimit";
 import { NextApiResponse } from "next";
-import NextCors from "nextjs-cors";
 
 export interface ICustomResponse {
   status: "success" | "error";
