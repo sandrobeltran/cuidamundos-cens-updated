@@ -1,59 +1,64 @@
-# Documentación de CuidaMundos
-## Compilar proyecto de Next.js a producción
-###  Resumen de pasos:
-- Conectarse al VPS de forma segura usando SSH.
-- Instalar Node.js en el VPS.
-- Usar `git clone` para clonar el repositorio del proyecto de manera local.
-- Instalar las dependencias del proyecto usando `npm install`.
-- Ejecutar el comando `npm run build` para compilar el proyecto.
-- Ejecutar el comando `npm start` para poner en marcha el proyecto.
-### Recursos adicionales
-[Video tutorial de cómo compilar el proyecto](https://www.youtube.com/watch?v=pgoZFKgoiDk)  
-[Guía en español de cómo compilar el proyecto](https://faztweb.com/contenido/nextjs-github-actions)  
-[Entrada del blog Medium explicando el proceso (Inglés)](https://medium.com/@abdulazizahwan/deploying-node-js-next-js-apps-on-vps-hosting-using-ultahost-c2b6dc9958aa)
-## Desplegar base de datos de MongoDB
-### Resumen de pasos:
-- Conectarse al VPS de forma segura usando SSH.
-- Descargar e instalar MongoDB desde el [siguiente enlace ](https://www.mongodb.com/try/download/community) o desde la terminal del sistema operativo.
-- Configurar la base de datos (Ver recursos adicionales)
-- Poner en marcha el servicio de la base de datos con el comando correspondiente a tu sistema operativo
-- Añadir el URI de la conexión a las variables de entorno de la aplicación
-### Recursos adicionales
-[Configurar MongoDB en Windows y Ubuntu](https://platzi.com/blog/como-instalar-mongodb-en-window-linux-y-mac/)
-## Variables de entorno
-### ¿Dónde deben ir?
-Dentro de la carpeta raíz del proyecto se debe crear un archivo `.env.local`, el cual será leído por la aplicación y debe contener las variables de entorno necesarias.
-**NOTA: Estas variables solo deben ser conocidas por los administradores**
-### ¿Cuáles son?
-- MONGODB_URI: Especifica el URI de conexión a la base de datos de MongoDB (Sugerencia: "mongodb://127.0.0.1:27017/cuidamundos")
-- APP_SECRET: Usada para firmar los tokens de autenticación de los usuarios. Se recomienda una clave de mínimo 32 caracteres, pero si son más, mejor.
-- API_KEY: Clave local para proteger la API de otras aplicaciones.
-- ADMIN_API_KEY: Clave requerida para realizar acciones de administrador en la API de la aplicación.
-- NEXT_PUBLIC_API_KEY: Representación pública de la API_KEY (Deben coincidir, comunica el cliente con el servidor)
----
-# Documentación Actualizada
-Para desplegar la plataforma de Cuidamundos se realizan 3 pasos clave:
-- Instalación de Node.js y npm
-- Instalación de MongoDB server
-- Configuración inicial de la base de datos
-- Configuración de las variables de entorno
-- Ejecución del servidor
+![Logo Cuidamundos](./public//img//logo_cuidamundos.png)
+
+# Documentación de Cuidamundos
+
+Para desplegar la plataforma de Cuidamundos se realizarán 5 pasos clave:
+
+1. Instalación de Node.js y npm
+2. Instalación de MongoDB
+3. Configuración inicial de la base de datos
+4. Configuración de las variables de entorno
+5. Ejecución del servidor
+
 ## Pasos a seguir
+
 ### Instalación de Node.js y npm
+
 Diríjase a la [página oficial de Node.js](nodejs.org) para descargar e instalar la última versión del entorno de ejecución de JavaScript.
+
 ### Instalación de MongoDB
+
 Descargar e instalar MongoDB Server desde [su página oficial](mongodb.org). Adicionalmente se debe descargar MongoDB Compass para facilitar y agilizar la configuración inicial de la base de datos.
+
 ### Configuración inicial de la base de datos
+
 Una vez descargado MongoDB Server y su interfaz MongoDB Compass debemos crear el directorio donde la base de datos almacenará esos datos ejecutando el siguiente comando en una terminal:
+
 ```cmd
-    mkdir "C:\data\db"
+mkdir "C:\data\db"
 ```
+
 Ahora podemos ejecutar el servidor de MongoDB con el siguiente comando:
+
 ```cmd
- "/c/Program Files/MongoDB/Server/7.0/bin/mongod.exe"
+"/c/Program Files/MongoDB/Server/7.0/bin/mongod.exe"
 ```
-__NOTA__: Debes reemplazar "7.0" por la versión de MongoDB Server que instalaste.  
-Una vez iniciado el servidor debemos añadir los juegos a la base de datos, para ello abriremos MongoDB Compass y nos conectaremos a la URL por defecto (```mongodb://localhost:27017```). CREAR COMANDO DE MONGODB QUE EJECUTE TODO SOLO.
+
+**NOTA**: Debes reemplazar "7.0" por la versión de MongoDB Server que instalaste.  
+Una vez iniciado el servidor debemos añadir los juegos a la base de datos, para ello abriremos MongoDB Compass y nos conectaremos a la URL por defecto (`mongodb://localhost:27017`). En la parte inferior veremos una barra con el texto `>_MONGOSH` y al darle click nos abrirá la interfaz de comandos de MongoDB, es ahí donde pegaremos uno a uno los tres bloques de comandos que se encuentran en el archivo llamado `DB_INITIALIZER.txt`  
+**NOTA**: Los 3 comandos deben ser pegados uno a uno despues de la ejecución del anterior, no todos a la vez.
 
 ### Configuración de las variables de entorno
+
+Para esto se debe crear un archivo con el nombre `.env.local` el cual tendrá el siguiente contenido:
+
+```js
+MONGODB_URI=mongodb://localhost:27017/cuidamundos
+APP_SECRET=ghbnr89egj#$_34wsdfbndfns
+API_KEY=dh830483y03fh4d
+NEXT_PUBLIC_API_KEY=dh830483y03fh4d
+```
+
+**NOTA**: Se recomienda cambiar los valores de las claves `APP_SECRET` y `API_KEY` por unas personalizadas y secretas, ya que estas solo deben ser conocidas por el personal autorizado. Nótese también que el valor de la `NEXT_PUBLIC_API_KEY` debe coincidir con el de la `API_KEY`.
+
+> A continuación se explica la funcionalidad de cada una de las variables de entorno usadas.
+>
+> - MONGODB_URI: Especifica el URI de conexión a la base de datos de MongoDB (Sugerencia: "mongodb://127.0.0.1:27017/cuidamundos")
+> - APP_SECRET: Usada para firmar los tokens de autenticación de los usuarios. Se recomienda una clave de mínimo 32 caracteres, pero si son más, mejor.
+> - API_KEY: Clave local para proteger la API de otras aplicaciones.
+> - ADMIN_API_KEY: Clave requerida para realizar acciones de administrador en la API de la aplicación.
+> - NEXT_PUBLIC_API_KEY: Representación pública de la API_KEY (Deben coincidir, comunica el cliente con el servidor)
+
 ### Ejecución del servidor
+
+Una vez culminados todos los pasos anteriores y asegurándonos que el servidor de MongoDB está activo, es momento de iniciar el servidor de la plataforma. Primero compilaremos el proyecto para producción con el comando `npm run build` para luego de esto solo escribir el comando `npm start` y así ejecutar el servidor de la plataforma.

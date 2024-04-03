@@ -1,10 +1,17 @@
+// Comando 1
 use cuidamundos
 
+--------------------------------------------------------
+
+// Comando 2
 db.createCollection("evidences")
 db.createCollection("games")
 db.createCollection("messages")
 db.createCollection("users")
 
+--------------------------------------------------------
+
+// Comando 3
 db.games.insertMany([
     {
   "title": "Energías Renovables",
