@@ -31,7 +31,7 @@ mkdir "C:\data\db"
 Ahora podemos ejecutar el servidor de MongoDB con el siguiente comando:
 
 ```cmd
-"/c/Program Files/MongoDB/Server/7.0/bin/mongod.exe"
+"C:/Program Files/MongoDB/Server/7.0/bin/mongod.exe"
 ```
 
 **NOTA**: Debes reemplazar "7.0" por la versión de MongoDB Server que instalaste.  
