@@ -25,6 +25,7 @@ const names = {
   "riesgo-electrico": "Riesgo Eléctrico",
   "fuentes-energia": "Fuentes de Energía",
   "energias-renovables": "Energías Renovables",
+  cuidamundos: "Cuidamundos",
 };
 
 const PathBar = () => {

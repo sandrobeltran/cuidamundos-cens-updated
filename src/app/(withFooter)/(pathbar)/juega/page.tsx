@@ -29,7 +29,7 @@ const SECTIONS_DATA = [
     },
     description:
       "Videojuego 2D de aventura y educativo sobre los CuidaMundos de CENS. ¡Donde serás Purita, Jirol y Félix, y tendrás que ser un héroe para salvar nuestro planeta!",
-    href: "/juega",
+    href: "/juega/cuidamundos",
     icon: "trophy",
   },
   {
@@ -76,26 +76,26 @@ export default function Juega() {
             resalted: "CuidaMundos!",
           }}
         />
-        <div className="relative grid w-full grid-cols-6 gap-20 px-16">
+        <div className="relative grid w-full grid-cols-6 gap-0 px-16 mobile-land:gap-20">
           {/* HERO IMAGE */}
-          <div className="col-span-2 flex mobile-land:col-span-3">
+          <div className="col-span-3 flex mobile-land:col-span-3">
             <Image
               src={PuritaRenderImage}
-              className="w-full animate-levitating object-contain mobile-land:w-1/3"
+              className="w-full max-w-[15vw] animate-levitating object-contain mobile-land:w-1/3"
               alt="Render de Purita"
             />
             <Image
               src={FelixRenderImage}
-              className="w-full animate-levitating object-contain mobile-land:w-1/3"
+              className="w-full max-w-[15vw] animate-levitating object-contain mobile-land:w-1/3"
               alt="Render de Purita"
             />
             <Image
               src={JirolRenderImage}
-              className="w-full animate-levitating object-contain mobile-land:w-1/3"
+              className="w-full max-w-[15vw] animate-levitating object-contain mobile-land:w-1/3"
               alt="Render de Purita"
             />
           </div>
-          <div className="col-span-4 flex mobile-land:col-span-3">
+          <div className="col-span-3 flex mobile-land:col-span-3">
             {/* CONTENT */}
             <div className="grid w-full place-content-center pr-10">
               <Link
