@@ -60,7 +60,7 @@ const FormSection = () => {
     const timer = setTimeout(() => {
       document.getElementById("emailSentModalWrapper")!.style.display = "none";
       clearTimeout(timer);
-    }, 3000);
+    }, 20000);
 
     reset();
   }

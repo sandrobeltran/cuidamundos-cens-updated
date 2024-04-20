@@ -11,14 +11,20 @@ export default function Juegos() {
   if (!games) {
     return <p>Loading...</p>;
   }
-  
+
   return (
     <div className="flex w-full flex-col items-center gap-4">
       {/* GAMES GRID */}
       <div className="flex w-full flex-col items-center justify-center gap-5">
-        {games.length ? games.map((game) => (
-          <GameCard game={game} key={game._id} />
-        )) : <p>No hay juegos disponibles :c</p>}
+        {games.length ? (
+          games.map((game) =>
+            game.type !== "test" ? (
+              <GameCard game={game} key={game._id} />
+            ) : null,
+          )
+        ) : (
+          <p>No hay juegos disponibles :c</p>
+        )}
       </div>
     </div>
   );

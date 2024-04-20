@@ -3,11 +3,11 @@
 import HeroeSection from "@/components/heroes/HeroeSection";
 import HeroeTitle from "@/components/heroes/HeroeTitle";
 import CustomMain from "@/components/layout/CustomMain";
-import { useEffect, useRef } from "react";
-import { RiFullscreenFill } from "react-icons/ri";
+import { useEffect, useRef, useState } from "react";
+import { RiFullscreenExitFill, RiFullscreenFill } from "react-icons/ri";
 
 export default function Juega() {
-  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
 
   return (
     <CustomMain>
@@ -18,18 +18,26 @@ export default function Juega() {
             resalted: "CuidaMundos!",
           }}
         />
-        <div className="flex justify-center w-full gap-0 px-16 mobile-land:gap-20">
-          <div className="max-w-5xl relative aspect-video w-full rounded-3xl bg-white/80 p-4 shadow-md backdrop-blur-md">
+        <div className="flex w-full justify-center gap-0 px-16 mobile-land:gap-20">
+          <div
+            className="relative aspect-video w-full max-w-5xl rounded-3xl bg-white/80 p-4 shadow-md backdrop-blur-md"
+            style={isFullscreen ? { padding: "0" } : {}}
+          >
             <button
               onClick={async (e) => {
-                await iframeRef.current?.requestFullscreen();
+                if (document.fullscreenElement) {
+                  document.exitFullscreen();
+                } else {
+                  await e.currentTarget.parentElement!.requestFullscreen();
+                }
+
+                setIsFullscreen(!isFullscreen);
               }}
               className="absolute bottom-5 left-5 z-50 grid h-12 w-12 place-content-center rounded-xl bg-white/60 transition-colors hover:bg-white"
             >
-              <RiFullscreenFill />
+              {isFullscreen ? <RiFullscreenExitFill /> : <RiFullscreenFill />}
             </button>
             <iframe
-              ref={iframeRef}
               src="/juega/cuidamundos/index.html"
               allowFullScreen={true}
               className="h-full w-full rounded-2xl"

@@ -32,6 +32,10 @@ export const navbarData: INavbarProps[] = [
     title: "Juega",
     items: [
       {
+        href: "/juega/cuidamundos",
+        title: "Cuidamundos",
+      },
+      {
         href: "/felix/uso-eficiente",
         title: "Uso Eficiente",
       },

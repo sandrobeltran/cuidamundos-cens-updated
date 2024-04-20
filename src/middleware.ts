@@ -23,7 +23,8 @@ export default async function middleware(
   res: NextApiResponse,
 ) {
   console.log("calling...");
-  // API RATE LIMITER, DON'T DELETE
+  
+  //? API RATE LIMITER, DON'T DELETE
   await limiter.check(res, 1000, "CACHE_TOKEN"); // 15 requests per a half minute
 
   const headers = new Headers(req.headers);
