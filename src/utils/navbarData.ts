@@ -37,19 +37,19 @@ export const navbarData: INavbarProps[] = [
       },
       {
         href: "/felix/uso-eficiente",
-        title: "Uso Eficiente",
+        title: "Uso Eficiente de la Energía Eléctrica",
       },
       {
         href: "/felix/riesgo-electrico",
-        title: "Riesgo Eléctrico",
+        title: "Prevención del Riesgo Eléctrico",
       },
       {
         href: "/jirol/energias-renovables",
-        title: "Energías Renovables",
+        title: "Fuentes de Energías Renovables y No Renovables",
       },
       {
         href: "/jirol/fuentes-energia",
-        title: "Fuentes de Energía",
+        title: "Proceso de la Energía Eléctrica",
       },
       {
         href: "/purita/huella-ecologica",
