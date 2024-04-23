@@ -26,8 +26,8 @@ export default function HuellaEcologicaTest() {
     <CustomMain>
       <GamesHero
         title={{
-          text: "Calcula tu",
-          resalted: "huella Ecológica!",
+          text: "¡Calcula Tu",
+          resalted: "Huella Ecológica!",
         }}
         description="Descubre y reduce tu impacto en el planeta calculando tu huella ecológica con Purita. ¿Listo para ser un guardián del medio ambiente?"
       />

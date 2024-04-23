@@ -98,7 +98,7 @@ const Footer = () => {
       <div className="relative flex h-fit w-full items-center justify-center">
         <span className="h-[2px] w-full bg-cens-brand" />
         <h6 className="relative min-w-max p-4 text-center text-sm font-semibold">
-          Copyright © 2023 Cuidamundos <br /> Powered by AENS TECH
+          Copyright © {new Date().getFullYear()} Cuidamundos <br /> Powered by AENS TECH
         </h6>
         <span className="h-[2px] w-full bg-cens-brand" />
       </div>
