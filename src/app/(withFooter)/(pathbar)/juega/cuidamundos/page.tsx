@@ -33,7 +33,7 @@ export default function Juega() {
 
                 setIsFullscreen(!isFullscreen);
               }}
-              className="absolute bottom-5 left-5 z-50 grid h-12 w-12 place-content-center rounded-xl bg-white/60 transition-colors hover:bg-white"
+              className="absolute top-5 left-5 z-50 grid h-12 w-12 place-content-center rounded-xl bg-white/60 transition-colors hover:bg-white"
             >
               {isFullscreen ? <RiFullscreenExitFill /> : <RiFullscreenFill />}
             </button>
