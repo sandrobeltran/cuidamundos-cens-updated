@@ -39,13 +39,13 @@ const Hero = ({ image, title, description, buttonLabel, href }: TProps) => {
           </div>
         ) : null}
       </div>
-      <div className="pointer-events-none absolute bottom-0 right-0 z-10 h-5/6 w-4/6 overflow-x-hidden max-sm:relative max-sm:-bottom-5 max-sm:w-full">
+      <div className="pointer-events-none absolute bottom-0 right-0 z-10 h-5/6 w-3/6 overflow-x-hidden max-sm:relative max-sm:-bottom-5 max-sm:w-full">
         <Image
           src={image}
           alt="Logo de CuidaMundos"
           width={300}
           height={300}
-          className="relative -right-20 h-full w-full object-contain max-sm:right-0 "
+          className="relative h-full w-full object-contain max-sm:right-0 "
         />
       </div>
     </section>

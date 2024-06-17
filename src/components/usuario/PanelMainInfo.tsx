@@ -43,8 +43,8 @@ const PanelMainInfo = () => {
             </h6>
             <div className="flex items-center justify-start gap-1 font-semibold max-sm:gap-0 max-sm:text-sm">
               Puntos:
-              <StarIcon color="#ffb800" className="h-7" />
               <p className="text-xl font-semibold">{user?.points}</p>
+              <StarIcon color="#ffb800" className="h-7" />
             </div>
           </div>
         </div>

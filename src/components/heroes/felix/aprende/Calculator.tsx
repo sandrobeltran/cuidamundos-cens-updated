@@ -71,7 +71,7 @@ const Calculator = ({ set }: TProps) => {
   function handleNext() {
     /* VALIDATE AT LEAST ONE FIELD ARE FILLED */
     if (kws.length < 1) {
-      toast.error("Ingresa el número de horas que usas cada equipo");
+      toast.error("Ingresa el número de horas que usas en cada equipo");
       return;
     }
 
@@ -89,7 +89,7 @@ const Calculator = ({ set }: TProps) => {
 
   return (
     <div className="relative h-full w-full overflow-hidden rounded-3xl bg-white/80 p-10 pt-24 text-lg text-stone-500 shadow-md backdrop-blur-md">
-      <div className="absolute left-0 top-0 z-10 grid h-16 w-full place-content-center bg-cens-brand text-white mobile-land:h-10 mobile-land:text-sm">
+      <div className="absolute left-0 top-0 z-10 grid h-16 w-full place-content-center bg-cens-brand text-white mobile-land:h-10 mobile-land:text-[1rem] text-xl">
         Coloca la cantidad de horas que dedicas diariamente a tus equipos
       </div>
       <div

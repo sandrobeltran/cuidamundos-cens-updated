@@ -130,7 +130,7 @@ const ResultsScreen = () => {
           </div>
           {/* CO2 */}
           <p>
-            <b>CO2</b> {co2Formatter.format(testResult.totalCo2)}kg <br />
+            <b>CO2</b> {co2Formatter.format(testResult.totalCo2)} Kg <br />
             <b>L.</b> {co2Formatter.format(testResult.totalLt)} litros de agua
           </p>
         </div>

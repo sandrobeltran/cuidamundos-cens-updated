@@ -17,15 +17,19 @@ export default function Certificados() {
 
   return (
     <div className="flex w-full flex-col items-center gap-10">
-      <h6 className="text-center text-2xl font-bold text-cens-brand">
+      <h6
+        className="text-center text-2xl font-bold text-cens-brand"
+        style={!winnedGames.length ? { color: "#78716c" } : {}}
+      >
         En total has logrado {winnedGames.length} Certificado
-        {winnedGames.length > 1 || winnedGames.length === 0
-          ? "s"
-          : ""} <br /> <span className="text-white">¡Felicidades!</span>
+        {winnedGames.length > 1 || winnedGames.length === 0 ? "s" : ""} <br />
+        {winnedGames.length ? (
+          <span className="text-white">¡Felicidades!</span>
+        ) : null}
       </h6>
       {/* CERTIFICATES GRID */}
       {winnedGames.length ? (
-        <div className="grid w-full max-w-5xl grid-cols-[repeat(2,_300px)] mobile-land:grid-cols-[repeat(2,_250px)] mobile-land:gap-x-16 justify-center gap-y-10 gap-x-32">
+        <div className="grid w-full max-w-5xl grid-cols-[repeat(2,_300px)] justify-center gap-x-32 gap-y-10 mobile-land:grid-cols-[repeat(2,_250px)] mobile-land:gap-x-16">
           {winnedGames.map((game) => (
             <CertificateCard
               game={game}

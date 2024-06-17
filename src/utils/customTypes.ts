@@ -62,7 +62,7 @@ export interface IGame {
   _id: string;
   title: string;
   description: string;
-  type: "trivia" | "test" | "mobile";
+  type: "trivia" | "test" | "mobile" | "videogame";
   href: string;
   cover: string;
   active: boolean;

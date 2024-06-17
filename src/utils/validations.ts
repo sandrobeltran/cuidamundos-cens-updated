@@ -9,7 +9,7 @@ export const signUpValidationSchema = Yup.object().shape({
     .min(2, "Apellido muy corto")
     .max(40, "Apellido muy largo")
     .required("Ingresa tu nombre"),
-  username: Yup.string().min(8, "El nombre de usuario es muy corto").max(20, "El nombre de usuario es muy largo").matches(new RegExp("^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"), "Nombre de usuario inválido").required("Ingresa tu nombre de usuario"),
+  username: Yup.string().min(5, "El nombre de usuario es muy corto").max(20, "El nombre de usuario es muy largo").matches(new RegExp("^(?=.{5,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"), "Nombre de usuario inválido").required("Ingresa tu nombre de usuario"),
   city: Yup.string().required("Ingresa tu ciudad"),
   passwordHash: Yup.string()
     .matches(
@@ -40,7 +40,7 @@ export const contactValidationSchema = Yup.object().shape({
     )
     .required("Ingresa tu número telefónico"),
   message: Yup.string()
-    .min(20, "Mensaje muy corto")
+    .min(2, "Mensaje muy corto")
     .max(500, "Mensaje muy largo")
     .required("Ingresa tu mensaje"),
 });

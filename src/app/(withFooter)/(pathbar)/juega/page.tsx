@@ -9,6 +9,7 @@ import JirolRenderImage from "@public/img/juega/jirol-render.png";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Button from "@/components/Button";
 
 /* SECTIONS DATA */
 const SECTIONS_DATA = [
@@ -29,7 +30,7 @@ const SECTIONS_DATA = [
     },
     description:
       "Videojuego 2D de aventura y educativo sobre los CuidaMundos de CENS. ¡Donde serás Purita, Jirol y Félix, y tendrás que ser un héroe para salvar nuestro planeta!",
-    href: "/juega",
+    href: "/juega/cuidamundos",
     icon: "trophy",
   },
   {
@@ -76,26 +77,26 @@ export default function Juega() {
             resalted: "CuidaMundos!",
           }}
         />
-        <div className="relative grid w-full grid-cols-6 gap-20 px-16">
+        <div className="relative grid w-full grid-cols-6 gap-0 px-16 mobile-land:gap-10">
           {/* HERO IMAGE */}
-          <div className="col-span-2 flex mobile-land:col-span-3">
+          <div className="col-span-3 flex mobile-land:col-span-3">
             <Image
               src={PuritaRenderImage}
-              className="w-full animate-levitating object-contain mobile-land:w-1/3"
+              className="w-full max-w-[15vw] animate-levitating object-contain mobile-land:w-1/3"
               alt="Render de Purita"
             />
             <Image
               src={FelixRenderImage}
-              className="w-full animate-levitating object-contain mobile-land:w-1/3"
+              className="w-full max-w-[15vw] animate-levitating object-contain mobile-land:w-1/3"
               alt="Render de Purita"
             />
             <Image
               src={JirolRenderImage}
-              className="w-full animate-levitating object-contain mobile-land:w-1/3"
+              className="w-full max-w-[15vw] animate-levitating object-contain mobile-land:w-1/3"
               alt="Render de Purita"
             />
           </div>
-          <div className="col-span-4 flex mobile-land:col-span-3">
+          <div className="col-span-3 flex mobile-land:col-span-3">
             {/* CONTENT */}
             <div className="grid w-full place-content-center pr-10">
               <Link
@@ -112,9 +113,12 @@ export default function Juega() {
                       {SECTIONS_DATA[currentSection.index].title.resalted}
                     </span>
                   </h4>
-                  <p className="pr-24 text-justify text-lg text-stone-500 mobile-land:text-[1rem] mobile-land:leading-snug">
+                  <p className="pr-24 text-justify text-lg text-stone-500 mobile-land:pr-0 mobile-land:text-[1rem] mobile-land:leading-snug">
                     {SECTIONS_DATA[currentSection.index].description}
                   </p>
+                  <Button hierarchy="primary" size="md">
+                    ¡Jugar!
+                  </Button>
                 </div>
               </Link>
             </div>

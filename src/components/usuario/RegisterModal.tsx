@@ -119,7 +119,7 @@ const RegisterModal = ({}: TProps) => {
         >
           <FormWrapper>
             <h4 className="text-center text-lg font-semibold text-cens-brand mobile-land:text-[1rem]">
-              Crea tu cuenta para empezar a estudiar
+              Crea tu cuenta de Cuidamundos
             </h4>
             <TextField name="name" placeholder="Nombres" />
             <TextField name="lastname" placeholder="Apellidos" />
