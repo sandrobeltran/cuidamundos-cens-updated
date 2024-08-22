@@ -1,8 +1,5 @@
 import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
-import User from "./models/User";
-import jwt from "jsonwebtoken";
-import getCustomError from "./utils/getCustomError";
 import rateLimit from "./utils/rateLimit";
 import { NextApiResponse } from "next";
 
@@ -17,13 +14,19 @@ const limiter = rateLimit({
   uniqueTokenPerInterval: 400, // Max 400 users per second
 });
 
+
 // This function can be marked `async` if using `await` inside
 export default async function middleware(
   req: NextRequest,
   res: NextApiResponse,
 ) {
-  console.log("calling...");
-  
+
+
+  // Check for metadata IP
+  if (req.nextUrl.href.includes('169.254.169.254')) {
+    return new NextResponse('Access denied', { status: 403 });
+  }
+
   //? API RATE LIMITER, DON'T DELETE
   await limiter.check(res, 1000, "CACHE_TOKEN"); // 15 requests per a half minute
 
@@ -60,7 +63,7 @@ export default async function middleware(
     }
   }
 
-  return NextResponse.next();
+  return NextResponse.next;
 }
 
 // See "Matching Paths" below to learn more

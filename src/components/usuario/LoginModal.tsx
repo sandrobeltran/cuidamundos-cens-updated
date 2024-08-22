@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import SectionTitle from "../SectionTitle";
 import { loginValidationSchema } from "@/utils/validations";
 import Link from "next/link";
+import { customFetch } from "@/utils/customFetch";
 
 type TProps = {};
 
@@ -48,7 +49,7 @@ const LoginModal = ({}: TProps) => {
     setLoading(true);
 
     // Login user and get the token
-    const loginReq = await fetch("/iniciar-sesion/api", {
+    const loginReq = await customFetch("/iniciar-sesion/api", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
