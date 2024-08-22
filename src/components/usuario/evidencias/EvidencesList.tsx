@@ -16,7 +16,7 @@ const EvidencesList = ({ evidences, links = false }: TProps) => {
   }
 
   if (!evidences.length) {
-    return <div>No evidences</div>;
+    return <div>No hay evidencias aún</div>;
   }
 
   return (

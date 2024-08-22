@@ -23,7 +23,8 @@ export async function GET(req: NextRequest) {
       createdAt: 1,
       bio: 1,
       avatar: 1,
-      points: 1
+      points: 1,
+      role: 1
     });
 
     if (!user) {
