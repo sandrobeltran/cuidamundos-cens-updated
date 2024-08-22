@@ -13,6 +13,7 @@ import CustomSection from "../layout/CustomSection";
 import { toast } from "react-toastify";
 import { useGamesStore } from "@/store/useGamesStore";
 import { usePathname } from "next/navigation";
+import { customFetch } from "@/utils/customFetch";
 
 const formatter = new Intl.NumberFormat("es-CO", {
   style: "decimal",
@@ -71,7 +72,7 @@ const ResultsScreen = () => {
 
     if (!token) return toast("Acción inválida");
 
-    const updateUserRequest = await fetch("/usuario/api/puntos", {
+    const updateUserRequest = await customFetch("/usuario/api/puntos", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -1,4 +1,5 @@
 import { useAuthorsStore } from "@/store/useAuthorsStore";
+import { customFetch } from "@/utils/customFetch";
 import { IAuthor, IEvidence } from "@/utils/customTypes";
 import React, { useCallback, useEffect, useState } from "react";
 
@@ -14,7 +15,7 @@ const useFetchAuthorData = ({ authorsId }: TProps) => {
     async (token: string) => {
       if (!authorsId.length) return;
 
-      const req = await fetch(
+      const req = await customFetch(
         `/usuario/api/autor?authorsId=${authorsId.join()}`,
         {
           method: "GET",

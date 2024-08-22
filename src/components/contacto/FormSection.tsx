@@ -13,6 +13,7 @@ import Button from "../Button";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/ReactToastify.css";
 import EmailSentModal from "./EmailSentModal";
+import { customFetch } from "@/utils/customFetch";
 
 type TInitialValues = {
   name: string;
@@ -41,7 +42,7 @@ const FormSection = () => {
       return toast.error("Completa el captcha para enviar tu mensaje");
     }
 
-    const req = await fetch("/contacto/api", {
+    const req = await customFetch("/contacto/api", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

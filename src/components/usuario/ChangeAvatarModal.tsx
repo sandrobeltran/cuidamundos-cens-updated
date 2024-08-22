@@ -8,6 +8,7 @@ import Image from "next/image";
 import AVATARS_DATA from "@/utils/avatarsData";
 import { useAuthorsStore } from "@/store/useAuthorsStore";
 import { IAuthor } from "@/utils/customTypes";
+import { customFetch } from "@/utils/customFetch";
 
 type TProps = {};
 
@@ -31,7 +32,7 @@ const ChangeAvatarModal = ({}: TProps) => {
 
     if (!token) return toast("Acción inválida");
 
-    const updateUserRequest = await fetch("/usuario/api", {
+    const updateUserRequest = await customFetch("/usuario/api", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

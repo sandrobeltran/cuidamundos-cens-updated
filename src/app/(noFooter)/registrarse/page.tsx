@@ -14,6 +14,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useUserStore } from "@/store/useUserStore";
 import Link from "next/link";
+import { customFetch } from "@/utils/customFetch";
 
 type TInitialValues = {
   name: string;
@@ -43,7 +44,7 @@ export default function Signup() {
     
     setLoading(true);
     // Login user and get the token
-    const loginReq = await fetch("/registrarse/api", {
+    const loginReq = await customFetch("/registrarse/api", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -60,7 +61,7 @@ export default function Signup() {
     }
 
     // Fetch user data
-    const fetchUserReq = await fetch("/usuario/api", {
+    const fetchUserReq = await customFetch("/usuario/api", {
       method: "GET",
       headers: {
         "api-key": process.env.NEXT_PUBLIC_API_KEY as string,

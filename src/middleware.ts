@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
 import rateLimit from "./utils/rateLimit";
 import { NextApiResponse } from "next";
+import { generateCsrfToken, verifyCsrfToken } from "./utils/csrfUtils";
+import {cookies} from "next/headers"
 
 export interface ICustomResponse {
   status: "success" | "error";
@@ -63,7 +65,16 @@ export default async function middleware(
     }
   }
 
-  return NextResponse.next;
+  const csrfToken = req.cookies.get("csrfToken")?.value || "";
+  const sessionId = req.cookies.get("sessionId")?.value || "";
+
+  // Verify the CSRF token
+  if (req.method !== 'GET' && (!csrfToken || !verifyCsrfToken(csrfToken, sessionId))) {
+    return res.status(403).json({ error: 'Invalid CSRF token' });
+  }
+
+  NextResponse.next();
+
 }
 
 // See "Matching Paths" below to learn more

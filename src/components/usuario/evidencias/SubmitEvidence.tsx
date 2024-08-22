@@ -10,6 +10,7 @@ import { LinkIcon } from "@heroicons/react/24/outline";
 import { Form, Formik } from "formik";
 import React, { useState } from "react";
 import EvidenceSubmitedModal from "./EvidenceSubmitedModal";
+import { customFetch } from "@/utils/customFetch";
 
 type TProps = {
   evidence: IEvidence;
@@ -41,7 +42,7 @@ const SubmitEvidence = ({ evidence }: TProps) => {
 
   async function handleSubmit(values: TInitialValues) {
     const token = localStorage.getItem("session-token");
-    const req = await fetch(`/usuario/evidencias/${evidence._id}/entrega/api`, {
+    const req = await customFetch(`/usuario/evidencias/${evidence._id}/entrega/api`, {
       method: "PUT",
       headers: {
         "api-key": process.env.NEXT_PUBLIC_API_KEY as string,

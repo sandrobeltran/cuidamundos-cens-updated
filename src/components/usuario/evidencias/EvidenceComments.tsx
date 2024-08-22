@@ -8,6 +8,7 @@ import { useParams } from "next/navigation";
 import CommentCard from "./CommentCard";
 import useFetchAuthorData from "@/hooks/useFetchAuthorData";
 import { useAuthorsStore } from "@/store/useAuthorsStore";
+import { customFetch } from "@/utils/customFetch";
 
 type TProps = {
   comments: IComment[];
@@ -48,7 +49,7 @@ const EvidenceComments = ({ comments }: TProps) => {
   ) {
     const token = localStorage.getItem("session-token");
 
-    const req = await fetch(
+    const req = await customFetch(
       `/usuario/evidencias/${evidenceId}/api/comentarios`,
       {
         method: "PUT",
@@ -69,7 +70,7 @@ const EvidenceComments = ({ comments }: TProps) => {
   async function deleteComment(commentId: number) {
     const token = localStorage.getItem("session-token");
 
-    const req = await fetch(
+    const req = await customFetch(
       `/usuario/evidencias/${evidenceId}/api/comentarios`,
       {
         method: "DELETE",

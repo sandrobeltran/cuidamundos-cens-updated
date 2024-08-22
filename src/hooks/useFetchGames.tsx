@@ -1,6 +1,7 @@
 "use client";
 
 import { useUserStore } from "@/store/useUserStore";
+import { customFetch } from "@/utils/customFetch";
 import { IEvidence, IGame } from "@/utils/customTypes";
 import React, { useEffect, useState } from "react";
 
@@ -11,7 +12,7 @@ const useFetchGames = () => {
     const user = useUserStore(state => state.user)
 
     async function handleFetchGames() {
-        const req = await fetch("/usuario/juegos/api", {
+        const req = await customFetch("/usuario/juegos/api", {
             method: "GET",
             headers: {
                 "api-key": process.env.NEXT_PUBLIC_API_KEY as string,

@@ -1,6 +1,7 @@
 "use client";
 
 import { useUserStore } from "@/store/useUserStore";
+import { customFetch } from "@/utils/customFetch";
 import React, { useCallback, useEffect } from "react";
 
 const GetUserByToken = () => {
@@ -13,7 +14,7 @@ const GetUserByToken = () => {
       setLoading(true);
 
       // Fetch user data
-      const fetchUserReq = await fetch("/usuario/api", {
+      const fetchUserReq = await customFetch("/usuario/api", {
         method: "GET",
         headers: {
           "api-key": process.env.NEXT_PUBLIC_API_KEY as string,

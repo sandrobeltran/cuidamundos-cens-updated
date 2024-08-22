@@ -11,6 +11,7 @@ import { useUserStore } from "@/store/useUserStore";
 import { toast } from "react-toastify";
 import { signUpValidationSchema } from "@/utils/validations";
 import { string } from "yup";
+import { customFetch } from "@/utils/customFetch";
 
 type TProps = {};
 type TInitialValues = {
@@ -52,7 +53,7 @@ const RegisterModal = ({}: TProps) => {
     if (loading) return;
     setLoading(true);
     // Login user and get the token
-    const loginReq = await fetch("/registrarse/api", {
+    const loginReq = await customFetch("/registrarse/api", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -69,7 +70,7 @@ const RegisterModal = ({}: TProps) => {
     }
 
     // Fetch user data
-    const fetchUserReq = await fetch("/usuario/api", {
+    const fetchUserReq = await customFetch("/usuario/api", {
       method: "GET",
       headers: {
         "api-key": process.env.NEXT_PUBLIC_API_KEY as string,

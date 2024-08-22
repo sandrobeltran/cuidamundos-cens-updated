@@ -65,7 +65,7 @@ const LoginModal = ({}: TProps) => {
     }
 
     // Fetch user data
-    const fetchUserReq = await fetch("/usuario/api", {
+    const fetchUserReq = await customFetch("/usuario/api", {
       method: "GET",
       headers: {
         "api-key": process.env.NEXT_PUBLIC_API_KEY as string,

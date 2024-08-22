@@ -1,18 +1,28 @@
+import { setCsrfTokens } from "@/actions/setCsrfToken";
+
 export const customFetch = async (url: string, options: RequestInit = {}) => {
-    // Retrieve CSRF token from a global variable, state, or a function
-    const csrfToken = await getCsrfToken(); // Implement this function to get the CSRF token
+    await setCsrfTokens();
+
+    const token = document.cookie
+    .split('; ')
+    .find(row => row.startsWith('csrfToken='))
+    ?.split('=')[1];
+  
+
 
     // Add CSRF token to headers
     const headers = new Headers(options.headers || {});
-    if (csrfToken) {
-        headers.append('CSRF-Token', csrfToken);
+    if (token) {
+        headers.append('X-CSRF-Token', token);
     }
 
     const response = await fetch(url, {
         ...options,
         headers: {
             ...headers,
+            ...options.headers,
             'Content-Type': 'application/json',
+            "api-key": process.env.NEXT_PUBLIC_API_KEY as string,
         },
     });
 

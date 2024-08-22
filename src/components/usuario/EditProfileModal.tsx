@@ -13,6 +13,7 @@ import DateField from "../form/DateField";
 import { toast } from "react-toastify";
 import Image from "next/image";
 import { PencilIcon } from "@heroicons/react/24/outline";
+import { customFetch } from "@/utils/customFetch";
 
 type TProps = {};
 
@@ -41,7 +42,7 @@ const EditProfileModal = () => {
 
     if (!token) return toast("Acción inválida");
 
-    const updateUserRequest = await fetch("/usuario/api", {
+    const updateUserRequest = await customFetch("/usuario/api", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
