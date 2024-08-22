@@ -20,7 +20,7 @@ const userSchema = new Schema(
     username: {
       type: String,
       required: true,
-      unique: true
+      unique: true,
     },
     city: {
       type: String,
@@ -35,17 +35,21 @@ const userSchema = new Schema(
     },
     avatar: {
       type: String,
-      required: true
+      required: true,
     },
     points: {
       type: Number,
-      required: true
+      required: true,
     },
     bio: {
       type: String,
       min: 10,
       max: 500,
-    }
+    },
+    role: {
+      type: String, // USER | ADMIN
+      required: true,
+    },
   },
   {
     timestamps: true,

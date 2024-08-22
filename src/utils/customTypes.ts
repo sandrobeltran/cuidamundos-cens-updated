@@ -20,6 +20,7 @@ export type TUserData = {
   avatar: string;
   points: number;
   bio: string;
+  role: "USER" | "ADMIN"
 };
 
 export interface IUserCertificate {}

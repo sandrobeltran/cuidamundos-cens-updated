@@ -24,6 +24,7 @@ export async function POST(req: NextRequest) {
     const user = new User({
       ...body,
       avatar,
+      role: "USER",
       points: 0
     });
 
