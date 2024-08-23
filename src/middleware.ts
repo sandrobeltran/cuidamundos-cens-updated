@@ -3,7 +3,9 @@ import { NextRequest } from "next/server";
 import rateLimit from "./utils/rateLimit";
 import { NextApiResponse } from "next";
 import { generateCsrfToken, verifyCsrfToken } from "./utils/csrfUtils";
-import {cookies} from "next/headers"
+import { cookies } from "next/headers";
+import { validateUserToken } from "./utils/validateUserToken";
+import User from "./models/User";
 
 export interface ICustomResponse {
   status: "success" | "error";
@@ -16,17 +18,14 @@ const limiter = rateLimit({
   uniqueTokenPerInterval: 400, // Max 400 users per second
 });
 
-
 // This function can be marked `async` if using `await` inside
 export default async function middleware(
   req: NextRequest,
   res: NextApiResponse,
 ) {
-
-
   // Check for metadata IP
-  if (req.nextUrl.href.includes('169.254.169.254')) {
-    return new NextResponse('Access denied', { status: 403 });
+  if (req.nextUrl.href.includes("169.254.169.254")) {
+    return new NextResponse("Access denied", { status: 403 });
   }
 
   //? API RATE LIMITER, DON'T DELETE
@@ -42,7 +41,8 @@ export default async function middleware(
 
   // ? Admin actions validation
   if (req.nextUrl.pathname.includes("/admin")) {
-    if (apiKey !== process.env.ADMIN_API_KEY) {
+    //for admin api key
+    /*  if (apiKey !== process.env.ADMIN_API_KEY) {
       return NextResponse.json<ICustomResponse>(
         {
           status: "error",
@@ -50,7 +50,7 @@ export default async function middleware(
         },
         { status: 403 },
       );
-    }
+    } */
   } else {
     // ? Normal api-key validation
 
@@ -69,12 +69,14 @@ export default async function middleware(
   const sessionId = req.cookies.get("sessionId")?.value || "";
 
   // Verify the CSRF token
-  if (req.method !== 'GET' && (!csrfToken || !verifyCsrfToken(csrfToken, sessionId))) {
-    return res.status(403).json({ error: 'Invalid CSRF token' });
+  if (
+    req.method !== "GET" &&
+    (!csrfToken || !verifyCsrfToken(csrfToken, sessionId))
+  ) {
+    return res.status(403).json({ error: "Invalid CSRF token" });
   }
 
   NextResponse.next();
-
 }
 
 // See "Matching Paths" below to learn more

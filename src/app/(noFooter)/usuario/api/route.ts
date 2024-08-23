@@ -12,7 +12,9 @@ export async function GET(req: NextRequest) {
   const { headers } = req;
 
   try {
-    const uid = validateUserToken(headers)
+    const { uid } = validateUserToken(headers);
+
+    console.log(uid)
 
     const user = await User.findById(uid, {
       _id: 1,
@@ -24,7 +26,7 @@ export async function GET(req: NextRequest) {
       bio: 1,
       avatar: 1,
       points: 1,
-      role: 1
+      role: 1,
     });
 
     if (!user) {
@@ -55,10 +57,10 @@ export async function GET(req: NextRequest) {
 export async function PUT(req: NextRequest) {
   await mongodbConnect();
   const { headers } = req;
-  const body = await req.json()
+  const body = await req.json();
 
   try {
-    const uid = validateUserToken(headers)
+    const { uid } = validateUserToken(headers);
 
     const user = await User.findByIdAndUpdate(uid, body, { new: true });
 

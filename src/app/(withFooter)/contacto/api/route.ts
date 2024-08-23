@@ -13,7 +13,6 @@ export async function POST(req: NextRequest) {
 
     try {
         // No token needed for send email message
-        // validateUserToken(headers)
         const { name, email, phone, message } = body
 
         if (!name || !email || !phone || !message) {

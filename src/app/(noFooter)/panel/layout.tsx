@@ -15,7 +15,6 @@ export default function DashboardLayout({
 }) {
   return (
     <CustomMain>
-      <UserRequired />
       <AdminRequired />
       <ToastContainer
         position="top-right"

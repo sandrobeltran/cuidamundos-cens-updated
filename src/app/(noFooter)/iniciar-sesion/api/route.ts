@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
     }
 
     const token = jwt.sign(
-      { _id: user._id },
+      { _id: user._id, role: user.role },
       process.env.APP_SECRET as string,
       {
         expiresIn: 60 * 60 * 24,

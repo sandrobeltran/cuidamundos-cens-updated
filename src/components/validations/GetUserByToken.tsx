@@ -42,7 +42,6 @@ const GetUserByToken = () => {
       const token = localStorage.getItem("session-token");
 
       if (token) {
-        console.log("Token found!");
         handleGetUserByToken(token);
       } else {
         setError("No current user token");

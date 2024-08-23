@@ -11,7 +11,7 @@ export async function PUT(req: NextRequest, context: { params: any }) {
 
   const evidenceId = context.params.id;
   try {
-    const uid = validateUserToken(headers);
+    const {uid} = validateUserToken(headers);
 
     const evidence: IEvidence | null = await Evidence.findById(evidenceId);
     if (!evidence) {

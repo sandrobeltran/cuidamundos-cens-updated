@@ -10,7 +10,6 @@ const LoadGames = () => {
   
   useEffect(() => {
     if (!gamesStore.games.length && games) {
-      console.log("Here")
       gamesStore.setGames(games);
     }
   }, [games]);

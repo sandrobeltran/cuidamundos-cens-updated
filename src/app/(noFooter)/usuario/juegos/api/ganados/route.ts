@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
 
   try {
     // No token needed for fetch games
-    const uid = validateUserToken(headers);
+    const {uid} = validateUserToken(headers);
 
     const games = (await Game.find()) as any[];
 

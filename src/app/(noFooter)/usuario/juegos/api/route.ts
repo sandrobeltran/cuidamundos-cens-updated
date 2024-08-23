@@ -12,8 +12,6 @@ export async function GET(req: NextRequest) {
 
     try {
         // No token needed for fetch games
-        // validateUserToken(headers)
-
         const games = await Game.find()
 
         return NextResponse.json<ICustomResponse>({

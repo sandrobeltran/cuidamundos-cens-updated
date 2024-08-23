@@ -12,7 +12,7 @@ export async function PUT(req: NextRequest) {
   const body = await req.json();
 
   try {
-    const uid = validateUserToken(headers);
+    const {uid} = validateUserToken(headers);
 
     let updatedUser;
 

@@ -3,6 +3,13 @@ const nextConfig = {
   images: {
     domains: ["ucarecdn.com"],
   },
+  experimental: {
+    serverActions: true,
+  },
+  webpack: (config) => {
+    config.externals = [...config.externals, "bcrypt"];
+    return config;
+  },
   async headers() {
     return [
       {
