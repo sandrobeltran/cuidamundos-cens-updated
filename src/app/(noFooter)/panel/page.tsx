@@ -1,3 +1,3 @@
-export default function DashboardPage() {
-  return <p>main dashboard</p>;
-}
+import UserInformationTab from "../usuario/page";
+
+export default UserInformationTab;

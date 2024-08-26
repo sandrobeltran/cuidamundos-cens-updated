@@ -70,3 +70,13 @@ export const submitEvidenceValidationSchema = Yup.object().shape({
 export const postCommentValdationSchema = Yup.object().shape({
   content: Yup.string().min(2, "El comentario es muy corto").max(500, "El comentario es muy largo").required("Escribe tu comentario")
 })
+
+
+export const newActivityValidationSchema = Yup.object().shape({
+  name: Yup.string().required("Ingresa el nombre de la actividad"),
+  description: Yup.string().required("Ingresa la descripción de la actividad"),
+  enableText: Yup.boolean(),
+  enableLinks: Yup.boolean(),
+  enableDocs: Yup.boolean(),
+  enableImages: Yup.boolean(),
+})

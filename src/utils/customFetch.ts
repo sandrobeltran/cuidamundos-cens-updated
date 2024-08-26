@@ -9,7 +9,6 @@ export const customFetch = async (url: string, options: RequestInit = {}) => {
     ?.split('=')[1];
   
 
-
     // Add CSRF token to headers
     const headers = new Headers(options.headers || {});
     if (token) {

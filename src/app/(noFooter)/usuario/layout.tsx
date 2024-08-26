@@ -13,6 +13,25 @@ import { useUserStore } from "@/store/useUserStore";
 import Button from "@/components/Button";
 import SpinLoader from "@/components/SpinLoader";
 
+const links = [
+  {
+    href: "/usuario",
+    title: "Información"
+  },
+  {
+    href: "/usuario/certificados",
+    title: "Certificados"
+  },
+  {
+    href: "/usuario/juegos",
+    title: "Juegos"
+  },
+  {
+    href: "/usuario/evidencias",
+    title: "Evidencias"
+  }
+]
+
 const UserLayout = ({ children }: { children: React.ReactNode }) => {
   const { user, loading } = useUserStore();
 
@@ -72,7 +91,7 @@ const UserLayout = ({ children }: { children: React.ReactNode }) => {
       <PaddingWrapper>
         <CustomSection>
           <div className="relative z-10 flex w-full flex-col items-center gap-8 pb-12 text-stone-500">
-            <PanelMainInfo />
+            <PanelMainInfo links={links} />
             {children}
           </div>
         </CustomSection>

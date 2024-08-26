@@ -2,36 +2,36 @@
 
 import { IEvidence } from "@/utils/customTypes";
 import React from "react";
-import EvidenceCard from "./EvidenceCard";
+import ActivityCard from "./ActivityCard";
 import Link from "next/link";
 
 type TProps = {
-  evidences: IEvidence[] | null;
+  activities: IEvidence[] | null;
   links?: boolean;
 };
 
-const EvidencesList = ({ evidences, links = false }: TProps) => {
-  if (!evidences) {
+const ActivitiesList = ({ activities, links = false }: TProps) => {
+  if (!activities) {
     return <div>Cargando...</div>;
   }
 
-  if (!evidences.length) {
+  if (!activities.length) {
     return <div>No hay evidencias aún</div>;
   }
 
   return (
     <div className="flex w-full flex-col items-center justify-center gap-5">
-      {evidences.map((evidence) =>
+      {activities.map((evidence) =>
         links ? (
           <Link className="w-full" href={`/usuario/evidencias/${evidence._id}`} key={evidence._id}>
-            <EvidenceCard evidence={evidence} />
+            <ActivityCard evidence={evidence} />
           </Link>
         ) : (
-          <EvidenceCard key={evidence._id} evidence={evidence} />
+          <ActivityCard key={evidence._id} evidence={evidence} />
         ),
       )}
     </div>
   );
 };
 
-export default EvidencesList;
+export default ActivitiesList;

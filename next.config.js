@@ -4,7 +4,7 @@ const nextConfig = {
     domains: ["ucarecdn.com"],
   },
   experimental: {
-    serverActions: true,
+    serverActions: {},
   },
   webpack: (config) => {
     config.externals = [...config.externals, "bcrypt"];
