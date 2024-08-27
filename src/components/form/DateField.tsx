@@ -17,10 +17,10 @@ const DateField = ({ ...props }: TProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [field, meta] = useField(props.name);
 
-  const handleOpenModal = () => setShowModal(true);
-  const handleCloseModal = () => setShowModal(false);
+  /* const handleOpenModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false); */
 
-  useEffect(() => {
+  /* useEffect(() => {
     let calendar: Instance;
     if (inputRef.current) {
       calendar = flatpickr("#datePickerWrapper", {
@@ -32,20 +32,18 @@ const DateField = ({ ...props }: TProps) => {
     return () => {
       if (calendar) calendar.destroy();
     };
-  }, [showModal]);
+  }, [showModal]); */
 
   return (
     <div className="relative flex w-full flex-col">
       <input
-        type="text"
+        type="date"
         id={`${props.name}Field`}
-        onClick={handleOpenModal}
-        readOnly
         {...field}
         {...props}
         className="rounded-lg border-2 border-stone-300 bg-white/80 px-4 py-2 backdrop-blur-sm placeholder:text-stone-200"
       />
-      {showModal ? (
+      {/* {showModal ? (
         <div className="fixed left-0 top-0 z-50 flex h-screen w-full items-center justify-center bg-black/60">
           <div className="w-full max-w-3xl overflow-hidden rounded-3xl bg-white shadow-md">
             <header className="w-full bg-stone-500 py-4 text-center text-xl text-white">
@@ -75,7 +73,7 @@ const DateField = ({ ...props }: TProps) => {
             ></div>
           </div>
         </div>
-      ) : null}
+      ) : null} */}
       {meta.touched && meta.error ? (
         <div className="font-medium text-red-500">{meta.error}</div>
       ) : null}

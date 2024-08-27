@@ -21,15 +21,9 @@ const ActivitiesList = ({ activities, links = false }: TProps) => {
 
   return (
     <div className="flex w-full flex-col items-center justify-center gap-5">
-      {activities.map((evidence) =>
-        links ? (
-          <Link className="w-full" href={`/usuario/evidencias/${evidence._id}`} key={evidence._id}>
-            <ActivityCard evidence={evidence} />
-          </Link>
-        ) : (
-          <ActivityCard key={evidence._id} evidence={evidence} />
-        ),
-      )}
+      {activities.map((evidence) => (
+        <ActivityCard key={evidence._id} evidence={evidence} />
+      ))}
     </div>
   );
 };

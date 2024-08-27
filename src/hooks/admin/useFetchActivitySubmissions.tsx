@@ -8,15 +8,11 @@ interface IProps {
   id?: string;
 }
 
-const useFetchEvidencesAdmin = ({ id }: IProps) => {
+const useFetchActivitySubmissions = ({ id }: IProps) => {
   const [data, setData] = useState<IEvidence[] | null>(null);
 
   async function handleFecthEvidences(token: string) {
-    let endpoint = "/usuario/evidencias/api/admin";
-
-    if (id) {
-      endpoint += `?id=${id}`;
-    }
+    let endpoint = `/usuario/evidencias/${id}/api/admin/submissions`;
 
     const req = await customFetch(endpoint, {
       method: "GET",
@@ -25,6 +21,7 @@ const useFetchEvidencesAdmin = ({ id }: IProps) => {
         Authorization: `Bearer ${token}`,
       },
     });
+
     const res = await req.json();
 
     setData(res.data);
@@ -39,4 +36,4 @@ const useFetchEvidencesAdmin = ({ id }: IProps) => {
   return data;
 };
 
-export default useFetchEvidencesAdmin;
+export default useFetchActivitySubmissions;

@@ -9,7 +9,14 @@ export const signUpValidationSchema = Yup.object().shape({
     .min(2, "Apellido muy corto")
     .max(40, "Apellido muy largo")
     .required("Ingresa tu nombre"),
-  username: Yup.string().min(5, "El nombre de usuario es muy corto").max(20, "El nombre de usuario es muy largo").matches(new RegExp("^(?=.{5,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"), "Nombre de usuario inválido").required("Ingresa tu nombre de usuario"),
+  username: Yup.string()
+    .min(5, "El nombre de usuario es muy corto")
+    .max(20, "El nombre de usuario es muy largo")
+    .matches(
+      new RegExp("^(?=.{5,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"),
+      "Nombre de usuario inválido",
+    )
+    .required("Ingresa tu nombre de usuario"),
   city: Yup.string().required("Ingresa tu ciudad"),
   passwordHash: Yup.string()
     .matches(
@@ -45,7 +52,6 @@ export const contactValidationSchema = Yup.object().shape({
     .required("Ingresa tu mensaje"),
 });
 
-
 export const editProfileValidationSchema = Yup.object().shape({
   name: Yup.string()
     .min(2, "Nombre muy corto")
@@ -56,27 +62,43 @@ export const editProfileValidationSchema = Yup.object().shape({
     .max(40, "Apellido muy largo")
     .required("Ingresa tu nombre"),
   birthdate: Yup.date().max(new Date()),
-  address: Yup.string().min(2, "Dirección muy corta").max(80, "Dirección muy larga"),
+  address: Yup.string()
+    .min(2, "Dirección muy corta")
+    .max(80, "Dirección muy larga"),
   phone: Yup.number().max(9999999999, "Número de teléfono inválido"),
   school: Yup.string().min(2, "Nombre muy corto").max(60, "Nombre muy largo"),
-  bio: Yup.string().min(2, "Descripción muy corta").max(280, "Descripción muy larga")
-})
+  bio: Yup.string()
+    .min(2, "Descripción muy corta")
+    .max(280, "Descripción muy larga"),
+});
 
 export const submitEvidenceValidationSchema = Yup.object().shape({
-  answer: Yup.string().min(10, "Tu respusta es muy corta").max(2500, "Tu respuesta es muy larga").required("Escribe tu respuesta para completar esta evidencia"),
-  link: Yup.string().matches(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g, "Ingrese un link válido").required("No olvides adjuntar un link con los recursos de la evidencia")
-})
+  answer: Yup.string()
+    .min(10, "Tu respusta es muy corta")
+    .max(2500, "Tu respuesta es muy larga")
+    .required("Escribe tu respuesta para completar esta evidencia"),
+  link: Yup.string()
+    .matches(
+      /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g,
+      "Ingrese un link válido",
+    )
+    .required("No olvides adjuntar un link con los recursos de la evidencia"),
+});
 
 export const postCommentValdationSchema = Yup.object().shape({
-  content: Yup.string().min(2, "El comentario es muy corto").max(500, "El comentario es muy largo").required("Escribe tu comentario")
-})
-
+  content: Yup.string()
+    .min(2, "El comentario es muy corto")
+    .max(500, "El comentario es muy largo")
+    .required("Escribe tu comentario"),
+});
 
 export const newActivityValidationSchema = Yup.object().shape({
-  name: Yup.string().required("Ingresa el nombre de la actividad"),
+  title: Yup.string().required("Ingresa el nombre de la actividad"),
   description: Yup.string().required("Ingresa la descripción de la actividad"),
-  enableText: Yup.boolean(),
-  enableLinks: Yup.boolean(),
-  enableDocs: Yup.boolean(),
-  enableImages: Yup.boolean(),
-})
+  enabledOptions: Yup.object().shape({
+    text: Yup.boolean(),
+    links: Yup.boolean(),
+    docs: Yup.boolean(),
+    images: Yup.boolean(),
+  }),
+});

@@ -3,14 +3,20 @@ import { ICustomResponse } from "@/middleware";
 import adminRequired from "@/middlewares/adminRequired";
 import Evidence from "@/models/Evidence";
 import getCustomError from "@/utils/getCustomError";
+import { PipelineStage } from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
+import { Types } from "mongoose";
 
 export async function GET(req: NextRequest) {
   adminRequired(req);
   await mongodbConnect();
 
+  const id = req.nextUrl.searchParams.get("id") || "";
+
   try {
-    const evidences = await Evidence.find();
+    const evidences = await Evidence.find(id ? { _id: id } : {}, {
+      submissions: 0,
+    });
 
     return NextResponse.json<ICustomResponse>({
       status: "success",

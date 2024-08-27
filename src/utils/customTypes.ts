@@ -20,7 +20,7 @@ export type TUserData = {
   avatar: string;
   points: number;
   bio: string;
-  role: "USER" | "ADMIN"
+  role: "USER" | "ADMIN";
 };
 
 export interface IUserCertificate {}
@@ -42,6 +42,15 @@ export interface IEvidence {
   comments: IComment[];
   submissions: ISubmission[];
   deadline: string;
+  createdAt: string;
+  updatedAt: string;
+  deliveryDate: string;
+  enabledOptions: {
+    text: boolean;
+    links: boolean;
+    docs: boolean;
+    images: boolean;
+  };
 }
 export interface IComment {
   _id: number;

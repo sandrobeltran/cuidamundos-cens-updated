@@ -3,6 +3,7 @@ import Evidence from "@/models/Evidence";
 import { IEvidence, ISubmission } from "@/utils/customTypes";
 import getCustomError from "@/utils/getCustomError";
 import { validateUserToken } from "@/utils/validateUserToken";
+import { Types } from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function PUT(req: NextRequest, context: { params: any }) {
@@ -11,7 +12,7 @@ export async function PUT(req: NextRequest, context: { params: any }) {
 
   const evidenceId = context.params.id;
   try {
-    const {uid} = validateUserToken(headers);
+    const { uid } = validateUserToken(headers);
 
     const evidence: IEvidence | null = await Evidence.findById(evidenceId);
     if (!evidence) {
@@ -42,7 +43,7 @@ export async function PUT(req: NextRequest, context: { params: any }) {
 
       //? In this point the middleware has validated the admin key
       updatedEvidence = await Evidence.findOneAndUpdate(
-        { "submissions.author": uid },
+        { "submissions.author": new Types.ObjectId(uid) },
         {
           $set: {
             "submissions.$.content": body,
@@ -57,7 +58,7 @@ export async function PUT(req: NextRequest, context: { params: any }) {
       //? Construct the submission object
       const newSubmission = {
         content: body, //answer and link
-        author: uid,
+        author: new Types.ObjectId(uid),
         lastUpdatedAt: new Date(),
         state: 1,
         submitedAt: new Date(),
