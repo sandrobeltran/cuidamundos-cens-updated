@@ -32,6 +32,7 @@ const evidenceSchema = new Schema(
         content: {
           answer: String;
           link: String;
+          files: String[];
         };
       }>,
       required: true,

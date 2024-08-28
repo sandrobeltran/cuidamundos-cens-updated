@@ -26,11 +26,10 @@ export async function GET(req: NextRequest, context: { params: any }) {
 
     const rawSubmissions = evidence.submissions;
 
-    console.log(rawSubmissions);
-
     let usersDataPool: {
       [key: string]: {
         name: string;
+        lastname: string,
         avatar: string;
         role: string;
       } | null;
@@ -41,6 +40,7 @@ export async function GET(req: NextRequest, context: { params: any }) {
         if (!Object.keys(usersDataPool).includes(submission.author)) {
           const userData = await User.findById(submission.author, {
             name: 1,
+            lastname: 1,
             avatar: 1,
             role: 1,
           });
@@ -53,8 +53,8 @@ export async function GET(req: NextRequest, context: { params: any }) {
         }
 
         return {
-          author: usersDataPool[submission.author],
           ...submission,
+          author: usersDataPool[submission.author],
         };
       }),
     );

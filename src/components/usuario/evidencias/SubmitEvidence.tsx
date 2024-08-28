@@ -11,6 +11,8 @@ import { Form, Formik } from "formik";
 import React, { useState } from "react";
 import EvidenceSubmitedModal from "./EvidenceSubmitedModal";
 import { customFetch } from "@/utils/customFetch";
+import { toast } from "react-toastify";
+import { submitEvidence } from "@/actions/submitEvidence";
 
 type TProps = {
   evidence: IEvidence;
@@ -27,7 +29,7 @@ const SubmitEvidence = ({ evidence }: TProps) => {
 
   // Check if there is a submission yet to update
   const submission = evidence.submissions.find(
-    (submission) => submission.author === user!._id,
+    (submission) => (submission.author as any) === user!._id,
   );
 
   type TInitialValues = {
@@ -42,15 +44,33 @@ const SubmitEvidence = ({ evidence }: TProps) => {
 
   async function handleSubmit(values: TInitialValues) {
     const token = localStorage.getItem("session-token");
-    const req = await customFetch(`/usuario/evidencias/${evidence._id}/entrega/api`, {
+
+    const formData = new FormData();
+
+    Object.entries(values).forEach(([key, value]) =>
+      formData.append(key, value),
+    );
+
+    await submitEvidence(formData, evidence._id, token!);
+
+    return;
+
+    let endpoint = `/usuario/evidencias/${evidence._id}/entrega/api`;
+
+    const req = await customFetch(endpoint, {
       method: "PUT",
       headers: {
         "api-key": process.env.NEXT_PUBLIC_API_KEY as string,
         Authorization: `Bearer ${token}`,
+        "Content-Type": "multipart/form-data",
       },
-      body: JSON.stringify(values),
+      body: formData,
     });
     const res = await req.json();
+
+    if (!req.ok) {
+      return toast.error(res.message);
+    }
 
     setCurrentEvidence(res.data);
 

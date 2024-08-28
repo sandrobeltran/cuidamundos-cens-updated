@@ -59,3 +59,24 @@ export function getIsoDate(dated?: Date): string {
   const formattedDate = rawDate.toISOString().substring(0, 10);
   return formattedDate; // Output: "YYYY-MM-DD"
 }
+
+export function getTimeFromDate(date: Date) {
+  // Get the hour and minutes
+  let hours = date.getHours();
+  const minutes = date.getMinutes();
+
+  // Determine AM or PM
+  const ampm = hours >= 12 ? "PM" : "AM";
+
+  // Convert 24-hour time to 12-hour time
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+
+  // Format minutes to always be two digits
+  const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+
+  // Combine into the final string
+  const timeString = `${hours}:${formattedMinutes} ${ampm}`;
+
+  return timeString; // Output example: "2:35 PM"
+}

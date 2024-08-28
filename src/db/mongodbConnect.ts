@@ -1,16 +1,25 @@
-import { connect, connection } from "mongoose";
+import { connect, connection, mongo, Mongoose } from "mongoose";
 
 const conn = {
   isConnected: 0,
 };
 
+let client: Mongoose;
+let bucket: mongo.GridFSBucket;
+
 export default async function mongodbConnect() {
+  if (client) {
+    return { client, bucket };
+  }
   if (conn.isConnected === 1) return;
 
   try {
-    const connection = await connect(process.env.MONGODB_URI as string);
+    client = await connect(process.env.MONGODB_URI as string);
 
-    conn.isConnected = connection.connections[0].readyState;
+    bucket = new mongo.GridFSBucket(client.connection.db);
+
+    conn.isConnected = client.connections[0].readyState;
+    return { client, bucket };
   } catch (error) {
     console.log(error);
   }

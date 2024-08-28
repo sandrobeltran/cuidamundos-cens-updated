@@ -1,17 +1,20 @@
+import mongodbConnect from "@/db/mongodbConnect";
 import { ICustomResponse } from "@/middleware";
 import Evidence from "@/models/Evidence";
-import { IEvidence, ISubmission } from "@/utils/customTypes";
+import { IAdminAuthor, IEvidence, ISubmission } from "@/utils/customTypes";
 import getCustomError from "@/utils/getCustomError";
 import { validateUserToken } from "@/utils/validateUserToken";
 import { Types } from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
+import {  } from "next/server"
 
 export async function PUT(req: NextRequest, context: { params: any }) {
   const { headers } = req;
-  const body = await req.json();
 
   const evidenceId = context.params.id;
   try {
+    const body = req.json();
+    const { bucket } = (await mongodbConnect())!;
     const { uid } = validateUserToken(headers);
 
     const evidence: IEvidence | null = await Evidence.findById(evidenceId);
@@ -24,9 +27,8 @@ export async function PUT(req: NextRequest, context: { params: any }) {
         { status: 404 },
       );
     }
-
     const submission = evidence.submissions.find(
-      (submission) => submission.author === uid,
+      (submission) => (submission.author as IAdminAuthor)._id === uid,
     );
 
     let updatedEvidence;

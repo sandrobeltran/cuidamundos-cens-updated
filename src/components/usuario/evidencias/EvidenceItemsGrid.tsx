@@ -1,6 +1,8 @@
+import { STATES_DICT } from "@/constants/evidencesConstants";
 import { useUserStore } from "@/store/useUserStore";
 import { IEvidence, ISubmission } from "@/utils/customTypes";
 import dateToString, { getRemainingTime } from "@/utils/dateToString";
+import { getSubmissionState } from "@/utils/evidenceUtils";
 import React from "react";
 
 type TProps = {
@@ -11,15 +13,10 @@ const EvidenceItemsGrid = ({ evidence }: TProps) => {
   const user = useUserStore((state) => state.user);
 
   const submission = evidence.submissions.find(
-    (submission) => submission.author === user!._id,
+    (submission) => submission.author._id === user!._id,
   );
 
   //? submission state: 0 = Not send | 1 = Send | 2: Overdue
-
-  const statesDic = {
-    0: "Sin enviar",
-    1: "Enviado",
-  };
 
   const remainingTime = getRemainingTime(evidence.deadline);
 
@@ -31,11 +28,7 @@ const EvidenceItemsGrid = ({ evidence }: TProps) => {
             Estado de la entrega
           </div>
           <div className="-ml-2 flex w-full items-center rounded-lg bg-white/80 px-8 py-4 text-stone-500 backdrop-blur-sm max-sm:px-4">
-            {submission
-              ? statesDic[submission.state as keyof typeof statesDic]
-              : remainingTime.d < 0
-              ? "Atrasada"
-              : "Sin enviar"}
+            {getSubmissionState(submission, remainingTime.d)}
           </div>
         </div>
       </div>

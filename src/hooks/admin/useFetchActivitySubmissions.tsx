@@ -1,7 +1,7 @@
 "use client";
 
 import { customFetch } from "@/utils/customFetch";
-import { IEvidence } from "@/utils/customTypes";
+import { IEvidence, ISubmission } from "@/utils/customTypes";
 import React, { useEffect, useState } from "react";
 
 interface IProps {
@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const useFetchActivitySubmissions = ({ id }: IProps) => {
-  const [data, setData] = useState<IEvidence[] | null>(null);
+  const [data, setData] = useState<ISubmission[] | null>(null);
 
   async function handleFecthEvidences(token: string) {
     let endpoint = `/usuario/evidencias/${id}/api/admin/submissions`;

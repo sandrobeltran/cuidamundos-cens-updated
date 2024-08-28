@@ -11,6 +11,8 @@ export type TLoginUser = {
   password: string;
 };
 
+export type TUserRole = "USER" | "ADMIN";
+
 export type TUserData = {
   _id: string;
   name: string;
@@ -20,7 +22,7 @@ export type TUserData = {
   avatar: string;
   points: number;
   bio: string;
-  role: "USER" | "ADMIN";
+  role: TUserRole;
 };
 
 export interface IUserCertificate {}
@@ -52,13 +54,23 @@ export interface IEvidence {
     images: boolean;
   };
 }
+
 export interface IComment {
   _id: number;
   author: string;
   content: string;
 }
+
+export interface IAdminAuthor {
+  _id: string;
+  name: string;
+  lastname: string;
+  avatar: string;
+  role: TUserRole;
+}
+
 export interface ISubmission {
-  author: string;
+  author: string | IAdminAuthor;
   state: number;
   lastUpdatedAt: string;
   submitedAt: string;
