@@ -13,7 +13,7 @@ const EvidenceItemsGrid = ({ evidence }: TProps) => {
   const user = useUserStore((state) => state.user);
 
   const submission = evidence.submissions.find(
-    (submission) => submission.author._id === user!._id,
+    (submission) => submission.author === user!._id,
   );
 
   //? submission state: 0 = Not send | 1 = Send | 2: Overdue
