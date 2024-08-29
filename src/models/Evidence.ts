@@ -1,4 +1,4 @@
-import { model, models, Schema } from "mongoose";
+import { model, models, ObjectId, Schema } from "mongoose";
 
 const evidenceSchema = new Schema(
   {
@@ -32,7 +32,7 @@ const evidenceSchema = new Schema(
         content: {
           answer: String;
           link: String;
-          files: String[];
+          files: ObjectId[];
         };
       }>,
       required: true,

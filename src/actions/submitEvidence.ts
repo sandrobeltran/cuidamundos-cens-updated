@@ -2,10 +2,10 @@
 
 import mongodbConnect from "@/db/mongodbConnect";
 import Evidence from "@/models/Evidence";
-import { IAdminAuthor, IEvidence } from "@/utils/customTypes";
+import { IEvidence } from "@/utils/customTypes";
 import { validateUserToken } from "@/utils/validateUserToken";
 import { Types } from "mongoose";
-import { headers } from "next/headers";
+import { Readable } from "stream";
 
 export async function submitEvidence(
   formData: FormData,
@@ -27,30 +27,54 @@ export async function submitEvidence(
     };
   }
 
+  const answer = formData.get("answer");
+  const link = formData.get("link");
+
+  const files = Array.from(formData.values()).filter((e) => e instanceof File);
+
+  const filesIds = await Promise.all(
+    files.map(async (file) => {
+      let fileRef = Date.now() + file.name;
+      console.log("done");
+      const buffer = Buffer.from(await file.arrayBuffer());
+      const stream = Readable.from(buffer);
+      const uploadStream = bucket.openUploadStream(fileRef, {});
+      await stream.pipe(uploadStream);
+
+      return uploadStream.id;
+    }),
+  );
+
+  console.log(filesIds)
+
+  let content = {
+    answer,
+    link,
+    files: filesIds,
+  };
+
   const submission = evidence.submissions.find((submission) =>
     new Types.ObjectId(uid!).equals(submission.author as string),
   );
 
   let updatedEvidence;
-  const body = Object.fromEntries(formData.entries());
 
-  console.log(body);
   // Validate if there is a submission yet
   if (submission) {
     // Modify the current submission
     //? Construct the submission object
     const newSubmission = {
-      content: body, //answer and link
+      content: content, //answer and link
       lastUpdatedAt: new Date(),
       state: 1,
     };
 
     //? In this point the middleware has validated the admin key
     updatedEvidence = await Evidence.findOneAndUpdate(
-      { "submissions.author": new Types.ObjectId(uid) },
+      { _id: evidenceId, "submissions.author": new Types.ObjectId(uid) },
       {
         $set: {
-          "submissions.$.content": body,
+          "submissions.$.content": content,
           "submissions.$.lastUpdatedAt": new Date(),
           "submissions.$.state": 1,
         },
@@ -61,7 +85,7 @@ export async function submitEvidence(
     // Is a new submission
     //? Construct the submission object
     const newSubmission = {
-      content: body, //answer and link
+      content: content, //answer and link
       author: new Types.ObjectId(uid),
       lastUpdatedAt: new Date(),
       state: 1,
@@ -75,4 +99,9 @@ export async function submitEvidence(
       { new: true },
     );
   }
+
+  return {
+    status: "success",
+    message: "Evidencia subida con éxito",
+  };
 }

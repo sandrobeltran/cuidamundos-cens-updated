@@ -1,8 +1,5 @@
-import SpinLoader from "@/components/SpinLoader";
 import { IAdminAuthor, ISubmission } from "@/utils/customTypes";
 import dateToString, {
-  getIsoDate,
-  getRemainingTime,
   getTimeFromDate,
 } from "@/utils/dateToString";
 import { getSubmissionState } from "@/utils/evidenceUtils";

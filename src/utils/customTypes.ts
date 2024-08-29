@@ -77,6 +77,7 @@ export interface ISubmission {
   content: {
     answer: string;
     link: string;
+    files: string[];
   };
 }
 

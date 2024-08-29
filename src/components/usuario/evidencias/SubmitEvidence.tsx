@@ -6,13 +6,14 @@ import TextField from "@/components/form/TextField";
 import { useUserStore } from "@/store/useUserStore";
 import { IEvidence } from "@/utils/customTypes";
 import { submitEvidenceValidationSchema } from "@/utils/validations";
-import { LinkIcon } from "@heroicons/react/24/outline";
+import { LinkIcon, DocumentIcon } from "@heroicons/react/24/outline";
 import { Form, Formik } from "formik";
 import React, { useState } from "react";
 import EvidenceSubmitedModal from "./EvidenceSubmitedModal";
-import { customFetch } from "@/utils/customFetch";
 import { toast } from "react-toastify";
 import { submitEvidence } from "@/actions/submitEvidence";
+import InputFile from "@/components/form/InputFile";
+import FileCard from "./FileCard";
 
 type TProps = {
   evidence: IEvidence;
@@ -21,6 +22,7 @@ type TProps = {
 const SubmitEvidence = ({ evidence }: TProps) => {
   const user = useUserStore((state) => state.user);
   const [submitted, setSubmitted] = useState<boolean>(false);
+  const [files, setFiles] = useState<File[]>([]);
 
   // ? The idea is to use a component-local state to store the evidence so we can update it when any change happens
   const [currentEvidence, setCurrentEvidence] = useState<IEvidence | null>(
@@ -51,30 +53,29 @@ const SubmitEvidence = ({ evidence }: TProps) => {
       formData.append(key, value),
     );
 
-    await submitEvidence(formData, evidence._id, token!);
-
-    return;
-
-    let endpoint = `/usuario/evidencias/${evidence._id}/entrega/api`;
-
-    const req = await customFetch(endpoint, {
-      method: "PUT",
-      headers: {
-        "api-key": process.env.NEXT_PUBLIC_API_KEY as string,
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "multipart/form-data",
-      },
-      body: formData,
+    files.forEach((file) => {
+      formData.append(file.name, file);
     });
-    const res = await req.json();
 
-    if (!req.ok) {
-      return toast.error(res.message);
+    const action = await submitEvidence(formData, evidence._id, token!);
+return
+    if (action.status == "error") {
+      return toast.error(action.message);
     }
 
-    setCurrentEvidence(res.data);
+    //setCurrentEvidence(action.data);
 
     setSubmitted(true);
+  }
+
+  function handleFilePicked(e: React.ChangeEvent<HTMLInputElement>) {
+    if (e.target.files) {
+      const newFiles = Array.from(e.target.files);
+
+      if (newFiles.length) {
+        setFiles([...files, ...newFiles]);
+      }
+    }
   }
 
   return (
@@ -103,6 +104,22 @@ const SubmitEvidence = ({ evidence }: TProps) => {
               <TextField name="link" placeholder="" type="text" />
             </div>
           </div>
+
+          <div className="flex w-full flex-col justify-start gap-3">
+            <label className="flex items-center gap-2 font-medium text-stone-500">
+              <DocumentIcon className="h-6" /> Adjunta un archivo
+            </label>
+            <div className="w-full max-w-2xl">
+              <InputFile name="fileInput" onChange={handleFilePicked} />
+            </div>
+
+            <div className="flex w-full gap-4 overflow-x-auto p-2">
+              {files.map((file, index) => (
+                <FileCard file={file} key={index} />
+              ))}
+            </div>
+          </div>
+
           <Button hierarchy="primary" size="md" type="submit">
             {submission ? "Guardar cambios" : "Subir entrega"}
           </Button>
