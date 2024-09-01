@@ -5,13 +5,14 @@ import React, { Dispatch, SetStateAction, useRef } from "react";
 import FormWrapper from "../form/FormWrapper";
 import TextField from "../form/TextField";
 import Button from "../Button";
-import TextArea from "../form/TextArea";
 import { useRouter } from "next/navigation";
 import { useUserStore } from "@/store/useUserStore";
 import { toast } from "react-toastify";
 import { signUpValidationSchema } from "@/utils/validations";
-import { string } from "yup";
 import { customFetch } from "@/utils/customFetch";
+import useFetchInstitutionsAdmin from "@/hooks/admin/useFetchInstitutionsAdmin";
+import useFetchInstitutions from "@/hooks/useFetchInstitutions";
+import InputSelect from "../form/InputSelect";
 
 type TProps = {};
 type TInitialValues = {
@@ -21,17 +22,20 @@ type TInitialValues = {
   passwordHash: string;
   confirmPassword: string;
   city: string;
+  institutionId: string | null;
 };
 
 const initialValues: TInitialValues = {
-  name: "",
-  lastname: "",
-  username: "",
-  passwordHash: "",
-  confirmPassword: "",
-  city: "",
+  name: "Usuario",
+  lastname: "Prueba",
+  username: "u_prueba1",
+  passwordHash: "sandroB2204",
+  confirmPassword: "sandroB2204",
+  city: "Cúcuta",
+  institutionId: "",
 };
 const RegisterModal = ({}: TProps) => {
+  const institutions = useFetchInstitutions({});
   const { setUser, user, setLoading, setError, loading } = useUserStore(
     (state) => state,
   );
@@ -122,14 +126,28 @@ const RegisterModal = ({}: TProps) => {
             <h4 className="text-center text-lg font-semibold text-cens-brand mobile-land:text-[1rem]">
               Crea tu cuenta de Cuidamundos
             </h4>
-            <TextField name="name" placeholder="Nombres" />
-            <TextField name="lastname" placeholder="Apellidos" />
-            <TextField name="username" type="text" placeholder="Usuario" />
-            <TextField name="city" type="text" placeholder="Ciudad" />
-            <TextField name="passwordHash" placeholder="Contraseña" password />
+            <TextField name="name" placeholder="Nombres*" />
+            <TextField name="lastname" placeholder="Apellidos*" />
+            <TextField name="username" type="text" placeholder="Usuario*" />
+            <TextField name="city" type="text" placeholder="Ciudad*" />
+            <InputSelect name="institutionId">
+              {institutions ? (
+                <>
+                  <option value={""}>Selecciona tu institución</option>
+                  {institutions.map((institution) => (
+                    <option key={institution._id} value={institution._id}>
+                      {institution.name}
+                    </option>
+                  ))}
+                </>
+              ) : (
+                <option value={""}>Cargando instituciones</option>
+              )}
+            </InputSelect>
+            <TextField name="passwordHash" placeholder="Contraseña*" password />
             <TextField
               name="confirmPassword"
-              placeholder="Confirmar Contraseña"
+              placeholder="Confirmar Contraseña*"
               password
             />
             <div className="mt-4 flex">

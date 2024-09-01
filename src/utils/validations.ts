@@ -102,3 +102,8 @@ export const newActivityValidationSchema = Yup.object().shape({
     images: Yup.boolean(),
   }),
 });
+
+export const newInstitutionValidationSchema = Yup.object().shape({
+  name: Yup.string().required("Ingresa el nombre de la actividad"),
+  city: Yup.string().required("Ingresa la ciudad"),
+});

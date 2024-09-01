@@ -13,7 +13,7 @@ import {
   IoImageOutline,
   IoDocumentOutline,
 } from "react-icons/io5";
-import { LuUndo2, LuRedo2, LuEye } from "react-icons/lu";
+import { LuUndo2, LuRedo2, LuEye, LuGraduationCap } from "react-icons/lu";
 
 export interface NewActivityInitialValues {
   title: string;
@@ -60,30 +60,24 @@ const NewActivityForm = ({ handleSubmit, initialValues }: IProps) => {
     >
       <Form className="flex w-full flex-col items-center gap-6">
         {/* TOOLS BAR */}
-        <div className="sticky left-0 top-[5.5rem] z-50 flex w-full items-center justify-between gap-2 rounded-3xl bg-white/80 p-3 px-8 text-left shadow-md backdrop-blur-sm">
-          <div className="flex items-center gap-3">
-            <NewActivityToolButton Icon={LuUndo2} label="Deshacer" />
-            <NewActivityToolButton Icon={LuRedo2} label="Rehacer" />
-          </div>
-          <div className="flex items-center gap-3">
-            <NewActivityToolButton Icon={LuEye} label="Previsualizar" />
-            <NewActivityToolButton
-              Icon={IoAddCircleOutline}
-              label="Agregar Pregunta"
-            />
-            <NewActivityToolButton
-              Icon={IoImageOutline}
-              label="Insertar Imagen"
-            />
-            <NewActivityToolButton
-              Icon={IoDocumentOutline}
-              label="Insertar Documento"
-            />
-            <div className="ml-2 h-fit">
-              <Button type="submit" hierarchy="primary" size="sm">
-                {initialValues ? "Guardar cambios" : "Publicar"}
-              </Button>
-            </div>
+        <div className="sticky left-0 top-[5.5rem] z-50 flex w-full items-center justify-center gap-4 rounded-3xl bg-white/80 p-3 px-8 text-left shadow-md backdrop-blur-sm">
+          {/* <NewActivityToolButton Icon={LuEye} label="Previsualizar" /> */}
+          <NewActivityToolButton
+            Icon={LuGraduationCap}
+            label="Seleccionar Institución"
+          />
+          <NewActivityToolButton
+            Icon={IoImageOutline}
+            label="Insertar Imagen"
+          />
+          <NewActivityToolButton
+            Icon={IoDocumentOutline}
+            label="Insertar Documento"
+          />
+          <div className="ml-6 h-fit">
+            <Button type="submit" hierarchy="primary" size="md">
+              {initialValues ? "Guardar cambios" : "Publicar"}
+            </Button>
           </div>
         </div>
 

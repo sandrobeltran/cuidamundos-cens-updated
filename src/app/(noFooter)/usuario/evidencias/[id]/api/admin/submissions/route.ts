@@ -4,13 +4,18 @@ import adminRequired from "@/middlewares/adminRequired";
 import Evidence from "@/models/Evidence";
 import User from "@/models/User";
 import getCustomError from "@/utils/getCustomError";
+import { Types } from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
 import { object } from "yup";
 
 export async function GET(req: NextRequest, context: { params: any }) {
   adminRequired(req);
-  await mongodbConnect();
+  const { client, bucket } = (await mongodbConnect())!;
+  const authorId = req.nextUrl.searchParams.get("authorId") || "";
   const evidenceId = context.params.id;
+
+  const db = client.connection.db;
+  const filesCollection = db.collection("fs.files");
 
   try {
     //? In this point the middleware has validated the admin key
@@ -24,12 +29,18 @@ export async function GET(req: NextRequest, context: { params: any }) {
         message: "La actividad no existe o ha sido eliminada",
       });
 
-    const rawSubmissions = evidence.submissions;
+    let rawSubmissions = evidence.submissions;
+
+    if (authorId) {
+      rawSubmissions = rawSubmissions.filter((e: any) =>
+        new Types.ObjectId(authorId).equals(e.author),
+      );
+    }
 
     let usersDataPool: {
       [key: string]: {
         name: string;
-        lastname: string,
+        lastname: string;
         avatar: string;
         role: string;
       } | null;
@@ -52,9 +63,44 @@ export async function GET(req: NextRequest, context: { params: any }) {
           }
         }
 
+        /* const files = await Promise.all(
+          submission.content.files.map(
+            async (e: string) =>
+              await new Promise(async (res, rej) => {
+                const downloadStream = bucket.openDownloadStream(
+                  new Types.ObjectId(e),
+                );
+
+                const fileMetadata = await filesCollection.findOne({
+                  _id: new Types.ObjectId(e),
+                });
+
+                if (!fileMetadata) {
+                  return NextResponse.json(
+                    { error: "File not found" },
+                    { status: 404 },
+                  );
+                }
+
+                console.log(fileMetadata);
+
+                const type =
+                  (fileMetadata.filename as string).split(".").pop() || "";
+
+                downloadStream.on("data", (chunk: Buffer) => {
+                  res({ chunk, type: type });
+                });
+              }),
+          ),
+        ); */
+
         return {
           ...submission,
           author: usersDataPool[submission.author],
+          /*  content: {
+            ...submission.content,
+            files,
+          }, */
         };
       }),
     );

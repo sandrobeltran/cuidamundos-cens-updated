@@ -32,7 +32,6 @@ const GetUserByToken = () => {
       }
 
       setUser(fetchUserRes.data);
-      setLoading(false);
     },
     [setUser, setError, setLoading],
   );

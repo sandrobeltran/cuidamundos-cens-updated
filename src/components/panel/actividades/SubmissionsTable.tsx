@@ -1,9 +1,9 @@
 import { IAdminAuthor, ISubmission } from "@/utils/customTypes";
-import dateToString, {
-  getTimeFromDate,
-} from "@/utils/dateToString";
+import dateToString, { getTimeFromDate } from "@/utils/dateToString";
 import { getSubmissionState } from "@/utils/evidenceUtils";
 import Image from "next/image";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 import React from "react";
 import { FaFolder } from "react-icons/fa";
 import { IoLink } from "react-icons/io5";
@@ -13,6 +13,10 @@ interface IProps {
 }
 
 const SubmissionsTable = ({ submissions }: IProps) => {
+  const { id } = useParams();
+
+  console.log(submissions)
+
   if (!submissions) {
     return (
       <div className="w-full text-center">
@@ -29,7 +33,6 @@ const SubmissionsTable = ({ submissions }: IProps) => {
     );
   }
 
-
   return (
     <table className="w-full border-separate border-spacing-y-4">
       <thead>
@@ -40,12 +43,12 @@ const SubmissionsTable = ({ submissions }: IProps) => {
           <td className="px-5 py-3">Archivos</td>
           <td className="px-5 py-3">Hipervínculo</td>
           <td className="px-5 py-3">Fecha de Entrega</td>
-          <td className="rounded-r-3xl px-5 py-3">Hora</td>
+          <td className="rounded-r-3xl px-5 py-3">Acciones</td>
         </tr>
       </thead>
       <tbody>
         {submissions.map((submission) => {
-          const author = submission.author as IAdminAuthor
+          const author = submission.author as IAdminAuthor;
           return (
             <tr
               key={author._id}
@@ -79,7 +82,7 @@ const SubmissionsTable = ({ submissions }: IProps) => {
                   <div className="relative h-12 w-12">
                     <FaFolder color="#FFC343" className="text-5xl" />
                     <div className="absolute inset-0 m-auto grid h-5 w-5 translate-x-5 translate-y-4 place-content-center rounded-full border-[3px] border-cens-dark bg-white text-xs text-cens-dark">
-                      2
+                      {submission.content.files.length}
                     </div>
                   </div>
                 </div>
@@ -95,10 +98,16 @@ const SubmissionsTable = ({ submissions }: IProps) => {
                 </div>
               </td>
               <td className="px-5 py-6 font-normal text-stone-400">
-                {dateToString(submission.submitedAt)}
-              </td>
-              <td className="rounded-r-3xl px-5 py-6 font-normal text-stone-400">
+                {dateToString(submission.submitedAt)}{" - "}
                 {getTimeFromDate(new Date(submission.submitedAt))}
+              </td>
+              <td className="rounded-r-3xl px-5 py-6">
+                <Link
+                  href={`/panel/actividades/${id}/evidencias/${author._id}`}
+                  className="underline"
+                >
+                  Ver
+                </Link>
               </td>
             </tr>
           );

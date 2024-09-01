@@ -4,6 +4,7 @@ export type TSignupUser = {
   username: string;
   city: string;
   passwordHash: string;
+  institutionId: "" | string;
 };
 
 export type TLoginUser = {
@@ -23,6 +24,7 @@ export type TUserData = {
   points: number;
   bio: string;
   role: TUserRole;
+  institutionData: IInstitution;
 };
 
 export interface IUserCertificate {}
@@ -79,6 +81,12 @@ export interface ISubmission {
     link: string;
     files: string[];
   };
+}
+export interface IEvidenceFile {
+  _id: string;
+  chunk: any;
+  type: string;
+  filename: string;
 }
 
 export interface IGame {
@@ -139,4 +147,12 @@ export interface ITestQuestion {
 export interface ITestRange {
   limit: number;
   message: string;
+}
+
+export interface IInstitution {
+  _id: string;
+  name: string;
+  city: string;
+  createdAt: string;
+  updatedAt: string;
 }

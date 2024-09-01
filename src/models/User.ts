@@ -1,4 +1,4 @@
-import { Schema, model, models } from "mongoose";
+import { Schema, Types, model, models } from "mongoose";
 import bcrypt from "bcrypt";
 
 const userSchema = new Schema(
@@ -49,6 +49,10 @@ const userSchema = new Schema(
     role: {
       type: String, // USER | ADMIN
       required: true,
+    },
+    institutionId: {
+      type: Types.ObjectId,
+      required: false,
     },
   },
   {

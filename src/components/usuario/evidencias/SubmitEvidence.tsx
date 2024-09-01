@@ -4,7 +4,7 @@ import Button from "@/components/Button";
 import TextArea from "@/components/form/TextArea";
 import TextField from "@/components/form/TextField";
 import { useUserStore } from "@/store/useUserStore";
-import { IEvidence } from "@/utils/customTypes";
+import { IEvidence, IEvidenceFile } from "@/utils/customTypes";
 import { submitEvidenceValidationSchema } from "@/utils/validations";
 import { LinkIcon, DocumentIcon } from "@heroicons/react/24/outline";
 import { Form, Formik } from "formik";
@@ -14,12 +14,53 @@ import { toast } from "react-toastify";
 import { submitEvidence } from "@/actions/submitEvidence";
 import InputFile from "@/components/form/InputFile";
 import FileCard from "./FileCard";
+import useFetchEvidenceFiles from "@/hooks/useFetchEvidenceFiles";
 
 type TProps = {
   evidence: IEvidence;
 };
 
+const DeletableFileCard = ({
+  isDeleted,
+  onClick,
+  file,
+}: {
+  isDeleted?: boolean;
+  onClick: () => void;
+  file: {
+    filename: string;
+    type: string;
+  };
+}) => {
+  return (
+    <div
+      title={isDeleted ? "Restaurar" : "Eliminar"}
+      className="relative cursor-pointer"
+      onClick={onClick}
+    >
+      {isDeleted ? (
+        <div className="absolute inset-0 z-10 m-auto h-fit w-fit rounded-full bg-red-500/70 px-3 text-xs font-medium text-white">
+          Eliminado
+        </div>
+      ) : null}
+      <div
+        style={
+          isDeleted
+            ? {
+                filter: "grayscale(100%)",
+                opacity: ".3",
+              }
+            : {}
+        }
+      >
+        <FileCard {...file} />
+      </div>
+    </div>
+  );
+};
+
 const SubmitEvidence = ({ evidence }: TProps) => {
+  const [deletedFilesIds, setDeletedFilenames] = useState<string[]>([]);
   const user = useUserStore((state) => state.user);
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [files, setFiles] = useState<File[]>([]);
@@ -33,6 +74,11 @@ const SubmitEvidence = ({ evidence }: TProps) => {
   const submission = evidence.submissions.find(
     (submission) => (submission.author as any) === user!._id,
   );
+
+  const currentFiles = useFetchEvidenceFiles({
+    activityId: evidence._id,
+    filesIds: submission?.content.files,
+  });
 
   type TInitialValues = {
     answer: string;
@@ -57,13 +103,18 @@ const SubmitEvidence = ({ evidence }: TProps) => {
       formData.append(file.name, file);
     });
 
-    const action = await submitEvidence(formData, evidence._id, token!);
-return
+    const action = await submitEvidence({
+      formData,
+      evidenceId: evidence._id,
+      token: token!,
+      deletedFilesIds,
+    });
+
     if (action.status == "error") {
       return toast.error(action.message);
     }
 
-    //setCurrentEvidence(action.data);
+    toast.success("Evidencia subida con éxito");
 
     setSubmitted(true);
   }
@@ -76,6 +127,27 @@ return
         setFiles([...files, ...newFiles]);
       }
     }
+  }
+
+  function handleDeleteNewFile(name: string) {
+    const newFiles = [...files];
+    const index = newFiles.findIndex((e) => e.name === name);
+
+    newFiles.splice(index, 1);
+
+    setFiles(newFiles);
+  }
+
+  function handleDeleteCurrentFile(_id: string) {
+    if (!deletedFilesIds.includes(_id)) setDeletedFilenames((e) => [...e, _id]);
+    else
+      setDeletedFilenames((e) => {
+        const newFiles = [...e];
+        const index = newFiles.findIndex((e) => e === _id);
+        newFiles.splice(index, 1);
+
+        return newFiles;
+      });
   }
 
   return (
@@ -114,10 +186,34 @@ return
             </div>
 
             <div className="flex w-full gap-4 overflow-x-auto p-2">
+              {currentFiles ? (
+                currentFiles.length ? (
+                  currentFiles.map((file, index) => (
+                    <DeletableFileCard
+                      isDeleted={deletedFilesIds.includes(file._id)}
+                      file={file}
+                      key={index}
+                      onClick={() => handleDeleteCurrentFile(file._id)}
+                    />
+                  ))
+                ) : null
+              ) : (
+                <p>Cargando archivos...</p>
+              )}
               {files.map((file, index) => (
-                <FileCard file={file} key={index} />
+                <DeletableFileCard
+                  file={{
+                    filename: file.name,
+                    type: file.type.split("/").pop() || "default",
+                  }}
+                  onClick={() => handleDeleteNewFile(file.name)}
+                  key={index}
+                />
               ))}
             </div>
+            <p className="text-sm font-medium text-stone-400">
+              Toca un archivo para eliminarlo
+            </p>
           </div>
 
           <Button hierarchy="primary" size="md" type="submit">

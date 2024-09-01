@@ -7,11 +7,19 @@ import { validateUserToken } from "@/utils/validateUserToken";
 import { Types } from "mongoose";
 import { Readable } from "stream";
 
-export async function submitEvidence(
-  formData: FormData,
-  evidenceId: string,
-  token: string,
-) {
+interface IProps {
+  formData: FormData;
+  evidenceId: string;
+  token: string;
+  deletedFilesIds?: string[];
+}
+
+export async function submitEvidence({
+  formData,
+  evidenceId,
+  token,
+  deletedFilesIds,
+}: IProps) {
   const { bucket } = (await mongodbConnect())!;
 
   const headers = new Headers();
@@ -30,12 +38,19 @@ export async function submitEvidence(
   const answer = formData.get("answer");
   const link = formData.get("link");
 
-  const files = Array.from(formData.values()).filter((e) => e instanceof File);
+  const files = Array.from(formData.values()).filter(
+    (e) => e instanceof File,
+  ) as File[];
+
+  if (deletedFilesIds) {
+    deletedFilesIds.forEach(async (id) => {
+      await bucket.delete(new Types.ObjectId(id));
+    });
+  }
 
   const filesIds = await Promise.all(
     files.map(async (file) => {
       let fileRef = Date.now() + file.name;
-      console.log("done");
       const buffer = Buffer.from(await file.arrayBuffer());
       const stream = Readable.from(buffer);
       const uploadStream = bucket.openUploadStream(fileRef, {});
@@ -44,8 +59,6 @@ export async function submitEvidence(
       return uploadStream.id;
     }),
   );
-
-  console.log(filesIds)
 
   let content = {
     answer,

@@ -6,27 +6,44 @@ import getCustomError from "@/utils/getCustomError";
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import { getRandomAvatar } from "@/utils/avatarsData";
+import { Types } from "mongoose";
 
 export async function POST(req: NextRequest) {
   await mongodbConnect();
   const body = (await req.json()) as TSignupUser;
 
-  if (!body.name || !body.username || !body.city || !body.passwordHash || !body.lastname) {
+  if (
+    !body.name ||
+    !body.username ||
+    !body.city ||
+    !body.passwordHash ||
+    !body.lastname
+  ) {
     return NextResponse.json<ICustomResponse>(
-      { status: "error", message: "La solicitud contiene datos incorrectos o está incompleta." },
+      {
+        status: "error",
+        message: "La solicitud contiene datos incorrectos o está incompleta.",
+      },
       { status: 400 },
     );
   }
 
-  const avatar = getRandomAvatar()
+  const avatar = getRandomAvatar();
 
   try {
+    console.log(new Types.ObjectId(body.institutionId));
+
     const user = new User({
       ...body,
       avatar,
+      institutionId: body.institutionId
+        ? new Types.ObjectId(body.institutionId)
+        : null,
       role: "USER",
-      points: 0
+      points: 0,
     });
+
+    console.log(user);
 
     await user.save();
 
@@ -47,7 +64,6 @@ export async function POST(req: NextRequest) {
       { status: 200 },
     );
   } catch (error) {
-
     if ((error as any).code === 11000) {
       // Username already taken
       return NextResponse.json(
@@ -55,7 +71,6 @@ export async function POST(req: NextRequest) {
         { status: 400 },
       );
     }
-
 
     return NextResponse.json(
       { status: "error", message: getCustomError(error).message },

@@ -1,20 +1,20 @@
 "use client";
 
 import { useUserStore } from "@/store/useUserStore";
-import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
 const UserRequired = () => {
-  const { error, loading, user } = useUserStore((state) => state);
+  const { error, loading } = useUserStore((state) => state);
 
   useEffect(() => {
     if (typeof window !== "undefined" && typeof document !== "undefined") {
       const token = localStorage.getItem("session-token");
       if ((!loading && error) || !token) {
         document.getElementById("loginModalWrapper")!.style.display = "flex";
+      } else {
       }
     }
-  }, [error, loading, user]);
+  }, [error, loading]);
 
   return <></>;
 };

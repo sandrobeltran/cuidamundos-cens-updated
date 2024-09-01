@@ -40,12 +40,12 @@ export default function EditActivityPage() {
     });
 
     const res = await req.json();
-    console.log(res);
 
     if (!req.ok) {
       return toast.error(res.message);
     }
 
+    toast.success("Actividad actualizada con éxito");
     router.push("/panel/actividades");
   }
 

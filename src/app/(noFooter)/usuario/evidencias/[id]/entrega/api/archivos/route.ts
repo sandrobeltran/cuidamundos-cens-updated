@@ -5,7 +5,7 @@ import { Types } from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  const { filesIds } = await req.json();
+  const { filesIds, authorId } = await req.json();
 
   if (!filesIds || !filesIds?.length) {
     return NextResponse.json<ICustomResponse>(
@@ -50,7 +50,12 @@ export async function POST(req: NextRequest) {
               (fileMetadata.filename as string).split(".").pop() || "";
 
             downloadStream.on("data", (chunk: Buffer) => {
-              res({ chunk, type: type });
+              res({
+                _id: fileMetadata._id,
+                chunk,
+                type: type,
+                filename: fileMetadata.filename,
+              });
             });
           }),
       ),

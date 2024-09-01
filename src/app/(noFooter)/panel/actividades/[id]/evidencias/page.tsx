@@ -9,7 +9,6 @@ import { FaFolder } from "react-icons/fa";
 import { IoLink } from "react-icons/io5";
 
 export default function ActivityEvidencesPage() {
-  const router = useRouter();
   const { id } = useParams();
 
   const activities = useFetchEvidencesAdmin({ id: id.toString() });

@@ -9,18 +9,8 @@ import NewActivityForm, {
   NewActivityInitialValues,
 } from "@/components/panel/actividades/NewActivityForm";
 import { customFetch } from "@/utils/customFetch";
-import dateToString, { getIsoDate } from "@/utils/dateToString";
-import { validateUserToken } from "@/utils/validateUserToken";
-import { newActivityValidationSchema } from "@/utils/validations";
-import { Form, Formik, FormikState } from "formik";
+import { FormikState } from "formik";
 import { useRouter } from "next/navigation";
-import {
-  IoAddCircleOutline,
-  IoDocumentOutline,
-  IoImageOutline,
-} from "react-icons/io5";
-import { IconType } from "react-icons/lib";
-import { LuUndo2, LuRedo2, LuEye } from "react-icons/lu";
 import { toast } from "react-toastify";
 
 export default function NewEvidencePage() {
@@ -43,11 +33,12 @@ export default function NewEvidencePage() {
     });
 
     const res = await req.json();
-    console.log(res);
 
     if (!req.ok) {
       return toast.error(res.message);
     }
+
+    toast.success("Actividad creada con éxito");
 
     router.push("/panel/actividades");
   }

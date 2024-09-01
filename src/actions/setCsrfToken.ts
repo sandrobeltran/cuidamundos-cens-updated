@@ -12,6 +12,6 @@ export async function setCsrfTokens() {
   const generatedCsrfToken = generateCsrfToken();
 
   // Attach the CSRF token to a cookie
-  cookies().set("csrfToken", generatedCsrfToken, { httpOnly: true });
-  cookies().set("sessionId", generatedSessionId, { httpOnly: true });
+  cookies().set("csrfToken", generatedCsrfToken, { httpOnly: true, sameSite: "strict", secure: true });
+  cookies().set("sessionId", generatedSessionId, { httpOnly: true, sameSite: "strict", secure: true });
 }

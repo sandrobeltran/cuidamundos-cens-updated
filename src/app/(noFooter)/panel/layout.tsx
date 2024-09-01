@@ -16,18 +16,21 @@ import SpinLoader from "@/components/SpinLoader";
 const links = [
   {
     href: "/panel",
-    title: "Información"
+    title: "Información",
   },
   {
     href: "/panel/actividades",
-    title: "Actividades"
+    title: "Actividades",
   },
   {
     href: "/panel/estadisticas",
-    title: "Estadísticas"
+    title: "Estadísticas",
   },
-]
-
+  {
+    href: "/panel/instituciones",
+    title: "Instituciones",
+  },
+];
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const { user, loading } = useUserStore();

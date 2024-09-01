@@ -6,6 +6,7 @@ import getCustomError from "@/utils/getCustomError";
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import { validateUserToken } from "@/utils/validateUserToken";
+import { PipelineStage, Types } from "mongoose";
 
 export async function GET(req: NextRequest) {
   await mongodbConnect();
@@ -14,9 +15,39 @@ export async function GET(req: NextRequest) {
   try {
     const { uid } = validateUserToken(headers);
 
-    console.log(uid)
+    const aggregationPipeline: PipelineStage[] = [
+      {
+        $match: { _id: new Types.ObjectId(uid) },
+      },
+      {
+        $project: {
+          _id: 1,
+          name: 1,
+          lastname: 1,
+          city: 1,
+          username: 1,
+          createdAt: 1,
+          bio: 1,
+          avatar: 1,
+          points: 1,
+          role: 1,
+          institutionData: 1,
+        },
+      },
+      {
+        $lookup: {
+          from: "institutions",
+          localField: "institutionId",
+          foreignField: "_id",
+          as: "institutionData",
+        },
+      },
+    ];
 
-    const user = await User.findById(uid, {
+    const user = (await User.aggregate(aggregationPipeline))[0];
+    console.log(user);
+
+    /* const user = await User.findById(uid, {
       _id: 1,
       name: 1,
       lastname: 1,
@@ -27,7 +58,7 @@ export async function GET(req: NextRequest) {
       avatar: 1,
       points: 1,
       role: 1,
-    });
+    }); */
 
     if (!user) {
       return NextResponse.json<ICustomResponse>(

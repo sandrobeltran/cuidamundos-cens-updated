@@ -8,7 +8,7 @@ type TProps = {
 
 const EvidenceCard = ({ evidence }: TProps) => {
   return (
-    <div className="relative flex w-full flex-col gap-4 overflow-hidden rounded-3xl bg-white/80 px-16 py-8 backdrop-blur-sm max-sm:p-4 max-sm:pl-14">
+    <div className="relative shadow-md flex w-full flex-col gap-4 overflow-hidden rounded-3xl bg-white/80 px-16 py-8 backdrop-blur-sm max-sm:p-4 max-sm:pl-14">
       <span
         className="absolute left-0 top-0 h-full w-8 bg-stone-500"
         style={{

@@ -1,10 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useField } from "formik";
-import flatpickr from "flatpickr";
-import { IoChevronDown, IoChevronUp } from "react-icons/io5";
-import { Instance } from "flatpickr/dist/types/instance";
 
 type TProps = {
   name: string;
@@ -13,26 +10,7 @@ type TProps = {
 };
 
 const DateField = ({ ...props }: TProps) => {
-  const [showModal, setShowModal] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
   const [field, meta] = useField(props.name);
-
-  /* const handleOpenModal = () => setShowModal(true);
-  const handleCloseModal = () => setShowModal(false); */
-
-  /* useEffect(() => {
-    let calendar: Instance;
-    if (inputRef.current) {
-      calendar = flatpickr("#datePickerWrapper", {
-        wrap: true,
-      }) as Instance;
-      console.log(calendar);
-    }
-
-    return () => {
-      if (calendar) calendar.destroy();
-    };
-  }, [showModal]); */
 
   return (
     <div className="relative flex w-full flex-col">

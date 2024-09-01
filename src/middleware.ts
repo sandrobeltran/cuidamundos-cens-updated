@@ -24,8 +24,8 @@ export default async function middleware(
   res: NextApiResponse,
 ) {
   // Check for metadata IP
-  if (req.nextUrl.href.includes("169.254.169.254")) {
-    return new NextResponse("Access denied", { status: 403 });
+  if (req.nextUrl.href.includes("/latest/meta-data")) {
+    return new NextResponse("Access denied", { status: 401 });
   }
 
   //? API RATE LIMITER, DON'T DELETE
@@ -81,5 +81,5 @@ export default async function middleware(
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: "/:path*/api/:path*",
+  matcher: ["/:path*/api/:path*", "/latest/meta-data"],
 };

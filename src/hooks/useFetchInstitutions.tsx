@@ -1,22 +1,21 @@
 "use client";
 
 import { customFetch } from "@/utils/customFetch";
-import { IEvidence, ISubmission } from "@/utils/customTypes";
+import { IEvidence, IInstitution } from "@/utils/customTypes";
 import React, { useEffect, useState } from "react";
 
 interface IProps {
   id?: string;
-  authorId?: string;
 }
 
-const useFetchActivitySubmissions = ({ id, authorId }: IProps) => {
-  const [data, setData] = useState<ISubmission[] | null>(null);
+const useFetchInstitutions = ({ id }: IProps) => {
+  const [data, setData] = useState<IInstitution[] | null>(null);
 
-  async function handleFecthEvidences(token: string) {
-    let endpoint = `/usuario/evidencias/${id}/api/admin/submissions`;
+  async function handleFetchInstitutions(token: string) {
+    let endpoint = "/usuario/instituciones/api";
 
-    if (authorId) {
-      endpoint += `?authorId=${authorId}`;
+    if (id) {
+      endpoint += `?id=${id}`;
     }
 
     const req = await customFetch(endpoint, {
@@ -26,7 +25,6 @@ const useFetchActivitySubmissions = ({ id, authorId }: IProps) => {
         Authorization: `Bearer ${token}`,
       },
     });
-
     const res = await req.json();
 
     setData(res.data);
@@ -35,10 +33,10 @@ const useFetchActivitySubmissions = ({ id, authorId }: IProps) => {
   useEffect(() => {
     const token = localStorage.getItem("session-token");
 
-    handleFecthEvidences(token as string);
+    handleFetchInstitutions(token as string);
   }, []);
 
   return data;
 };
 
-export default useFetchActivitySubmissions;
+export default useFetchInstitutions;

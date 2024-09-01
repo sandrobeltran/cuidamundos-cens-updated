@@ -74,18 +74,30 @@ const DesktopNavbar = () => {
             </Link>
             <div className="absolute right-0 top-full z-50 hidden h-fit w-full flex-col items-stretch rounded-bl-lg rounded-br-lg bg-black/30 text-white shadow-lg  backdrop-blur-lg group-hover:flex ">
               <ul className="py-4">
-                <li
-                  onClick={() => handleLogOut()}
-                  className="w-full bg-cens-medium/0 px-3 font-medium transition-colors hover:bg-stone-900/60 hover:font-semibold"
-                >
-                  <p className="flex gap-1 font-semibold">
-                    Puntos:{" "}
-                    <span className="flex items-center gap-1 text-yellow-500">
-                      {user.points} <StarIcon className="h-5" />
-                    </span>
-                  </p>
-                </li>
-                <div className="my-2 h-[1px] w-full bg-white"></div>
+                {user.role === "USER" ? (
+                  <>
+                    <li
+                      onClick={() => handleLogOut()}
+                      className="w-full bg-cens-medium/0 px-3 font-medium transition-colors hover:bg-stone-900/60 hover:font-semibold"
+                    >
+                      <p className="flex gap-1 font-semibold">
+                        Puntos:{" "}
+                        <span className="flex items-center gap-1 text-yellow-500">
+                          {user.points} <StarIcon className="h-5" />
+                        </span>
+                      </p>
+                    </li>
+                    <div className="my-2 h-[1px] w-full bg-white"></div>
+                  </>
+                ) : null}
+
+                {user.role === "ADMIN" ? (
+                  <li className="w-full bg-cens-medium/0 font-medium transition-colors hover:bg-stone-900/60 hover:font-semibold">
+                    <Link href={"/panel"} className="inline-block w-full px-3">
+                      Panel
+                    </Link>
+                  </li>
+                ) : null}
                 <li className="w-full bg-cens-medium/0 font-medium transition-colors hover:bg-stone-900/60 hover:font-semibold">
                   <Link href={"/usuario"} className="inline-block w-full px-3">
                     Información
@@ -115,6 +127,7 @@ const DesktopNavbar = () => {
                     Evidencias
                   </Link>
                 </li>
+
                 <div className="my-2 h-[1px] w-full bg-white"></div>
                 <li
                   onClick={() => handleLogOut()}
