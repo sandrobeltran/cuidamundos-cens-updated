@@ -19,6 +19,28 @@ export async function GET(req: NextRequest) {
       {
         $match: { _id: new Types.ObjectId(uid) },
       },
+      /*  {
+        $addFields: {
+          institutionExists: {
+            $cond: {
+              if: { $ne: ["$institutionId", null] },
+              then: true,
+              else: false,
+            },
+          },
+        },
+      }, */
+      {
+        $lookup: {
+          from: "institutions",
+          localField: "institutionId",
+          foreignField: "_id",
+          as: "institutionData",
+        },
+      },
+      {
+        $unwind: { path: "$institutionData", preserveNullAndEmptyArrays: true },
+      },
       {
         $project: {
           _id: 1,
@@ -34,18 +56,9 @@ export async function GET(req: NextRequest) {
           institutionData: 1,
         },
       },
-      {
-        $lookup: {
-          from: "institutions",
-          localField: "institutionId",
-          foreignField: "_id",
-          as: "institutionData",
-        },
-      },
     ];
 
     const user = (await User.aggregate(aggregationPipeline))[0];
-    console.log(user);
 
     /* const user = await User.findById(uid, {
       _id: 1,

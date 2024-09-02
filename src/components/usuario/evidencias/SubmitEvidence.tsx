@@ -6,7 +6,7 @@ import TextField from "@/components/form/TextField";
 import { useUserStore } from "@/store/useUserStore";
 import { IEvidence, IEvidenceFile } from "@/utils/customTypes";
 import { submitEvidenceValidationSchema } from "@/utils/validations";
-import { LinkIcon, DocumentIcon } from "@heroicons/react/24/outline";
+import { LinkIcon, DocumentIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { Form, Formik } from "formik";
 import React, { useState } from "react";
 import EvidenceSubmitedModal from "./EvidenceSubmitedModal";
@@ -15,6 +15,8 @@ import { submitEvidence } from "@/actions/submitEvidence";
 import InputFile from "@/components/form/InputFile";
 import FileCard from "./FileCard";
 import useFetchEvidenceFiles from "@/hooks/useFetchEvidenceFiles";
+import { FaTrashRestore } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa6";
 
 type TProps = {
   evidence: IEvidence;
@@ -35,9 +37,23 @@ const DeletableFileCard = ({
   return (
     <div
       title={isDeleted ? "Restaurar" : "Eliminar"}
-      className="relative cursor-pointer"
+      className="group relative cursor-pointer"
       onClick={onClick}
     >
+      <div
+        style={
+          isDeleted
+            ? {
+                backgroundColor: "#005F24f2",
+              }
+            : {
+                backgroundColor: "#ed5c5cf2",
+              }
+        }
+        className="absolute left-0 top-0 z-40 grid h-full w-full place-content-center rounded-lg text-2xl text-white opacity-0 transition-opacity group-hover:opacity-100"
+      >
+        {isDeleted ? <FaTrashRestore /> : <FaTrash />}
+      </div>
       {isDeleted ? (
         <div className="absolute inset-0 z-10 m-auto h-fit w-fit rounded-full bg-red-500/70 px-3 text-xs font-medium text-white">
           Eliminado

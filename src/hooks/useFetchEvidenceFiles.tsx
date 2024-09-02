@@ -36,7 +36,7 @@ const useFetchEvidenceFiles = ({ activityId, authorId, filesIds }: IProps) => {
   }
 
   useEffect(() => {
-    if (!filesIds) return;
+    if (!filesIds) return setData([]);
     if (!filesIds.length) return setData([]);
     const token = localStorage.getItem("session-token");
 
