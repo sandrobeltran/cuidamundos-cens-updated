@@ -24,8 +24,14 @@ export type TUserData = {
   points: number;
   bio: string;
   role: TUserRole;
-  institutionData: IInstitution;
+  institutionData: IAuthorInstitutionData;
+  hasSecurityQuestions: boolean;
 };
+
+export interface ISecurityQuestion {
+  question: string;
+  answer: string;
+}
 
 export interface IUserCertificate {}
 
@@ -69,6 +75,14 @@ export interface IAdminAuthor {
   lastname: string;
   avatar: string;
   role: TUserRole;
+  institutionData: IAuthorInstitutionData;
+}
+
+export interface IAuthorInstitutionData {
+  city: string;
+  name: string;
+  _id: string;
+  classCode: string; //? e.g. "4B"
 }
 
 export interface ISubmission {

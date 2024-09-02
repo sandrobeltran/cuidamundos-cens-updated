@@ -4,7 +4,7 @@ import adminRequired from "@/middlewares/adminRequired";
 import Evidence from "@/models/Evidence";
 import User from "@/models/User";
 import getCustomError from "@/utils/getCustomError";
-import { Types } from "mongoose";
+import { PipelineStage, Types } from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
 import { object } from "yup";
 
@@ -49,12 +49,51 @@ export async function GET(req: NextRequest, context: { params: any }) {
     const submissions = await Promise.all(
       rawSubmissions.map(async (submission: any) => {
         if (!Object.keys(usersDataPool).includes(submission.author)) {
-          const userData = await User.findById(submission.author, {
+          // first time fetching author data
+
+          const aggregationPipeline: PipelineStage[] = [
+            {
+              $match: { _id: submission.author },
+            },
+            {
+              $lookup: {
+                from: "institutions",
+                localField: "institutionId",
+                foreignField: "_id",
+                as: "institutionData",
+              },
+            },
+            {
+              $unwind: {
+                path: "$institutionData",
+                preserveNullAndEmptyArrays: true,
+              },
+            },
+            {
+              $addFields: { "institutionData.classCode": "$classCode" },
+            },
+            {
+              $project: {
+                name: 1,
+                lastname: 1,
+                avatar: 1,
+                role: 1,
+                "institutionData.name": 1,
+                "institutionData.city": 1,
+                "institutionData._id": 1,
+                "institutionData.classCode": 1,
+              },
+            },
+          ];
+
+          /* const userData = await User.findById(submission.author, {
             name: 1,
             lastname: 1,
             avatar: 1,
             role: 1,
-          });
+          }); */
+
+          const userData = (await User.aggregate(aggregationPipeline))[0];
 
           if (userData) {
             usersDataPool[submission.author] = userData;

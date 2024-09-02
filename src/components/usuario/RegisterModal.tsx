@@ -23,16 +23,18 @@ type TInitialValues = {
   confirmPassword: string;
   city: string;
   institutionId: string | null;
+  classCode: string | null;
 };
 
 const initialValues: TInitialValues = {
-  name: "Usuario",
-  lastname: "Prueba",
-  username: "u_prueba1",
-  passwordHash: "sandroB2204",
-  confirmPassword: "sandroB2204",
-  city: "Cúcuta",
+  name: "",
+  lastname: "",
+  username: "",
+  passwordHash: "",
+  confirmPassword: "",
+  city: "",
   institutionId: "",
+  classCode: "",
 };
 const RegisterModal = ({}: TProps) => {
   const institutions = useFetchInstitutions({});
@@ -122,56 +124,73 @@ const RegisterModal = ({}: TProps) => {
           onSubmit={(values, { resetForm }) => handleSubmit(values, resetForm)}
           validationSchema={signUpValidationSchema}
         >
-          <FormWrapper>
-            <h4 className="text-center text-lg font-semibold text-cens-brand mobile-land:text-[1rem]">
-              Crea tu cuenta de Cuidamundos
-            </h4>
-            <TextField name="name" placeholder="Nombres*" />
-            <TextField name="lastname" placeholder="Apellidos*" />
-            <TextField name="username" type="text" placeholder="Usuario*" />
-            <TextField name="city" type="text" placeholder="Ciudad*" />
-            <InputSelect name="institutionId">
-              {institutions ? (
-                <>
-                  <option value={""}>Selecciona tu institución</option>
-                  {institutions.map((institution) => (
-                    <option key={institution._id} value={institution._id}>
-                      {institution.name}
-                    </option>
-                  ))}
-                </>
+          {({ values }) => (
+            <FormWrapper>
+              <h4 className="text-center text-lg font-semibold text-cens-brand mobile-land:text-[1rem]">
+                Crea tu cuenta de Cuidamundos
+              </h4>
+              <TextField name="name" placeholder="Nombres*" />
+              <TextField name="lastname" placeholder="Apellidos*" />
+              <TextField name="username" type="text" placeholder="Usuario*" />
+              <TextField name="city" type="text" placeholder="Ciudad*" />
+              <InputSelect name="institutionId">
+                {institutions ? (
+                  <>
+                    <option value={""}>Selecciona tu institución</option>
+                    {institutions.map((institution) => (
+                      <option key={institution._id} value={institution._id}>
+                        {institution.name}
+                      </option>
+                    ))}
+                  </>
+                ) : (
+                  <option value={""}>Cargando instituciones</option>
+                )}
+              </InputSelect>
+              {values.institutionId ? (
+                <TextField
+                  name="classCode"
+                  placeholder="Código de clase"
+                  type="text"
+                />
               ) : (
-                <option value={""}>Cargando instituciones</option>
+                <></>
               )}
-            </InputSelect>
-            <TextField name="passwordHash" placeholder="Contraseña*" password />
-            <TextField
-              name="confirmPassword"
-              placeholder="Confirmar Contraseña*"
-              password
-            />
-            <div className="mt-4 flex">
-              <Button hierarchy="primary" size="md" type="submit">
-                Registrarse
-              </Button>
-            </div>
-            <div className="mt-1 flex w-full items-center justify-between text-sm">
-              <p className="text-stone-400">¿Ya tienes una cuenta?</p>
-              <button
-                type="button"
-                className="text-cens-brand underline"
-                onClick={() => {
-                  document.getElementById(
-                    "registerModalWrapper",
-                  )!.style.display = "none";
-                  document.getElementById("loginModalWrapper")!.style.display =
-                    "flex";
-                }}
-              >
-                Inicia sesión
-              </button>
-            </div>
-          </FormWrapper>
+
+              <TextField
+                name="passwordHash"
+                placeholder="Contraseña*"
+                password
+              />
+              <TextField
+                name="confirmPassword"
+                placeholder="Confirmar Contraseña*"
+                password
+              />
+              <div className="mt-4 flex">
+                <Button hierarchy="primary" size="md" type="submit">
+                  Registrarse
+                </Button>
+              </div>
+              <div className="mt-1 flex w-full items-center justify-between text-sm">
+                <p className="text-stone-400">¿Ya tienes una cuenta?</p>
+                <button
+                  type="button"
+                  className="text-cens-brand underline"
+                  onClick={() => {
+                    document.getElementById(
+                      "registerModalWrapper",
+                    )!.style.display = "none";
+                    document.getElementById(
+                      "loginModalWrapper",
+                    )!.style.display = "flex";
+                  }}
+                >
+                  Inicia sesión
+                </button>
+              </div>
+            </FormWrapper>
+          )}
         </Formik>
       </div>
     </div>

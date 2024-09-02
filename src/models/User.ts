@@ -54,6 +54,17 @@ const userSchema = new Schema(
       type: Types.ObjectId,
       required: false,
     },
+    classCode: {
+      type: String,
+      required: false,
+    },
+    securityQuestions: {
+      type: Array<{
+        question: String;
+        answer: String;
+      }>,
+      required: false,
+    },
   },
   {
     timestamps: true,

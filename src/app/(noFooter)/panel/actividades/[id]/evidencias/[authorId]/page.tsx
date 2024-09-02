@@ -7,9 +7,10 @@ import FileCard from "@/components/usuario/evidencias/FileCard";
 import { FILES_DICT } from "@/constants/evidencesConstants";
 import useFetchActivitySubmissions from "@/hooks/admin/useFetchActivitySubmissions";
 import useFetchEvidencesAdmin from "@/hooks/admin/useFetchEvidencesAdmin";
+import useFetchEvidenceFiles from "@/hooks/useFetchEvidenceFiles";
 import { IAdminAuthor } from "@/utils/customTypes";
 import dateToString, { getTimeFromDate } from "@/utils/dateToString";
-import { getSubmissionState } from "@/utils/evidenceUtils";
+import { getFileUrl, getSubmissionState } from "@/utils/evidenceUtils";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { FaFolder } from "react-icons/fa6";
@@ -22,6 +23,10 @@ export default function SubmissionDetails() {
   const submissions = useFetchActivitySubmissions({
     id: id.toString(),
     authorId: authorId.toString(),
+  });
+  const currentFiles = useFetchEvidenceFiles({
+    activityId: id.toString(),
+    filesIds: submissions ? submissions[0].content.files : undefined,
   });
 
   if (!activities || !submissions) {
@@ -48,7 +53,7 @@ export default function SubmissionDetails() {
   }
 
   const author = submissionData.author as IAdminAuthor;
-  const institution = (author as any).institution;
+  const institution = author.institutionData;
 
   return (
     <div className="flex w-full flex-col items-center gap-4">
@@ -75,7 +80,9 @@ export default function SubmissionDetails() {
           <p className="font-normal text-stone-400">
             {author.role === "USER" ? "Estudiante" : "Rol desconocido"}
           </p>
-          {institution ? <p>{institution.name}</p> : null}
+          {institution ? (
+            <p className="font-normal text-stone-400">{institution.name}</p>
+          ) : null}
         </div>
 
         {/* DETALLES */}
@@ -138,7 +145,7 @@ export default function SubmissionDetails() {
 
         <div className="flex w-full flex-col items-start gap-1 text-stone-500">
           <p className="font-medium">Respuesta</p>
-          <div className="w-full rounded-lg border-2 border-stone-300 bg-white/80 px-4 py-3 font-normal shadow-md backdrop-blur-sm">
+          <div className="w-full whitespace-pre-wrap rounded-lg border-2 border-stone-300 bg-white/80 px-4 py-3 font-normal shadow-md backdrop-blur-sm">
             {submissionData.content.answer}
           </div>
         </div>
@@ -148,11 +155,21 @@ export default function SubmissionDetails() {
             <FaFolder className="text-yellow-500" />
             Archivos Adjuntados
           </div>
-          <div className="flex w-full flex-wrap gap-8 rounded-lg border-2 border-stone-300 bg-white/80 px-4 py-3 font-normal text-yellow-500 shadow-md backdrop-blur-sm">
-            {submissionData.content.files.map((e) => (
-              <FaFolder key={e} className="text-[8rem] drop-shadow-md" />
-            ))}
-          </div>
+          {currentFiles ? (
+            currentFiles.length ? (
+              <div className="flex w-full flex-wrap gap-4 rounded-lg border-2 border-stone-300 bg-white/80 p-4 font-normal text-yellow-500 shadow-md backdrop-blur-sm">
+                {currentFiles.map((file) => (
+                  <a key={file._id} href={getFileUrl(file)} target="_blank">
+                    <FileCard filename={file.filename} type={file.type} />
+                  </a>
+                ))}
+              </div>
+            ) : (
+              <p>Sin archivos</p>
+            )
+          ) : (
+            <p>Cargando archivos...</p>
+          )}
         </div>
       </div>
 

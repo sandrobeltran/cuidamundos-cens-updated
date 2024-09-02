@@ -1,12 +1,10 @@
 import mongodbConnect from "@/db/mongodbConnect";
 import { ICustomResponse } from "@/middleware";
 import User from "@/models/User";
-import { TLoginUser, TSignupUser } from "@/utils/customTypes";
 import getCustomError from "@/utils/getCustomError";
 import { NextRequest, NextResponse } from "next/server";
-import jwt from "jsonwebtoken";
-import { validateUserToken } from "@/utils/validateUserToken";
 import { PipelineStage, Types } from "mongoose";
+import { validateUserToken } from "@/utils/validateUserToken";
 
 export async function GET(req: NextRequest) {
   await mongodbConnect();
@@ -42,6 +40,12 @@ export async function GET(req: NextRequest) {
         $unwind: { path: "$institutionData", preserveNullAndEmptyArrays: true },
       },
       {
+        $addFields: {
+          "institutionData.classCode": "$classCode",
+          hasSecurityQuestions: { $ne: [{ $size: "$securityQuestions" }, 0] },
+        },
+      },
+      {
         $project: {
           _id: 1,
           name: 1,
@@ -53,7 +57,11 @@ export async function GET(req: NextRequest) {
           avatar: 1,
           points: 1,
           role: 1,
-          institutionData: 1,
+          "institutionData.name": 1,
+          "institutionData.city": 1,
+          "institutionData._id": 1,
+          "institutionData.classCode": 1,
+          hasSecurityQuestions: 1,
         },
       },
     ];
@@ -106,7 +114,64 @@ export async function PUT(req: NextRequest) {
   try {
     const { uid } = validateUserToken(headers);
 
-    const user = await User.findByIdAndUpdate(uid, body, { new: true });
+    console.log(body);
+
+    await User.findByIdAndUpdate(uid, body);
+
+    const aggregationPipeline: PipelineStage[] = [
+      {
+        $match: { _id: new Types.ObjectId(uid) },
+      },
+      /*  {
+        $addFields: {
+          institutionExists: {
+            $cond: {
+              if: { $ne: ["$institutionId", null] },
+              then: true,
+              else: false,
+            },
+          },
+        },
+      }, */
+      {
+        $lookup: {
+          from: "institutions",
+          localField: "institutionId",
+          foreignField: "_id",
+          as: "institutionData",
+        },
+      },
+      {
+        $unwind: { path: "$institutionData", preserveNullAndEmptyArrays: true },
+      },
+      {
+        $addFields: {
+          "institutionData.classCode": "$classCode",
+          hasSecurityQuestions: { $ne: [{ $size: "$securityQuestions" }, 0] },
+        },
+      },
+      {
+        $project: {
+          _id: 1,
+          name: 1,
+          lastname: 1,
+          city: 1,
+          username: 1,
+          createdAt: 1,
+          bio: 1,
+          avatar: 1,
+          points: 1,
+          role: 1,
+          "institutionData.name": 1,
+          "institutionData.city": 1,
+          "institutionData._id": 1,
+          "institutionData.classCode": 1,
+          hasSecurityQuestions: 1,
+        },
+      },
+    ];
+
+    const user = (await User.aggregate(aggregationPipeline))[0];
 
     return NextResponse.json<ICustomResponse>(
       {

@@ -7,6 +7,7 @@ import LeavesFalling from "@/components/LeavesFalling";
 import LoadGames from "@/components/juega/LoadGames";
 import SkyBackground from "@/components/heroes/SkyBackground";
 import LandscapeWarning from "@/components/LandscapeWarning";
+import SecurityQuestionsChecker from "@/components/validations/SecurityQuestionsChecker";
 
 const ubuntu = localFont({
   src: [
@@ -44,6 +45,7 @@ export default function RootLayout({
         <LeavesFalling />
         <LoadGames />
         <GetUserByToken />
+        <SecurityQuestionsChecker />
         <Header />
         <SkyBackground />
         {children}

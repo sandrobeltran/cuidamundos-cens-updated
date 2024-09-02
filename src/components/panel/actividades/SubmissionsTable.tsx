@@ -1,3 +1,4 @@
+import { useUserStore } from "@/store/useUserStore";
 import { IAdminAuthor, ISubmission } from "@/utils/customTypes";
 import dateToString, { getTimeFromDate } from "@/utils/dateToString";
 import { getSubmissionState } from "@/utils/evidenceUtils";
@@ -14,8 +15,6 @@ interface IProps {
 
 const SubmissionsTable = ({ submissions }: IProps) => {
   const { id } = useParams();
-
-  console.log(submissions)
 
   if (!submissions) {
     return (
@@ -72,6 +71,12 @@ const SubmissionsTable = ({ submissions }: IProps) => {
                   <p className="text-xs text-stone-400">
                     {author.role === "USER" ? "Estudiante" : "Rol"}
                   </p>
+
+                  {author.institutionData ? (
+                    <p className="text-xs text-stone-400">
+                      {author.institutionData.name}
+                    </p>
+                  ) : null}
                 </div>
               </td>
               <td className="px-5 py-6 font-normal text-cens-dark">
@@ -98,7 +103,8 @@ const SubmissionsTable = ({ submissions }: IProps) => {
                 </div>
               </td>
               <td className="px-5 py-6 font-normal text-stone-400">
-                {dateToString(submission.submitedAt)}{" - "}
+                {dateToString(submission.submitedAt)}
+                {" - "}
                 {getTimeFromDate(new Date(submission.submitedAt))}
               </td>
               <td className="rounded-r-3xl px-5 py-6">

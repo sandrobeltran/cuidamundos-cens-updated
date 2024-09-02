@@ -48,9 +48,25 @@ export async function submitEvidence({
     });
   }
 
+  const submission = evidence.submissions.find((submission) =>
+    new Types.ObjectId(uid!).equals(submission.author as string),
+  );
+
+  const currentFilesIds = submission
+    ? submission?.content.files.filter(
+        (file) => !deletedFilesIds?.includes(file),
+      )
+    : [];
+
   const filesIds = await Promise.all(
     files.map(async (file) => {
-      let fileRef = Date.now() + file.name;
+      let splittedName = file.name.split(".");
+      let type = splittedName.pop();
+      let filename = splittedName.join();
+
+      // let fileRef = Date.now() + file.name;
+      let fileRef = `${filename}_${Date.now()}.${type}`;
+
       const buffer = Buffer.from(await file.arrayBuffer());
       const stream = Readable.from(buffer);
       const uploadStream = bucket.openUploadStream(fileRef, {});
@@ -63,12 +79,8 @@ export async function submitEvidence({
   let content = {
     answer,
     link,
-    files: filesIds,
+    files: [...filesIds, ...currentFilesIds],
   };
-
-  const submission = evidence.submissions.find((submission) =>
-    new Types.ObjectId(uid!).equals(submission.author as string),
-  );
 
   let updatedEvidence;
 

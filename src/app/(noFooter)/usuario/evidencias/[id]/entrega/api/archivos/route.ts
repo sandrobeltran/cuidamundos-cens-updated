@@ -49,10 +49,17 @@ export async function POST(req: NextRequest) {
             const type =
               (fileMetadata.filename as string).split(".").pop() || "";
 
+            let chunksData: any = [];
+
             downloadStream.on("data", (chunk: Buffer) => {
+              chunksData.push(chunk);
+            });
+
+            downloadStream.on("end", () => {
+              let final = Buffer.concat(chunksData);
               res({
                 _id: fileMetadata._id,
-                chunk,
+                chunk: final,
                 type: type,
                 filename: fileMetadata.filename,
               });
