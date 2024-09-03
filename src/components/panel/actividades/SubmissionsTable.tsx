@@ -97,7 +97,7 @@ const SubmissionsTable = ({ submissions }: IProps) => {
                   <div className="relative grid h-12 w-12 place-content-center rounded-full border-4 border-cens-brand text-cens-brand">
                     <IoLink className="text-4xl" />
                     <div className="absolute inset-0 m-auto grid h-5 w-5 translate-x-5 translate-y-4 place-content-center rounded-full border-[3px] border-cens-dark bg-white text-xs text-cens-dark">
-                      2
+                      {submission.content.link ? 1 : 0}
                     </div>
                   </div>
                 </div>

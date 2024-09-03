@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/Button";
+import AssignGradeModal from "@/components/panel/actividades/AssignGradeModal";
 import SpinLoader from "@/components/SpinLoader";
 import EvidenceCard from "@/components/usuario/evidencias/EvidenceCard";
 import FileCard from "@/components/usuario/evidencias/FileCard";
@@ -11,6 +12,7 @@ import useFetchEvidenceFiles from "@/hooks/useFetchEvidenceFiles";
 import { IAdminAuthor } from "@/utils/customTypes";
 import dateToString, { getTimeFromDate } from "@/utils/dateToString";
 import { getFileUrl, getSubmissionState } from "@/utils/evidenceUtils";
+import { gradeFormatter } from "@/utils/timeFormatter";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { FaFolder } from "react-icons/fa6";
@@ -55,8 +57,15 @@ export default function SubmissionDetails() {
   const author = submissionData.author as IAdminAuthor;
   const institution = author.institutionData;
 
+  console.log(submissionData);
+
+  function showAssignGradeModal() {
+    document.getElementById("assignGradeModalWrapper")!.style.display = "flex";
+  }
+
   return (
     <div className="flex w-full flex-col items-center gap-4">
+      <AssignGradeModal authorName={`${author.name} ${author.lastname}`} />
       <div className="w-full pl-8 text-left font-medium">
         <h3 className="text-3xl text-cens-dark">Panel de Evidencias</h3>
         <p className="text-md mt-2">{activityData.title}</p>
@@ -132,10 +141,15 @@ export default function SubmissionDetails() {
         </div>
 
         <div className="mt-10">
-          <Button hierarchy="primary" size="md">
+          <Button onClick={showAssignGradeModal} hierarchy="primary" size="md">
             <PiExam />
             <p>Calificar Tarea</p>
           </Button>
+          <p className="text-lg w-full pt-2 text-center font-semibold text-cens-brand underline">
+            {submissionData.grade
+              ? gradeFormatter.format(submissionData.grade)
+              : "-- --"}
+          </p>
         </div>
       </div>
 

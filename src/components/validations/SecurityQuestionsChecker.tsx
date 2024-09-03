@@ -11,7 +11,6 @@ const SecurityQuestionsChecker = () => {
   useEffect(() => {
     if (typeof window !== "undefined" && typeof document !== "undefined") {
       if (user && !loading) {
-        console.log(user);
         if (!user.hasSecurityQuestions) {
           document.getElementById("securityQuestionsModal")!.style.display =
             "flex";

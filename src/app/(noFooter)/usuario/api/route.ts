@@ -40,9 +40,43 @@ export async function GET(req: NextRequest) {
         $unwind: { path: "$institutionData", preserveNullAndEmptyArrays: true },
       },
       {
+        $lookup: {
+          from: "evidences",
+          let: { userId: "$_id" },
+          pipeline: [
+            {
+              $match: {
+                $expr: {
+                  $in: ["$$userId", "$submissions.author"], // Check if the user_id is in the submissions.author array
+                },
+              },
+            },
+            {
+              $project: {
+                submissions: {
+                  $filter: {
+                    input: "$submissions",
+                    as: "submission",
+                    cond: { $eq: ["$$submission.author", "$$userId"] }, // Filter submissions to include only those with the matching author
+                  },
+                },
+              },
+            },
+          ],
+
+          as: "userSubmissions",
+        },
+      },
+      {
+        $unwind: { path: "$userSubmissions", preserveNullAndEmptyArrays: true },
+      },
+      {
         $addFields: {
           "institutionData.classCode": "$classCode",
           hasSecurityQuestions: { $ne: [{ $size: "$securityQuestions" }, 0] },
+          points: {
+            $add: ["$points", { $sum: "$userSubmissions.submissions.grade" }],
+          },
         },
       },
       {
@@ -62,6 +96,9 @@ export async function GET(req: NextRequest) {
           "institutionData._id": 1,
           "institutionData.classCode": 1,
           hasSecurityQuestions: 1,
+          userSubmissions: 1,
+          totalPoints: 1,
+          totalGrades: 1,
         },
       },
     ];
@@ -80,6 +117,8 @@ export async function GET(req: NextRequest) {
       points: 1,
       role: 1,
     }); */
+
+    console.log(user);
 
     if (!user) {
       return NextResponse.json<ICustomResponse>(

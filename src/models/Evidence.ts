@@ -29,6 +29,7 @@ const evidenceSchema = new Schema(
         lastUpdateAt: Date;
         submitedAt: Date;
         deadline: Date;
+        grade: Number;
         content: {
           answer: String;
           link: String;

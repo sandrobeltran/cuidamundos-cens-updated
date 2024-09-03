@@ -116,3 +116,11 @@ export const securityQuestionsValidationSchema = Yup.object().shape({
     answer: Yup.string().required("Esta pregunta es obligatoria"),
   }),
 });
+
+export const assignGradeValidationSchema = Yup.object().shape({
+  grade: Yup.number()
+    .typeError("Calificación inválida")
+    .min(0, "Calificación por debajo de 0")
+    .positive("Calificación inválida")
+    .required("Ingresa la nota de la evidencia"),
+});

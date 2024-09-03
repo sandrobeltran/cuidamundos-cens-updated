@@ -90,6 +90,7 @@ export interface ISubmission {
   state: number;
   lastUpdatedAt: string;
   submitedAt: string;
+  grade: null | number;
   content: {
     answer: string;
     link: string;

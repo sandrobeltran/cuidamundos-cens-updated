@@ -78,6 +78,7 @@ export async function GET(req: NextRequest, context: { params: any }) {
                 lastname: 1,
                 avatar: 1,
                 role: 1,
+                points: 1,
                 "institutionData.name": 1,
                 "institutionData.city": 1,
                 "institutionData._id": 1,
