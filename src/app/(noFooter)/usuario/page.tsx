@@ -9,8 +9,6 @@ export default function UserInformationTab() {
     document.getElementById("editProfileModalWrapper")!.style.display = "flex";
   }
   
-  console.log(user)
-
   return (
     <div className="flex w-full gap-4 max-sm:flex-col-reverse">
       {/* ABOUT ME CARD */}

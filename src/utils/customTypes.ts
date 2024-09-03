@@ -76,6 +76,12 @@ export interface IAdminAuthor {
   avatar: string;
   role: TUserRole;
   institutionData: IAuthorInstitutionData;
+  points: 1;
+}
+
+export interface IUserStats extends IAdminAuthor {
+  activitiesAmount: 1;
+  certificatesAmount: 1;
 }
 
 export interface IAuthorInstitutionData {

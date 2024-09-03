@@ -57,8 +57,6 @@ export default function SubmissionDetails() {
   const author = submissionData.author as IAdminAuthor;
   const institution = author.institutionData;
 
-  console.log(submissionData);
-
   function showAssignGradeModal() {
     document.getElementById("assignGradeModalWrapper")!.style.display = "flex";
   }
@@ -145,7 +143,7 @@ export default function SubmissionDetails() {
             <PiExam />
             <p>Calificar Tarea</p>
           </Button>
-          <p className="text-lg w-full pt-2 text-center font-semibold text-cens-brand underline">
+          <p className="w-full pt-2 text-center text-lg font-semibold text-cens-brand underline">
             {submissionData.grade
               ? gradeFormatter.format(submissionData.grade)
               : "-- --"}

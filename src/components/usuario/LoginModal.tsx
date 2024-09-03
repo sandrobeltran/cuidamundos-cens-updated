@@ -112,13 +112,13 @@ const LoginModal = ({}: TProps) => {
           validationSchema={loginValidationSchema}
         >
           <FormWrapper>
-            <div>
+            <div className="w-full">
               <label className="mb-1 flex flex-col gap-1 text-left font-bold text-cens-brand">
                 Usuario
                 <TextField type="text" name="username" placeholder="Usuario" />
               </label>
             </div>
-            <div>
+            <div className="w-full">
               <label className="mb-1 flex flex-col gap-1 text-left font-bold text-cens-brand">
                 Contraseña
                 <TextField
@@ -133,21 +133,35 @@ const LoginModal = ({}: TProps) => {
                 Inicia sesión
               </Button>
             </div>
-            <div className="mt-1 flex w-full items-center justify-between text-sm">
-              <p className="text-stone-400">¿Es tu primera vez?</p>
-              <button
-                type="button"
-                className="text-cens-brand underline"
+            <div className="mt-1 flex w-full items-center justify-between gap-6 text-sm">
+              <Link
+                href={"/recuperar-cuenta"}
                 onClick={() => {
                   document.getElementById("loginModalWrapper")!.style.display =
                     "none";
-                  document.getElementById(
-                    "registerModalWrapper",
-                  )!.style.display = "flex";
                 }}
+                className="text-cens-brand underline"
               >
-                Regístrate
-              </button>
+                Olvidé mi contraseña
+              </Link>
+
+              <div className="flex items-center gap-2">
+                <p className="text-stone-400">¿Es tu primera vez?</p>
+                <button
+                  type="button"
+                  className="text-cens-brand underline"
+                  onClick={() => {
+                    document.getElementById(
+                      "loginModalWrapper",
+                    )!.style.display = "none";
+                    document.getElementById(
+                      "registerModalWrapper",
+                    )!.style.display = "flex";
+                  }}
+                >
+                  Regístrate
+                </button>
+              </div>
             </div>
           </FormWrapper>
         </Formik>

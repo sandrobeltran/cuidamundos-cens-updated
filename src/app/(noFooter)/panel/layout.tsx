@@ -44,6 +44,8 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   if (!user) {
     return (
       <CustomMain>
+        <UserRequired />
+
         <PaddingWrapper>
           <div className="fixed left-0 top-0 z-10 grid h-full w-full place-content-center">
             <div className="flex flex-col items-center justify-center gap-2 rounded-3xl bg-white/70 p-6 text-center backdrop-blur-sm">

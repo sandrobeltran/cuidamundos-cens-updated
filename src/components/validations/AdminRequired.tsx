@@ -12,19 +12,31 @@ const AdminRequired = () => {
 
   useEffect(() => {
     if (user && !loading) {
-      if (user!.role != "ADMIN") {
+      if (user!.role !== "ADMIN") {
         router.push("/usuario");
       } else {
-        ref.current?.remove();
+        /* if (ref.current) {
+          ref.current.remove();
+        } */
       }
     } else {
     }
   }, [user, loading]);
 
+  if (loading) {
+    return <SpinLoader />;
+  }
+
+  if (user && user.role !== "ADMIN") {
+    return <SpinLoader />;
+  }
+
   return (
-    <div ref={ref}>
+    <>
+      {/* <div ref={ref}>
       <SpinLoader></SpinLoader>
-    </div>
+      </div> */}
+    </>
   );
 };
 

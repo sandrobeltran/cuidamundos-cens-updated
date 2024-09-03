@@ -62,7 +62,7 @@ const ResultsScreen = () => {
   const trivia = games.find((game) => game.href === pathname);
 
   // ? REPLACE WITH THE REAL THRESHOLD WHEN FINISHED
-  const minCorrects = 8;
+  const minCorrects = 1;
 
   const handleUploadPoints = useCallback(async () => {
     console.log("Trying to add points");

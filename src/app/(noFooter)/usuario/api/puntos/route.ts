@@ -4,7 +4,10 @@ import Game from "@/models/Game";
 import User from "@/models/User";
 import getCustomError from "@/utils/getCustomError";
 import { validateUserToken } from "@/utils/validateUserToken";
+import { ObjectId, PipelineStage, Types } from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
+import { PipelineTransform } from "stream";
+import { baseUserPipeline, baseUserProjection } from "../route";
 
 export async function PUT(req: NextRequest) {
   await mongodbConnect();
@@ -12,29 +15,24 @@ export async function PUT(req: NextRequest) {
   const body = await req.json();
 
   try {
-    const {uid} = validateUserToken(headers);
+    const { uid: userId } = validateUserToken(headers);
+
+    const uid = new Types.ObjectId(userId);
 
     let updatedUser;
 
     if (body.points) {
-      updatedUser = await User.findByIdAndUpdate(
-        uid,
-        { $inc: { points: body.points } },
+      await User.findByIdAndUpdate(uid, { $inc: { points: body.points } });
+
+      const aggregationPipeline: PipelineStage[] = [
+        { $match: { _id: new Types.ObjectId(uid) } },
+        ...baseUserPipeline,
         {
-          new: true,
-          fields: {
-            _id: 1,
-            name: 1,
-            lastname: 1,
-            city: 1,
-            username: 1,
-            createdAt: 1,
-            bio: 1,
-            avatar: 1,
-            points: 1,
-          },
+          $project: baseUserProjection,
         },
-      );
+      ];
+
+      updatedUser = (await User.aggregate(aggregationPipeline))[0];
     }
 
     let updatedGame;
@@ -59,7 +57,7 @@ export async function PUT(req: NextRequest) {
       updatedGame = await Game.findByIdAndUpdate(
         body.gameId,
         {
-          $push: game.winners.includes(uid)
+          $push: game.winners.find((e: Types.ObjectId) => uid.equals(e))
             ? { matches: newMatch }
             : { matches: newMatch, winners: uid },
         },
