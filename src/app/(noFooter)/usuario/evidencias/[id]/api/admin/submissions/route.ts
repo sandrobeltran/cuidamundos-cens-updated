@@ -1,4 +1,4 @@
-import { baseUserPipeline } from "@/app/(noFooter)/usuario/api/route";
+import { baseUserPipeline } from "@/utils/userUtils";
 import mongodbConnect from "@/db/mongodbConnect";
 import { ICustomResponse } from "@/middleware";
 import adminRequired from "@/middlewares/adminRequired";

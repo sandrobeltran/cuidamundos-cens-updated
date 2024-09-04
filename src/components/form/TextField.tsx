@@ -46,7 +46,7 @@ const TextField = ({ type = "text", password, ...props }: TProps) => {
         </button>
       ) : null}
       {meta.touched && meta.error ? (
-        <div className="font-medium text-red-500">{meta.error}</div>
+        <div className="font-medium text-red-500 w-full">{meta.error}</div>
       ) : null}
     </div>
   );

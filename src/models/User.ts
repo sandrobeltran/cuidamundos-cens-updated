@@ -1,5 +1,6 @@
 import { Schema, Types, model, models } from "mongoose";
 import bcrypt from "bcrypt";
+import { hashUserPassword } from "@/utils/userUtils";
 
 const userSchema = new Schema(
   {
@@ -79,8 +80,8 @@ userSchema.pre("save", async function (next) {
     if (!user.isModified("passwordHash")) return next();
 
     // generate a salt
-    const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hash(user.passwordHash, salt);
+    const hash = await hashUserPassword(user.passwordHash);
+
     user.passwordHash = hash;
     next();
   } catch (error) {

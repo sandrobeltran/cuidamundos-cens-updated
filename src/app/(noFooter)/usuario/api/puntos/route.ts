@@ -7,7 +7,7 @@ import { validateUserToken } from "@/utils/validateUserToken";
 import { ObjectId, PipelineStage, Types } from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
 import { PipelineTransform } from "stream";
-import { baseUserPipeline, baseUserProjection } from "../route";
+import { baseUserPipeline, baseUserProjection } from "@/utils/userUtils";
 
 export async function PUT(req: NextRequest) {
   await mongodbConnect();

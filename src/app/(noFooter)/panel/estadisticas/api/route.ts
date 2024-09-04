@@ -1,10 +1,10 @@
-import { baseUserPipeline } from "@/app/(noFooter)/usuario/api/route";
 import mongodbConnect from "@/db/mongodbConnect";
 import { ICustomResponse } from "@/middleware";
 import adminRequired from "@/middlewares/adminRequired";
 import Evidence from "@/models/Evidence";
 import User from "@/models/User";
 import getCustomError from "@/utils/getCustomError";
+import { baseUserPipeline } from "@/utils/userUtils";
 import { validateUserToken } from "@/utils/validateUserToken";
 import { PipelineStage, Types } from "mongoose";
 import { NextRequest, NextResponse } from "next/server";

@@ -41,7 +41,7 @@ const nextConfig = {
       },
       {
         // Set security headers for all routes
-        source: "/(.*)",
+        source: "/:path*",
         headers: [
           {
             key: "Content-Security-Policy",
@@ -71,6 +71,16 @@ const nextConfig = {
           {
             key: "Permissions-Policy",
             value: "geolocation=(self), microphone=()",
+          },
+        ],
+      },
+      {
+        source: "/latest/meta-data",
+        headers: [
+          {
+            key: "Access-Control-Allow-Headers",
+            value:
+              "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, api-key, Authorization",
           },
         ],
       },

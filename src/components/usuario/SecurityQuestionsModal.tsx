@@ -59,7 +59,9 @@ const SecurityQuestionsModal = ({}: TProps) => {
         "api-key": process.env.NEXT_PUBLIC_API_KEY as string,
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ securityQuestions: values }),
+      body: JSON.stringify({
+        securityQuestions: [values.question1, values.question2],
+      }),
     });
     const updateUserResponse = await updateUserRequest.json();
 

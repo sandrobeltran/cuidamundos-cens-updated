@@ -65,7 +65,8 @@ export default async function middleware(
     }
   }
 
-  const csrfToken = req.cookies.get("csrfToken")?.value || "";
+  const csrfToken = req.headers.get("X-CSRF-Token");
+  //const csrfToken = req.cookies.get("csrfToken")?.value || "";
   const sessionId = req.cookies.get("sessionId")?.value || "";
 
   // Verify the CSRF token

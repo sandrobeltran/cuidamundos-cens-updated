@@ -124,3 +124,19 @@ export const assignGradeValidationSchema = Yup.object().shape({
     .positive("Calificación inválida")
     .required("Ingresa la nota de la evidencia"),
 });
+
+export const restoreAccountValidationSchema = Yup.object().shape({
+  username: Yup.string().required("Ingresa tu nombre de usuario"),
+  question1: Yup.object().shape({
+    answer: Yup.string().required("Esta pregunta es obligatoria"),
+  }),
+  question2: Yup.object().shape({
+    answer: Yup.string().required("Esta pregunta es obligatoria"),
+  }),
+  newPassword: Yup.string()
+    .matches(
+      new RegExp("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})"),
+      "La contraseña debe tener al menos una mayúscula, una minúscula y un número",
+    )
+    .required("Ingresa tu contraseña"),
+});
