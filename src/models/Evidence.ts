@@ -1,4 +1,4 @@
-import { model, models, ObjectId, Schema } from "mongoose";
+import { model, models, ObjectId, Schema, Types } from "mongoose";
 
 const evidenceSchema = new Schema(
   {
@@ -54,6 +54,10 @@ const evidenceSchema = new Schema(
         images: Boolean,
       },
       required: true,
+    },
+    institutionId: {
+      type: Types.ObjectId,
+      required: false,
     },
   },
   {

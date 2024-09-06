@@ -11,12 +11,11 @@ type TProps = {
 const InstitutionCard = ({ institution }: TProps) => {
   return (
     <div className="relative flex w-full items-center gap-16 overflow-hidden rounded-3xl bg-white/80 px-16 py-8 shadow-md backdrop-blur-sm">
-      <div className="flex h-full flex-1 flex-col justify-center gap-4">
-        <Link href={`/usuario/evidencias/${institution._id}`}>
-          <h4 className="text-lg font-medium text-cens-medium underline">
-            {institution.name}
-          </h4>
-        </Link>
+      <div className="flex h-full flex-1 flex-col justify-center gap-1">
+        <h4 className="text-lg font-medium text-cens-medium underline">
+          {institution.name}
+        </h4>
+        <p className="text-sm text-stone-400">{institution.email}</p>
       </div>
       <div className="flex flex-col items-stretch justify-center gap-2">
         <div className="flex flex-col gap-0">

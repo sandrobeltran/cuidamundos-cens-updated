@@ -58,7 +58,8 @@ export default function EditInstitutionPage() {
 
   const initialValues: NewInstitutionInitialValues = {
     name: data.name,
-    city: data.city,
+    phone: data.phone,
+    email: data.email,
   };
 
   return (

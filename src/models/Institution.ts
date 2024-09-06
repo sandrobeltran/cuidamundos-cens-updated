@@ -6,9 +6,14 @@ const institutionSchema = new Schema(
       type: String,
       required: true,
     },
-    city: {
+    phone: {
       type: String,
       required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
     },
   },
   {

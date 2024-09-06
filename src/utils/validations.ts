@@ -103,9 +103,17 @@ export const newActivityValidationSchema = Yup.object().shape({
   }),
 });
 
+const phoneRegExp =
+  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+
 export const newInstitutionValidationSchema = Yup.object().shape({
-  name: Yup.string().required("Ingresa el nombre de la actividad"),
-  city: Yup.string().required("Ingresa la ciudad"),
+  name: Yup.string().required("Ingresa el nombre de la institución"),
+  phone: Yup.string()
+    .matches(phoneRegExp, "Número inválido")
+    .required("Ingresa el número de la institución"),
+  email: Yup.string()
+    .email("Correo inválido")
+    .required("Ingresa el correo de la institución"),
 });
 
 export const securityQuestionsValidationSchema = Yup.object().shape({

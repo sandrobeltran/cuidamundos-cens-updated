@@ -49,6 +49,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json<ICustomResponse>({
       status: "success",
       message: "Institución creada con éxito",
+      data: evidence,
     });
   } catch (error) {
     return NextResponse.json(

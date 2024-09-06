@@ -132,7 +132,7 @@ const RegisterModal = ({}: TProps) => {
               <TextField name="name" placeholder="Nombres*" />
               <TextField name="lastname" placeholder="Apellidos*" />
               <TextField name="username" type="text" placeholder="Usuario*" />
-              <TextField name="city" type="text" placeholder="Ciudad*" />
+              <TextField name="city" type="text" placeholder="Municipio*" />
               <InputSelect name="institutionId">
                 {institutions ? (
                   <>

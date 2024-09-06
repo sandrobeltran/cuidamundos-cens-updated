@@ -173,7 +173,8 @@ export interface ITestRange {
 export interface IInstitution {
   _id: string;
   name: string;
-  city: string;
+  phone: string;
+  email: string;
   createdAt: string;
   updatedAt: string;
 }

@@ -40,7 +40,9 @@ export default function NewInstitutionPage() {
 
   return (
     <div className="w-full">
-      <NewInstitutionForm handleSubmit={handleSubmit} />
+      <div className="w-full rounded-3xl bg-white/80 px-16 py-8 shadow-md backdrop-blur-md">
+        <NewInstitutionForm handleSubmit={handleSubmit} />
+      </div>
     </div>
   );
 }

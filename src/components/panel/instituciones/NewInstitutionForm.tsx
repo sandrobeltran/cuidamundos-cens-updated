@@ -19,12 +19,14 @@ import { LuUndo2, LuRedo2, LuEye, LuGraduationCap } from "react-icons/lu";
 
 export interface NewInstitutionInitialValues {
   name: string;
-  city: string;
+  phone: string;
+  email: string;
 }
 
 const defaultValues: NewInstitutionInitialValues = {
   name: "",
-  city: "",
+  phone: "",
+  email: "",
 };
 
 interface IProps {
@@ -46,12 +48,22 @@ const NewInstitutionForm = ({ handleSubmit, initialValues }: IProps) => {
     >
       <Form className="flex w-full flex-col items-center gap-6">
         {/* DETAILS CARD */}
-        <div className="relative flex w-full items-center gap-16 overflow-hidden rounded-3xl bg-white/80 px-16 py-8 shadow-md backdrop-blur-sm">
-          <div className="absolute left-0 top-0 h-full w-8 bg-cens-medium"></div>
+        <div className="relative flex w-full items-center gap-16">
+          <div className="flex h-full w-full flex-1 flex-col justify-center gap-4">
+            <label className="mb-1 flex w-full flex-col gap-1 text-left font-bold text-cens-brand">
+              Nombre de la institución
+              <TextField name="name" placeholder="Nombre de la institución" />
+            </label>
 
-          <div className="flex h-full flex-1 flex-col justify-center gap-4">
-            <TextField name="name" placeholder="Nombre de la institución" />
-            <TextField name="city" placeholder="Ciudad de la institución" />
+            <label className="mb-1 flex w-full flex-col gap-1 text-left font-bold text-cens-brand">
+              Teléfono
+              <TextField name="phone" placeholder="Ciudad de la institución" />
+            </label>
+
+            <label className="mb-1 flex w-full flex-col gap-1 text-left font-bold text-cens-brand">
+              Correo electrónico
+              <TextField name="email" placeholder="Correo de la institución" />
+            </label>
           </div>
         </div>
 

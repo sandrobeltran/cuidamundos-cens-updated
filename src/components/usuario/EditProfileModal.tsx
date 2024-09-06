@@ -132,7 +132,7 @@ const EditProfileModal = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>Ciudad:</td>
+                  <td>Municipio:</td>
                   <td className="pl-7 text-stone-400">
                     <TextField name="city" placeholder="" />
                   </td>

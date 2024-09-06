@@ -1,10 +1,5 @@
 "use client";
 
-import Button from "@/components/Button";
-import DateField from "@/components/form/DateField";
-import TextArea from "@/components/form/TextArea";
-import TextField from "@/components/form/TextField";
-import ToggleSwitch from "@/components/form/ToggleSwitch";
 import NewActivityForm, {
   NewActivityInitialValues,
 } from "@/components/panel/actividades/NewActivityForm";
