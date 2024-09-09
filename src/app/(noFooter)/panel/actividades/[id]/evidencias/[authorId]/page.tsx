@@ -63,7 +63,10 @@ export default function SubmissionDetails() {
 
   return (
     <div className="flex w-full flex-col items-center gap-4">
-      <AssignGradeModal authorName={`${author.name} ${author.lastname}`} />
+      <AssignGradeModal
+        currentGrade={submissionData.grade}
+        authorName={`${author.name} ${author.lastname}`}
+      />
       <div className="w-full pl-8 text-left font-medium">
         <h3 className="text-3xl text-cens-dark">Panel de Evidencias</h3>
         <p className="text-md mt-2">{activityData.title}</p>

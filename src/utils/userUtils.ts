@@ -48,7 +48,9 @@ export const baseUserPipeline: PipelineStage[] = [
   {
     $addFields: {
       "institutionData.classCode": "$classCode",
-      hasSecurityQuestions: { $ne: [{ $size: "$securityQuestions" }, 0] },
+      hasSecurityQuestions: {
+        $ne: [{ $size: { $ifNull: ["$securityQuestions", []] } }, 0],
+      },
       points: {
         $add: ["$points", { $sum: "$userSubmissions.submissions.grade" }],
       },

@@ -1,5 +1,3 @@
-const TOKEN_SECRET = process.env.TOKEN_SECRET || 'your-secret-key';
-
 // Generate a CSRF token
 export function generateCsrfToken(): string {
     const array = new Uint8Array(32); // 32 bytes = 256 bits

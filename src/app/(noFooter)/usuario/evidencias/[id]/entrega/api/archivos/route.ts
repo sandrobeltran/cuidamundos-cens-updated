@@ -44,8 +44,6 @@ export async function POST(req: NextRequest) {
               );
             }
 
-            console.log(fileMetadata);
-
             const type =
               (fileMetadata.filename as string).split(".").pop() || "";
 

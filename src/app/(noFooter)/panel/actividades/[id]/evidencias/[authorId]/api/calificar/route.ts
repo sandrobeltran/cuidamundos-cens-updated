@@ -22,7 +22,10 @@ export async function PUT(req: NextRequest, context: { params: any }) {
       { "submissions.author": new Types.ObjectId(authorId) },
       {
         $set: {
-          "submissions.$.grade": parseFloat(body.grade),
+          "submissions.$.grade":
+            typeof body.grade === "number"
+              ? body.grade
+              : parseFloat(body.grade),
         },
       },
       {

@@ -36,6 +36,7 @@ export async function POST(req: NextRequest) {
     const user = new User({
       ...body,
       avatar,
+      securityQuestions: [],
       institutionId: body.institutionId
         ? new Types.ObjectId(body.institutionId)
         : null,

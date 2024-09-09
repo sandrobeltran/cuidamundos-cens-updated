@@ -1,15 +1,15 @@
 "use client";
 
-import SubmissionsTable from "@/components/panel/actividades/SubmissionsTable";
 import UsersStatsTable from "@/components/panel/estadisticas/UsersStatsTable";
-import SpinLoader from "@/components/SpinLoader";
-import useFetchActivitySubmissions from "@/hooks/admin/useFetchActivitySubmissions";
-import useFetchEvidencesAdmin from "@/hooks/admin/useFetchEvidencesAdmin";
 import useFetchUsersStatsAdmin from "@/hooks/admin/useFetchUsersStatsAdmin";
-import { useParams, useRouter } from "next/navigation";
 
 export default function ActivityEvidencesPage() {
-  const usersStats = useFetchUsersStatsAdmin({});
+  const usersStats = useFetchUsersStatsAdmin({
+    limit: 6,
+    page: 1,
+    sort_by: "points",
+    sort: "desc",
+  });
 
   return (
     <div className="flex w-full flex-col items-center gap-4">

@@ -2,10 +2,7 @@ import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
 import rateLimit from "./utils/rateLimit";
 import { NextApiResponse } from "next";
-import { generateCsrfToken, verifyCsrfToken } from "./utils/csrfUtils";
-import { cookies } from "next/headers";
-import { validateUserToken } from "./utils/validateUserToken";
-import User from "./models/User";
+import { verifyCsrfToken } from "./utils/csrfUtils";
 
 export interface ICustomResponse {
   status: "success" | "error";
@@ -71,8 +68,9 @@ export default async function middleware(
 
   // Verify the CSRF token
   if (
-    req.method !== "GET" &&
-    (!csrfToken || !verifyCsrfToken(csrfToken, sessionId))
+    /* req.method !== "GET" && */
+    !csrfToken ||
+    !verifyCsrfToken(csrfToken, sessionId)
   ) {
     return res.status(403).json({ error: "Invalid CSRF token" });
   }

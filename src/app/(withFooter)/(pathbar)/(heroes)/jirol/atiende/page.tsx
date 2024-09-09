@@ -72,7 +72,7 @@ export default function AtiendeJirol() {
             text: "Energía Renovable y",
             resalted: "Suministro Eléctrico",
           }}
-          description="Descubre las fuentes de energía renovable y aprende sobre la transmisión, distribución y comercialización de la energía eléctrica. ¡Desliza los íconos y conviértete en un héroe estratégico!"
+          description="Descubre las fuentes de energía renovable y aprende sobre la generación, transmisión, distribución y comercialización de la energía eléctrica. ¡Desliza los íconos y conviértete en un héroe estratégico!"
         />
         <div className="flex w-full flex-col items-center gap-12 px-28 mobile-land:px-16">
           <div className="aspect-[16/9] w-full max-w-5xl overflow-hidden rounded-3xl bg-white/80 shadow-md backdrop-blur-md">

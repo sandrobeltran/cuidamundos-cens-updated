@@ -16,6 +16,9 @@ export async function GET(req: NextRequest, context: { params: any }) {
 
   //? Search params
   const limit = req.nextUrl.searchParams.get("limit");
+  const page = req.nextUrl.searchParams.get("page");
+  const sort_by = req.nextUrl.searchParams?.get("sort_by") ?? "";
+  const sort = req.nextUrl.searchParams?.get("sort") ?? "";
 
   try {
     const { uid } = validateUserToken(headers);
@@ -46,8 +49,10 @@ export async function GET(req: NextRequest, context: { params: any }) {
       },
       {
         $addFields: {
-          activitiesAmount: { $size: "$userSubmissions.submissions" },
-          certificatesAmount: { $size: "$userGamesWon" },
+          activitiesAmount: {
+            $size: { $ifNull: ["$userSubmissions.submissions", []] },
+          },
+          certificatesAmount: { $size: { $ifNull: ["$userGamesWon", []] } },
         },
       },
       {
@@ -67,6 +72,21 @@ export async function GET(req: NextRequest, context: { params: any }) {
         },
       },
     ];
+
+    if (sort_by && sort) {
+      const sort_temp: any = {};
+      sort_temp[sort_by] = sort === "asc" ? 1 : -1;
+      aggregationPipeline.push({ $sort: sort_temp });
+    } else {
+      aggregationPipeline.push({ $sort: { points: -1 } });
+    }
+
+    // Add pagination to the aggregation pipeline
+    if (limit && page) {
+      const skip = (parseInt(page) - 1) * parseInt(limit);
+      aggregationPipeline.push({ $skip: skip });
+      aggregationPipeline.push({ $limit: parseInt(limit) });
+    }
 
     const users = await User.aggregate(aggregationPipeline);
 

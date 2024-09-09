@@ -64,7 +64,7 @@ const userSchema = new Schema(
         question: String;
         answer: String;
       }>,
-      required: false,
+      required: true,
     },
   },
   {
