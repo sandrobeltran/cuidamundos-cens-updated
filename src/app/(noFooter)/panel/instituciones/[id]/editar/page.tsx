@@ -7,7 +7,6 @@ import NewInstitutionForm, {
   NewInstitutionInitialValues,
 } from "@/components/panel/instituciones/NewInstitutionForm";
 import SpinLoader from "@/components/SpinLoader";
-import useFetchEvidencesAdmin from "@/hooks/admin/useFetchEvidencesAdmin";
 import useFetchInstitutionsAdmin from "@/hooks/admin/useFetchInstitutionsAdmin";
 import { customFetch } from "@/utils/customFetch";
 import { getIsoDate } from "@/utils/dateToString";

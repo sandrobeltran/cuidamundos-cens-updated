@@ -21,7 +21,7 @@ export default function EditActivityPage() {
     return <SpinLoader />;
   }
 
-  const data = activities[0];
+  const data = activities.results[0];
 
   async function handleSubmit(
     values: NewActivityInitialValues,

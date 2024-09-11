@@ -18,7 +18,7 @@ export default function ActivityEvidencesPage() {
     return <SpinLoader />;
   }
 
-  const data = activities[0];
+  const data = activities.results[0];
 
   if (!data) {
     return (

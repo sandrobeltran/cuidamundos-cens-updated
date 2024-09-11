@@ -35,7 +35,7 @@ export default function SubmissionDetails() {
     return <SpinLoader />;
   }
 
-  const activityData = activities[0];
+  const activityData = activities.results[0];
   const submissionData = submissions[0];
 
   if (!activityData) {
