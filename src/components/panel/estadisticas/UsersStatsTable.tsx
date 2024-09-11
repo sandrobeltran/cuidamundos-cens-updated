@@ -36,10 +36,10 @@ const UsersStatsTable = ({ usersStats }: IProps) => {
         </tr>
       </thead>
       <tbody>
-        {usersStats.map((user) => {
+        {usersStats.map((user, i) => {
           return (
             <tr
-              key={user._id}
+              key={i}
               className="rounded-3xl bg-white/80 text-center font-medium shadow-md"
             >
               <td className="rounded-l-3xl px-5 py-6 text-lg">

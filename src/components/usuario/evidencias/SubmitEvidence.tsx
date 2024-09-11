@@ -75,6 +75,8 @@ const DeletableFileCard = ({
   );
 };
 
+const FILE_SIZE_LIMIT = 10000000;
+
 const SubmitEvidence = ({ evidence }: TProps) => {
   const [deletedFilesIds, setDeletedFilenames] = useState<string[]>([]);
   const user = useUserStore((state) => state.user);
@@ -138,6 +140,13 @@ const SubmitEvidence = ({ evidence }: TProps) => {
   function handleFilePicked(e: React.ChangeEvent<HTMLInputElement>) {
     if (e.target.files) {
       const newFiles = Array.from(e.target.files);
+
+      let errors: number = 0;
+      newFiles.forEach((file) => file.size > FILE_SIZE_LIMIT && errors++);
+
+      if (errors) {
+        return toast.warning("El peso máximo de los archivos es de 20MB");
+      }
 
       if (newFiles.length) {
         setFiles([...files, ...newFiles]);

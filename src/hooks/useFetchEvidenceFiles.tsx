@@ -15,6 +15,10 @@ const useFetchEvidenceFiles = ({ activityId, authorId, filesIds }: IProps) => {
   const [data, setData] = useState<IEvidenceFile[] | null>(null);
 
   async function handleFetchEvidenceFiles(token: string) {
+    if (!filesIds) return;
+    if (!filesIds.length) return setData([]);
+
+    console.log("Fetching files...");
     const req = await customFetch(
       `/usuario/evidencias/${activityId}/entrega/api/archivos`,
       {
@@ -30,14 +34,16 @@ const useFetchEvidenceFiles = ({ activityId, authorId, filesIds }: IProps) => {
       },
     );
 
+    if (!req.ok) {
+      setData([]);
+    }
+
     const res = await req.json();
 
     setData(res.data);
   }
 
   useEffect(() => {
-    if (!filesIds) return setData([]);
-    if (!filesIds.length) return setData([]);
     const token = localStorage.getItem("session-token");
 
     handleFetchEvidenceFiles(token as string);

@@ -42,11 +42,13 @@ export async function submitEvidence({
     (e) => e instanceof File,
   ) as File[];
 
-  if (deletedFilesIds) {
-    deletedFilesIds.forEach(async (id) => {
-      await bucket.delete(new Types.ObjectId(id));
-    });
-  }
+  /* if (deletedFilesIds) {
+    await Promise.all(
+      deletedFilesIds.map(async (id) => {
+        await bucket.delete(new Types.ObjectId(id));
+      }),
+    );
+  } */
 
   const submission = evidence.submissions.find((submission) =>
     new Types.ObjectId(uid!).equals(submission.author as string),
@@ -54,7 +56,7 @@ export async function submitEvidence({
 
   const currentFilesIds = submission
     ? submission?.content.files.filter(
-        (file) => !deletedFilesIds?.includes(file),
+        (file) => !deletedFilesIds?.includes(file.toString()),
       )
     : [];
 

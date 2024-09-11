@@ -83,3 +83,8 @@ export async function hashUserPassword(password: string) {
 
   return hash;
 }
+
+export function normalizeAnswer(answer: string): string {
+  console.log(answer.trim().toLowerCase());
+  return answer.trim().toLowerCase();
+}

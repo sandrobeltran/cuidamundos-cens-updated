@@ -10,6 +10,28 @@ export interface ICustomResponse {
   data?: any;
 }
 
+export interface IPaginatedResponse {
+  status: "success" | "error";
+  message: string;
+  data?: {
+    metadata: {
+      total: number;
+      currentPage: number;
+      totalPages: number;
+    };
+    results: any;
+  };
+}
+
+export interface IPaginatedResponseData {
+  metadata: {
+    total: number;
+    currentPage: number;
+    totalPages: number;
+  };
+  results: any;
+}
+
 const limiter = rateLimit({
   interval: 30 * 1000, // 30 seconds
   uniqueTokenPerInterval: 400, // Max 400 users per second

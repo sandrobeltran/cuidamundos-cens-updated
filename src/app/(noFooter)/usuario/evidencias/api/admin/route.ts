@@ -1,27 +1,67 @@
 import mongodbConnect from "@/db/mongodbConnect";
-import { ICustomResponse } from "@/middleware";
+import { ICustomResponse, IPaginatedResponse } from "@/middleware";
 import adminRequired from "@/middlewares/adminRequired";
 import Evidence from "@/models/Evidence";
 import getCustomError from "@/utils/getCustomError";
 import { PipelineStage } from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
-import { Types } from "mongoose";
 
 export async function GET(req: NextRequest) {
   adminRequired(req);
   await mongodbConnect();
 
+  const limit = req.nextUrl.searchParams.get("limit");
+  const page = req.nextUrl.searchParams.get("page");
   const id = req.nextUrl.searchParams.get("id") || "";
 
   try {
-    const evidences = await Evidence.find(id ? { _id: id } : {}, {
-      submissions: 0,
-    });
+    const limittedPipeline: any[] = [
+      {
+        $project: {
+          submissions: 0,
+        },
+      },
+    ];
 
-    return NextResponse.json<ICustomResponse>({
+    if (id) {
+      limittedPipeline.unshift({
+        $match: { _id: id },
+      });
+    }
+
+    // Add pagination to the aggregation pipeline
+    if (limit && page) {
+      const skip = (parseInt(page) - 1) * parseInt(limit);
+      limittedPipeline.push({ $skip: skip });
+      limittedPipeline.push({ $limit: parseInt(limit) });
+    }
+
+    const aggregationPipeline: PipelineStage[] = [
+      {
+        $facet: {
+          results: limittedPipeline,
+          totalCount: [{ $count: "total" }],
+        },
+      },
+    ];
+
+    const evidences = await Evidence.aggregate(aggregationPipeline);
+
+    const results = evidences[0].results;
+    const totalCount =
+      evidences[0].totalCount.length > 0 ? evidences[0].totalCount[0].total : 0;
+
+    return NextResponse.json<IPaginatedResponse>({
       status: "success",
       message: "Actividades obtenidas con éxito",
-      data: evidences,
+      data: {
+        results,
+        metadata: {
+          total: totalCount,
+          currentPage: page ? parseInt(page) : 1,
+          totalPages: limit ? Math.ceil(totalCount / parseInt(limit)) : 1,
+        },
+      },
     });
   } catch (error) {
     console.log(error);

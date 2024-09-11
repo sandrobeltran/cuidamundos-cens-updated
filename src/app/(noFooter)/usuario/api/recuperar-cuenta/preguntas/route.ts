@@ -9,6 +9,7 @@ import {
   baseUserPipeline,
   baseUserProjection,
   hashUserPassword,
+  normalizeAnswer,
 } from "@/utils/userUtils";
 import { ISecurityQuestion, TUserData } from "@/utils/customTypes";
 import bcrypt from "bcrypt";
@@ -52,7 +53,12 @@ export async function PUT(req: NextRequest) {
     let error = 0;
 
     user.securityQuestions.forEach((userQuestion, index) => {
-      if (userQuestion.answer !== questions[index].answer) error++;
+      if (
+        normalizeAnswer(userQuestion.answer) !==
+        normalizeAnswer(questions[index].answer)
+      ) {
+        error++;
+      }
     });
 
     if (error)

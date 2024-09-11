@@ -1,5 +1,5 @@
 import mongodbConnect from "@/db/mongodbConnect";
-import { ICustomResponse } from "@/middleware";
+import { ICustomResponse, IPaginatedResponse } from "@/middleware";
 import adminRequired from "@/middlewares/adminRequired";
 import Evidence from "@/models/Evidence";
 import User from "@/models/User";
@@ -23,7 +23,7 @@ export async function GET(req: NextRequest, context: { params: any }) {
   try {
     const { uid } = validateUserToken(headers);
 
-    const aggregationPipeline: PipelineStage[] = [
+    const limittedPipeline: any[] = [
       { $match: { role: "USER" } },
       ...baseUserPipeline,
       {
@@ -76,25 +76,49 @@ export async function GET(req: NextRequest, context: { params: any }) {
     if (sort_by && sort) {
       const sort_temp: any = {};
       sort_temp[sort_by] = sort === "asc" ? 1 : -1;
-      aggregationPipeline.push({ $sort: sort_temp });
+      limittedPipeline.push({ $sort: sort_temp });
     } else {
-      aggregationPipeline.push({ $sort: { points: -1 } });
+      limittedPipeline.push({ $sort: { points: -1 } });
     }
 
     // Add pagination to the aggregation pipeline
     if (limit && page) {
       const skip = (parseInt(page) - 1) * parseInt(limit);
-      aggregationPipeline.push({ $skip: skip });
-      aggregationPipeline.push({ $limit: parseInt(limit) });
+      limittedPipeline.push({ $skip: skip });
+      limittedPipeline.push({ $limit: parseInt(limit) });
     }
+
+    const aggregationPipeline: PipelineStage[] = [
+      {
+        $facet: {
+          results: limittedPipeline,
+          totalCount: [
+            { $match: { role: "USER" } },
+            ...(baseUserPipeline as any),
+            { $count: "total" },
+          ],
+        },
+      },
+    ];
 
     const users = await User.aggregate(aggregationPipeline);
 
-    return NextResponse.json<ICustomResponse>(
+    const results = users[0].results;
+    const totalCount =
+      users[0].totalCount.length > 0 ? users[0].totalCount[0].total : 0;
+
+    return NextResponse.json<IPaginatedResponse>(
       {
         status: "success",
-        message: "Usuario actualizado con éxito.",
-        data: users,
+        message: "Estadísticas obtenidas con éxito.",
+        data: {
+          results,
+          metadata: {
+            total: totalCount,
+            currentPage: page ? parseInt(page) : 1,
+            totalPages: limit ? Math.ceil(totalCount / parseInt(limit)) : 1,
+          },
+        },
       },
       { status: 200 },
     );

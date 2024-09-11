@@ -1,22 +1,28 @@
 "use client";
 
+import { IPaginatedResponse, IPaginatedResponseData } from "@/middleware";
 import { customFetch } from "@/utils/customFetch";
 import { IEvidence } from "@/utils/customTypes";
 import React, { useEffect, useState } from "react";
 
 interface IProps {
   id?: string;
+  page?: number;
+  limit?: number;
 }
 
-const useFetchEvidencesAdmin = ({ id }: IProps) => {
-  const [data, setData] = useState<IEvidence[] | null>(null);
+const useFetchEvidencesAdmin = (params: IProps) => {
+  const [data, setData] = useState<IPaginatedResponseData | null>(null);
 
   async function handleFecthEvidences(token: string) {
-    let endpoint = "/usuario/evidencias/api/admin";
+    setData(null);
+    let endpoint = "/usuario/evidencias/api/admin?";
 
-    if (id) {
-      endpoint += `?id=${id}`;
-    }
+    Object.entries(params).forEach(([key, value]) => {
+      if (value) {
+        endpoint += `&${key}=${value}`;
+      }
+    });
 
     const req = await customFetch(endpoint, {
       method: "GET",
@@ -34,7 +40,7 @@ const useFetchEvidencesAdmin = ({ id }: IProps) => {
     const token = localStorage.getItem("session-token");
 
     handleFecthEvidences(token as string);
-  }, []);
+  }, [params.page]);
 
   return data;
 };

@@ -146,5 +146,5 @@ export const restoreAccountValidationSchema = Yup.object().shape({
       new RegExp("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})"),
       "La contraseña debe tener al menos una mayúscula, una minúscula y un número",
     )
-    .required("Ingresa tu contraseña"),
+    .required("Ingresa tu nueva contraseña"),
 });

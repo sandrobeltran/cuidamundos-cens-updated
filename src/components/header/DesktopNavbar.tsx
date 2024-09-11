@@ -76,10 +76,7 @@ const DesktopNavbar = () => {
               <ul className="py-4">
                 {user.role === "USER" ? (
                   <>
-                    <li
-                      onClick={() => handleLogOut()}
-                      className="w-full bg-cens-medium/0 px-3 font-medium transition-colors hover:bg-stone-900/60 hover:font-semibold"
-                    >
+                    <li className="w-full bg-cens-medium/0 px-3 font-medium transition-colors hover:bg-stone-900/60 hover:font-semibold">
                       <p className="flex gap-1 font-semibold">
                         Puntos:{" "}
                         <span className="flex items-center gap-1 text-yellow-500">

@@ -1,5 +1,6 @@
 "use client";
 
+import { IPaginatedResponseData } from "@/middleware";
 import { customFetch } from "@/utils/customFetch";
 import { IUserStats } from "@/utils/customTypes";
 import { useEffect, useState } from "react";
@@ -12,9 +13,10 @@ interface IProps {
 }
 
 const useFetchUsersStatsAdmin = (params: IProps) => {
-  const [data, setData] = useState<IUserStats[] | null>(null);
+  const [data, setData] = useState<IPaginatedResponseData | null>(null);
 
   async function handleFetchUsersStats(token: string) {
+    setData(null);
     let endpoint = "/panel/estadisticas/api?";
 
     if (params) {
@@ -39,7 +41,7 @@ const useFetchUsersStatsAdmin = (params: IProps) => {
     const token = localStorage.getItem("session-token");
 
     handleFetchUsersStats(token as string);
-  }, []);
+  }, [params.page]);
 
   return data;
 };
