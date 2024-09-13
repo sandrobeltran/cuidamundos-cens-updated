@@ -31,8 +31,6 @@ export async function POST(req: NextRequest) {
   const avatar = getRandomAvatar();
 
   try {
-    console.log(new Types.ObjectId(body.institutionId));
-
     const user = new User({
       ...body,
       avatar,
