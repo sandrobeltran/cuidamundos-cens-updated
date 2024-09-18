@@ -8,6 +8,7 @@ import LoadGames from "@/components/juega/LoadGames";
 import SkyBackground from "@/components/heroes/SkyBackground";
 import LandscapeWarning from "@/components/LandscapeWarning";
 import SecurityQuestionsChecker from "@/components/validations/SecurityQuestionsChecker";
+import { headers } from "next/headers";
 
 const ubuntu = localFont({
   src: [
@@ -38,6 +39,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const nonce = headers().get("x-nonce") || undefined;
+
   return (
     <html lang="en">
       <body className={ubuntu.className}>

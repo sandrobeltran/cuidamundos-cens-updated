@@ -42,6 +42,26 @@ export default async function middleware(
   req: NextRequest,
   res: NextApiResponse,
 ) {
+  // CSP Generation
+  const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
+  const cspHeader = `
+    default-src 'self' nonce-${nonce};
+    script-src 'self' 'nonce-${nonce}';
+    style-src 'self' unsafe-inline 'nonce-${nonce}';
+    img-src 'self' blob: data:;
+    font-src 'self';
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    frame-ancestors 'self';
+    upgrade-insecure-requests;
+`;
+
+  // Replace newline characters and spaces
+  const contentSecurityPolicyHeaderValue = cspHeader
+    .replace(/\s{2,}/g, " ")
+    .trim();
+
   // Check for metadata IP
   if (req.nextUrl.href.includes("/latest/meta-data")) {
     return new NextResponse("Access denied", { status: 401 });
@@ -58,49 +78,60 @@ export default async function middleware(
     return NextResponse.json({}, { status: 200 });
   }
 
-  // ? Admin actions validation
-  if (req.nextUrl.pathname.includes("/admin")) {
-    //for admin api key
-    /*  if (apiKey !== process.env.ADMIN_API_KEY) {
-      return NextResponse.json<ICustomResponse>(
-        {
-          status: "error",
-          message: "No tienes permisos para realizar esta acción",
-        },
-        { status: 403 },
-      );
-    } */
-  } else {
-    // ? Normal api-key validation
+  if (req.nextUrl.href.includes("/api")) {
+    const csrfToken = req.headers.get("csrfToken");
+    //const csrfToken = req.cookies.get("csrfToken")?.value || "";
+    const sessionId = req.cookies.get("sessionId")?.value || "";
 
-    if (apiKey !== process.env.API_KEY) {
-      return NextResponse.json<ICustomResponse>(
-        {
-          status: "error",
-          message: "Clave de la API inválida",
-        },
-        { status: 403 },
-      );
+    // Verify the CSRF token
+    if (
+      /* req.method !== "GET" && */
+      !csrfToken ||
+      !verifyCsrfToken(csrfToken, sessionId)
+    ) {
+      return res.status(403).json({ error: "Invalid CSRF token" });
+    }
+
+    // ? Admin actions validation
+    if (!req.nextUrl.pathname.includes("/admin")) {
+      // ? Normal api-key validation
+      if (apiKey !== process.env.API_KEY) {
+        return NextResponse.json<ICustomResponse>(
+          {
+            status: "error",
+            message: "Clave de la API inválida",
+          },
+          { status: 403 },
+        );
+      }
     }
   }
 
-  const csrfToken = req.headers.get("X-CSRF-Token");
-  //const csrfToken = req.cookies.get("csrfToken")?.value || "";
-  const sessionId = req.cookies.get("sessionId")?.value || "";
+  const requestHeaders = new Headers(req.headers);
+  requestHeaders.set("x-nonce", nonce);
 
-  // Verify the CSRF token
-  if (
-    /* req.method !== "GET" && */
-    !csrfToken ||
-    !verifyCsrfToken(csrfToken, sessionId)
-  ) {
-    return res.status(403).json({ error: "Invalid CSRF token" });
-  }
+  requestHeaders.set(
+    "Content-Security-Policy",
+    contentSecurityPolicyHeaderValue,
+  );
 
-  NextResponse.next();
+  /* const response = NextResponse.next({
+    request: {
+      headers: requestHeaders,
+    },
+    headers: requestHeaders,
+  });
+  response.headers.set(
+    "Content-Security-Policy",
+    contentSecurityPolicyHeaderValue,
+  );
+
+  return response; */
+
+  return NextResponse.next();
 }
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ["/:path*/api/:path*", "/latest/meta-data"],
+  matcher: [{ source: "/:path*" }],
 };

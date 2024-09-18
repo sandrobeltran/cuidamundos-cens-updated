@@ -17,6 +17,7 @@ import {
 import Link from "next/link";
 import { customFetch } from "@/utils/customFetch";
 import { ISecurityQuestion } from "@/utils/customTypes";
+import { generateCsrfToken } from "@/utils/csrfUtils";
 
 type TProps = {};
 
@@ -97,6 +98,11 @@ const SecurityQuestionsModal = ({}: TProps) => {
         >
           {({ values }) => (
             <FormWrapper>
+              <input
+                type="hidden"
+                name="csrfToken"
+                value={generateCsrfToken()}
+              />
               <div>
                 <label className="mb-1 flex flex-col gap-1 text-left font-bold text-cens-brand">
                   {values.question1.question}

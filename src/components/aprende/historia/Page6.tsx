@@ -114,8 +114,7 @@ const Page6 = () => {
             src={PropellerBackImage}
             width={300}
             alt="Imagen de la hélice de un Molino de viento"
-            className="absolute -top-[40%] w-full animate-spin"
-            style={{ animationDuration: "2s" }}
+            className="absolute -top-[40%] w-full animate-spin duration-[2s]"
           />
           <Image
             src={MillBaseBackImage}
@@ -128,8 +127,7 @@ const Page6 = () => {
             src={PropellerBackImage}
             width={300}
             alt="Imagen de la hélice de un Molino de viento"
-            className="absolute -top-[40%] w-full animate-spin"
-            style={{ animationDuration: "2s" }}
+            className="absolute -top-[40%] w-full animate-spin duration-[2s]"
           />
           <Image
             src={MillBaseBackImage}

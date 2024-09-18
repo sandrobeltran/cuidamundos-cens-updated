@@ -3,7 +3,7 @@ import { ICustomResponse, IPaginatedResponse } from "@/middleware";
 import adminRequired from "@/middlewares/adminRequired";
 import Evidence from "@/models/Evidence";
 import getCustomError from "@/utils/getCustomError";
-import { PipelineStage } from "mongoose";
+import { PipelineStage, Types } from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
@@ -25,7 +25,7 @@ export async function GET(req: NextRequest) {
 
     if (id) {
       limittedPipeline.unshift({
-        $match: { _id: id },
+        $match: { _id: new Types.ObjectId(id) },
       });
     }
 

@@ -5,6 +5,7 @@ import Button from "../Button";
 import { useUserStore } from "@/store/useUserStore";
 import { InformationCircleIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import clsx from "clsx";
 
 type TProps = {
   game: IGame;
@@ -17,21 +18,18 @@ const GameCard = ({ game }: TProps) => {
 
   return (
     <div
-      className="relative flex h-fit w-full items-start mobile-land:items-center gap-6 overflow-hidden rounded-3xl bg-white/80 px-8 py-8 pl-16 text-stone-500 backdrop-blur-sm max-sm:flex-col max-sm:items-center shadow-md max-sm:gap-2 max-sm:p-4 max-sm:pl-14"
-      style={{
-        backgroundColor: game.active ? "#fffc" : "#78716ccc",
-        color: game.active ? "#78716c" : "#fff",
-      }}
+      className={clsx([
+        "relative flex h-fit w-full items-start gap-6 overflow-hidden rounded-3xl bg-white/80 px-8 py-8 pl-16 text-stone-500 shadow-md backdrop-blur-sm mobile-land:items-center max-sm:flex-col max-sm:items-center max-sm:gap-2 max-sm:p-4 max-sm:pl-14",
+        game.active
+          ? "bg-[#fffc] text-stone-500"
+          : "bg-stone-500/75 text-white",
+      ])}
     >
       <span
-        className="absolute left-0 top-0 h-full w-8 bg-stone-500"
-        style={{
-          backgroundColor: game.active
-            ? isWinner
-              ? "#39A935"
-              : "#78716c"
-            : "#78716c",
-        }}
+        className={clsx([
+          "absolute left-0 top-0 h-full w-8 bg-stone-500",
+          { "bg-cens-medium": game.active && isWinner },
+        ])}
       ></span>
       <div className="relative flex h-full items-center max-sm:w-full">
         <Image
@@ -42,11 +40,13 @@ const GameCard = ({ game }: TProps) => {
           alt={`Juego ${game.title} CENS Portada`}
         />
       </div>
-      <div className="flex h-full flex-1 flex-col items-start justify-between gap-4 pt-4 max-sm:gap-2 max-sm:items-center">
+      <div className="flex h-full flex-1 flex-col items-start justify-between gap-4 pt-4 max-sm:items-center max-sm:gap-2">
         <Link href={game.href}>
           <h6
-            className="text-2xl font-medium underline"
-            style={{ color: game.active ? "#39A935" : "#fff" }}
+            className={clsx([
+              "text-2xl font-medium underline",
+              game.active ? "text-cens-medium" : "text-white",
+            ])}
           >
             {game.title}
           </h6>

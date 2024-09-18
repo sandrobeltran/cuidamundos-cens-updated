@@ -3,6 +3,7 @@ import { useUserStore } from "@/store/useUserStore";
 import { IEvidence, ISubmission } from "@/utils/customTypes";
 import dateToString, { getRemainingTime } from "@/utils/dateToString";
 import { getSubmissionState } from "@/utils/evidenceUtils";
+import clsx from "clsx";
 import React from "react";
 
 type TProps = {
@@ -58,10 +59,10 @@ const EvidenceItemsGrid = ({ evidence }: TProps) => {
             Tiempo restante
           </div>
           <div
-            className="-ml-2 flex w-full items-center rounded-lg bg-white/80 px-8 py-4 backdrop-blur-sm max-sm:px-4"
-            style={{
-              color: remainingTime.d < 0 && !submission ? "#ed5c5c" : "#78716c",
-            }}
+            className={clsx([
+              "-ml-2 flex w-full items-center rounded-lg bg-white/80 px-8 py-4 backdrop-blur-sm max-sm:px-4",
+              remainingTime.d < 0 && !submission ? "#ed5c5c" : "text-stone-500",
+            ])}
           >
             {submission
               ? remainingTime.d > 0

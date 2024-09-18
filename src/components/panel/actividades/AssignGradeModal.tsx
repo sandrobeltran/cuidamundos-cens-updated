@@ -17,6 +17,7 @@ import FormWrapper from "@/components/form/FormWrapper";
 import TextField from "@/components/form/TextField";
 import { useUserStore } from "@/store/useUserStore";
 import { StarIcon } from "@heroicons/react/24/solid";
+import clsx from "clsx";
 
 interface IProps {
   authorName: string;
@@ -106,18 +107,13 @@ const AssignGradeModal = ({ authorName, currentGrade }: IProps) => {
         <div className="flex w-full flex-col items-center gap-4">
           <div className="flex w-full items-center justify-around">
             <button
-              className="group relative flex flex-1 items-center justify-center gap-2 rounded-s-2xl border-2 border-stone-400 px-4 py-2 text-cens-dark opacity-60 transition-all hover:opacity-100"
-              style={
-                pointsAmount === 0
-                  ? {
-                      outline: "2px solid #a9a9a9",
-                      opacity: 1,
-                      boxShadow: "0 0 8px #a9a9a955",
-                      borderColor: "transparent",
-                      zIndex: 2,
-                    }
-                  : {}
-              }
+              className={clsx([
+                "group relative flex flex-1 items-center justify-center gap-2 rounded-s-2xl border-2 border-stone-400 px-4 py-2 text-cens-dark opacity-60 transition-all hover:opacity-100",
+                {
+                  "z-10 border-transparent opacity-100 shadow-md shadow-[#a9a9a955] outline-2 outline-[#a9a9a9]":
+                    pointsAmount === 0,
+                },
+              ])}
               onClick={() => setPointsAmount(0)}
             >
               <StarIcon
@@ -127,18 +123,13 @@ const AssignGradeModal = ({ authorName, currentGrade }: IProps) => {
               <p className="text-2xl font-semibold">0</p>
             </button>
             <button
-              className="group relative ml-[-1px] flex flex-1 items-center justify-center gap-2 border-2 border-stone-400 px-4 py-2 text-cens-dark opacity-60 transition-all hover:opacity-100"
-              style={
-                pointsAmount === 25
-                  ? {
-                      outline: "2px solid #D9891A",
-                      opacity: 1,
-                      boxShadow: "0 0 8px #D9891A55",
-                      borderColor: "transparent",
-                      zIndex: 2,
-                    }
-                  : {}
-              }
+              className={clsx([
+                "group relative ml-[-1px] flex flex-1 items-center justify-center gap-2 border-2 border-stone-400 px-4 py-2 text-cens-dark opacity-60 transition-all hover:opacity-100",
+                {
+                  "z-10 border-transparent opacity-100 shadow-md shadow-[#D9891A55] outline-2 outline-[#D9891A]":
+                    pointsAmount === 25,
+                },
+              ])}
               onClick={() => setPointsAmount(25)}
             >
               <StarIcon
@@ -148,18 +139,13 @@ const AssignGradeModal = ({ authorName, currentGrade }: IProps) => {
               <p className="text-2xl font-semibold">25</p>
             </button>
             <button
-              className="group group relative ml-[-1px] flex flex-1 items-center justify-center gap-2 rounded-e-2xl border-2 border-stone-400 px-4 py-2 text-cens-dark opacity-60 transition-all hover:opacity-100"
-              style={
-                pointsAmount === 50
-                  ? {
-                      outline: "3px solid #FFC933",
-                      opacity: 1,
-                      boxShadow: "0 0 8px #FFC93355",
-                      borderColor: "transparent",
-                      zIndex: 2,
-                    }
-                  : {}
-              }
+              className={clsx([
+                "group group relative ml-[-1px] flex flex-1 items-center justify-center gap-2 rounded-e-2xl border-2 border-stone-400 px-4 py-2 text-cens-dark opacity-60 transition-all hover:opacity-100",
+                {
+                  "z-10 border-transparent opacity-100 shadow-md shadow-[#FFC93355] outline-2 outline-[#FFC933]":
+                    pointsAmount === 50,
+                },
+              ])}
               onClick={() => setPointsAmount(50)}
             >
               <StarIcon
@@ -189,25 +175,6 @@ const AssignGradeModal = ({ authorName, currentGrade }: IProps) => {
             </Button>
           </div>
         </div>
-        {/* <Formik
-          initialValues={initialValues}
-          onSubmit={(values) => handleSubmit(values)}
-          validationSchema={assignGradeValidationSchema}
-        >
-          {({ values }) => (
-            <FormWrapper>
-              <label className="mb-1 flex w-full flex-col gap-1 text-left font-bold text-cens-brand">
-                Ingresa cantidad de puntos
-                <TextField type="number" name="grade" placeholder="Puntos" />
-              </label>
-              <div className="mt-4 flex">
-                <Button hierarchy="primary" size="md" type="submit">
-                  Asignar Calificación
-                </Button>
-              </div>
-            </FormWrapper>
-          )}
-        </Formik> */}
       </div>
     </div>
   );

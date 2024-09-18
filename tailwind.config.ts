@@ -20,22 +20,25 @@ const config: Config = {
         purita: "#3B699A",
         jirol: "#93C01F",
         felix: "#EC8334",
-        dalia: "#9A85BD"
+        dalia: "#9A85BD",
       },
       borderRadius: {
         "4xl": "56px",
       },
       animation: {
-        "levitating": "levitating 5s infinite ease-in-out alternate",
-        "spinHighlight": "spinHighlight 4s infinite ease-in-out"
-      }
+        levitating: "levitating 5s infinite ease-in-out alternate",
+        spinHighlight: "spinHighlight 4s infinite ease-in-out",
+      },
     },
   },
   plugins: [
     plugin(function ({ addVariant }) {
       // Add a `third` variant, ie. `third:pb-0`
-      addVariant('mobile-land', '@media (max-height: 480px) and (orientation: landscape)')
-    })
+      addVariant(
+        "mobile-land",
+        "@media (max-height: 480px) and (orientation: landscape)",
+      );
+    }),
   ],
 };
 export default config;

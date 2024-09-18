@@ -19,12 +19,20 @@ export const customFetch = async (url: string, options: RequestInit = {}) => {
   }
 
   if (token) {
-    headers.append("X-CSRF-Token", token);
+    headers.append("csrfToken", token);
+  }
+
+  let body;
+  if (options.body) {
+    body = JSON.parse(options.body as string);
   }
 
   const response = await fetch(url, {
     ...options,
     headers: headers,
+    body: options.body
+      ? JSON.stringify({ ...body, csrfToken: token })
+      : undefined,
   });
 
   // Handle response as needed

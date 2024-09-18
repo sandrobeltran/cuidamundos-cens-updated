@@ -19,6 +19,8 @@ import { customFetch } from "@/utils/customFetch";
 import router from "next/router";
 import { toast } from "react-toastify";
 import { IInstitution } from "@/utils/customTypes";
+import clsx from "clsx";
+import { generateCsrfToken } from "@/utils/csrfUtils";
 
 export interface NewActivityInitialValues {
   title: string;
@@ -135,6 +137,7 @@ const NewActivityForm = ({ handleSubmit, initialValues }: IProps) => {
         validationSchema={newActivityValidationSchema}
       >
         <Form className="flex w-full flex-col items-center gap-6">
+          <input type="hidden" name="csrfToken" value={generateCsrfToken()} />
           {/* TOOLS BAR */}
           <div className="sticky left-0 top-[5.5rem] z-50 flex w-full items-center justify-center gap-4 rounded-3xl bg-white/80 p-3 px-8 text-left shadow-md backdrop-blur-sm">
             {/* <NewActivityToolButton Icon={LuEye} label="Previsualizar" /> */}
@@ -179,15 +182,13 @@ const NewActivityForm = ({ handleSubmit, initialValues }: IProps) => {
                                         : institution._id,
                                     )
                                   }
-                                  className="flex w-full items-center justify-center gap-2"
-                                  style={
-                                    institutionId === institution._id
-                                      ? {
-                                          color: "#005F24",
-                                          fontWeight: "600",
-                                        }
-                                      : {}
-                                  }
+                                  className={clsx([
+                                    "flex w-full items-center justify-center gap-2",
+                                    {
+                                      "font-semibold text-cens-brand":
+                                        institutionId === institution._id,
+                                    },
+                                  ])}
                                 >
                                   {institutionId === institution._id ? (
                                     <FaCheck className="text-lg" />

@@ -1,5 +1,6 @@
 import { useUserStore } from "@/store/useUserStore";
 import { IEvidence } from "@/utils/customTypes";
+import clsx from "clsx";
 import Link from "next/link";
 import React from "react";
 
@@ -13,10 +14,10 @@ const EvidenceCard = ({ evidence }: TProps) => {
   return (
     <div className="relative flex w-full flex-col gap-4 overflow-hidden rounded-3xl bg-white/80 px-16 py-8 shadow-md backdrop-blur-sm max-sm:p-4 max-sm:pl-14">
       <span
-        className="absolute left-0 top-0 h-full w-8 bg-stone-500"
-        style={{
-          backgroundColor: evidence.active ? "#39A935" : "#78716c",
-        }}
+        className={clsx([
+          "absolute left-0 top-0 h-full w-8 bg-stone-500",
+          evidence.active ? "text-cens-brand" : "text-stone-500",
+        ])}
       ></span>
       <h4 className="text-lg font-medium text-cens-medium underline">
         {evidence.title}

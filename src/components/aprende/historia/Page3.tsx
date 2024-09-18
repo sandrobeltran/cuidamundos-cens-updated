@@ -3,6 +3,7 @@ import { AnimationContext } from "./InteractiveVideo";
 import DaliaImage from "@public/img/aprende/dalia-hero.png";
 import Image from "next/image";
 import { FaSortDown } from "react-icons/fa";
+import clsx from "clsx";
 
 const Page3 = () => {
   const {
@@ -70,8 +71,10 @@ const Page3 = () => {
         >
           <p>{texts[textIndex]}</p>
           <span
-            style={textIndex === 1 ? { transform: "rotateZ(180deg) translateY(-16px)" } : {}}
-            className="absolute -bottom-4 left-0 right-0 mx-auto w-fit text-5xl transition-transform"
+            className={clsx([
+              "absolute -bottom-4 left-0 right-0 mx-auto w-fit text-5xl transition-transform",
+              { "-translate-y-4 rotate-180": textIndex === 1 },
+            ])}
           >
             <FaSortDown />
           </span>

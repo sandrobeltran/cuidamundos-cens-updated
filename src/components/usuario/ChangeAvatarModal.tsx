@@ -9,6 +9,7 @@ import AVATARS_DATA from "@/utils/avatarsData";
 import { useAuthorsStore } from "@/store/useAuthorsStore";
 import { IAuthor } from "@/utils/customTypes";
 import { customFetch } from "@/utils/customFetch";
+import clsx from "clsx";
 
 type TProps = {};
 
@@ -86,12 +87,12 @@ const ChangeAvatarModal = ({}: TProps) => {
           {Object.entries(AVATARS_DATA).map((avatar) => (
             <button
               key={avatar[0]}
-              className="aspect-square rounded-full border-[6px] shadow-lg shadow-stone-900/20 outline outline-[6px] outline-offset-0 transition-all"
-              style={{
-                borderColor: selected === avatar[1] ? "#005F24" : "transparent",
-                outlineColor:
-                  selected === avatar[1] ? "#93C01F" : "transparent",
-              }}
+              className={clsx([
+                "aspect-square rounded-full border-[6px] shadow-lg shadow-stone-900/20 outline outline-[6px] outline-offset-0 transition-all",
+                selected === avatar[1]
+                  ? "border-cens-brand outline-cens-light"
+                  : "border-transparent outline-transparent",
+              ])}
               onClick={() => setSelected(avatar[1])}
             >
               <Image

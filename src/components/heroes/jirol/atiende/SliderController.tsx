@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { useSwiper } from "swiper/react";
+import clsx from "clsx";
 
 type TProps = {
   sliderData: {
@@ -34,17 +35,17 @@ const SliderController = ({ sliderData }: TProps) => {
           <button
             key={item.index}
             onClick={() => handleSelect(item.index)}
-            className="hover:scale-1010 transition-all"
-            style={
-              currentIndex !== item.index ? { filter: "brightness(.25)" } : {}
-            }
+            className={clsx([
+              "hover:scale-1010 transition-all",
+              { "brightness-[0.25]": currentIndex !== item.index },
+            ])}
           >
             <Image
               src={`/img/jirol/atiende/${item.icon}.svg`}
               width={56}
               height={56}
               alt={`Imagen de ${item.name} de Jirol`}
-              className="w-14 aspect-square mobile-land:w-11"
+              className="aspect-square w-14 mobile-land:w-11"
             />
           </button>
         ))}

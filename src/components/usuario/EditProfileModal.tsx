@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 import Image from "next/image";
 import { PencilIcon } from "@heroicons/react/24/outline";
 import { customFetch } from "@/utils/customFetch";
+import { generateCsrfToken } from "@/utils/csrfUtils";
 
 type TInitialValues = {
   name: string;
@@ -109,6 +110,7 @@ const EditProfileModal = () => {
           validationSchema={editProfileValidationSchema}
         >
           <FormWrapper>
+            <input type="hidden" name="csrfToken" value={generateCsrfToken()} />
             <table className="border-separate border-spacing-1 text-stone-700">
               <tbody className="">
                 <tr>

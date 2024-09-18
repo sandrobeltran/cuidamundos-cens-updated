@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Button from "@/components/Button";
 import FelixImage1 from "@public/img/felix/atiende/felix_1.png";
+import clsx from "clsx";
 
 type TMark = {
   coors: {
@@ -134,8 +135,10 @@ const Mark = ({
         <input
           type="number"
           placeholder=" "
-          className="h-full w-full rounded-full bg-felix p-2 text-center text-3xl font-bold text-white transition-all placeholder-shown:bg-amber-400 focus:outline-none"
-          style={failed ? { backgroundColor: "#ED5C5C" } : {}}
+          className={clsx([
+            "h-full w-full rounded-full bg-felix p-2 text-center text-3xl font-bold text-white transition-all placeholder-shown:bg-amber-400 focus:outline-none",
+            { "background-[#ed5c5c": failed },
+          ])}
           max={GAME_DATA.length}
           onChange={(e) =>
             parseInt(e.target.value) === correct
@@ -344,7 +347,7 @@ export default function AtiendeFelix() {
                     con la infraestructura eléctrica
                   </span>
                 </h3>
-                <ul className="text-left text-stone-500 mobile-land:text-sm list-disc">
+                <ul className="list-disc text-left text-stone-500 mobile-land:text-sm">
                   <li>
                     Evita elevar cometas cerca de las redes eléctricas. Intentar
                     retirar cometas, globos o cualquier otro objeto ¡es
@@ -488,10 +491,10 @@ export default function AtiendeFelix() {
             {GAME_DATA.map((mark) => (
               <div
                 key={mark.content.title}
-                className="flex items-center gap-2"
-                style={{
-                  opacity: corrects.includes(mark.content.value) ? ".5" : "1",
-                }}
+                className={clsx([
+                  "flex items-center gap-2 opacity-100",
+                  { "opacity-50": corrects.includes(mark.content.value) },
+                ])}
               >
                 <h6 className="text-6xl font-bold text-felix mobile-land:text-5xl">
                   {mark.content.value}

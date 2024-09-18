@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { useField } from "formik";
 import React from "react";
 
@@ -17,17 +18,17 @@ const ToggleSwitch = ({ name, label }: IProps) => {
     <div className="flex items-center gap-4">
       <button
         type="button"
-        style={{
-          backgroundColor: meta.value ? "#39A935" : "#D9D9D9",
-        }}
         onClick={toggle}
-        className="flex h-6 w-11 items-center justify-start rounded-full bg-cens-medium p-0.5 transition-colors"
+        className={clsx([
+          "flex h-6 w-11 items-center justify-start rounded-full bg-cens-medium p-0.5 transition-colors",
+          meta.value ? "bg-cens-medium" : "bg-[#d9d9d9]",
+        ])}
       >
         <span
-          style={{
-            transform: `translateX(${meta.value ? "100%" : "0%"})`,
-          }}
-          className="relative inline-block aspect-square h-full rounded-full bg-white transition-transform"
+          className={clsx([
+            "relative inline-block aspect-square h-full rounded-full bg-white transition-transform",
+            { "translate-x-full": meta.value },
+          ])}
         />
       </button>
       <p>{label}</p>

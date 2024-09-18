@@ -9,6 +9,7 @@ import CommentCard from "./CommentCard";
 import useFetchAuthorData from "@/hooks/useFetchAuthorData";
 import { useAuthorsStore } from "@/store/useAuthorsStore";
 import { customFetch } from "@/utils/customFetch";
+import { generateCsrfToken } from "@/utils/csrfUtils";
 
 type TProps = {
   comments: IComment[];
@@ -101,6 +102,7 @@ const EvidenceComments = ({ comments }: TProps) => {
           validationSchema={postCommentValdationSchema}
         >
           <Form className="flex w-full flex-col items-end gap-4 text-stone-900">
+            <input type="hidden" name="csrfToken" value={generateCsrfToken()} />
             <TextArea
               placeholder="Agregar comentario"
               name="content"

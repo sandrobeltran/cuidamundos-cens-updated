@@ -37,8 +37,7 @@ const SkyBackground = () => {
   return (
     <div
       ref={skyRef}
-      className="absolute left-0 top-0 z-0 h-full w-full overflow-hidden bg-[url(/img/hero_sky.jpg)] bg-center bg-no-repeat before:absolute before:bottom-0 before:left-0 before:z-20 before:h-1/2 before:w-full before:bg-gradient-to-t before:from-white before:to-transparent mobile-land:h-[200%]"
-      style={{ backgroundSize: "cover" }}
+      className="absolute left-0 top-0 z-0 h-full w-full overflow-hidden bg-[url(/img/hero_sky.jpg)] bg-cover bg-center bg-no-repeat before:absolute before:bottom-0 before:left-0 before:z-20 before:h-1/2 before:w-full before:bg-gradient-to-t before:from-white before:to-transparent mobile-land:h-[200%]"
     >
       {/* <Image src={SkyBackgroundImage} alt="Fondo de cielo CENS" fill className="" /> */}
     </div>

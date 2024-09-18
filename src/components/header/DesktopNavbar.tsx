@@ -11,6 +11,7 @@ import { navbarData } from "@/utils/navbarData";
 import { useUserStore } from "@/store/useUserStore";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/24/solid";
+import clsx from "clsx";
 
 const DesktopNavbar = () => {
   const { user, loading, logOut } = useUserStore((state) => state);
@@ -28,8 +29,10 @@ const DesktopNavbar = () => {
 
   return (
     <nav
-      style={inPanel ? { backgroundColor: "#39A935" } : {}}
-      className="before relative z-10 flex h-20 w-full justify-between bg-black/30 px-6 text-white shadow-lg before:absolute before:left-0 before:top-0 before:h-full before:w-full before:backdrop-blur-lg mobile-land:hidden mobile-land:h-16"
+      className={clsx([
+        "before relative z-10 flex h-20 w-full justify-between bg-black/30 px-6 text-white shadow-lg before:absolute before:left-0 before:top-0 before:h-full before:w-full before:backdrop-blur-lg mobile-land:hidden mobile-land:h-16",
+        { "bg-cens-medium": inPanel },
+      ])}
     >
       <div className="flex items-center gap-8">
         <Link href={"/"}>

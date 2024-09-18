@@ -15,6 +15,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useUserStore } from "@/store/useUserStore";
 import Link from "next/link";
 import { customFetch } from "@/utils/customFetch";
+import { generateCsrfToken } from "@/utils/csrfUtils";
 
 type TInitialValues = {
   name: string;
@@ -41,7 +42,7 @@ export default function Signup() {
 
   async function handleSubmit(values: TInitialValues) {
     if (loading) return;
-    
+
     setLoading(true);
     // Login user and get the token
     const loginReq = await customFetch("/registrarse/api", {
@@ -112,6 +113,11 @@ export default function Signup() {
               validationSchema={signUpValidationSchema}
             >
               <FormWrapper>
+                <input
+                  type="hidden"
+                  name="csrfToken"
+                  value={generateCsrfToken()}
+                />
                 <h4 className="text-center text-lg font-semibold text-cens-brand">
                   Crea tu cuenta para empezar a estudiar
                 </h4>

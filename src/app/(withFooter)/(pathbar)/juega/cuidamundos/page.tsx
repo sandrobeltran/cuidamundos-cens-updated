@@ -3,6 +3,7 @@
 import HeroeSection from "@/components/heroes/HeroeSection";
 import HeroeTitle from "@/components/heroes/HeroeTitle";
 import CustomMain from "@/components/layout/CustomMain";
+import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import { RiFullscreenExitFill, RiFullscreenFill } from "react-icons/ri";
 
@@ -20,8 +21,10 @@ export default function Juega() {
         />
         <div className="flex w-full justify-center gap-0 px-16 mobile-land:gap-20">
           <div
-            className="relative aspect-video w-full max-w-5xl rounded-3xl bg-white/80 p-4 shadow-md backdrop-blur-md"
-            style={isFullscreen ? { padding: "0" } : {}}
+            className={clsx([
+              "relative aspect-video w-full max-w-5xl rounded-3xl bg-white/80 p-4 shadow-md backdrop-blur-md",
+              { "p-0": isFullscreen },
+            ])}
           >
             <button
               onClick={async (e) => {

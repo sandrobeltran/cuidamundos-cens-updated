@@ -4,6 +4,7 @@ import CertificateCard from "@/components/usuario/CertificateCard";
 import { useGamesStore } from "@/store/useGamesStore";
 import { useUserStore } from "@/store/useUserStore";
 import { TUserData } from "@/utils/customTypes";
+import clsx from "clsx";
 
 export default function Certificados() {
   const { games } = useGamesStore();
@@ -18,8 +19,10 @@ export default function Certificados() {
   return (
     <div className="flex w-full flex-col items-center gap-10">
       <h6
-        className="text-center text-2xl font-bold text-cens-brand"
-        style={!winnedGames.length ? { color: "#78716c" } : {}}
+        className={clsx([
+          "text-center text-2xl font-bold",
+          winnedGames.length ? "text-cens-brand" : "text-stone-500",
+        ])}
       >
         En total has logrado {winnedGames.length} Certificado
         {winnedGames.length > 1 || winnedGames.length === 0 ? "s" : ""} <br />

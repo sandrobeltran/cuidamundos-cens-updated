@@ -9,6 +9,7 @@ import LoginModal from "../usuario/LoginModal";
 import RegisterModal from "../usuario/RegisterModal";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import clsx from "clsx";
 
 const Header = () => {
   const pathname = usePathname();
@@ -20,8 +21,10 @@ const Header = () => {
 
   return (
     <header
-      className="fixed left-0 top-0 z-50 w-full mobile-land:absolute"
-      style={menuToggle ? { position: "fixed" } : {}}
+      className={clsx([
+        "fixed left-0 top-0 z-50 w-full mobile-land:absolute",
+        { fixed: menuToggle },
+      ])}
     >
       <ToastContainer
         position="top-right"

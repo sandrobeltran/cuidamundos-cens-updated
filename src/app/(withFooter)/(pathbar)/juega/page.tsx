@@ -10,6 +10,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Button from "@/components/Button";
+import clsx from "clsx";
 
 /* SECTIONS DATA */
 const SECTIONS_DATA = [
@@ -129,16 +130,13 @@ export default function Juega() {
                 return (
                   <button
                     key={section.href}
-                    className="section__selector__btn grid h-10 w-10 place-content-center rounded-full bg-stone-600 transition-all hover:brightness-75"
-                    style={
-                      currentSection.index === index
-                        ? {
-                            scale: 1.2,
-                            backgroundColor: "#005F24",
-                            filter: "none",
-                          }
-                        : {}
-                    }
+                    className={clsx([
+                      "section__selector__btn grid h-10 w-10 place-content-center rounded-full bg-stone-600 transition-all hover:brightness-75",
+                      {
+                        "scale-[1.2] bg-cens-brand filter-none":
+                          currentSection.index === index,
+                      },
+                    ])}
                     onClick={(e) => {
                       if (index === 1) {
                         const top = calcTop(e.currentTarget);

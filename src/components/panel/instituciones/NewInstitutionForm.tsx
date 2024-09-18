@@ -16,6 +16,7 @@ import {
   IoDocumentOutline,
 } from "react-icons/io5";
 import { LuUndo2, LuRedo2, LuEye, LuGraduationCap } from "react-icons/lu";
+import { generateCsrfToken } from "@/utils/csrfUtils";
 
 export interface NewInstitutionInitialValues {
   name: string;
@@ -47,6 +48,7 @@ const NewInstitutionForm = ({ handleSubmit, initialValues }: IProps) => {
       validationSchema={newInstitutionValidationSchema}
     >
       <Form className="flex w-full flex-col items-center gap-6">
+        <input type="hidden" name="csrfToken" value={generateCsrfToken()} />
         {/* DETAILS CARD */}
         <div className="relative flex w-full items-center gap-16">
           <div className="flex h-full w-full flex-1 flex-col justify-center gap-4">

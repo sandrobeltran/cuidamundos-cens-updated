@@ -19,6 +19,7 @@ import { useUserStore } from "@/store/useUserStore";
 import Link from "next/link";
 import { customFetch } from "@/utils/customFetch";
 import { ISecurityQuestion } from "@/utils/customTypes";
+import { generateCsrfToken } from "@/utils/csrfUtils";
 
 type TInitialValues = {
   username: string;
@@ -73,7 +74,7 @@ export default function ForgotPasswordPage() {
     }
 
     toast.success(questionsRes.message);
-    router.push("/usuario")
+    router.push("/usuario");
   }
 
   return (
@@ -100,6 +101,11 @@ export default function ForgotPasswordPage() {
             validationSchema={restoreAccountValidationSchema}
           >
             <FormWrapper>
+              <input
+                type="hidden"
+                name="csrfToken"
+                value={generateCsrfToken()}
+              />
               <TextField type="text" name="username" placeholder="Usuario" />
 
               <label className="mb-1 flex w-full flex-col gap-1 text-left font-bold text-cens-brand">

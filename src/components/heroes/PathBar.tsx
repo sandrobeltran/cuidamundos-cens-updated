@@ -6,6 +6,7 @@ import React from "react";
 import HeroesArrowImage from "../../../public/icons/heroes_arrow.svg";
 import { usePathname } from "next/navigation";
 import AVATARS_DATA from "@/utils/avatarsData";
+import clsx from "clsx";
 
 const names = {
   "/": "Inicio",
@@ -72,12 +73,10 @@ const PathBar = () => {
         <div className="flex h-full gap-4 py-2 mobile-land:gap-2">
           <Link href={"/jirol"}>
             <div
-              className="aspect-square h-full rounded-full"
-              style={{
-                filter: paths.includes("jirol")
-                  ? "brightness(1)"
-                  : "brightness(.5)",
-              }}
+              className={clsx([
+                "aspect-square h-full rounded-full",
+                { "brightness-50": !paths.includes("jirol") },
+              ])}
             >
               <Image
                 src={AVATARS_DATA.jirol}
@@ -89,12 +88,10 @@ const PathBar = () => {
           </Link>
           <Link href={"/felix"}>
             <div
-              className="aspect-square h-full rounded-full"
-              style={{
-                filter: paths.includes("felix")
-                  ? "brightness(1)"
-                  : "brightness(.5)",
-              }}
+              className={clsx([
+                "aspect-square h-full rounded-full",
+                { "brightness-50": !paths.includes("felix") },
+              ])}
             >
               <Image
                 src={AVATARS_DATA.felix}
@@ -106,12 +103,10 @@ const PathBar = () => {
           </Link>
           <Link href={"/purita"}>
             <div
-              className="aspect-square h-full rounded-full"
-              style={{
-                filter: paths.includes("purita")
-                  ? "brightness(1)"
-                  : "brightness(.5)",
-              }}
+              className={clsx([
+                "aspect-square h-full rounded-full",
+                { "brightness-50": !paths.includes("purita") },
+              ])}
             >
               <Image
                 src={AVATARS_DATA.purita}

@@ -7,6 +7,7 @@ import Button from "../Button";
 import Link from "next/link";
 import { useUserStore } from "@/store/useUserStore";
 import { usePathname } from "next/navigation";
+import clsx from "clsx";
 
 const ROLES_DICT = {
   USER: "Usuario",
@@ -83,93 +84,22 @@ const PanelMainInfo = ({ links }: IProps) => {
       </div>
       <div className="w-full overflow-x-auto border-t-2 border-stone-300 pt-4">
         <ul className="flex gap-16 font-normal text-stone-400 mobile-land:gap-8 mobile-land:text-sm">
-          {links.map(link=> 
+          {links.map((link) => (
             <li key={link.href}>
-            <Link
-              href={link.href}
-              className="underline-offset-4"
-              style={
-                pathname === link.href
-                  ? {
-                      fontWeight: 600,
-                      color: "#005F24",
-                      textDecoration: "underline",
-                    }
-                  : {}
-              }
-            >
-              {link.title}
-            </Link>
-          </li>
-          )}
-          {/* <li>
-            <Link
-              href={"/usuario"}
-              className="underline-offset-4"
-              style={
-                !endpoint
-                  ? {
-                      fontWeight: 600,
-                      color: "#005F24",
-                      textDecoration: "underline",
-                    }
-                  : {}
-              }
-            >
-              Información
-            </Link>
-          </li>
-          <li>
-            <Link
-              href={"/usuario/certificados"}
-              className="underline-offset-4"
-              style={
-                endpoint === "certificados"
-                  ? {
-                      fontWeight: 600,
-                      color: "#005F24",
-                      textDecoration: "underline",
-                    }
-                  : {}
-              }
-            >
-              Certificados
-            </Link>
-          </li>
-          <li>
-            <Link
-              href={"/usuario/juegos"}
-              className="underline-offset-4"
-              style={
-                endpoint === "juegos"
-                  ? {
-                      fontWeight: 600,
-                      color: "#005F24",
-                      textDecoration: "underline",
-                    }
-                  : {}
-              }
-            >
-              Juegos
-            </Link>
-          </li>
-          <li>
-            <Link
-              href={"/usuario/evidencias"}
-              className="underline-offset-4"
-              style={
-                endpoint === "evidencias"
-                  ? {
-                      fontWeight: 600,
-                      color: "#005F24",
-                      textDecoration: "underline",
-                    }
-                  : {}
-              }
-            >
-              Evidencias
-            </Link>
-          </li> */}
+              <Link
+                href={link.href}
+                className={clsx([
+                  "underline-offset-4",
+                  {
+                    "font-semibold text-cens-brand underline":
+                      pathname === link.href,
+                  },
+                ])}
+              >
+                {link.title}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </div>

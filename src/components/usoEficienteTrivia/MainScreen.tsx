@@ -7,6 +7,7 @@ import { useSwiper } from "swiper/react";
 import BulbImage from "../../../public/img/bulb.png";
 import SwitchImage from "../../../public/img/switch.jpg";
 import HandImage from "../../../public/img/hand.png";
+import clsx from "clsx";
 
 const MainScreen = () => {
   const { user } = useUserStore();
@@ -16,22 +17,21 @@ const MainScreen = () => {
 
   return (
     <div
-      className="flex h-full w-full items-center justify-center p-8 backdrop-blur-sm"
-      style={{
-        backgroundColor: lightState ? "#fff0" : "#6a6a6a",
-        color: lightState ? "#6a6a6a" : "#fff",
-      }}
+      className={clsx([
+        "flex h-full w-full items-center justify-center p-8 backdrop-blur-sm",
+        { "bg-transparent text-[#6a6a6a]": lightState },
+        { "bg-[#6a6a6a] text-white": !lightState },
+      ])}
     >
       {/* BULB */}
       <Image
         src={BulbImage}
         alt="Imagen de un bombillo CENS"
-        className={`bulb absolute -top-1 left-14 w-[13%] object-contain object-bottom`}
-        style={{
-          filter: lightState
-            ? "brightness(1) drop-shadow(0 10px 100px #ff04)"
-            : "brightness(0.3) drop-shadow(0 10px 20px #ff00)",
-        }}
+        className={clsx([
+          "bulb absolute -top-1 left-14 w-[13%] object-contain object-bottom",
+          { "brightness-100 drop-shadow-[0_10px_100px_#ff04]": lightState },
+          { "brightness-[0.3] drop-shadow-[0_10px_20px_#ff00]": !lightState },
+        ])}
       />
       <div className="p-4t relative flex h-fit w-full max-w-md flex-col items-center gap-8">
         <div className="flex flex-col gap-4 text-center">
@@ -67,8 +67,10 @@ const MainScreen = () => {
           <Image
             src={HandImage}
             alt="Imagen mano CENS"
-            className="relative z-10 object-contain object-bottom transition-all"
-            style={{ bottom: lightState ? "60px" : "0px" }}
+            className={clsx([
+              "relative z-10 object-contain object-bottom transition-all",
+              { "bottom-16": lightState },
+            ])}
           />
           <div className="absolute inset-0 m-auto w-full">
             <Image

@@ -13,6 +13,7 @@ import SectionTitle from "../SectionTitle";
 import { loginValidationSchema } from "@/utils/validations";
 import Link from "next/link";
 import { customFetch } from "@/utils/customFetch";
+import { generateCsrfToken } from "@/utils/csrfUtils";
 
 type TProps = {};
 
@@ -112,6 +113,7 @@ const LoginModal = ({}: TProps) => {
           validationSchema={loginValidationSchema}
         >
           <FormWrapper>
+            <input type="hidden" name="csrfToken" value={generateCsrfToken()} />
             <div className="w-full">
               <label className="mb-1 flex flex-col gap-1 text-left font-bold text-cens-brand">
                 Usuario

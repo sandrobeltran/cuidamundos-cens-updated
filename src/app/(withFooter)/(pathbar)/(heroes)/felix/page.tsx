@@ -8,6 +8,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { LinkIcon } from "@heroicons/react/24/solid";
+import clsx from "clsx";
 
 /* SECTIONS DATA */
 const SECTIONS_DATA = [
@@ -115,7 +116,9 @@ export default function Felix() {
             <div className="relative flex h-full min-w-[80px] flex-col items-center justify-center gap-10 border-l-2 border-dashed border-l-stone-900 pl-12">
               {/* SPOT */}
               <span
-                className="absolute -left-4 top-0 grid h-8 w-8 place-content-center rounded-full bg-felix text-white transition-transform"
+                className={clsx([
+                  "absolute -left-4 top-0 grid h-8 w-8 place-content-center rounded-full bg-felix text-white transition-transform",
+                ])}
                 style={{
                   transform: `translateY(${currentSection.top - 16}px)`,
                 }}
@@ -128,16 +131,13 @@ export default function Felix() {
                 return (
                   <button
                     key={section.href}
-                    className="section__selector__btn grid h-10 w-10 place-content-center rounded-full bg-felix transition-all hover:brightness-75"
-                    style={
-                      currentSection.index === index
-                        ? {
-                            scale: 1.2,
-                            backgroundColor: "#C01F1F",
-                            filter: "none",
-                          }
-                        : {}
-                    }
+                    className={clsx([
+                      "section__selector__btn grid h-10 w-10 place-content-center rounded-full bg-felix transition-all hover:brightness-75",
+                      {
+                        "scale-[1.2] bg-[#C01F1F] filter-none":
+                          currentSection.index === index,
+                      },
+                    ])}
                     onClick={(e) => {
                       const top = calcTop(e.currentTarget);
 

@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React, { ReactNode } from "react";
 
 type TProps = {
@@ -15,8 +16,10 @@ const SectionTitle = ({ title, description }: TProps) => {
       <h2 className="text-center text-4xl font-medium">
         {title.text}{" "}
         <span
-          className="text-cens-brand"
-          style={{ color: title.color === "medium" ? "#39A935" : "#005F24" }}
+          className={clsx([
+            "text-cens-brand",
+            { "text-cens-medium": title.color === "medium" },
+          ])}
         >
           {title.resalted}
         </span>

@@ -15,6 +15,7 @@ import { useRouter } from "next/navigation";
 import { useUserStore } from "@/store/useUserStore";
 import Link from "next/link";
 import { customFetch } from "@/utils/customFetch";
+import { generateCsrfToken } from "@/utils/csrfUtils";
 
 type TInitialValues = {
   username: string;
@@ -103,6 +104,11 @@ export default function Login() {
               validationSchema={loginValidationSchema}
             >
               <FormWrapper>
+                <input
+                  type="hidden"
+                  name="csrfToken"
+                  value={generateCsrfToken()}
+                />
                 <TextField type="text" name="username" placeholder="Usuario" />
                 <TextField
                   name="password"

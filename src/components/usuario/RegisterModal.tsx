@@ -13,6 +13,7 @@ import { customFetch } from "@/utils/customFetch";
 import useFetchInstitutionsAdmin from "@/hooks/admin/useFetchInstitutionsAdmin";
 import useFetchInstitutions from "@/hooks/useFetchInstitutions";
 import InputSelect from "../form/InputSelect";
+import { generateCsrfToken } from "@/utils/csrfUtils";
 
 type TProps = {};
 type TInitialValues = {
@@ -126,6 +127,11 @@ const RegisterModal = ({}: TProps) => {
         >
           {({ values }) => (
             <FormWrapper>
+              <input
+                type="hidden"
+                name="csrfToken"
+                value={generateCsrfToken()}
+              />
               <h4 className="text-center text-lg font-semibold text-cens-brand mobile-land:text-[1rem]">
                 Crea tu cuenta de Cuidamundos
               </h4>

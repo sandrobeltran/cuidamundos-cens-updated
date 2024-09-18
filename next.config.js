@@ -17,7 +17,10 @@ const nextConfig = {
         source: "/:path*/api/:path*",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
-          { key: "Access-Control-Allow-Origin", value: "*" },
+          {
+            key: "Access-Control-Allow-Origin",
+            value: "https://cuidamundos.cens.con.co",
+          },
           {
             key: "Access-Control-Allow-Methods",
             value: "GET,OPTIONS,PATCH,DELETE,POST,PUT",
@@ -25,7 +28,7 @@ const nextConfig = {
           {
             key: "Access-Control-Allow-Headers",
             value:
-              "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, api-key, Authorization",
+              "X-CSRF-Token, csrfToken, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, api-key, Authorization",
           },
         ],
       },
@@ -37,24 +40,18 @@ const nextConfig = {
             key: "Cross-Origin-Embedder-Policy",
             value: "require-corp",
           },
-        ],
-      },
-      {
-        // Set security headers for all routes
-        source: "/:path*",
-        headers: [
-          {
+          /* {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; frame-ancestors 'self'",
-          },
+              "default-src 'self'; script-src 'self' 'nonce-script'; style-src 'self' 'nonce-style'; img-src 'self' data:; object-src 'none'; frame-ancestors 'none';",
+          }, */
           {
             key: "X-Content-Type-Options",
             value: "nosniff",
           },
           {
             key: "X-Frame-Options",
-            value: "DENY",
+            value: "SAMEORIGIN",
           },
           {
             key: "X-XSS-Protection",
@@ -80,7 +77,7 @@ const nextConfig = {
           {
             key: "Access-Control-Allow-Headers",
             value:
-              "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, api-key, Authorization",
+              "X-CSRF-Token, csrf_token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, api-key, Authorization",
           },
         ],
       },

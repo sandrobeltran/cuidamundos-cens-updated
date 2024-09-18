@@ -1,6 +1,7 @@
 import Button from "@/components/Button";
 import { IEvidence } from "@/utils/customTypes";
 import dateToString from "@/utils/dateToString";
+import clsx from "clsx";
 import Link from "next/link";
 import React from "react";
 
@@ -12,10 +13,10 @@ const ActivityCard = ({ evidence }: TProps) => {
   return (
     <div className="relative flex w-full items-center gap-16 overflow-hidden rounded-3xl bg-white/80 px-16 py-8 shadow-md backdrop-blur-sm">
       <div
-        className="absolute left-0 top-0 h-full w-8 bg-stone-500"
-        style={{
-          backgroundColor: evidence.active ? "#39A935" : "#78716c",
-        }}
+        className={clsx([
+          "absolute left-0 top-0 h-full w-8 bg-stone-500",
+          evidence.active ? "bg-cens-medium" : "bg-stone-500",
+        ])}
       ></div>
       <div className="flex h-full flex-1 flex-col justify-center gap-4">
         <Link href={`/usuario/evidencias/${evidence._id}`}>

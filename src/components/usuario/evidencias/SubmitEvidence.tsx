@@ -17,6 +17,8 @@ import FileCard from "./FileCard";
 import useFetchEvidenceFiles from "@/hooks/useFetchEvidenceFiles";
 import { FaTrashRestore } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa6";
+import clsx from "clsx";
+import { generateCsrfToken } from "@/utils/csrfUtils";
 
 type TProps = {
   evidence: IEvidence;
@@ -41,16 +43,10 @@ const DeletableFileCard = ({
       onClick={onClick}
     >
       <div
-        style={
-          isDeleted
-            ? {
-                backgroundColor: "#005F24f2",
-              }
-            : {
-                backgroundColor: "#ed5c5cf2",
-              }
-        }
-        className="absolute left-0 top-0 z-40 grid h-full w-full place-content-center rounded-lg text-2xl text-white opacity-0 transition-opacity group-hover:opacity-100"
+        className={clsx([
+          "absolute left-0 top-0 z-40 grid h-full w-full place-content-center rounded-lg text-2xl text-white opacity-0 transition-opacity group-hover:opacity-100",
+          isDeleted ? "bg-cens-brand/85" : "#ed5c5cf2",
+        ])}
       >
         {isDeleted ? <FaTrashRestore /> : <FaTrash />}
       </div>
@@ -59,16 +55,7 @@ const DeletableFileCard = ({
           Eliminado
         </div>
       ) : null}
-      <div
-        style={
-          isDeleted
-            ? {
-                filter: "grayscale(100%)",
-                opacity: ".3",
-              }
-            : {}
-        }
-      >
+      <div className={clsx([{ "opacity-30 grayscale": isDeleted }])}>
         <FileCard {...file} />
       </div>
     </div>
@@ -185,6 +172,7 @@ const SubmitEvidence = ({ evidence }: TProps) => {
         validationSchema={submitEvidenceValidationSchema}
       >
         <Form className="flex w-full flex-col items-center gap-8 max-sm:gap-6">
+          <input type="hidden" name="csrfToken" value={generateCsrfToken()} />
           <label className="flex w-full flex-col gap-3 font-semibold text-stone-500">
             Sube tu respuesta
             <TextArea

@@ -7,6 +7,7 @@ import NextIcon from "../../../../public/icons/next_icon.svg";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import DividerImage from "@public/img/purita/atiende/divider.svg";
+import clsx from "clsx";
 
 export type TBookPage = {
   text?: React.ReactNode;
@@ -74,17 +75,16 @@ const Book = ({ pages }: TProps) => {
     <div className="relative flex w-full items-center px-16 mobile-land:px-10">
       <button
         onClick={() => handlePrevPage()}
-        style={
-          currentIndex >= pages.length - 1 ? { filter: "grayscale(1)" } : {}
-        }
-        className="absolute left-10 mobile-land:left-4 z-10 min-h-[42px] min-w-[42px] cursor-pointer rounded-full bg-cens-dark text-lg transition-all"
+        className={clsx([
+          "absolute left-10 z-10 min-h-[42px] min-w-[42px] cursor-pointer rounded-full bg-cens-dark text-lg transition-all mobile-land:left-4",
+          { grayscale: currentIndex >= pages.length - 1 },
+        ])}
       >
         <Image src={PrevIcon} alt="Icono de ir atrás" width={42} height={42} />
       </button>
       <div
         ref={bookRef}
-        style={{ perspective: 1200 }}
-        className="book relative h-64 mobile-land:h-[95vh] w-full rounded-3xl bg-white shadow-md"
+        className="book perspective relative h-64 w-full rounded-3xl bg-white shadow-md mobile-land:h-[95vh]"
       >
         {sortedPages.map((page, index) => {
           let z = sortedPages.length;
@@ -100,7 +100,7 @@ const Book = ({ pages }: TProps) => {
                 <Image
                   src={DividerImage}
                   alt="Imagen de separador de página"
-                  className="pointer-events-none absolute left-[-21.5px] bg-blue top-0 z-50 h-full mobile-land:translate-x-4 translate-x-3 object-contain"
+                  className="bg-blue pointer-events-none absolute left-[-21.5px] top-0 z-50 h-full translate-x-3 object-contain mobile-land:translate-x-4"
                 />
               ) : null}
               <BookPage {...page} />
@@ -110,8 +110,10 @@ const Book = ({ pages }: TProps) => {
       </div>
       <button
         onClick={() => handleNextPage()}
-        style={currentIndex <= 1 ? { filter: "grayscale(1)" } : {}}
-        className="absolute right-10 mobile-land:right-4 z-10 min-h-[42px] min-w-[42px] cursor-pointer rounded-full bg-cens-dark text-lg transition-all"
+        className={clsx([
+          "absolute right-10 z-10 min-h-[42px] min-w-[42px] cursor-pointer rounded-full bg-cens-dark text-lg transition-all mobile-land:right-4",
+          { grayscale: currentIndex <= 1 },
+        ])}
       >
         <Image
           src={NextIcon}
