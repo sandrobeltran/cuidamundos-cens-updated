@@ -41,6 +41,7 @@ export async function GET(req: NextRequest, context: { params: any }) {
             {
               $project: {
                 _id: 1,
+                title: 1,
               },
             },
           ],

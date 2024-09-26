@@ -82,6 +82,7 @@ export interface IAdminAuthor {
 export interface IUserStats extends IAdminAuthor {
   activitiesAmount: 1;
   certificatesAmount: 1;
+  userGamesWon: { _id: string; title: string }[];
 }
 
 export interface IAuthorInstitutionData {
