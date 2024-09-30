@@ -20,7 +20,7 @@ export default function Jirol() {
             text: "¡Explora y aprende",
             resalted: "con Jirol!",
           }}
-          description="Acompáñanos para descubrir su historia, sus aventuras y cómo puedes unirte a su misión en nuestro mundo virtual y en la vida real."
+          description="Descubre con Jirol, el capitán de la eficiencia y sostenibilidad, cómo optimizar el uso de energías y convertirte en un héroe del planeta. Únete a la aventura educativa."
         />
         {/* MAIN CONTAINER */}
         <div className="relative w-full px-16">
