@@ -9,6 +9,7 @@ import SkyBackground from "@/components/heroes/SkyBackground";
 import LandscapeWarning from "@/components/LandscapeWarning";
 import SecurityQuestionsChecker from "@/components/validations/SecurityQuestionsChecker";
 import { headers } from "next/headers";
+import HideQueryParams from "@/components/validations/HideQueryParams";
 
 const ubuntu = localFont({
   src: [
@@ -44,6 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={ubuntu.className}>
+        <HideQueryParams />
         <LandscapeWarning />
         <LeavesFalling />
         <LoadGames />

@@ -62,6 +62,10 @@ export default async function middleware(
     .replace(/\s{2,}/g, " ")
     .trim();
 
+  if (req.url.includes(".js")) {
+    console.log("JS detected:", req.url);
+  }
+
   // Check for metadata IP
   if (req.nextUrl.href.includes("/latest/meta-data")) {
     return new NextResponse("Access denied", { status: 401 });
@@ -79,6 +83,28 @@ export default async function middleware(
   }
 
   if (req.nextUrl.href.includes("/api")) {
+    if (req.method === "POST" || req.method === "PUT") {
+      try {
+        const body = await req.json();
+        if (!body)
+          return NextResponse.json<ICustomResponse>(
+            {
+              status: "error",
+              message: "Body de la petición inválido",
+            },
+            { status: 400 },
+          );
+      } catch (error) {
+        return NextResponse.json<ICustomResponse>(
+          {
+            status: "error",
+            message: "Body de la petición inválido",
+          },
+          { status: 400 },
+        );
+      }
+    }
+
     const csrfToken = req.headers.get("csrfToken");
     //const csrfToken = req.cookies.get("csrfToken")?.value || "";
     const sessionId = req.cookies.get("sessionId")?.value || "";
@@ -115,7 +141,7 @@ export default async function middleware(
     contentSecurityPolicyHeaderValue,
   );
 
-  /* const response = NextResponse.next({
+  const response = NextResponse.next({
     request: {
       headers: requestHeaders,
     },
@@ -126,12 +152,13 @@ export default async function middleware(
     contentSecurityPolicyHeaderValue,
   );
 
-  return response; */
+  console.log("Middleware");
+  return response;
 
   return NextResponse.next();
 }
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: [{ source: "/:path*" }],
+  matcher: ["/:path*/api/:path*", "/:path*.js"],
 };

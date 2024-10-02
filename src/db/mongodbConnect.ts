@@ -16,12 +16,12 @@ export default async function mongodbConnect() {
   try {
     client = await connect(process.env.MONGODB_URI as string);
 
-    bucket = new mongo.GridFSBucket(client.connection.db);
+    if (client) bucket = new mongo.GridFSBucket(client.connection.db);
 
     conn.isConnected = client.connections[0].readyState;
     return { client, bucket };
   } catch (error) {
-    console.log(error);
+    //console.log(error);
   }
 }
 

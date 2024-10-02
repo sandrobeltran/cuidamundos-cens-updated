@@ -40,11 +40,11 @@ const nextConfig = {
             key: "Cross-Origin-Embedder-Policy",
             value: "require-corp",
           },
-          /* {
+          {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; script-src 'self' 'nonce-script'; style-src 'self' 'nonce-style'; img-src 'self' data:; object-src 'none'; frame-ancestors 'none';",
-          }, */
+              "img-src 'self' data:; object-src 'none'; frame-ancestors 'self';",
+          },
           {
             key: "X-Content-Type-Options",
             value: "nosniff",
