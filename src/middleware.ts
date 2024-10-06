@@ -42,12 +42,15 @@ export default async function middleware(
   req: NextRequest,
   res: NextApiResponse,
 ) {
+  console.log("NODE_ENV:", process.env.NODE_ENV);
+
   // CSP Generation
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
   const cspHeader = `
-    default-src 'self' nonce-${nonce};
-    script-src 'self' 'nonce-${nonce}';
-    style-src 'self' unsafe-inline 'nonce-${nonce}';
+    script-src 'self' 'nonce-${nonce}' 'strict-dynamic' ${
+      process.env.NODE_ENV === "development" ? "'unsafe-eval'" : ""
+    };
+    style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data:;
     font-src 'self';
     object-src 'none';
@@ -160,5 +163,6 @@ export default async function middleware(
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: ["/:path*/api/:path*", "/:path*.js"],
+  // matcher: ["/:path*/api/:path*", "/:path*.js"],
+  matcher: ["/:path*"],
 };
