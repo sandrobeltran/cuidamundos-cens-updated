@@ -57,7 +57,6 @@ export default async function middleware(
     base-uri 'self';
     form-action 'self';
     frame-ancestors 'self';
-    upgrade-insecure-requests;
 `;
 
   // Replace newline characters and spaces
@@ -65,9 +64,7 @@ export default async function middleware(
     .replace(/\s{2,}/g, " ")
     .trim();
 
-  if (req.url.includes(".js")) {
-    console.log("JS detected:", req.url);
-  }
+ 
 
   // Check for metadata IP
   if (req.nextUrl.href.includes("/latest/meta-data")) {
@@ -118,7 +115,13 @@ export default async function middleware(
       !csrfToken ||
       !verifyCsrfToken(csrfToken, sessionId)
     ) {
-      return res.status(403).json({ error: "Invalid CSRF token" });
+      return NextResponse.json<ICustomResponse>(
+        {
+          status: "error",
+          message: "Invalid CSRF token",
+        },
+        { status: 403 },
+      );
     }
 
     // ? Admin actions validation
@@ -136,25 +139,40 @@ export default async function middleware(
     }
   }
 
+  if(req.url.includes(".js")){
+    console.log("JS Detected")
+  }
+
   const requestHeaders = new Headers(req.headers);
-  requestHeaders.set("x-nonce", nonce);
 
-  requestHeaders.set(
-    "Content-Security-Policy",
-    contentSecurityPolicyHeaderValue,
-  );
 
-  const response = NextResponse.next({
-    request: {
+  // if (req.headers.get('accept')?.includes('text/html')) {
+    // console.log("TEXT/HTML DETECTED")
+    requestHeaders.set("x-nonce", nonce);
+
+    requestHeaders.set(
+      "Content-Security-Policy",
+      contentSecurityPolicyHeaderValue,
+    );
+  
+    const response = NextResponse.next({
+      request: {
+        headers: requestHeaders,
+      },
       headers: requestHeaders,
-    },
-    headers: requestHeaders,
-  });
-  response.headers.set(
-    "Content-Security-Policy",
-    contentSecurityPolicyHeaderValue,
-  );
+    });
+   /*  response.headers.set(
+      "Content-Security-Policy",
+      contentSecurityPolicyHeaderValue,
+    ); */
+  
+  // }
 
+  if(req.headers.get("Accept")?.includes("text/html")){
+    console.log("TEXT/HTML DETECTED")
+  }
+
+  
   console.log("Middleware");
   return response;
 
@@ -163,6 +181,29 @@ export default async function middleware(
 
 // See "Matching Paths" below to learn more
 export const config = {
-  // matcher: ["/:path*/api/:path*", "/:path*.js"],
-  matcher: ["/:path*"],
+  matcher: "/:path*"
 };
+
+// [{source:"/:path*/api/:path*"}, {source:"/_next/static/:path*"}, {
+//   source: "/:path*",
+//   has: [
+//     { type:"header", key:"Accept", value: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8" }
+//   ]
+// },
+// {
+//   source: '/((?!api|_next/static|_next/image|favicon.ico).*)',
+//   missing: [
+//     { type: 'header', key: 'next-router-prefetch' },
+//     { type: 'header', key: 'purpose', value: 'prefetch' },
+//   ],
+// },
+
+// ],
+
+// matcher: [{
+//     source:"/:path*.js"
+//   },
+// {
+//   source: "/:path*/api/:path*"
+//   }
+// ],
